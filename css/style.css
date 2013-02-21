@@ -556,6 +556,7 @@ header {
     padding: 0;
     margin: 5px 5px 0 0; }
   .edition .search .advancedSearch {
+    color: #666666;
     margin: 0 0 0 5px; }
     .edition .search .advancedSearch span:first-child {
       cursor: pointer; }
