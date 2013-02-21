@@ -123,7 +123,7 @@ FrameWindow.prototype.setResizability = function(append){
 			$(resizeHandles[i]).mousedown(function(){
 				frame.dragLock = true;
 				$(document).mousemove(function(){
-					EditionGui.checkHeight();
+					EditionGui.checkBounds();
 				});
 				$(document).mouseup(function(){
 					$(document).mousemove(null);
@@ -218,7 +218,7 @@ FrameWindow.prototype.toggleVisibility = function(){
 		  }, 500, function(){
 			frame.resize();
 			EditionGui.checkGrid();
-			EditionGui.checkHeight();
+			EditionGui.checkBounds();
 		});
 		this.setResizability(true);
 	}
@@ -237,7 +237,7 @@ FrameWindow.prototype.toggleVisibility = function(){
 		  }, 500, function(){
 			frame.resize();
 			EditionGui.checkGrid();
-			EditionGui.checkHeight();
+			EditionGui.checkBounds();
 		});
 		this.setResizability(false);
 	}
@@ -263,7 +263,7 @@ FrameWindow.prototype.dragFrame = function(evt){
 			var pos = Util.getMousePosition(e);
 			frame.css('left',(windowLeft+pos.left-startPos.left)+'px');
 			frame.css('top',(windowTop+pos.top-startPos.top)+'px');
-			EditionGui.checkHeight();
+			EditionGui.checkBounds();
 		}
 	}
 };

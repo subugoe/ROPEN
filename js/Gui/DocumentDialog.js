@@ -297,6 +297,9 @@ DocumentDialog.prototype.setDocType = function(type,id){
 		type = 'outline';
 	}
 	if( !this.doctype || this.doctype.type != type ){
+		if( this.doctype && this.doctype.type == 'text' ){
+			this.doctype.avoidScroll = true;
+		}
 		this.docContainerDiv.empty();
 		if( type == 'pages' || type == 'text' ){
 			this.lineNumbering.css('display','inline-block');

@@ -26,6 +26,7 @@ var EditionGui = new function(){
 	* automatic grid layout, if user resizes browser
 	*/
 	$(window).resize(function(){
+		EditionGui.minWidth = $(window).width();
 		EditionGui.gridLayout();
 	});	
 }
@@ -120,6 +121,7 @@ EditionGui.initialize = function(settings){
 	});
 	this.addControls();
 	this.minHeight = $(this.containerDiv).height();
+	this.minWidth = $(window).width();
 	if( window.location.href.indexOf('?params') != -1 ){
 		this.setParams( window.location.href.slice(window.location.href.indexOf('?params=') + 8) );
 	}
@@ -181,24 +183,38 @@ EditionGui.initialLayout = function(){
  *
  * @this {EditionGui}
  */
-EditionGui.checkHeight = function(){
-	var highest;
+EditionGui.checkBounds = function(){
+	var highest, farthest;
 	for( var i=0; i<this.folders.length; i++ ){
 		var folder = this.folders[i];
 		var yMax = $(folder).height() + $(folder).position().top;
 		if( typeof highest == 'undefined' || yMax > highest ){
 			highest = yMax;
 		}
+		var xMax = $(folder).width() + $(folder).position().left;
+		if( typeof farthest == 'undefined' || xMax > farthest ){
+			farthest = xMax;
+		}
 	}
 	var yMaxBrowser = $(this.browser).height() + $(this.browser).position().top;
+	var xMaxBrowser = $(this.browser).width() + $(this.browser).position().left;
 	if( typeof highest == 'undefined' || yMaxBrowser > highest ){
 		highest = yMaxBrowser;
+	}
+	if( typeof farthest == 'undefined' || xMaxBrowser > farthest ){
+		farthest = xMaxBrowser;
 	}
 	if( highest < this.minHeight - EditionProperties.margin ){
 		highest = this.minHeight - EditionProperties.margin;
 	}
+	if( farthest < this.minWidth - EditionProperties.margin ){
+		farthest = this.minWidth - EditionProperties.margin;
+	}
 	if( $(EditionGui.containerDiv).height() != highest + EditionProperties.margin ){
 		$(EditionGui.containerDiv).css('height',(EditionProperties.margin+highest)+'px');
+	}
+	if( $(EditionGui.containerDiv).width() != farthest + EditionProperties.margin ){
+		$(EditionGui.containerDiv).css('width',(EditionProperties.margin+farthest)+'px');
 	}
 };
 	
@@ -374,7 +390,7 @@ EditionGui.gridLayout = function(){
 	if( typeof this.windowWidth == 'undefined' ){
 		this.windowWidth = windowWidth;
 	}
-	this.checkHeight();	
+	this.checkBounds();	
 };
 	
 /**
@@ -560,14 +576,16 @@ EditionGui.addControls = function(){
 		var addWindow = $('<a class="button-newwindow"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(controls);
 		$(addWindow).attr('title',Util.getString('newFolder'));
 		addWindow.click(function(){
-			gui.addFolder();
-			gui.updateNames();
-			if( ( !EditionProperties.resizable && !EditionProperties.draggable ) || gui.automaticGridLayout ){
-				if( EditionProperties.guiConfig ){
-					gui.initialLayout();
-				}
-				else {
-					gui.gridLayout();
+			if( gui.folders.length < EditionProperties.maxWindows ){
+				gui.addFolder();
+				gui.updateNames();
+				if( ( !EditionProperties.resizable && !EditionProperties.draggable ) || gui.automaticGridLayout ){
+					if( EditionProperties.guiConfig ){
+						gui.initialLayout();
+					}
+					else {
+						gui.gridLayout();
+					}
 				}
 			}
 		});

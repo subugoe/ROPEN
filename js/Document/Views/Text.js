@@ -52,10 +52,10 @@ Text.prototype.display = function(page,id){
 		context.lp.appendTooltips($(context.container),context.parent);
 		context.lp.colorizeLinks($(context.container),context.parent.facetSelection);
 		context.pageHooks = $("hr[class='tei:pb']",context.container);
-		var avoidScroll = false;
+		context.avoidScroll = false;
 		$(context.container).scroll(function(){
-			if( avoidScroll ){
-				avoidScroll = false;
+			if( context.avoidScroll ){
+				context.avoidScroll = false;
 				return;
 			}
 			var scrollTop = $(context.container).scrollTop();
@@ -90,7 +90,7 @@ Text.prototype.display = function(page,id){
 			$(context.container).scrollTop($(node).offset().top-$(context.container).offset().top+$(context.container).scrollTop());
 		}
 		else if( context.parent.page > 0 ){
-			avoidScroll = true;
+			context.avoidScroll = true;
 			var node = $(context.pageHooks[context.parent.page-1]);
 			$(context.container).scrollTop($(node).offset().top-$(context.container).offset().top+$(context.container).scrollTop());
 			context.parent.paginator.setPage(context.parent.page,true);
