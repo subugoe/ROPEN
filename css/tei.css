@@ -1,0 +1,126 @@
+/*
+* css for the display of tei specific classes 
+*/
+.exist\:match {
+	color: red;
+}
+
+.tei\:lb {
+}
+
+.tei\:cb {
+}
+
+.tei\:handShift {
+}
+
+.tei\:expan {
+	background: white;
+	color: #A9A9A9;
+}
+
+.tei\:add {
+	background: #D3D3D3;
+}
+
+.tei\:del {
+}
+
+.tei\:emph {
+}
+
+.tei\:pb {
+}
+
+.tei\:date {
+}
+
+.tei\:unclear {
+	border-bottom: 1px dotted black;
+}
+
+.tei\:damage {
+}
+
+.tei\:gap {
+	width: 100px;
+}
+
+.tei\:q {
+}
+
+.tei\:fw {
+}
+
+.tei\:sic {
+}
+
+.tei\:corr {
+}
+
+.tei\:figure {
+}
+
+.tei\:foreign {
+}
+
+.tei\:hi-underline {
+	text-decoration: underline;
+}
+
+.tei\:hi-double-underline {
+	border-bottom: 1px double black;
+}
+
+.tei\:hi-bold {
+	font-weight: bold;
+}
+
+.tei\:hi-italic {
+	font-style: italic;
+}
+
+.tei\:choice {
+}
+
+.tei\:q:before {
+	content: '"';
+}
+
+.tei\:q:after {
+	content: '"';
+}
+
+.entity0 {
+	color: Darkorange;
+	border: 0px solid Darkorange;
+}
+
+.entity4 {
+	color: DodgerBlue;
+	border: 0px solid DodgerBlue;
+}
+
+.entity2 {
+	color: ForestGreen;
+	border: 0px solid ForestGreen;
+}
+
+.entity5 {
+	color: Crimson;
+	border: 0px solid Crimson;
+}
+
+.entity1 {
+	color: DarkViolet;
+	border: 0px solid DarkViolet;
+}
+
+.entity3 {
+	color: DeepPink;
+	border: 0px solid DeepPink;
+}
+
+.head-anchor {
+	cursor: pointer;
+}

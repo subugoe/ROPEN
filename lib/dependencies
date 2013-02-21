@@ -1,0 +1,37 @@
+1. dynatree
+- used to generate an outline tree for each document in the browser and to generate TEI trees
+- slightly modified (modified html of the resultant trees)
+- used in: Browser.js, TEI.js
+
+2. GeoTemCo
+- used to display places mentioned in documents within a map
+- OpenLayers library is included, so it is also used to display book images
+- not modified
+- used in: EditionGui.js (configuration), Places.js, Images.js
+
+3. jqcloud
+- used to generate tag clouds
+- used in: Tags.js
+
+4. jQuery
+- used for general jQuery functionality
+
+5. jquery-ui-1.10.0.custom
+- used for functionality of all frames (draggablity, resizablity)
+- not modified
+- used in: EditionGui.js (for draggable dialog windows), FrameWindow.js
+
+6. jsonlib
+- used to send requests to Google URL Shortener to shorten URLs when generating magnetic links
+- not modified
+- used in: EditionGui.js
+
+7. lazyloader
+- used for lazy loading of images in the browser's search result list and the thumbnail views
+- modified to allow lazy loading within divs
+- used in: Browser.js, Thumbnails.js
+
+8. fullscreen
+- used to allow browser fullscreen
+- not modified
+- used in: EditionGui.js

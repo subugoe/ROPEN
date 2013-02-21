@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>ROPEN</title>
+  </head>
+
+  <body>
+
+	<noscript>
+		<div style="width: 22em; position: absolute; left: 50%; margin-left: -11em; color: red; background-color: white; border: 1px solid red; padding: 4px; font-family: sans-serif">
+			Your web browser must have JavaScript enabled in order for this application to display correctly.
+		</div>
+	</noscript>
+
+	<div id="editionContainer" class="edition" style="position:relative;overflow:hidden;">
+	</div>
+
+	<!-- include geotemco -->
+	<link rel="stylesheet" href="lib/GeoTemCo/css/geotemco.css" type="text/css" />
+	<script src="lib/GeoTemCo/geotemco-min.js"></script>
+
+	<!-- include jQuery -->
+	<link rel="stylesheet" href="lib/jquery-ui-1.10.0.custom/css/ui-lightness/jquery-ui-1.10.0.custom.css">
+	<script src="lib/jQuery/jquery-1.5.1.js"></script>
+	<script src="lib/jquery-ui-1.10.0.custom/js/jquery-ui-1.10.0.custom.js"></script>
+
+	<!-- include jQuery plugin dynatree -->
+	<link href="lib/dynatree/src/skin/ui.dynatree.css" rel="stylesheet" type="text/css">
+	<script src="lib/dynatree/src/jquery.dynatree.js" type="text/javascript"></script>
+
+	<!-- include jQuery plugin lazyloader -->
+	<script src="lib/lazyloader/jquery.lazyloader.js"></script>
+
+	<!-- include jQuery plugin Fullscreen -->
+	<script src="lib/fullscreen/fullscreen.js"></script>
+
+	<!-- include jsonlib plugin -->
+	<script src="lib/jsonlib/jsonlib.js"></script>
+
+	<!-- include jQCloud plugin -->
+	<link href="lib/jqcloud/jqcloud.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="lib/jqcloud/jqcloud-1.0.0.js"></script> 
+
+	<!-- include archaeo18 GUI -->
+	<link type="text/css" rel="stylesheet" href="css/archaeo18.css">
+	<link type="text/css" rel="stylesheet" href="css/tei.css">
+	<script src="js/Config/EditionProperties.js"></script>
+	<script src="js/Config/EditionTooltips.js"></script>
+	<script src="js/System/DocumentServerConnection.js"></script>
+	<script src="js/System/Util.js"></script>
+	<script src="js/System/BrowserDetect.js"></script>
+	<script src="js/Processors/TEIProcessor.js"></script>
+	<script src="js/Processors/XHTMLProcessor.js"></script>
+	<script src="js/Processors/LinkProcessor.js"></script>
+	<script src="js/Gui/Pagination.js"></script>
+	<script src="js/Gui/FacetSelector.js"></script>
+	<script src="js/Document/Document.js"></script>
+	<script src="js/Document/Views/Text.js"></script>
+	<script src="js/Document/Views/Images.js"></script>
+	<script src="js/Document/Views/Pages.js"></script>
+	<script src="js/Document/Views/Outline.js"></script>
+	<script src="js/Document/Views/TEI.js"></script>
+	<script src="js/Document/Views/Thumbnails.js"></script>
+	<script src="js/Document/Views/Places.js"></script>
+	<script src="js/Document/Views/Tags.js"></script>
+	<script src="js/Gui/FrameWindow.js"></script>
+	<script src="js/Gui/Folder.js"></script>
+	<script src="js/Gui/HyperlinkWindow.js"></script>
+	<script src="js/Gui/Browser.js"></script>
+	<script src="js/Gui/DocumentDialog.js"></script>
+	<script src="js/Gui/OverlayWindow.js"></script>
+	<script src="js/Gui/Tooltip.js"></script>
+	<script src="js/EditionGui.js"></script>
+
+	<script>
+		EditionGui.initialize({
+			hyperlinkWindow: false
+		});
+	</script>
+
+  </body>
+
+</html>

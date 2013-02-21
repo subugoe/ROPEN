@@ -1,0 +1,262 @@
+.ui-resizable-helper { border: 2px dotted darkkhaki; }
+
+
+.browser-fullscreen {
+	background: url(../images/edition-fullscreen.png);
+	width: 26px;
+	height: 26px;
+	cursor: pointer;
+}
+
+.browser-fullscreen:hover {
+	background: url(../images/edition-fullscreen-hover.png);
+}
+
+
+.browser-fullscreen-off {
+	background: url(../images/edition-fullscreen-off.png);
+	width: 26px;
+	height: 26px;
+	cursor: pointer;
+}
+
+.browser-fullscreen-off:hover {
+	background: url(../images/edition-fullscreen-off-hover.png);
+}
+
+.intern_link {
+	display: inline-block;
+	background: url(../images/intern_link.png);
+	width: 10px;
+	height: 10px;
+	margin: 0px 5px;
+}
+
+.extern_link {
+	display: inline-block;
+	background: url(../images/extern_link.png);
+	width: 10px;
+	height: 10px;
+	margin: 0px 5px;
+}
+
+.data_link a {
+	color: #0c6dff;
+}
+
+.data_link a:hover{
+	color: #0c6dff;
+	text-decoration: underline;
+}
+
+.facetSelectorDiv {
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+.facetSelector {
+	display: inline;
+	margin: 0px 5px;
+	line-height: 12px;
+}
+
+.facetSelector span {
+	font-size: 12px;
+	vertical-align: bottom;
+}
+
+.facetSelector input {
+	width: 12px;
+	height: 12px;
+	margin: 0px 5px;
+	vertical-align: bottom;
+}
+
+.frame {
+	position: absolute;
+	padding: 5px;
+	overflow: hidden;
+}
+
+.thumbnail {
+	cursor: pointer;
+	float: left;
+}
+
+.dummyThumb {
+	position: relative;
+	display: inline-block;
+	width: 140px;
+	height: 168px;
+	background: url(../images/dummy.png);
+	cursor: pointer;
+}
+
+.dummyThumbSmall {
+	position: relative;
+	display: inline-block;
+	width: 80px;
+	height: 96px;
+	background: url(../images/dummySmall.png);
+	cursor: pointer;
+}
+
+.windowTools {
+	position: absolute;	
+	top: 0px;
+	right: 0px;
+	padding: 5px;
+}
+
+.teiDownload {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 24px;
+	height: 24px;
+	background-image: url(../images/download-tei.png);
+	cursor: pointer;
+}
+
+.lineNumber {
+	display: inline-block;
+  	font-weight: bold;
+	padding-right: 20px;	
+  	color: #888888;
+	width: 20px;
+	text-align: center;
+}
+
+.closeOverlay {
+	position: absolute;
+	width: 36px;
+	height: 36px;
+	top: 0px;
+	right: 0px;
+	background-image: url(../images/close-small.png);
+	cursor: pointer;
+}
+
+.closeTooltip {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	top: 0px;
+	right: 0px;
+	background-image: url(../images/close-smaller.png);
+	cursor: pointer;
+}
+
+.teiThumbnail {
+	width: 128px;
+	height: 128px;
+	background: url(../images/tei.png);
+	cursor: pointer;
+	margin: auto;
+}
+
+.buttonPanel {
+	overflow: hidden;
+	z-index: 1;
+	text-align: center;
+}
+
+.blockDiv {
+	position: absolute;
+	top: 0px;
+}
+
+.blockDivOverlay {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background-color: #555555;
+	opacity: 0.7;
+	border-radius: 4px;
+}
+
+.blockContent {
+	position: absolute;
+	background-color: #FFFFFF;
+	border: 10px solid #555555;
+}
+
+.entity {
+	cursor: pointer;
+}
+
+.thumb {
+	display: inline-block;
+	vertical-align: middle;
+	height: 16px;
+	width: 16px;
+}
+
+.tooltipLabel {
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 5px;
+	text-align: left;
+}
+
+.anchor {
+	margin-right: 5px;
+	display: inline-block;
+	vertical-align: middle;
+	height: 16px;
+	width: 16px;
+	background-image: url(../images/anchor.png);
+}
+
+.closeLoader {
+	position: absolute;
+	width: 36px;
+	height: 36px;
+	top: 0px;
+	right: 0px;
+	background-image: url(../images/close-loader.png);
+	cursor: pointer;
+}
+
+.loader {
+	width: 32px;
+	height: 32px;
+	background-image: url(../images/ajax-loader.gif);
+}
+
+span.dynatree-active a {
+	background-color: transparent !important;
+	color: black !important;
+}
+
+ul.dynatree-container a:hover {
+	background: white !important;
+	border-color: black !important;
+}
+
+.errorMessage {
+	padding-top: 100px;
+	color: #f13030;
+	font-weight: bold;
+	text-align: center;
+}
+
+.errorSign {
+	height: 48px;
+	width: 48px;
+	background-image: url(../images/error.png);
+	margin: auto;
+}
+
+.alertMessage {
+	padding-top: 100px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.alertSign {
+	height: 48px;
+	width: 48px;
+	background-image: url(../images/alert.png);
+	margin: auto;
+}
