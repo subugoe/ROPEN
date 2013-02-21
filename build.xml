@@ -374,7 +374,7 @@ ant
       <connectors>
         <selectChannelConnector port="${jetty.port}"/>
       </connectors>
-      <webapp webXmlFile="${servlet.archaeo18.webxml}" contextPath="/archaeo18" name="archaeo18" warfile="."/>
+      <webapp webXmlFile="${servlet.archaeo18.webxml}" contextPath="/ropen" name="ropen" warfile="."/>
       <webapp webXmlFile="${servlet.proxy.webxml}" contextPath="/" name="proxy" warfile="${test.dir}/proxy"/>
     </jetty>
   </target>
