@@ -1,0 +1,14 @@
+Index: Archaeo18Properties.js
+===================================================================
+--- Archaeo18Properties.js	(Revision 588)
++++ Archaeo18Properties.js	(Revision 597)
+@@ -119,7 +119,8 @@
+ 		searchQuery: 		'/exist/rest/db/archaeo18/queries/search.xq?query=QUERY_ID&mode=xhtml',
+ 		facetsQuery: 		'/exist/rest/db/archaeo18/queries/getFacets.xq',
+ 		metadataQuery: 		'/exist/rest/db/archaeo18/queries/getText.xq?mode=header&format=xhtml&doc=DOC_ID',
+-		facetTableQuery:	'/exist/rest/db/archaeo18/queries/experimental/listEntities.xq?facet=FACET_ID&format=xhtml',
++		//facetTableQuery:	'/exist/rest/db/archaeo18/queries/experimental/listEntities.xq?facet=FACET_ID&format=xhtml',
++		facetTableQuery:	'./testdata/indices/listEntities.xq?facet=FACET_ID&format=xhtml',
+ 		tagcloudQuery:		'/exist/rest/db/archaeo18/queries/experimental/listEntities.xq?facet=FACET_ID&format=cloud',
+ 		mapQuery:		'/exist/rest/db/archaeo18/queries/experimental/listEntities.xq?facet=FACET_ID&format=kml',
+ 		tagcloudPageQuery:	'/exist/rest/db/archaeo18/queries/getText.xq?doc=DOC_ID&page=PAGE_ID&format=cloud&facet=FACET_ID',

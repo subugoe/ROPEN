@@ -1,0 +1,1741 @@
+<results>
+    <query>
+        <searchString>Trajan</searchString>
+        <hits>37</hits>
+        <limit>0</limit>
+        <start>0</start>
+        <facet/>
+        <mode>xhtml</mode>
+        <document/>
+        <highlight>true</highlight>
+        <filter>true</filter>
+        <duration type="search">-PT0.013S</duration>
+    </query>
+    <result>
+        <doc>weimar-hs-2056</doc>
+        <page>0</page>
+        <score>4.0596976</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <h0 class="tei:head">
+                        <em class="tei:emph">CX. Familia <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118623567" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">Trajani</a>.</em>
+                    </h0>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>bern-mss-muel-507</doc>
+        <page>259</page>
+        <score>2.1564732</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p">
+                        <span class="tei:note">
+                            <span class="tei:hi-underline">
+                                <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118623567" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">
+                                    <em class="tei:emph">
+                                        <span class="exist:match">Trajan</span>
+                                    </em>
+                                </a>
+                            </span>.</span>
+                        <a class="tei:term" target="_blank" href="http://arachne.uni-koeln.de/item/objekt/51185">
+                            <span class="tei:persName" type="foaf:name" xlink:to="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp01427416">
+                                <span class="tei:persName" type="foaf:name" about="http://d-nb.info/gnd/118623567" xlink:to="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">
+                                    <span class="exist:match">Trajans</span>
+                                </span> Vatter Ulpius</span>
+                        </a> ist bey <a class="tei:bibl" type="bibo:Book" href="http://arachne.uni-koeln.de/item/buchseite/215869">
+                            <em class="tei:emph">Cava-<br class="tei:lb"/>
+          
+          ceppi</em> N. XX.</a>
+                        <span class="tei:term">Ein <span class="tei:persName" type="foaf:name" about="http://d-nb.info/gnd/118623567" xlink:to="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">
+                                <span class="exist:match">Trajan</span>
+                            </span> in der Toga</span>
+                        <br class="tei:lb"/>
+          
+          sizend mit der Rolle und der Kugel<br class="tei:lb"/>
+          
+          (<em class="tei:emph">Globus</em>) <em class="tei:emph">Insignia regni</em> ist im <span class="tei:term">Hause<br class="tei:lb"/>
+                            <em class="tei:emph">Mathei</em>
+                        </span>
+                        <a class="tei:bibl" type="bibo:Book" href="http://opac.sub.uni-goettingen.de/DB=1/PPNSET?PPN=137355998">N<span class="tei:hi-sup">o</span> LXXXV.</a>
+                        <span class="tei:term">Noch einer im <span class="tei:term" xlink:to="http://arachne.uni-koeln.de/item/sammlungen/1000238">Pal-<br class="tei:lb"/>
+          
+          last <em class="tei:emph">Borghese</em>
+                            </span>
+                        </span> bey <a class="tei:bibl" type="bibo:Book" href="http://resolver.sub.uni-goettingen.de/purl?PPN663312027">
+                            <em class="tei:emph">Tomastin</em> Tab XVI.</a>
+                        <br class="tei:lb"/>
+                    </p>
+                    <hr class="endOfDocument"/>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>rom-heyne1798</doc>
+        <page>253</page>
+        <score>2.0331423</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p">1) <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118623567" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">
+                            <em class="tei:emph">Trajani</em>
+                        </a>
+                        <a class="tei:ref" target="_blank" href="#p175">175</a>.</p>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>bern-mss-muel-507</doc>
+        <page>107</page>
+        <score>2.0331423</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p">Die <a class="tei:term" target="_blank" href="http://arachne.uni-koeln.de/item/bauwerk/2100074">
+                            <em class="tei:emph">Basreliefs</em> des <span class="tei:persName" type="foaf:name" about="http://d-nb.info/gnd/118623567" xlink:to="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">
+                                <em class="tei:emph">Traians</em>
+                            </span>
+                        </a> sind sehr schön.<br class="tei:lb"/>
+                    </p>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>bern-mss-muel-507</doc>
+        <page>112</page>
+        <score>2.0331423</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p">Busten Köpfe Gravuren haben sich von <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118623567" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">
+                            <em class="tei:emph">Traians</em>
+                        </a>
+                        <br class="tei:lb"/>
+          
+          Zeit<ins class="tei:expan">en</ins> sehr viel erhalten.<br class="tei:lb"/>
+                    </p>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>rom-heyne1798</doc>
+        <page>142</page>
+        <score>1.9920644</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p">
+                        <a class="tei:term" target="_blank" href="http://arachne.uni-koeln.de/item/objekt/14685">
+                            <span class="tei:persName" type="foaf:name" about="http://d-nb.info/gnd/118623567" xlink:to="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">
+                                <span class="exist:match">Trajan</span>
+                            </span>
+                        </a>. Eine einz<ins class="tei:expan">ige</ins> Statue ehmals im Pall. <em class="tei:emph">Mathæi</em>,<br class="tei:lb"/>
+                                    jetzt im <em class="tei:emph">Clem.</em>, sitzend, in der Toga.<br class="tei:lb"/>
+                    </p>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>rom-heyne1798</doc>
+        <page>230</page>
+        <score>1.9920644</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p">Die Gemmen mit Köpfen <em class="tei:emph">en front</em>, sind sehr selten und<br class="tei:lb"/>
+                            schätzbar, so auch 2 Köpfe auf Einer Gemme. Aeusserst<br class="tei:lb"/>
+                            selten sind die mit 4 Köpfen, z.B. <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118623567" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">
+                            <span class="exist:match">Trajans</span>
+                        </a> Familie, von<br class="tei:lb"/>
+                            den grösten Künstlern.- <em class="tei:emph">Capita Jugata</em>, wie Janusköpfe,<br class="tei:lb"/>
+                            sind minder hübsch.<br class="tei:lb"/>
+                    </p>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>berlin-ms-germ-qrt-1666</doc>
+        <page>230</page>
+        <score>1.9920644</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p">Die Figuren daran sollen 13. Fuß un-<br class="tei:lb"/>
+                ten seyn 2500. Figuren. Feldzug<br class="tei:lb"/>
+                den <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118623567" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">
+                            <em class="tei:emph">
+                                <span class="exist:match">Trajans</span>
+                            </em>
+                        </a> gegen die <em class="tei:emph">Dacier</em> dies<br class="tei:lb"/>
+                Werck hat viel Schriftten.</p>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>bern-mss-muel-507</doc>
+        <page>108</page>
+        <score>1.9920644</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p">
+                        <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118623567" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">
+                            <em class="tei:emph">
+                                <span class="exist:match">Trajan</span>
+                            </em>
+                        </a>. Unter ihm lebt<ins class="tei:expan">en</ins> die Künste wieder auf<br class="tei:lb"/>
+          
+          und es hat sich viel von ihm erhalt<ins class="tei:expan">en</ins>.<br class="tei:lb"/>
+          
+          Ein <a class="tei:term" target="_blank" href="http://arachne.uni-koeln.de/item/topographie/500033">
+                            <em class="tei:emph">Forum Traiani</em>
+                        </a>
+                        <br class="tei:lb"/>
+                        <a class="tei:bibl" type="bibo:Book" href="http://resolver.sub.uni-goettingen.de/purl?PPN687924901">
+                            <em class="tei:emph">Donatus</em> 2. 24</a>
+                        <br class="tei:lb"/>
+                    </p>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>bern-mss-muel-507</doc>
+        <page>61</page>
+        <score>1.7430563</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p">Von <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118623567" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">
+                            <em class="tei:emph">
+                                <span class="exist:match">Trajans</span>
+                            </em>
+                        </a> Zeit<ins class="tei:expan">en</ins> ist noch <a class="tei:term" target="_blank" href="http://arachne.uni-koeln.de/item/bauwerk/2103747">ein <em class="tei:emph">Monumentum Triumph</em>
+                        </a>
+                        <span class="tei:gap"/>
+                        <br class="tei:lb"/>
+          
+          von einem <a class="tei:persName" target="_blank" type="foaf:name" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp01427457">
+                            <em class="tei:emph">C. Julius Antiochus Phylobachus</em>
+                        </a> zu <a class="tei:placeName" target="_blank" type="gn:name" href="http://www.getty.edu/vow/TGNFullDisplay?find=&amp;place=&amp;nation=&amp;english=Y&amp;subjectid=7001393">Athen</a>
+                        <br class="tei:lb"/>
+                        <a class="tei:bibl" type="bibo:Book" href="http://opac.sub.uni-goettingen.de/DB=1/PPNSET?PPN=137350198">
+                            <em class="tei:emph">Le Roy</em>. I. Tab. 20.</a>
+                        <br class="tei:lb"/>
+                    </p>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>bern-mss-muel-507</doc>
+        <page>109</page>
+        <score>1.7430563</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p">Die <a class="tei:term" target="_blank" href="http://arachne.uni-koeln.de/item/bauwerk/2100089">
+                            <em class="tei:emph">Col: Traiani</em>
+                        </a> ißt von parischem Marmor, mit<br class="tei:lb"/>
+                        <em class="tei:emph">Basreliefs</em> von <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118623567" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">
+                            <em class="tei:emph">
+                                <span class="exist:match">Trajans</span>
+                            </em>
+                        </a> Krieg in <a class="tei:placeName" target="_blank" type="gn:name" href="http://www.getty.edu/vow/TGNFullDisplay?find=&amp;place=&amp;nation=&amp;english=Y&amp;subjectid=7030323">
+                            <em class="tei:emph">Dacien</em>
+                        </a>. 2500<br class="tei:lb"/>
+          
+          Figuren. Die Höhe ist 110. Fuß ohne die Statue die<br class="tei:lb"/>
+          
+          22. Fuß hoch war. Izt steht eine Bildsäule S<span class="tei:hi-sup">t</span>. Peters<br class="tei:lb"/>
+          
+          darauf. Die <em class="tei:emph">Colomne</em> besteht aus 30 stüken.<br class="tei:lb"/>
+          
+          Schrift<ins class="tei:expan">en</ins> der <a class="tei:bibl" type="bibo:Book" href="http://opac.sub.uni-goettingen.de/DB=1/PPNSET?PPN=129841439">
+                            <em class="tei:emph">Antiq. Societæt in London</em>. 1. Band.<br class="tei:lb"/>
+          
+          pl. 28.</a>
+                        <br class="tei:lb"/>
+                    </p>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>bern-mss-muel-507</doc>
+        <page>116 109</page>
+        <score>1.7430563</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p">Sie stand mitten auf dem <a class="tei:term" target="_blank" href="http://arachne.uni-koeln.de/item/topographie/500033">
+                            <em class="tei:emph">foro trajani</em>
+                        </a>. Um dieses<br class="tei:lb"/>
+                        <em class="tei:emph">forum</em> zu bauen mußte ein Berg abgetragen werd<ins class="tei:expan">en</ins>
+                        <br class="tei:lb"/>
+          
+          deßen Höhe diese <em class="tei:emph">Columne</em> zeigte. Der <em class="tei:emph">Senat</em>
+                        <br class="tei:lb"/>
+          
+          ließ diese Säule in der Abwesenheit des <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118623567" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">
+                            <em class="tei:emph">
+                                <span class="exist:match">Trajans</span>
+                            </em>
+                        </a>
+                        <br class="tei:lb"/>
+                        <span class="tei:date" property="dc:date" content="">A<span class="tei:hi-sup">o</span>. 114.</span> errichtet. Innwendig kann man hierauf geh<span class="tei:gap"/>
+                        <br class="tei:lb"/>
+          
+          Es sind 183. Stuff<ins class="tei:expan">en</ins> u 41. Fenster. Die Treppe ist<br class="tei:lb"/>
+          
+          schnekenförmig und auch außen die <em class="tei:emph">Basreliefs</em>
+                        <br class="tei:lb"/>
+                    </p>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>bern-mss-muel-507</doc>
+        <page>271</page>
+        <score>1.7251785</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p">
+                        <span class="tei:term">Zwo andere diesen ähnlich stehen im<br class="tei:lb"/>
+                            <span class="tei:term">Pallast Farnesi</span>
+                        </span>, der eine steht in <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/maffei1704/0073">
+                            <em class="tei:emph">Racolta<br class="tei:lb"/>
+          
+          N.</em> LVI.</a>
+                        <a class="tei:bibl" type="bibo:Book" href="http://opac.sub.uni-goettingen.de/DB=1/PPNSET?PPN=14568895X">
+                            <em class="tei:emph">Episcopius</em> N. LXXV.</a> Man hielt sie<br class="tei:lb"/>
+          
+          für Parthische oder Armenische Könige,<br class="tei:lb"/>
+          
+          aber wahrscheinlich sind es <em class="tei:emph">Dacier</em>, da<br class="tei:lb"/>
+          
+          sie auf dem <span class="tei:term">
+                            <em class="tei:emph">Foro <span class="exist:match">Trajans</span>
+                            </em>
+                        </span> gefunden wur-<br class="tei:lb"/>
+          
+          den, und zu einem seiner Werke gehör-<br class="tei:lb"/>
+          
+          ten, und er besiegte die Dacier.<br class="tei:lb"/>
+                    </p>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>bern-mss-muel-507</doc>
+        <page>346</page>
+        <score>1.7251785</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p">Von den Damen aus <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118623567" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">
+                            <span class="exist:match">Trajans</span>
+                        </a> Familie sind<br class="tei:lb"/>
+          
+          viele Münzen, Steinen und Büsten. <span class="tei:term">Eine<br class="tei:lb"/>
+          
+          Statue von <span class="tei:persName" type="foaf:name" about="http://d-nb.info/gnd/118595172" xlink:to="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00562740">
+                                <em class="tei:emph">Plotina</em>
+                            </span>
+                        </span>
+                        <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118623567" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">
+                            <span class="exist:match">Trajans</span>
+                        </a> Gemahlin <span class="tei:note">
+                            <span class="tei:hi-underline">
+                                <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118595172" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00562740">
+                                    <em class="tei:emph">Plotina</em>
+                                </a>.</span>
+                        </span>
+                        <br class="tei:lb"/>
+                        <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/boissard1597bd3/0071">
+                            <em class="tei:emph">V. Boissard T</em>. III., N. LIII.</a> und <span class="tei:term">von <span class="tei:persName" type="foaf:name" about="http://d-nb.info/gnd/118577514" xlink:to="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00558584">
+                                <em class="tei:emph">Marciana</em>
+                            </span>
+                            <br class="tei:lb"/>
+                            <span class="tei:persName" type="foaf:name" about="http://d-nb.info/gnd/118623567" xlink:to="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">
+                                <span class="exist:match">Trajans</span>
+                            </span> Schwester ist eine Statue</span> in <a class="tei:bibl" type="bibo:Book" href="http://opac.sub.uni-goettingen.de/DB=1/PPNSET?PPN=137355998">
+                            <em class="tei:emph">Monum:<br class="tei:lb"/>
+          
+          Mathei Tab.</em> LXXXVI.</a> als <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118862294" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00540610">
+                            <em class="tei:emph">Ceres</em>
+                        </a>.<span class="tei:term"> Eine andere<br class="tei:lb"/>
+          
+          Statue ist zu <span class="tei:placeName" type="gn:name" xlink:to="http://www.getty.edu/vow/TGNFullDisplay?find=&amp;place=&amp;nation=&amp;english=Y&amp;subjectid=7018159">
+                                <em class="tei:emph">Venedig</em>
+                            </span>
+                        </span>
+                        <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/zanetti1740bd1/0049">
+                            <em class="tei:emph">T.</em> I. N. XX.</a> Die ganze<br class="tei:lb"/>
+          
+          Familie ist durch die vielen Flechten wie<br class="tei:lb"/>
+          
+          ein Korb auf dem Haarputz bekannt.<br class="tei:lb"/>
+                    </p>
+                    <hr class="endOfDocument"/>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>weimar-hs-2056</doc>
+        <page>189</page>
+        <score>1.6265138</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p"> 3) <a class="tei:term" target="_blank" href="http://arachne.uni-koeln.de/item/objekt/16299">
+                            <em class="tei:emph">
+                                <span class="tei:persName" type="foaf:name" about="http://d-nb.info/gnd/118595172" xlink:to="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00562740">Plotina</span>, <span class="tei:persName" type="foaf:name" about="http://d-nb.info/gnd/118623567" xlink:to="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">Trajani</span>
+                            </em> Gemahlin. Büste</a>
+                        <a class="tei:bibl" type="bibo:Book" href="http://arachne.uni-koeln.de/item/buchseite/5462">
+                            <em class="tei:emph">Mus. Cap: <br class="tei:lb"/>
+                                  II.</em> 30.</a>
+                    </p>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>berlin-ms-germ-qrt-1666</doc>
+        <page>158</page>
+        <score>1.6265138</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p">
+                        <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/zanetti1743bd2/0041">
+                            <em class="tei:emph">Venez. II. 20.</em>
+                        </a> besondere bekleidung<br class="tei:lb"/>
+                        <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118623567" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">
+                            <em class="tei:emph">Trajani</em>
+                        </a> Schwester <a class="tei:term" target="_blank" href="http://arachne.uni-koeln.de/item/objekt/22215">
+                            <span class="tei:persName" type="foaf:name" about="http://d-nb.info/gnd/118577514" xlink:to="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00558584">
+                                <em class="tei:emph">marciana</em>
+                            </span> als<br class="tei:lb"/>
+                            <em class="tei:emph">Venus</em>
+                        </a>
+                        <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/zanetti1740bd1/0049">
+                            <em class="tei:emph">I. 20.</em>
+                        </a> halb bekleidet.</p>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>bern-mss-muel-507</doc>
+        <page>107</page>
+        <score>1.6265138</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p">Auch <a class="tei:term" target="_blank" href="http://census.bbaw.de/easydb/censusID=CensusID:152232">
+                            <span class="tei:term" target="_blank" xlink:to="http://arachne.uni-koeln.de/item/bauwerk/2100246">zu <span class="tei:placeName" type="gn:name" xlink:to="http://www.getty.edu/vow/TGNFullDisplay?find=&amp;place=&amp;nation=&amp;english=Y&amp;subjectid=7004393">
+                                    <em class="tei:emph">Benevent</em>
+                                </span> ist einer zu Ehren <span class="tei:persName" type="foaf:name" about="http://d-nb.info/gnd/118623567" xlink:to="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">
+                                    <em class="tei:emph">Trayans</em>
+                                </span>
+                            </span>
+                        </a>.<br class="tei:lb"/>
+                        <a class="tei:bibl" type="bibo:Book" href="http://arachne.uni-koeln.de/books/Nolli1770">
+                            <em class="tei:emph">Carlo Nolli s. l Arco. Triumf. Benevent. fol</em>.</a>
+                        <br class="tei:lb"/>
+                    </p>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>rom-heyne1798</doc>
+        <page>176</page>
+        <score>1.4940482</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p">Sie ist 110 Fuß hoch, und oben darauf<br class="tei:lb"/>
+                                stand eine <span class="tei:term">Colossalfigur des Kaisers<br class="tei:lb"/>
+                            <span class="tei:persName" type="foaf:name" about="http://d-nb.info/gnd/118623567" xlink:to="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">
+                                <span class="exist:match">Trajan</span>
+                            </span>
+                            <span style="display: none;" class="tei:note id-d2e24672 type-certainty resp-Wiegel">unidentifiziert</span>
+                        </span>, die nicht mehr vorhanden ist.<br class="tei:lb"/>
+                                Sie war 18 Fuß hoch, aus Bronce, und<br class="tei:lb"/>
+                                vergoldet., wie man aus dem Kopfe<br class="tei:lb"/>
+                                sieht, der im Hause <em class="tei:emph">della Valle</em> ist,<br class="tei:lb"/>
+                        <br class="tei:handShift"/>
+                        <span class="tei:note">
+                            <br class="tei:lb"/>
+                            <br class="tei:lb"/>
+                            <br class="tei:lb"/>
+                        </span>
+                        <br class="tei:handShift"/>
+                        <a name="p177"/>
+                        <hr class="tei:pb"/>
+                                und 2 Fuß 4 Zoll hoch ist. Das gewöhnliche<br class="tei:lb"/>
+                                Maaß der menschlichen Größe ist 8 mal<br class="tei:lb"/>
+                                des Kopfes Länge; darnach hat man das<br class="tei:lb"/>
+                                Maaß der ganzen Säule bestimmt.<br class="tei:lb"/>
+                    </p>
+                    <hr class="endOfDocument"/>
+                    <div class="note-link">
+                        <a name="d2e24672" href="#return_d2e24672" class="note-link-number">[1]</a>
+                        <br/>
+                    </div>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>berlin-ms-germ-qrt-1666</doc>
+        <page>228</page>
+        <score>1.4231997</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p">
+                        <span class="tei:hi-underline">zu <a class="tei:placeName" target="_blank" type="gn:name" href="http://www.getty.edu/vow/TGNFullDisplay?find=&amp;place=&amp;nation=&amp;english=Y&amp;subjectid=7004393">
+                                <em class="tei:emph">Benevente</em>
+                            </a>
+                        </span>
+                        <em class="tei:emph">
+                            <span class="tei:foreign" xml:lang="la">in honorum</span>
+                            <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118623567" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">Traja-<br class="tei:lb"/>
+                                ni</a>
+                            <a class="tei:bibl" type="bibo:Book" href="http://arachne.uni-koeln.de/books/DelPo1739">Arcus Trajani Rom 1739.</a> in<br class="tei:lb"/>
+                        folio</em> Im vorigen Jahr zu <a class="tei:placeName" target="_blank" type="gn:name" href="http://www.getty.edu/vow/TGNFullDisplay?find=&amp;place=&amp;nation=&amp;english=Y&amp;subjectid=7000874">
+                            <em class="tei:emph">Rom</em>
+                        </a>
+                        <br class="tei:lb"/>
+                        <span class="tei:bibl" type="bibo:Book"/>.</p>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>berlin-ms-germ-qrt-1666</doc>
+        <page>136</page>
+        <score>1.2858721</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p">
+                        <span class="tei:hi-underline">Von <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118623567" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">
+                                <em class="tei:emph">Trajuret</em>
+                            </a> zeiten.</span> so wie vom<br class="tei:lb"/>
+                        <em class="tei:emph">
+                            <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118544373" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00871103">Hadrian</a> Antoninern</em> haben wir<br class="tei:lb"/>
+                viel aber keine einzige Statue<br class="tei:lb"/>
+                vom <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118623567" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">
+                            <em class="tei:emph">
+                                <span class="exist:match">Trajan</span>
+                            </em>
+                        </a> selbst wohl aber von<br class="tei:lb"/>
+                seinen Vater <em class="tei:emph">
+                            <a class="tei:persName" target="_blank" type="foaf:name" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp01427416">Ulpius</a>
+                        </em>. <a class="tei:bibl" type="bibo:Book" href="http://dfg-viewer.de/v2/?set[image]=67&amp;set[zoom]=default&amp;set[debug]=0&amp;set[double]=0&amp;set[mets]=http%3A%2F%2Fgdz.sub.uni-goettingen.de%2Fmets_export.php%3FPPN%3DPPN635735547">
+                            <em class="tei:emph">Cavac.</em>
+                            <br class="tei:lb"/>
+                20.</a> ohne allen grund so betitelt.</p>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>rom-heyne1798</doc>
+        <page>162</page>
+        <score>1.2450402</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p">Der <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118504851" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00542952">Pallas</a> ist sehr ähnlich die <em class="tei:emph">
+                            <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118602381" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00564206">Dea Roma</a>
+                        </em>; nur noch männ-<br class="tei:lb"/>
+                                            licher., besonders auf Münzen, wo sie viel Aehnliches mit der<br class="tei:lb"/>
+                        <em class="tei:emph">
+                            <a class="tei:persName" target="_blank" type="foaf:name" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp01300382">Virtus</a>
+                        </em> hat.- Eine <a class="tei:term" target="_blank" href="http://arachne.uni-koeln.de/item/objekt/16516">Hauptstatue im <span class="tei:placeName" type="gn:name" xlink:to="http://arachne.uni-koeln.de/item/topographie/500002">Capitol</span>
+                        </a>, auf<br class="tei:lb"/>
+                                                Waffen sitzend, mit einer schönen <a class="tei:term" target="_blank" href="http://census.bbaw.de/easydb/censusID=CensusID:156028">
+                            <span class="tei:term" target="_blank" xlink:to="http://census.bbaw.de/easydb/censusID=CensusID:151751">
+                                <span class="tei:term" target="_blank" xlink:to="http://arachne.uni-koeln.de/item/objekt/16506">
+                                    <span class="tei:term" target="_blank" xlink:to="http://arachne.uni-koeln.de/item/objekt/16594">Basis, unter der<br class="tei:lb"/>
+                                            eine <em class="tei:emph">Provincia moerens</em> sitzt; zur Seite sind ein<br class="tei:lb"/>
+                                            paar Gefangne</span>
+                                </span>
+                            </span>
+                        </a>. Alle Figuren sind colossal. Wahrsch<ins class="tei:expan">einlich</ins>
+                        <br class="tei:lb"/>
+                                            gehört es unter <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118623567" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">
+                            <span class="exist:match">Trajan</span>
+                        </a>, als <em class="tei:emph">Dacia victa</em>. siehe <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/maffei1704/0003">Titelb<ins class="tei:expan">ild</ins>
+                            <br class="tei:lb"/>
+                                                der <em class="tei:emph">Racolta</em>
+                        </a>. <a class="tei:term" target="_blank" href="http://arachne.uni-koeln.de/item/objekt/16503">Eine 2te aus Porphyr im <span class="tei:placeName" type="gn:name" xlink:to="http://arachne.uni-koeln.de/item/topographie/500002">Capitol</span>
+                        </a>;<br class="tei:lb"/>
+                                            Kopf und Arme ergänzt., auch auf Trophäen sitzend.<br class="tei:lb"/>
+                        <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/visconti1784bd2/0139">
+                            <em class="tei:emph">Pio Clem. II. 15.</em>
+                        </a>, <a class="tei:term" target="_blank" href="http://arachne.uni-koeln.de/item/objekt/19915">mit bloßer Brust</a>, wie eine Amazone.<br class="tei:lb"/>
+                        <a name="p163"/>
+                        <hr class="tei:pb"/>
+                        <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/giustiniani1640bd1/0008">
+                            <em class="tei:emph">Gall. Giust. <span class="tei:term" xlink:to="http://arachne.uni-koeln.de/item/rezeption/300767">7.</span>
+                            </em>
+                        </a> Gewöhnlich mit einer Kugel; auf Münzen<br class="tei:lb"/>
+                                            mit einer kleinen Siegsgöttin. <span class="tei:bibl" type="bibo:Book"/> Die sog<ins class="tei:expan">enannten</ins>
+                        <span class="tei:term">Bellonen<span style="display: none;" class="tei:note id-d2e22595 type-certainty resp-Wiegel">unidentifiziert</span>
+                        </span> sind nichts als <em class="tei:emph">
+                            <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118602381" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00564206">Dea Roma</a>
+                        </em>.<br class="tei:lb"/>
+                    </p>
+                    <hr class="endOfDocument"/>
+                    <div class="note-link">
+                        <a name="d2e22588" href="#return_d2e22588" class="note-link-number">[1]</a>
+                        <br/>
+                    </div>
+                    <div class="note-link">
+                        <a name="d2e22595" href="#return_d2e22595" class="note-link-number">[2]</a>
+                        <br/>
+                    </div>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>berlin-ms-germ-qrt-1666</doc>
+        <page>180</page>
+        <score>1.2450402</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p">
+                        <em class="tei:emph">
+                            <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118602381" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00564206">
+                                <span class="tei:hi-underline">Roma Dea</span>
+                            </a>
+                            <a class="tei:term" target="_blank" href="http://census.bbaw.de/easydb/censusID=CensusID:153927">
+                                <span class="tei:term" target="_blank" xlink:to="http://arachne.uni-koeln.de/item/objekt/16516">Colossal</span>
+                            </a>
+                        </em> stehet sie <span class="tei:note">
+                            <span class="tei:hi-underline">
+                                <em class="tei:emph">Dea Roma</em>
+                            </span>
+                        </span>
+                        <br class="tei:lb"/>
+                    auf dem <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/maffei1704/0003">Titelblatte des <span class="tei:persName" type="foaf:name" about="http://d-nb.info/gnd/119062518" xlink:to="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00913744">
+                                <em class="tei:emph">Maffei</em>
+                            </span>
+                        </a>, hör-<br class="tei:lb"/>
+                    te Ehemahls zum <a class="tei:term" target="_blank" href="http://arachne.uni-koeln.de/item/bauwerk/2100089">Denckmahl <span class="tei:persName" type="foaf:name" about="http://d-nb.info/gnd/118623567" xlink:to="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">
+                                <em class="tei:emph">
+                                    <span class="exist:match">Trajans</span>
+                                </em>
+                            </span>
+                        </a>
+                        <br class="tei:lb"/>
+                        <span class="tei:bibl" type="bibo:Book"/>
+                        <br class="tei:lb"/>
+                        <a class="tei:bibl" type="bibo:Book" href="http://arachne.uni-koeln.de/item/buchseite/67205">
+                            <em class="tei:emph">
+                                <span class="tei:hi-underline">Perrier 55.</span>
+                            </em>
+                        </a>
+                    </p>
+                    <hr class="endOfDocument"/>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>bern-mss-muel-507</doc>
+        <page>542</page>
+        <score>1.2450402</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p">Ordentlicher Weise werden die Kopfe von der<br class="tei:lb"/>
+          
+          Seite <em class="tei:emph">Ore obliquo</em> vorgestellt.<span class="tei:note">
+                            <span class="tei:hi-underline">
+                                <em class="tei:emph">Ore Obliquo.</em>
+                            </span>
+                        </span> Dis sind die glei-<br class="tei:lb"/>
+          
+          chensten und häufigsten, sehr selten sind die<br class="tei:lb"/>
+                        <em class="tei:emph">Ore adverso</em> nehml. mit dem Oral vornhin ge-<br class="tei:lb"/>
+          
+          kehrt.<span class="tei:note">
+                            <span class="tei:hi-underline">
+                                <em class="tei:emph">Ore adverso.</em>
+                            </span>
+                        </span> Ordentlicher Weise sind die Köpfe blos, die<br class="tei:lb"/>
+          
+          Kaiser haben dann Lorbern <em class="tei:emph">Diadem</em>, nach dem Grie-<br class="tei:lb"/>
+          
+          chischen <em class="tei:emph">Costume</em>. Dann kommen <em class="tei:emph">Capita jugata</em>
+                        <br class="tei:lb"/>
+          
+          wo zwey Köpfe gegen oder neben einander<br class="tei:lb"/>
+          
+          auf dem nehmlichen Steine stehen.<span class="tei:note">
+                            <span class="tei:hi-underline">
+                                <em class="tei:emph">Capita jugata</em>
+                            </span>
+                        </span> Oft sind so<br class="tei:lb"/>
+                        <a name="p543"/>
+                        <hr class="tei:pb"/>
+          
+          Th. II. Abschn. V. “9” <span class="tei:hi-underline">Interpretation der Steine</span>.<br class="tei:lb"/>
+                        <br class="tei:lb"/>
+          
+          3. bis 4. Köpfe so beysamen wie die aus einer Fa-<br class="tei:lb"/>
+          
+          milie, <em class="tei:emph">Triumphiri</em> etc. da solche selten sind, haben sie<br class="tei:lb"/>
+          
+          mehr Werth, und sind durch <em class="tei:emph">
+                            <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118738143" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00920062">Natter</a>
+                        </em>, <em class="tei:emph">
+                            <a class="tei:persName" target="_blank" type="foaf:name" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp01300256">Costanzi</a> etc.
+                                    </em> oft <br class="tei:lb"/>
+          
+          copirt. Aus <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118623567" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">
+                            <span class="exist:match">Trajans</span>
+                        </a> Hause sind so herrliche Köpfe.<br class="tei:lb"/>
+                    </p>
+                    <hr class="endOfDocument"/>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>rom-heyne1798</doc>
+        <page>56</page>
+        <score>1.0782366</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p">
+                        <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/11862671X" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00984011">Vespasians</a>
+                        <a class="tei:term" target="_blank" href="http://census.bbaw.de/easydb/censusID=CensusID:10006587">
+                            <span class="tei:term" target="_blank" xlink:to="http://arachne.uni-koeln.de/item/bauwerk/2108385">
+                                <em class="tei:emph">templum pacis</em>
+                            </span>
+                        </a>. mit herrl<ins class="tei:expan">icher</ins> Architectur, und darin<br class="tei:lb"/>
+                        eine schöne Sammlung von Kunstwerken; davon sind noch<br class="tei:lb"/>
+                        Ruinen vorhanden. Unter <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118622951" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00396707">Titus</a> war wieder ein Brand.,<br class="tei:lb"/>
+                        und ein Ausbruch des <a class="tei:placeName" target="_blank" type="gn:name" href="http://www.getty.edu/vow/TGNFullDisplay?find=&amp;place=&amp;nation=&amp;english=Y&amp;subjectid=1107763">Vesuvs</a>. Unter <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118672231" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00397834">Domitian</a> ward<br class="tei:lb"/>
+                            das <a class="tei:term" target="_blank" href="http://arachne.uni-koeln.de/item/topographie/500002">
+                            <span class="tei:placeName" type="gn:name" xlink:to="http://arachne.uni-koeln.de/item/topographie/500002">Capitol</span>
+                        </a> wieder aufgebauet., auch das <span class="tei:term">
+                            <em class="tei:emph">templum<br class="tei:lb"/>
+                        Flaviæ gentis</em>
+                            <span style="display: none;" class="tei:note id-d2e6241 type-certainty resp-Wiegel">zerstört</span>
+                        </span>, ein <span class="tei:term">Tempel der <span class="tei:persName" type="foaf:name" about="http://d-nb.info/gnd/118504851" xlink:to="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00542952">Pallas</span>
+                            <span style="display: none;" class="tei:note id-d2e6249 type-certainty resp-Wiegel">zerstört</span>
+                        </span>, wovon sich noch<br class="tei:lb"/>
+                        die ganze Frise erhalten hat. Von einem <a class="tei:term" target="_blank" href="http://census.bbaw.de/easydb/censusID=CensusID:150900">Triumphbogen<br class="tei:lb"/>
+                        desselben (<em class="tei:emph">arco di Portugallo</em>)</a> sind auch noch Reliefs da.<br class="tei:lb"/>
+                        Unter <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118623567" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">
+                            <span class="exist:match">Trajan</span>
+                        </a> kam <a class="tei:placeName" target="_blank" type="gn:name" href="http://www.getty.edu/vow/TGNFullDisplay?find=&amp;place=&amp;nation=&amp;english=Y&amp;subjectid=7000874">Rom</a> zur höchsten Schönheit. Er baute<br class="tei:lb"/>
+                            besonders das <a class="tei:term" target="_blank" href="http://census.bbaw.de/easydb/censusID=CensusID:151046">
+                            <span class="tei:term" target="_blank" xlink:to="http://arachne.uni-koeln.de/item/topographie/500033">Forum <em class="tei:emph">
+                                    <span class="tei:persName" type="foaf:name" about="http://d-nb.info/gnd/118623567" xlink:to="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">Trajani</span>
+                                </em>
+                            </span>
+                        </a>, mit einer Gallerie<br class="tei:lb"/>
+                        umgeben, mit herrl<ins class="tei:expan">ichen</ins> Gebäuden. In der Mitte des<br class="tei:lb"/>
+                            Platzes stand die <a class="tei:term" target="_blank" href="http://census.bbaw.de/easydb/censusID=CensusID:151057">
+                            <span class="tei:term" target="_blank" xlink:to="http://arachne.uni-koeln.de/item/bauwerk/2100089">
+                                <em class="tei:emph">Columna <span class="tei:persName" type="foaf:name" about="http://d-nb.info/gnd/118623567" xlink:to="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">Trajani</span>
+                                </em>
+                            </span>
+                        </a>, die ihm der Senat<br class="tei:lb"/>
+                            setzen ließ. Von dem <a class="tei:term" target="_blank" href="http://census.bbaw.de/easydb/censusID=CensusID:243554">
+                            <span class="tei:term" target="_blank" xlink:to="http://arachne.uni-koeln.de/item/bauwerk/2100074">
+                                <em class="tei:emph">Arcus <span class="tei:persName" type="foaf:name" about="http://d-nb.info/gnd/118623567" xlink:to="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">Trajani</span>
+                                </em>
+                            </span>
+                        </a> haben wir auch noch<br class="tei:lb"/>
+                            die Reliefs, die hernach auf einen <a class="tei:term" target="_blank" href="http://census.bbaw.de/easydb/censusID=CensusID:150908">
+                            <span class="tei:term" target="_blank" xlink:to="http://arachne.uni-koeln.de/item/bauwerk/2100083">Bogen <span class="tei:persName" type="foaf:name" about="http://d-nb.info/gnd/118565184" xlink:to="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00945275">Constantins</span>
+                            </span>
+                        </a>
+                        <br class="tei:lb"/>
+                        gesetzt waren. Wir haben noch viele Münzen Statuen<br class="tei:lb"/>
+                        und Büsten aus dieser Zeit. Unter <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118544373" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00871103">Hadrian</a> kam die<br class="tei:lb"/>
+                        Bearbeitung der Aegypt<ins class="tei:expan">ischen</ins> Figuren in Griech<ins class="tei:expan">ischem</ins> Geschmack sehr<br class="tei:lb"/>
+                            empor. <a class="tei:term" target="_blank" href="http://census.bbaw.de/easydb/censusID=CensusID:151574">
+                            <span class="tei:term" target="_blank" xlink:to="http://arachne.uni-koeln.de/item/topographie/8002083">Seine <em class="tei:emph">Villa</em>
+                            </span>
+                        </a>, und darin das <a class="tei:term" target="_blank" href="http://census.bbaw.de/easydb/censusID=CensusID:152254">
+                            <span class="tei:term" target="_blank" xlink:to="http://arachne.uni-koeln.de/item/bauwerk/2105766">
+                                <em class="tei:emph">Conopeum</em>
+                            </span>
+                        </a>. Damals ward<br class="tei:lb"/>
+                            der <a class="tei:term" target="_blank" href="http://census.bbaw.de/easydb/censusID=CensusID:10037107">
+                            <span class="tei:term" target="_blank" xlink:to="http://arachne.uni-koeln.de/item/objekt/15888">
+                                <em class="tei:emph">
+                                    <span class="tei:persName" type="foaf:name" about="http://d-nb.info/gnd/118649639" xlink:to="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00578329">Antinous</span>
+                                </em>
+                            </span>
+                        </a>, <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118544373" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00871103">Hadrians</a> Liebling, verfertigt. <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118544373" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00871103">Hadrian</a>
+                        <br class="tei:lb"/>
+                        führte auch <a class="tei:placeName" target="_blank" type="gn:name" href="http://www.getty.edu/vow/TGNFullDisplay?find=&amp;place=&amp;nation=&amp;english=Y&amp;subjectid=7001393">Athen</a> wieder auf.<br class="tei:lb"/>
+                    </p>
+                    <hr class="endOfDocument"/>
+                    <div class="note-link">
+                        <a name="d2e6241" href="#return_d2e6241" class="note-link-number">[1]</a>
+                        <br/>
+                    </div>
+                    <div class="note-link">
+                        <a name="d2e6249" href="#return_d2e6249" class="note-link-number">[2]</a>
+                        <br/>
+                    </div>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>bern-mss-muel-507</doc>
+        <page>258</page>
+        <score>0.9960322</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p">Von <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118672231" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00397834">
+                            <em class="tei:emph">Domitian</em>
+                        </a> sind einige Statuen. <span class="tei:note">
+                            <span class="tei:hi-underline">
+                                <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118672231" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00397834">
+                                    <em class="tei:emph">Domitian</em>
+                                </a>
+                            </span>
+                        </span>
+                        <br class="tei:lb"/>
+          
+          Mit Clamis und Thorax und schöner Sculptur<br class="tei:lb"/>
+                        <a class="tei:term" target="_blank" href="http://arachne.uni-koeln.de/item/objekt/8523">ist er im <span class="tei:term">Pallast <em class="tei:emph">Giustinianae</em>
+                            </span>
+                        </a>, <a class="tei:bibl" type="bibo:Book" href="http://arachne.uni-koeln.de/item/buchseite/41694">
+                            <em class="tei:emph">Galeria Giu-<br class="tei:lb"/>
+          
+          stiniane</em> N. XCIX.</a>
+                        <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/maffei1704/0106">
+                            <em class="tei:emph">Racolta</em> N<span class="tei:hi-sup">o</span> LXXXIX.</a> In-<br class="tei:lb"/>
+          
+          dessen läßt sich an der Aechtheit zweif-<br class="tei:lb"/>
+          
+          len, sie ist in der Brust zerbrochen,<br class="tei:lb"/>
+          
+          Arme sind neu, und dem Ansehen nach<br class="tei:lb"/>
+          
+          der Kopf, das ist noch wahrscheinlicher,<br class="tei:lb"/>
+          
+          weil alle seine Ehrenzeichen <em class="tei:emph">S. C.</em> ver-<br class="tei:lb"/>
+                        <a name="p259"/>
+                        <hr class="tei:pb"/>
+          
+          Th. II. Abschnl. I. Cap. II. “19” <span class="tei:hi-underline">Historische Figuren</span>. <span class="tei:hi-underline">
+                            <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118623567" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">
+                                <em class="tei:emph">
+                                    <span class="exist:match">Trajan</span>.</em>
+                            </a>
+                        </span>
+                        <span class="tei:hi-underline">
+                            <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118544373" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00871103">
+                                <em class="tei:emph">Adrian</em>
+                            </a>
+                        </span>
+                        <br class="tei:lb"/>
+                        <br class="tei:lb"/>
+          
+          brochen wurde. Büsten finden sich öfters<br class="tei:lb"/>
+          
+          sonderlich an <em class="tei:emph">Colossal</em> Köpfen im <a class="tei:term" target="_blank" href="http://arachne.uni-koeln.de/item/sammlungen/1000358">
+                            <em class="tei:emph">Capitolio</em>
+                        </a>.<br class="tei:lb"/>
+                        <span class="tei:term">Nakt mit etwas Gewand über der Schulter</span>
+                        <br class="tei:lb"/>
+          
+          ist er in <a class="tei:bibl" type="bibo:Book" href="http://opac.sub.uni-goettingen.de/DB=1/PPNSET?PPN=137355998">
+                            <em class="tei:emph">Monument: Matheior</em>. LXXXIV.</a>
+                        <br class="tei:lb"/>
+                        <a class="tei:term" target="_blank" href="http://arachne.uni-koeln.de/item/objekt/37826">Einer kam neuerlich in <span class="tei:term">
+                                <em class="tei:emph">Villa Albani</em>
+                            </span>
+                        </a>, er<br class="tei:lb"/>
+          
+          ist nackt. <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/winckelmann1764/0053">Winkelmann l. cit:</a> findet ihn<br class="tei:lb"/>
+          
+          schön. <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/119217597" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00404698">
+                            <em class="tei:emph">Cavaceppi</em>
+                        </a> hat ihn ergänzt v. <a class="tei:bibl" type="bibo:Book" href="http://arachne.uni-koeln.de/item/buchseite/215835">
+                            <em class="tei:emph">Cava-<br class="tei:lb"/>
+          
+          ceppi</em> Tab. III.</a>
+                        <br class="tei:lb"/>
+                    </p>
+                    <hr class="endOfDocument"/>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>bern-mss-muel-507</doc>
+        <page>388</page>
+        <score>0.9960322</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p">Von der Bildhauerkunst kommen folgende<br class="tei:lb"/>
+          
+          Reglen, erstl. alles was das Mechan<ins class="tei:expan">ische</ins> betrift.<br class="tei:lb"/>
+          
+          Es sind eben die Massen, Werkzeuge, eben<br class="tei:lb"/>
+          
+          das Verfahren. Es muß erst <em class="tei:emph">modelirt</em> wer-<br class="tei:lb"/>
+          
+          den, die Figuren müßen geründet werden.<br class="tei:lb"/>
+          
+          Ein Fehler aber ist wenn die Figuren nicht<br class="tei:lb"/>
+          
+          unmerklich in <em class="tei:emph">Contour</em> verlohren, erhaben,<br class="tei:lb"/>
+          
+          sondern wie halb durchgesägt aussehen.<br class="tei:lb"/>
+          
+          Die Sculptur ist eingeschränckt, sie kan nur<br class="tei:lb"/>
+                        <a name="p389"/>
+                        <hr class="tei:pb"/>
+          
+          Th. II. Abschnitt III. <span class="tei:hi-underline">Reglen des Reliefs</span>.<br class="tei:lb"/>
+                        <br class="tei:lb"/>
+          
+          das vorstellen, was sich rund vorstellen läßt.<br class="tei:lb"/>
+          
+          Nur einen Moment der Handlung und nicht<br class="tei:lb"/>
+          
+          viel neben einander. Die Mahlerey hat Ne-<br class="tei:lb"/>
+          
+          benhülfe, Luft Neben Objekte, Ferne und<br class="tei:lb"/>
+          
+          dem ganz zu helfen. Der Bildhauer hat<br class="tei:lb"/>
+          
+          nichts von dieser Art. Eben so wenig läßt<br class="tei:lb"/>
+          
+          sich alles in Relief vorstellen, nichts wo<br class="tei:lb"/>
+          
+          viele Groupen, verschiedenes Licht, Perspectiv,<br class="tei:lb"/>
+          
+          grose Verkürzungen seyn müßen. Also<br class="tei:lb"/>
+          
+          ist nicht jede Geschichte dazu geschickt und<br class="tei:lb"/>
+          
+          man muß das <em class="tei:emph">Sujet</em> glücklich wählen.<br class="tei:lb"/>
+          
+          Gemein hat sie mit Statuen und Mah-<br class="tei:lb"/>
+          
+          lerey Zeichnungen und Ausdruck, und in <br class="tei:lb"/>
+          
+          diesen beiden Stücken sind die Alten er-<br class="tei:lb"/>
+          
+          kannte Meister. Selbst in ihren sonst feh-<br class="tei:lb"/>
+          
+          lerhaften <em class="tei:emph">Reliefs</em> haben sie in Ansehung<br class="tei:lb"/>
+          
+          dieser Stücke Vorzüge. Aber diese Schön-<br class="tei:lb"/>
+          
+          heit ist mehr in den einzelnen Figuren<br class="tei:lb"/>
+          
+          als in der ganzen <em class="tei:emph">Composition</em>, und doch<br class="tei:lb"/>
+          
+          hat man auch Stücke von schöner <em class="tei:emph">Composi-<br class="tei:lb"/>
+          
+          tion</em>, so die öfentliche Stücke wo die weni-<br class="tei:lb"/>
+          
+          gen Stücke auf dem <span class="tei:term">Triumphwagen <span class="tei:persName" type="foaf:name" about="http://d-nb.info/gnd/118623567" xlink:to="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">
+                                <span class="exist:match">Trajans</span>
+                            </span>
+                        </span>
+                        <br class="tei:lb"/>
+                        <a name="p390"/>
+                        <hr class="tei:pb"/>
+          
+          Th. II. Abschnl. III. <span class="tei:hi-underline">Reglen des Reliefs</span>.<br class="tei:lb"/>
+                        <br class="tei:lb"/>
+          
+          zu <em class="tei:emph">
+                            <a class="tei:placeName" target="_blank" type="gn:name" href="http://www.getty.edu/vow/TGNFullDisplay?find=&amp;place=&amp;nation=&amp;english=Y&amp;subjectid=7004393">Benevent</a>
+                        </em>. Uberhaupt haben die öffentliche<br class="tei:lb"/>
+          
+          Arbeiten allezeit Vorzug, und nach diesen ist<br class="tei:lb"/>
+          
+          die Kunst zu beurtheilen. Eben so ist es bei den<br class="tei:lb"/>
+          
+          gegossenen. <em class="tei:emph">v. <a class="tei:bibl" type="bibo:Book" href="http://han.sub.uni-goettingen.de/han/Makingofthemodernworld/galenet.galegroup.com/servlet/MOME?af=RN&amp;ae=U108170180&amp;srchtp=a&amp;ste=14">Encyclopedie art. Sculpture.</a>
+                        </em>
+                        <br class="tei:lb"/>
+                    </p>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>bern-mss-muel-507</doc>
+        <page>451 522</page>
+        <score>0.9960322</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p">
+                        <span class="tei:note">
+                            <span class="tei:hi-underline">
+                                <em class="tei:emph">Portraits</em>
+                            </span>
+                        </span> In Portraits haben die Alten sicher ihres glei-<br class="tei:lb"/>
+          
+          chen nicht und das noch in solchen Zeiten, wo<br class="tei:lb"/>
+          
+          die Kunst schon zu sincken anfieng. So sind die<br class="tei:lb"/>
+          
+          herrlichsten Köpfe von <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118623567" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">
+                            <span class="exist:match">Trajans</span>
+                        </a> und <span class="tei:choice">
+                            <span class="tei:sic">
+                                <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118503529" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00394081">Antonius</a>
+                            </span> [<span class="tei:corr">
+                                <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118503499" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp01260638">Antoninus</a>
+                            </span>]</span>
+                        <br class="tei:lb"/>
+          
+          Zeit. Die Gravüre ging mit <em class="tei:emph">Medailleur</em> Kunst<br class="tei:lb"/>
+          
+          überhaupt fast immer mit gleichen Schritten,<br class="tei:lb"/>
+          
+          denn das ist das Zeitalter wo die schönen gro-<br class="tei:lb"/>
+          
+          sen Bronzen erschienen. <br class="tei:lb"/>
+                    </p>
+                    <hr class="endOfDocument"/>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>bern-mss-muel-507</doc>
+        <page>224 254</page>
+        <score>0.87152815</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p">
+                        <span class="tei:term">Eine schöne Büste</span> mit der <span class="tei:note">
+                            <span class="tei:hi-underline">
+                                <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118521063" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00394473">
+                                    <em class="tei:emph">Claudius</em>
+                                </a>
+                            </span>
+                        </span>
+                        <br class="tei:lb"/>
+          
+          der <em class="tei:emph">Apotheose</em>, diente im <em class="tei:emph">
+                            <a class="tei:placeName" target="_blank" type="gn:name" href="http://www.getty.edu/vow/TGNFullDisplay?find=&amp;place=&amp;nation=&amp;english=Y&amp;subjectid=7002788">Isauriae</a>
+                        </em> als Ge-<br class="tei:lb"/>
+          
+          wicht an einer Uhr. v. <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/winckelmann1764/0440">Winkelmann p. 390.</a>
+                        <br class="tei:lb"/>
+                        <a name="p255"/>
+                        <hr class="tei:pb"/>
+          
+          Th. II. Abschl. I. Cap. II. “19” <span class="tei:hi-underline">Historische Figuren</span>. <span class="tei:hi-underline">
+                            <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118521063" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00394473">
+                                <em class="tei:emph">Claudius</em>
+                            </a>
+                        </span>
+                        <span class="tei:hi-underline">
+                            <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118586998" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00982828">
+                                <em class="tei:emph">Nero</em>
+                            </a>
+                        </span>.<br class="tei:lb"/>
+                        <br class="tei:lb"/>
+                        <span class="tei:term">Nun ist es in <span class="tei:placeName" type="gn:name" xlink:to="http://www.getty.edu/vow/TGNFullDisplay?find=&amp;place=&amp;nation=&amp;english=Y&amp;subjectid=7002445">England</span>
+                        </span> v. <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/montfaucon1722h/0246">
+                            <em class="tei:emph">Montfaucon Tom V.<br class="tei:lb"/>
+          
+          Pl</em>. CXXIX.</a>
+                        <span class="tei:term">Statuen sind von ihm /./ <em class="tei:emph">en heros</em>
+                        </span>
+                        <br class="tei:lb"/>
+          
+          aus Bronze v. <a class="tei:bibl" type="bibo:Book" href="http://opac.sub.uni-goettingen.de/DB=1/PPNSET?PPN=137355998">
+                            <em class="tei:emph">Bronzi Matheiorum N</em>
+                            <span class="tei:hi-sup">o</span> LXXXI.</a>
+                        <br class="tei:lb"/>
+          
+          Diesen halten einige für einen <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118623567" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">
+                            <span class="exist:match">Trajan</span>
+                        </a>.<br class="tei:lb"/>
+                    </p>
+                    <hr class="endOfDocument"/>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>berlin-ms-germ-qrt-1666</doc>
+        <page>220</page>
+        <score>0.8132569</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p">
+                        <em class="tei:emph">
+                            <span class="tei:foreign" xml:lang="la">Anaclypha veterum gravissima</span>
+                        </em> sind<br class="tei:lb"/>
+                    die an öffentlichen Gebäuden <a class="tei:bibl" type="bibo:Book" href="http://arachne.uni-koeln.de/books/Bartoli1693">
+                            <em class="tei:emph">admirada<br class="tei:lb"/>
+                Romae</em>
+                        </a> sind die vorzüglichsten. die äl-<br class="tei:lb"/>
+                teste Ausgabe ist ohne Titelblatt oder<br class="tei:lb"/>
+                doch ohne <em class="tei:emph">noneen anni</em> steht diese so ist<br class="tei:lb"/>
+                ein Titelblat dazugestochen. <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118794396" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00400507">
+                            <em class="tei:emph">Sandrart</em>
+                        </a>
+                        <br class="tei:lb"/>
+                    hat sie in <span class="tei:bibl" type="bibo:Book"/> von <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/sandrart1679a/0029">
+                            <span class="tei:choice">
+                                <span class="tei:sic">1.9.</span> [<span class="tei:corr">10</span>]</span>
+                        </a> sind von<br class="tei:lb"/>
+                        <a class="tei:term" target="_blank" href="http://census.bbaw.de/easydb/censusID=CensusID:150958">
+                            <span class="tei:term" target="_blank" xlink:to="http://census.bbaw.de/easydb/censusID=CensusID:226598">
+                                <span class="tei:term" target="_blank" xlink:to="http://census.bbaw.de/easydb/censusID=CensusID:152799">
+                                    <span class="tei:term" target="_blank" xlink:to="http://census.bbaw.de/easydb/censusID=CensusID:152474">
+                                        <span class="tei:term" target="_blank" xlink:to="http://census.bbaw.de/easydb/censusID=CensusID:153211">
+                                            <span class="tei:term" target="_blank" xlink:to="http://census.bbaw.de/easydb/censusID=CensusID:152801">
+                                                <span class="tei:term" target="_blank" xlink:to="http://census.bbaw.de/easydb/censusID=CensusID:153210">
+                                                    <span class="tei:term" target="_blank" xlink:to="http://census.bbaw.de/easydb/censusID=CensusID:150962">
+                                                        <span class="tei:term" target="_blank" xlink:to="http://arachne.uni-koeln.de/item/bauwerk/2100070">
+                                                            <em class="tei:emph">Triumpfbögen</em> des <span class="tei:persName" type="foaf:name" about="http://d-nb.info/gnd/118622951" xlink:to="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00396707">
+                                                                <em class="tei:emph">Titus</em>
+                                                            </span>
+                                                        </span>
+                                                    </span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </span>
+                            </span>
+                        </a> von <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/sandrart1679a/0029">num 10.</a>
+                        <br class="tei:lb"/>
+                    an <a class="tei:term" target="_blank" href="http://census.bbaw.de/easydb/censusID=CensusID:150908">
+                            <span class="tei:term" target="_blank" xlink:to="http://census.bbaw.de/easydb/censusID=CensusID:154297">
+                                <span class="tei:term" target="_blank" xlink:to="http://census.bbaw.de/easydb/censusID=CensusID:154299">
+                                    <span class="tei:term" target="_blank" xlink:to="http://arachne.uni-koeln.de/item/bauwerk/2100038">
+                                        <em class="tei:emph">del Arco Constantini</em>
+                                    </span>
+                                </span>
+                            </span>
+                        </a> des <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118623567" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">
+                            <em class="tei:emph">Tra-<br class="tei:lb"/>
+                jans</em>
+                        </a> Krieg mit den <em class="tei:emph">Daciern <span class="tei:bibl" type="bibo:Book"/>
+                        </em>
+                        <br class="tei:lb"/>
+                An einem <span class="tei:term">
+                            <em class="tei:emph">Ore fontis</em>
+                        </span> im <a class="tei:term" target="_blank" href="http://arachne.uni-koeln.de/item/bauwerk/2100311">
+                            <em class="tei:emph">Belvidire</em>
+                        </a>
+                        <br class="tei:lb"/>
+                        <span class="tei:bibl" type="bibo:Book"/> auch <span class="tei:bibl" type="bibo:Book"/> von der <a class="tei:term" target="_blank" href="http://arachne.uni-koeln.de/item/sammlungen/1000435">
+                            <em class="tei:emph">Villa Medices</em>
+                        </a>.<br class="tei:lb"/>
+                von öffentlichen Gebäuden <span class="tei:bibl" type="bibo:Book"/>
+                        <span class="tei:bibl" type="bibo:Book"/>
+                        <br class="tei:lb"/>
+                        <em class="tei:emph">Supplecatio</em> auf leztern sind<br class="tei:lb"/>
+                        <span class="tei:term">
+                            <em class="tei:emph">Salii</em> mit dem <em class="tei:emph">apex</em>
+                        </span>
+                        <span class="tei:bibl" type="bibo:Book"/> wieder<br class="tei:lb"/>
+                        <span class="tei:note">
+                            <em class="tei:emph">
+                                <a class="tei:bibl" type="bibo:Book" href="http://resolver.sub.uni-goettingen.de/purl?PPN667369910">Gori Thesaurus</a>
+                                <br class="tei:lb"/>
+                τίπτιχχ</em>
+                        </span>
+                        <br class="tei:lb"/>
+                        <span class="tei:note">
+                            <em class="tei:emph">
+                                <span class="tei:bibl" type="bibo:Book"/>
+                            </em>
+                        </span>
+                        <a name="p221"/>
+                        <hr class="tei:pb"/> 
+    
+                ein <span class="tei:term">Opfer <em class="tei:emph">cum Clypeo ex voto</em>
+                        </span>
+                        <span class="tei:bibl" type="bibo:Book"/>
+                        <br class="tei:lb"/>
+                der Ochs wird hingeführt, ein im Tem-<br class="tei:lb"/>
+                pel <span class="tei:bibl" type="bibo:Book"/>
+                        <em class="tei:emph">votum</em> der Kayser nimmt<br class="tei:lb"/>
+                auf 20 jah die Regierung an dieses<br class="tei:lb"/>
+                alles <span class="tei:bibl" type="bibo:Book"/>
+                        <span class="tei:bibl" type="bibo:Book"/> vortreflich Opfer des <em class="tei:emph">
+                            <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118558897" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00554429">Jupiters</a>
+                            <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118800574" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00589422">Juno</a>
+                            <br class="tei:lb"/>
+                            <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/11952354X" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00558205">Neptun</a>
+                            <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118641077" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00575540">Mercur</a>.</em>
+                    </p>
+                    <hr class="endOfDocument"/>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>weimar-hs-2056</doc>
+        <page>315</page>
+        <score>0.7115998</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p"> 4.) <a class="tei:term" target="_blank" href="http://census.bbaw.de/easydb/censusID=CensusID:150908">
+                            <span class="tei:term" target="_blank" xlink:to="http://census.bbaw.de/easydb/censusID=CensusID:154297">
+                                <span class="tei:term" target="_blank" xlink:to="http://census.bbaw.de/easydb/censusID=CensusID:154299">
+                                    <span class="tei:term" target="_blank" xlink:to="http://arachne.uni-koeln.de/item/bauwerk/2100038">
+                                        <em class="tei:emph">Arcus Constantini</em>
+                                    </span>
+                                </span>
+                            </span>
+                        </a> ist beynahe noch ganz. <br class="tei:lb"/>
+                        <em class="tei:emph">
+                            <span class="tei:bibl" type="bibo:Book">Rubeis 23</span>-<a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/bellori1690/0050">46.</a>
+                            <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/montfaucon1722f/0397">Montfaucon <span class="tei:choice">
+                                    <span class="tei:sic">Supplem. T. p.</span> [<span class="tei:corr">T. IV. tav.</span>]</span>
+                                <br class="tei:lb"/>
+                                    110.</a>
+                            <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/overbeke1709bd2/0019">Overbeck T. II. tab. 2.</a>
+                        </em> Nach der Schlacht <br class="tei:lb"/>
+                                    mit dem <em class="tei:emph">
+                            <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118732145" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00586749">Maxentio</a>
+                        </em> errichtet. Die Bas <br class="tei:lb"/>
+                                    reliefs in <em class="tei:emph">
+                            <span class="tei:bibl" type="bibo:Book">Admir. Romae. no. 47.</span>
+                            <span class="tei:bibl" type="bibo:Book">48.</span>
+                        </em> Die <br class="tei:lb"/>
+                                    Sculptur davon ist viel schöner als man zu <br class="tei:lb"/>
+                        <em class="tei:emph">
+                            <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118565184" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00945275">Constantins</a>
+                        </em> Zeiten arbeitete, und beziehet <br class="tei:lb"/>
+                                    sich auch gar nicht auf ihm. Zu der Zeit wa- <br class="tei:lb"/>
+                                    ren die guten Künstler schon rar. <em class="tei:emph">
+                            <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118565184" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00945275">Constantin</a>
+                        </em>
+                        <br class="tei:lb"/>
+                                    ließ die Sculptur von dem <a class="tei:term" target="_blank" href="http://arachne.uni-koeln.de/item/bauwerk/2100303">Bogen des <em class="tei:emph">
+                                <span class="tei:persName" type="foaf:name" about="http://d-nb.info/gnd/118623567" xlink:to="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">Tra- <br class="tei:lb"/>
+                                    jani</span>
+                            </em>
+                        </a> wegnehmen, und sie diesem anbringen. <br class="tei:lb"/>
+                                    Daher beziehen sie sich auch allein auf <em class="tei:emph">Daci</em>- <br class="tei:lb"/>
+                                    schen Krieg.</p>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>weimar-hs-2056</doc>
+        <page>315 350</page>
+        <score>0.7115998</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p"> 1.) <a class="tei:term" target="_blank" href="http://census.bbaw.de/easydb/censusID=CensusID:151057">
+                            <span class="tei:term" target="_blank" xlink:to="http://arachne.uni-koeln.de/item/bauwerk/2100089">
+                                <em class="tei:emph">Columna Trajana.</em>
+                            </span>
+                        </a>
+                        <a name="p316"/>
+                        <hr class="tei:pb"/>
+     
+                                    S. <a class="tei:bibl" type="bibo:Book" href="http://www.zvdd.de/dms/load/met/?PPN=urn%3Anbn%3Ade%3Absz%3A16-diglit-60267">
+                            <em class="tei:emph">Colonna Trajana designata e intagliata da <br class="tei:lb"/>
+                                    P. S. Bartolo con l´espositione latina d´Alfon- <br class="tei:lb"/>
+                                <span class="tei:gap"/>so Ciaccone Rom. apud G. G. de Rossi 119. <br class="tei:lb"/>
+                                <span class="tei:gap"/>pl.</em> gros <em class="tei:emph">Fol</em>.</a>
+                        <br class="tei:lb"/>
+                        <a class="tei:bibl" type="bibo:Book" href="http://resolver.sub.uni-goettingen.de/purl?PPN654913269">
+                            <em class="tei:emph">Historia utriusque belli Dacici Rom: Fol. 1576.</em>
+                        </a>
+                        <br class="tei:lb"/>
+                        <a class="tei:bibl" type="bibo:Book" href="http://resolver.sub.uni-goettingen.de/purl?PPN657572187">
+                            <em class="tei:emph">Columna Trajana Fabretti, Rom: <span class="tei:choice">
+                                    <span class="tei:sic">1682.</span> [<span class="tei:corr">1683.</span>]</span>1682.</em>
+                        </a> u<ins class="tei:expan">nd</ins>: <span class="tei:bibl" type="bibo:Book">1692. <em class="tei:emph">Fol.</em>
+                        </span>
+                        <br class="tei:lb"/>
+                        <a class="tei:bibl" type="bibo:Book" href="http://resolver.sub.uni-goettingen.de/purl?PPN659446898">
+                            <em class="tei:emph">Ad Columna Thes: num: Ad: Moretti</em>, mit den <br class="tei:lb"/>
+                            <span class="tei:gap"/>Erläuterungen des <em class="tei:emph">
+                                <span class="tei:persName" type="foaf:name" about="http://d-nb.info/gnd/118964925" xlink:to="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00402479">Gori</span>
+                            </em>.</a>
+                        <br class="tei:lb"/>
+                                    Sie ist inwendig hohl mit einer Windel Trep- <br class="tei:lb"/>
+                                    pe von 183. Stuffen und 43. Fenster 110. Fuß <br class="tei:lb"/>
+                                    hoch. Der Schaft der Säule ist unten 10. Fuß <br class="tei:lb"/>
+                                    im Diameter biß 11. Die Säule bestehet aus <br class="tei:lb"/>
+                                    23. Blok Marmor. Sie hat 21. Windungen <br class="tei:lb"/>
+                                    und 2500. Figuren der Marmor ist weiß. <br class="tei:lb"/>
+                        <span class="tei:bibl" type="bibo:Book">
+                            <em class="tei:emph">Barthelemy Mem: des Inscr: XXVIII. p. 387.</em>
+                        </span>
+                        <br class="tei:lb"/>
+                                    Bey der Errichtung muste ein hoher Berg <br class="tei:lb"/>
+                                    abgetragen und zum <em class="tei:emph">
+                            <a class="tei:term" target="_blank" href="http://arachne.uni-koeln.de/item/topographie/500033">Foro Trajani</a>
+                        </em> geeb- <br class="tei:lb"/>
+                                    net werden. Die Jnschrift sagt, daß der <br class="tei:lb"/>
+                                    Berg so hoch gewesen wie jezt die Säule. <br class="tei:lb"/>
+                        <em class="tei:emph">
+                            <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118765671" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00930951">Sixtus V.</a>
+                        </em> ließ sie <span class="tei:date">1487</span>. durch den <em class="tei:emph">
+                            <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118684175" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00398140">Car. Fon- <br class="tei:lb"/>
+                                    tana</a>
+                        </em> wieder aufrichten, und Statt der Ur- <br class="tei:lb"/>
+                                    ne und Colossal Statue des <em class="tei:emph">
+                            <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118623567" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">Trajani</a>
+                        </em>, die <br class="tei:lb"/>
+                                    Statue des <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118593323" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00396091">Heil<ins class="tei:expan">igen</ins>. <em class="tei:emph">Petri</em>
+                        </a> darauf setzen.</p>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>rom-heyne1798</doc>
+        <page>153</page>
+        <score>0.6225201</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p">Copeyen, alte und neue<del class="tei:del">s</del>, giebts eine Menge., auch<br class="tei:lb"/>
+                                    Nachbildungen mit Abänderungen. Dahin gehört<br class="tei:lb"/>
+                        <a class="tei:term" target="_blank" href="http://census.bbaw.de/easydb/censusID=CensusID:150779">
+                            <span class="tei:term" target="_blank" xlink:to="http://arachne.uni-koeln.de/item/objekt/19437">die <span class="tei:date">ao 97</span> aus dem Belvedere nach <span class="tei:placeName" type="gn:name" xlink:to="http://www.getty.edu/vow/TGNFullDisplay?find=&amp;place=&amp;nation=&amp;english=Y&amp;subjectid=7008038">Paris</span> gebrachte</span>
+                        </a>.<br class="tei:lb"/>
+                        <em class="tei:emph">
+                            <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/maffei1704/0021">Racolta 4.</a>
+                            <a class="tei:bibl" type="bibo:Book" href="http://arachne.uni-koeln.de/item/buchseite/182692">Perrier 85.</a>
+                            <a class="tei:bibl" type="bibo:Book" href="http://opac.sub.uni-goettingen.de/DB=1/PPNSET?PPN=14568895X">Episcop. 46.</a>
+                        </em>, An sich mittel-<br class="tei:lb"/>
+                                        mäßig, aber wichtig als Copie der <em class="tei:emph">
+                            <span class="tei:term">Gnidia<span style="display: none;" class="tei:note id-d2e20909 type-certainty resp-Wiegel">unidentifiziert</span>
+                            </span>.</em>, nach<br class="tei:lb"/>
+                                        Münzen. <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/visconti1782bd1/0125">
+                            <span class="tei:term" xlink:to="http://census.bbaw.de/easydb/censusID=CensusID:150779">
+                                <span class="tei:term" xlink:to="http://arachne.uni-koeln.de/item/objekt/19437">
+                                    <em class="tei:emph">Mus. Clem. 1. 11.</em>
+                                </span>
+                            </span>
+                        </a> mit einem vortreff<ins class="tei:expan">lichen</ins>
+                        <br class="tei:lb"/>
+                                        Kopfe. <em class="tei:emph">
+                            <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/giustiniani1640bd1/0044">Gall. Giust. <span class="tei:term" xlink:to="http://arachne.uni-koeln.de/item/objekt/26908">43.</span>
+                            </a>
+                            <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/giustiniani1640bd1/0045">
+                                <span class="tei:term" xlink:to="http://arachne.uni-koeln.de/item/rezeption/301408">44.</span>
+                            </a>
+                        </em> Mit dem Badegewand<br class="tei:lb"/>
+                        <em class="tei:emph">
+                            <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/maffei1704/0161">Racolta. <span class="tei:term" xlink:to="http://arachne.uni-koeln.de/item/rezeption/301424">144.</span>
+                            </a>
+                            <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/leplat1733/0138">Marbre <span class="tei:term" xlink:to="http://arachne.uni-koeln.de/item/objekt/5385">133.</span>
+                            </a>
+                            <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/gori1734bd3/0070">Mus. Flor. <span class="tei:term">34.<span style="display: none;" class="tei:note id-d2e20954 type-certainty resp-Wiegel">zerstört</span>
+                                </span>
+                            </a>
+                        </em>
+                        <a class="tei:term" target="_blank" href="http://arachne.uni-koeln.de/item/objekt/6585">mit<br class="tei:lb"/>
+                                    der Muschel</a>. <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/gori1734bd3/0071">
+                            <em class="tei:emph">35.</em>
+                        </a> In <a class="tei:placeName" target="_blank" type="gn:name" href="http://www.getty.edu/vow/TGNFullDisplay?find=&amp;place=&amp;nation=&amp;english=Y&amp;subjectid=1000070">Frankr<ins class="tei:expan">eich</ins>
+                        </a> waren: die berühmte<br class="tei:lb"/>
+                        <span class="tei:term">
+                            <span class="tei:persName" type="foaf:name" about="http://d-nb.info/gnd/11876800X" xlink:to="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00588078">Venus</span> von <span class="tei:persName" type="foaf:name" about="http://d-nb.info/gnd/118600354" xlink:to="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00906495">Richelieu</span>
+                            <span style="display: none;" class="tei:note id-d2e20979 type-certainty resp-Wiegel">unidentifiziert</span>
+                        </span>. <a class="tei:bibl" type="bibo:Book" href="http://resolver.sub.uni-goettingen.de/purl?PPN663503019">
+                            <em class="tei:emph">Thomassin 43.</em>
+                        </a> und die <a class="tei:term" target="_blank" href="http://arachne.uni-koeln.de/item/objekt/14811">Venus<br class="tei:lb"/>
+                                    von <span class="tei:placeName" type="gn:name" xlink:to="http://www.getty.edu/vow/TGNFullDisplay?find=&amp;place=&amp;nation=&amp;english=Y&amp;subjectid=7008775">Arles</span>
+                        </a>. Erstere trocknet ihre Haare; die andre<br class="tei:lb"/>
+                                    hält einen Spiegel in der Hand. <a class="tei:bibl" type="bibo:Book" href="http://resolver.sub.uni-goettingen.de/purl?PPN663503019">
+                            <em class="tei:emph">Thomassin. 3.</em>
+                        </a>
+                        <br class="tei:lb"/>
+                                        Die Hand ist aber von <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118717642" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00586248">Girardon</a> ergänzt; die<br class="tei:lb"/>
+                                    ganze Figur ist wohl eher eine Portraitstatue.<br class="tei:lb"/>
+                                        So ist z.B. auch <a class="tei:term" target="_blank" href="http://arachne.uni-koeln.de/item/objekt/22215">
+                            <em class="tei:emph">
+                                <span class="tei:persName" type="foaf:name" about="http://d-nb.info/gnd/118577514" xlink:to="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00558584">Marciana</span>
+                            </em>, <span class="tei:persName" type="foaf:name" about="http://d-nb.info/gnd/118623567" xlink:to="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">
+                                <span class="exist:match">Trajans</span>
+                            </span> Gemalin</a>
+                        <br class="tei:lb"/>
+                                    vorgestellt. <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/zanetti1743bd2/0041">
+                            <em class="tei:emph">Statue di S. Marco. II. 20.</em>
+                        </a>
+                        <br class="tei:lb"/>
+                    </p>
+                    <hr class="endOfDocument"/>
+                    <div class="note-link">
+                        <a name="d2e20909" href="#return_d2e20909" class="note-link-number">[1]</a>
+                        <br/>
+                    </div>
+                    <div class="note-link">
+                        <a name="d2e20954" href="#return_d2e20954" class="note-link-number">[2]</a>
+                        <br/>
+                    </div>
+                    <div class="note-link">
+                        <a name="d2e20979" href="#return_d2e20979" class="note-link-number">[3]</a>
+                        <br/>
+                    </div>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>rom-heyne1798</doc>
+        <page>252</page>
+        <score>0.6225201</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p">
+                        <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118672231" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00397834">Domitian</a>. <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118785931" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00400232">Nerva</a>. <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118623567" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">
+                            <span class="exist:match">Trajan</span>
+                        </a>. <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118544373" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00871103">Adrian</a>.<br class="tei:lb"/>
+                        <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118503499" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp01260638">Antoninus Pius</a>. <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118643150" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00994597">Lucius Verus</a>
+                        <a class="tei:ref" target="_blank" href="#p142">142</a>.<br class="tei:lb"/>
+                        <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118577468" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp01259662">Marcus Aurelius</a>. Sep. Chäronensis.<br class="tei:lb"/>
+                        <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118521713" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00394493">Commodus</a>. Constantin von Bernini. <a class="tei:ref" target="_blank" href="#p143">143</a>.<br class="tei:lb"/>
+                    Ein Philosoph (<a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118655108" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00580329">Belisarius</a>.)</p>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>bern-mss-muel-507</doc>
+        <page>469 551</page>
+        <score>0.6099427</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p">
+                        <span class="tei:note">
+                            <span class="tei:hi-underline">
+                                <em class="tei:emph">
+                                    <span class="tei:term">Crater Farnesianus</span>
+                                </em>
+                            </span>
+                        </span> Dann ist ein <em class="tei:emph">
+                            <span class="tei:term">Crater</span>
+                        </em> aus Achat im <em class="tei:emph">
+                            <a class="tei:term" target="_blank" href="http://arachne.uni-koeln.de/item/sammlungen/1000001">Museo<br class="tei:lb"/>
+                    
+          Farnese</a>
+                        </em> nun im Schlos <em class="tei:emph">Capo di Monte</em> zu <a class="tei:placeName" target="_blank" type="gn:name" href="http://www.getty.edu/vow/TGNFullDisplay?find=&amp;place=&amp;nation=&amp;english=Y&amp;subjectid=7004474">Nea<br class="tei:lb"/>
+          
+          pel</a>. Eine <span class="tei:term">Schale</span>
+                        <em class="tei:emph">V. <a class="tei:bibl" type="bibo:Book" href="http://resolver.sub.uni-goettingen.de/purl?PPN660703971">Maffei Museum Veronense
+            <br class="tei:lb"/>
+          
+          p. 355.</a>
+                            <a class="tei:bibl" type="bibo:Book" href="http://arachne.uni-koeln.de/books/Piranesi1765">Observatione literaria T. II. p. 339.</a>
+                        </em>
+                        <br class="tei:lb"/>
+          
+          In beyden ist das Kupfer von der Gröse<br class="tei:lb"/>
+          
+          der <em class="tei:emph">Vase</em>, 6. Zoll im <em class="tei:emph">Diameter</em>. Die Figuren<br class="tei:lb"/>
+          
+          sind 2. Zoll hoch. Es ist schön <em class="tei:emph">conservirt</em>, es <br class="tei:lb"/>
+          
+          sind inn- und auswendig Figuren darauf,<br class="tei:lb"/>
+          
+          die Zeichnung ist correkt, die Arbeit ausgeführt.<br class="tei:lb"/>
+          
+          Die Farbe ist weis und braun und der Künstler<br class="tei:lb"/>
+          
+          hat die Farben nicht benuzt. Das Werk ist<br class="tei:lb"/>
+          
+          bis jezt noch nie gut erklärt und unerklär-<br class="tei:lb"/>
+          
+          lich für alten Figuren. Die neueste Erklä-<br class="tei:lb"/>
+          
+          rung nach <em class="tei:emph">
+                            <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/119062518" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00913744">Maffei</a>
+                        </em> ist die bey <em class="tei:emph">
+                            <span class="tei:bibl" type="bibo:Book">Gorry historia
+            <br class="tei:lb"/>
+          
+          Glyptograph. p. 67.</span>
+                        </em> Der <em class="tei:emph">
+                            <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/11879356X" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00400483">Ptolomaeus Philadel-</a>
+                        </em>
+                        <br class="tei:lb"/>
+                        <a name="p552"/>
+                        <hr class="tei:pb"/>
+          
+          Th. II. Abschn. V. „10“ <span class="tei:hi-underline">Vorzüglich berühmte Steine</span>.<br class="tei:lb"/>
+                        <br class="tei:lb"/>
+                        <em class="tei:emph">
+                            <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/11879356X" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00400483">phus</a>
+                        </em> und <em class="tei:emph">
+                            <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118650513" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00578639">Arsinoe</a>
+                        </em> seine Gemahlin und Schwester<br class="tei:lb"/>
+          
+          zu finden glaubt<em class="tei:emph">. <a class="tei:persName" target="_blank" type="foaf:name" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp01308669">I. Bartoli</a>
+                        </em> zu <em class="tei:emph">
+                            <a class="tei:placeName" target="_blank" type="gn:name" href="http://www.getty.edu/vow/TGNFullDisplay?find=&amp;place=&amp;nation=&amp;english=Y&amp;subjectid=7005688">Turin</a>
+                        </em> sagt<br class="tei:lb"/>
+          
+          es sey <em class="tei:emph">adventus <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118623567" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">Trajani</a>
+                        </em> in <a class="tei:placeName" target="_blank" type="gn:name" href="http://www.getty.edu/vow/TGNFullDisplay?find=&amp;place=&amp;nation=&amp;english=Y&amp;subjectid=1000080">Italia</a>
+                        <span class="tei:date" property="dc:date" content="">A<span class="tei:hi-underline">o</span> 852. <em class="tei:emph">a. V. C.</em>
+                        </span>
+                        <br class="tei:lb"/>
+          
+          aber ohne weitern Grund. Das ist wohl sicher,<br class="tei:lb"/>
+          
+          daß es ein Familien Stück ist, aber sie sind als<br class="tei:lb"/>
+          
+          Gottheiten gekleidet. Die Figur, die auf einem<br class="tei:lb"/>
+                        <a class="tei:persName" target="_blank" type="foaf:name" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp01300406">Sphinx</a> sizt, ist die Hauptfigur. Was sie in der<br class="tei:lb"/>
+          
+          Hand halte ist schwierig, es scheint ein Schlan-<br class="tei:lb"/>
+          
+          genstab, oder eine Fakel zu seyn. Eher das<br class="tei:lb"/>
+          
+          erste, denn es steht einer mit Trinckhorn und <br class="tei:lb"/>
+          
+          zu beiden Seiten sizen zwei gleiche Figuren.<br class="tei:lb"/>
+          
+          Also ist die Familie in einer <em class="tei:emph">Fete</em> oder gar<br class="tei:lb"/>
+          
+          vergöttert. Die weiblichen Figuren sind sehr an-<br class="tei:lb"/>
+          
+          genehm. Der <a class="tei:persName" target="_blank" type="foaf:name" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp01300406">Sphinx</a> macht glauben, daß sich <br class="tei:lb"/>
+          
+          das <em class="tei:emph">Sujet</em> auf <a class="tei:placeName" target="_blank" type="gn:name" href="http://www.getty.edu/vow/TGNFullDisplay?find=&amp;place=&amp;nation=&amp;english=Y&amp;subjectid=7014986">Egipten</a> bezieht. Oben sind 2.<br class="tei:lb"/>
+          
+          fliegende Personen, wie die Winde, der eine<br class="tei:lb"/>
+          
+          mit dem Horn, man hält es für <em class="tei:emph">
+                            <span class="tei:persName" type="foaf:name">Cephirus</span>
+                        </em>. <br class="tei:lb"/>
+                    </p>
+                    <hr class="endOfDocument"/>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>weimar-hs-2056</doc>
+        <page>32</page>
+        <score>0.5750595</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p">
+                        <em class="tei:emph">
+                            <a class="tei:bibl" type="bibo:Book" href="http://opac.sub.uni-goettingen.de/DB=1/PPNSET?PPN=167240994">Baccolt. (Fler)</a> p. <a class="tei:ref" target="_blank" href="#p216">216</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://resolver.sub.uni-goettingen.de/purl?PPN666478783">Baglioni.</a> p. <a class="tei:ref" target="_blank" href="#p52">52</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://katalog.ub.uni-heidelberg.de/titel/66715468">Barbault.</a> p. <a class="tei:ref" target="_blank" href="#p149">149</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://catalog.hathitrust.org/Record/009328277">Barthelemi Mem. des Ins.</a>
+                            <a class="tei:ref" target="_blank" href="#p267">267</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://katalog.ub.uni-heidelberg.de/cgi-bin/titel.cgi?katkey=66723501">Bartoli Adm. rom.</a> p. <a class="tei:ref" target="_blank" href="#p157">157</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://resolver.sub.uni-goettingen.de/purl?PPN655004955">Bartoli Diss. sopr. al. antiqh.:</a>
+                            <br class="tei:lb"/>
+                           p. <a class="tei:ref" target="_blank" href="#p157">157</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/bartoli1693">Bartoli admir. rom.</a> p. <a class="tei:ref" target="_blank" href="#p260">260</a>. <a class="tei:ref" target="_blank" href="#p271">271</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://resolver.sub.uni-goettingen.de/purl?PPN661566374">Bartoli Collona antiquaca.</a>
+                            <a class="tei:ref" target="_blank" href="#p267">267</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/bartoli1673">Bartoli Collona <span class="exist:match">Trajan</span>.</a> p. <a class="tei:ref" target="_blank" href="#p267">267</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://resolver.sub.uni-goettingen.de/purl?PPN635662051">Bartoli Ant. Sep. da Santo <br class="tei:lb"/>
+                           Bartolo.</a> p. <a class="tei:ref" target="_blank" href="#p261">261</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://resolver.sub.uni-goettingen.de/purl?PPN636407608">Baudelot d´arival. de L´uti <br class="tei:lb"/>
+                           lité des voyages.</a>
+                            <a class="tei:ref" target="_blank" href="#p18">18</a>.</em> was dar- <br class="tei:lb"/>
+                           an aus zusezen. <em class="tei:emph">ib. <a class="tei:ref" target="_blank" href="#p332">332</a>.</em>
+                        <br class="tei:lb"/>
+                        <a class="tei:bibl" type="bibo:Book" href="http://resolver.sub.uni-goettingen.de/purl?PPN497825848">Baumgarten. Vorrede zu <em class="tei:emph">von <br class="tei:lb"/>
+                           Hoghe.</em>
+                        </a>
+                        <em class="tei:emph"> p. <a class="tei:ref" target="_blank" href="#p3">3</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://catalog.hathitrust.org/Record/000504644">Bayer. de Venere gnid</a>: p. <a class="tei:ref" target="_blank" href="#p108">108</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/beger1696ga">Berger. Thes. Brand.</a>
+                            <a class="tei:ref" target="_blank" href="#p47">47</a>. <a class="tei:ref" target="_blank" href="#p181">181</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://ora-web.swkk.de/digimo_online/digimo.entry?source=digimo.Digitalisat_anzeigen&amp;a_id=2304">Beger. Herculi.</a> p. <a class="tei:ref" target="_blank" href="#p60">60</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://www.zvdd.de/dms/load/met/?PPN=urn%3Anbn%3Ade%3Abvb%3A12-bsb10211504-6">Beger Spicilig. antiq.</a>
+                            <a class="tei:ref" target="_blank" href="#p103">103</a>. <a class="tei:ref" target="_blank" href="#p181">181</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/bartoli1691">Bellori (Giov. Pietr.) Lucer: <br class="tei:lb"/>
+                           Sepolch.</a> p. <a class="tei:ref" target="_blank" href="#p161">161</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://katalog.ub.uni-heidelberg.de/cgi-bin/titel.cgi?katkey=66723501">Bellori Admirand. rom.</a>
+                            <a class="tei:ref" target="_blank" href="#p237">237</a>. <br class="tei:lb"/>
+                            <a class="tei:ref" target="_blank" href="#p309">309</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://resolver.sub.uni-goettingen.de/purl?PPN635731460">Bellori veter. Ilust. philosoph.; <br class="tei:lb"/>
+                           Imagines</a> p. <a class="tei:ref" target="_blank" href="#p242">242</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/bellori1690">Bellori Veteres arcus augu- <br class="tei:lb"/>
+                               storum.</a> &amp;p. <a class="tei:ref" target="_blank" href="#p265">265</a>.</em>
+                        <a name="p33"/>
+                        <hr class="tei:pb"/>
+                        <em class="tei:emph">
+                            <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/menestrier1765">Bellino. Columna Theod</a>: <br class="tei:lb"/>
+                                  p. <a class="tei:ref" target="_blank" href="#p368">368</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://www.archive.org/details/laistoriauniver00biangoog">Bianchini Istor. univ</a>: p. <a class="tei:ref" target="_blank" href="#p18">18</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/bianchini1738">Bianchini Palazz di Ceas.</a>
+                            <a class="tei:ref" target="_blank" href="#p36">36</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://resolver.sub.uni-goettingen.de/purl?PPN635712202">Bianchini Raguaglia della <br class="tei:lb"/>
+                                  antichita.</a> p. <a class="tei:ref" target="_blank" href="#p137">137</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://katalog.ub.uni-heidelberg.de/titel/ppn802874258">Blainville.</a> p. <a class="tei:ref" target="_blank" href="#p73">73</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/venuti1736">Borioni.</a>
+                            <a class="tei:ref" target="_blank" href="#p139">139</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/venuti1736">Borioni Collectan. ant. rom.</a>
+                            <br class="tei:lb"/>
+                            <a class="tei:ref" target="_blank" href="#p178">178</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://digi.ub.uni-heidelberg.de/diglit/boissard1597ga">Boissard ant. romaines.</a> p. <br class="tei:lb"/>
+                            <a class="tei:ref" target="_blank" href="#p27">27</a>. <a class="tei:ref" target="_blank" href="#p28">28</a>. <br class="tei:lb"/>
+                            <span class="tei:bibl" type="bibo:Book">Boudart. Iconol.</span> p. <a class="tei:ref" target="_blank" href="#p10">10</a>. <br class="tei:lb"/>
+                            <span class="tei:bibl" type="bibo:Book">Boerner de Stat. Achil.</span>
+                            <a class="tei:ref" target="_blank" href="#p235">235</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://www.zvdd.de/dms/load/met/?PPN=urn%3Anbn%3Ade%3Abvb%3A12-bsb10221116-6">Bonada. Carm. ex marm. diss.</a>
+                            <br class="tei:lb"/>
+                                  p. <a class="tei:ref" target="_blank" href="#p237">237</a>. <a class="tei:ref" target="_blank" href="#p269">269</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://resolver.sub.uni-goettingen.de/purl?PPN643798072">Boetius de Boot. gem. et <br class="tei:lb"/>
+                                  lapid. histor.</a>
+                            <a class="tei:ref" target="_blank" href="#p281">281</a>. <a class="tei:ref" target="_blank" href="#p283">283</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://resolver.sub.uni-goettingen.de/purl?PPN661221164">Bonanni (Ph.) numism. summor. <br class="tei:lb"/>
+                                  pontificum.</a> &amp;pag. <a class="tei:ref" target="_blank" href="#p386">386</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://resolver.sub.uni-goettingen.de/purl?PPN643797181">Borchi (Marco) Minere della <br class="tei:lb"/>
+                                  pittura.</a> p. <a class="tei:ref" target="_blank" href="#p352">352</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://katalog.ub.uni-heidelberg.de/cgi-bin/titel.cgi?katkey=66861987">Bottari ad mus. Capit.</a> p. <a class="tei:ref" target="_blank" href="#p246">246</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://resolver.sub.uni-goettingen.de/purl?PPN667455116">le Bruyn. voyages.</a> p. <a class="tei:ref" target="_blank" href="#p268">268</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://resolver.sub.uni-goettingen.de/purl?PPN635708302">Bulinger, de pict. plast.</a> &amp; <a class="tei:ref" target="_blank" href="#p225">225</a>.</em>
+                        <br class="tei:lb"/>
+                        <a class="tei:bibl" type="bibo:Book" href="http://opac.sub.uni-goettingen.de/DB=1/PPNSET?PPN=129844853">Büsching. Nachricht. aus Ruß- <br class="tei:lb"/>
+                                  land.</a>
+                        <em class="tei:emph">p. <a class="tei:ref" target="_blank" href="#p324">324</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://catalog.hathitrust.org/Record/003918208">Burguetti Bibl. Ital.</a> p. <a class="tei:ref" target="_blank" href="#p408">408</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://opac.sub.uni-goettingen.de/DB=1/PPNSET?PPN=150312733">Buonarotti. Explic. ad. Demst.</a>
+                            <br class="tei:lb"/>
+                                  p. <a class="tei:ref" target="_blank" href="#p408">408</a>. <a class="tei:ref" target="_blank" href="#p331">331</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://resolver.sub.uni-goettingen.de/purl?PPN635101238">Buonarotti Istor. mem.</a> p. <a class="tei:ref" target="_blank" href="#p180">180</a>. <br class="tei:lb"/>
+                            <a class="tei:bibl" type="bibo:Book" href="http://www.zvdd.de/dms/load/met/?PPN=urn%3Anbn%3Ade%3Abvb%3A12-bsb10221743-6">Buonarotti Osserv. sopr. Alc. fragm.</a>
+                            <a class="tei:ref" target="_blank" href="#p264">264</a>.</em>
+                    </p>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>berlin-ms-germ-qrt-1666</doc>
+        <page>228</page>
+        <score>0.5750595</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p">
+                        <a class="tei:term" target="_blank" href="http://census.bbaw.de/easydb/censusID=CensusID:151814">
+                            <span class="tei:hi-underline">
+                                <em class="tei:emph">Galleri</em> bogen</span>
+                        </a>
+                        <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118633600" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00396916">
+                            <em class="tei:emph">Winckelmann</em>
+                        </a>
+                        <br class="tei:lb"/>
+                glaubt blos der Rest eines großen.<br class="tei:lb"/>
+                        <a class="tei:term" target="_blank" href="http://census.bbaw.de/easydb/censusID=CensusID:150908">
+                            <span class="tei:term" target="_blank" xlink:to="http://census.bbaw.de/easydb/censusID=CensusID:154297">
+                                <span class="tei:term" target="_blank" xlink:to="http://census.bbaw.de/easydb/censusID=CensusID:154299">
+                                    <span class="tei:term" target="_blank" xlink:to="http://arachne.uni-koeln.de/item/bauwerk/2100038">
+                                        <em class="tei:emph">
+                                            <span class="tei:hi-underline">Arco di Constantine</span>
+                                        </em>
+                                    </span>
+                                </span>
+                            </span>
+                        </a> unweit <span class="tei:term">
+                            <em class="tei:emph">Pons<br class="tei:lb"/>
+                Milonis</em>
+                        </span> große Anzahl <em class="tei:emph">Basreliefs</em>
+                        <br class="tei:lb"/>
+                    sind vom <a class="tei:term" target="_blank" href="http://arachne.uni-koeln.de/item/bauwerk/2100303">bogen des <em class="tei:emph">
+                                <span class="exist:match">Trajans</span>
+                            </em>
+                        </a> viele be-<br class="tei:lb"/>
+                ziehen sich wirklich auf <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118565184" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00945275">
+                            <em class="tei:emph">Constantin</em>
+                        </a>
+                        <br class="tei:lb"/>
+                und <span class="tei:persName" type="foaf:name">
+                            <em class="tei:emph">illuxentius</em>
+                        </span>.</p>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <result>
+        <doc>rom-heyne1798</doc>
+        <page>251</page>
+        <score>0.4980161</score>
+        <fragment>
+            <html xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:gn="http://www.geonames.org/ontology#" xmlns="http://www.w3.org/1999/xhtml" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:TEI="http://www.tei-c.org/ns/1.0" xmlns:bibo="http://purl.org/ontology/bibo/1.3/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:exist="http://exist.sourceforge.net/NS/exist" version="XHTML+RDFa 1.0" type="bibo:Manuscript">
+                <body>
+                    <p class="tei:p">Griech<ins class="tei:expan">ische</ins> Colonien. Plünderungen.<br class="tei:lb"/>
+                    Griech<ins class="tei:expan">ische</ins> Sklaven. Luxus unter<br class="tei:lb"/>
+                        <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118505122" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00971385">August</a> - Arabesken. Gravüre. <a class="tei:ref" target="_blank" href="#p54">54</a>.<br class="tei:lb"/>
+                        <a class="tei:placeName" target="_blank" type="gn:name" href="http://www.getty.edu/vow/TGNFullDisplay?find=&amp;place=&amp;nation=&amp;english=Y&amp;subjectid=7000874">Roms</a> Brand unter <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118586998" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00982828">Nero</a>. Das<br class="tei:lb"/>
+                    goldene Haus - Vespasians <em class="tei:emph">templum<br class="tei:lb"/>
+                    pacis</em>. Domitian. <em class="tei:emph">templum<br class="tei:lb"/>
+                    flaviæ gentis</em>. <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118623567" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00917510">
+                            <span class="exist:match">Trajan</span>
+                        </a>; <em class="tei:emph">forum</em>
+                        <a class="tei:ref" target="_blank" href="#p55">55</a>
+                        <br class="tei:lb"/>
+                        <em class="tei:emph">Trajani</em>; <em class="tei:emph">columna Trajani</em>.<br class="tei:lb"/>
+                        <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118544373" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00871103">Hadrian</a>. Aegyptisch-Griech<ins class="tei:expan">ischer</ins> Styl.<br class="tei:lb"/>
+                        <em class="tei:emph">
+                            <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118649639" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00578329">Antinous</a>
+                        </em>.<br class="tei:lb"/>
+                        <br class="tei:cb"/>
+                        <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118577468" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp01259662">M. Aurelius</a>. mystischer Geschmack <a class="tei:ref" target="_blank" href="#p55">55</a>.<br class="tei:lb"/>
+                        <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118521713" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00394493">Commodus</a>. gänzlicher Verfall.<br class="tei:lb"/>
+                        <a class="tei:persName" target="_blank" type="foaf:name" about="http://d-nb.info/gnd/118565184" href="http://thesaurus.cerl.org/cgi-bin/record.pl?rid=cnp00945275">Constantin</a>. <a class="tei:placeName" target="_blank" type="gn:name" href="http://www.getty.edu/vow/TGNFullDisplay?find=&amp;place=&amp;nation=&amp;english=Y&amp;subjectid=7002473">Constantinopel</a>
+                        <a class="tei:ref" target="_blank" href="#p56">56</a>.</p>
+                </body>
+            </html>
+        </fragment>
+    </result>
+    <duration type="serializer">-PT10.559S</duration>
+</results>

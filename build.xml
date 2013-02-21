@@ -1,0 +1,736 @@
+<project name="Archaeo18 Test" basedir="." default="serve" xmlns:artifact="antlib:org.apache.maven.artifact.ant">
+  <!--
+Usage:
+svn co https://develop.sub.uni-goettingen.de/repos/ent/archaeo18/branches/archaeo18
+cd archaeo18
+ant
+-->
+  <!-- 
+    TODO:
+    * Look if this should be integrated: https://github.com/h5bp/ant-build-script
+  
+  -->
+
+  <!-- Settings -->
+  <!-- Jetty settings -->
+  <property name="jetty.port" value="8080"/>
+
+  <!-- directories for the build system -->
+  <property name="target.dir" value="./target"/>
+  <property name="lib.dir" value="${target.dir}/lib"/>
+  <property name="lib.build.dir" value="${lib.dir}/build"/>
+  <property name="lib.jetty.dir" value="${lib.dir}/jetty"/>
+  <property name="jetty.dir.tmp" value="${target.dir}/tmp"/>
+
+  <!-- Maven stuff -->
+  <property name="maven.install.version" value="2.1.3"/>
+  <property name="maven.jar.file" value="${lib.build.dir}/maven-ant-tasks-${maven.install.version}.jar"/>
+  <property name="maven.download.url" value="http://repo1.maven.org/maven2/org/apache/maven/maven-ant-tasks/${maven.install.version}/maven-ant-tasks-${maven.install.version}.jar"/>
+
+  <!-- Servlet configuration -->
+  <property name="servlet.archaeo18.webxml" value="./WEB-INF/web.xml"/>
+  <property name="servlet.proxy.webxml" value="./testdata/proxy/WEB-INF/web.xml"/>
+
+  <!-- Test data -->
+  <property name="test.dir" value="./testdata"/>
+  <property name="data.download.dir.indices" value="${test.dir}/indices"/>
+  <property name="data.download.dir.kml" value="${test.dir}/kml"/>
+  <property name="data.download.dir.cloud" value="${test.dir}/cloud"/>
+  <property name="data.download.dir.docs" value="${test.dir}/docs"/>
+
+  <!-- Patches -->
+  <property name="patch.dir" value="${test.dir}/patches"/>
+
+  <!-- eXist Backend -->
+  <property name="exist.base.url" value="http://134.76.21.92:8080"/>
+  <property name="exist.queries.url" value="${exist.base.url}/exist/rest/db/archaeo18/queries"/>
+  <property name="exist.entities.url" value="${exist.queries.url}/experimental/listEntities.xq?format=xhtml&amp;facet="/>
+
+  <!-- Test data for the indices page and their local names -->
+  <property name="exist.entities.persName.url" value="${exist.entities.url}tei:persName"/>
+  <property name="exist.entities.placeName.url" value="${exist.entities.url}tei:placeName"/>
+  <property name="exist.entities.term.url" value="${exist.entities.url}tei:term"/>
+  <property name="exist.entities.bibl.url" value="${exist.entities.url}tei:bibl"/>
+  <!-- local names -->
+  <property name="exist.entities.persName.local" value="${data.download.dir.indices}/listEntities.xq$facet=tei:persName&amp;format=xhtml"/>
+  <property name="exist.entities.placeName.local" value="${data.download.dir.indices}/listEntities.xq$facet=tei:placeName&amp;format=xhtml"/>
+  <property name="exist.entities.term.local" value="${data.download.dir.indices}/listEntities.xq$facet=tei:term&amp;format=xhtml"/>
+  <property name="exist.entities.bibl.local" value="${data.download.dir.indices}/listEntities.xq$facet=tei:bibl&amp;format=xhtml"/>
+
+  <!-- KML data download -->
+  <property name="exist.kml.url" value="${exist.queries.url}/experimental/listEntities.xq?format=kml&amp;facet="/>
+  <property name="exist.kml.placeName.url" value="${exist.kml.url}tei:placeName"/>
+  <property name="exist.kml.placeName.local" value="${data.download.dir.kml}/listEntities.xq$facet=tei:placeName&amp;format=kml"/>
+  <!-- cloud data download -->
+  <property name="exist.cloud.url" value="${exist.queries.url}/experimental/listEntities.xq?format=cloud&amp;facet="/>
+  <property name="exist.cloud.persName.url" value="${exist.cloud.url}tei:persName"/>
+  <property name="exist.cloud.placeName.url" value="${exist.cloud.url}tei:placeName"/>
+  <property name="exist.cloud.term.url" value="${exist.cloud.url}tei:term"/>
+  <property name="exist.cloud.persName.local" value="${data.download.dir.cloud}/listEntities.xq$facet=tei:persName&amp;format=cloud"/>
+  <property name="exist.cloud.placeName.local" value="${data.download.dir.cloud}/listEntities.xq$facet=tei:placeName&amp;format=cloud"/>
+  <property name="exist.cloud.term.local" value="${data.download.dir.cloud}/listEntities.xq$facet=tei:term&amp;format=cloud"/>
+  <!-- Othe data like facets -->
+  <property name="exist.other.facets.url" value="${exist.queries.url}/getFacets.xq"/>
+  <property name="exist.other.docs.url" value="${exist.queries.url}/listDocs.xquery"/>
+  <property name="exist.other.facets.local" value="${data.download.dir.docs}/getFacets.xq"/>
+  <property name="exist.other.docs.local" value="${data.download.dir.docs}/listDocs.xquery"/>
+
+  <!-- JavaScript Stuff -->
+  <property name="js.dir" value="./js"/>
+  <property name="js.merged.file" value="script.js"/>
+  <property name="js.target.dir" value="${target.dir}/${js.dir}"/>
+  <property name="js.target.file" value="${js.target.dir}/${js.merged.file}"/>
+  <!--
+  <property name="js.file" value="${js.dir}/script-min.js"/>
+-->
+
+  <!-- Env JS -->
+  <property name="lib.envjs.download.url" value="http://www.envjs.com/dist/env.rhino.1.2.js"/>
+  <property name="lib.envjs.git.url" value="https://github.com/envjs/env-js.git"/>
+  <property name="lib.envjs.dir" value="${lib.dir}/envjs"/>
+  <property name="lib.envjs.local" value="${lib.envjs.dir}/env.rhino.1.2.js"/>
+  <property name="rhiro.version" value="1.7R4"/>
+
+  <!-- PHP stuff -->
+  <property name="quercus.version" value="4.0.25"/>
+  <property name="lib.quercus.dir" value="${lib.dir}/quercus"/>
+  <property name="php.dir" value="."/>
+  <property name="html.dir" value="${target.dir}/html"/>
+  <property name="html.suffix" value=".html"/>
+  <!-- Tiny PNG and images -->
+  <property name="img.dir" value="./img"/>
+  <property name="tinypng.endpoint" value="http://api.tinypng.org/api/shrink"/>
+  <property name="tinypng.apikey" value="aLqbWi6VBpKM3rGvFVw2W4TTVPFrSEEP"/>
+  <property name="img.tiny.dir" value="${target.dir}/img"/>
+
+  <!-- Ant contrib -->
+  <property name="antcontrib.version" value="1.0b3"/>
+
+  <!-- HTTP Client for Ant -->
+  <!-- See http://missinglinkcode.wordpress.com/2011/03/15/apache-ant-http-task/ -->
+  <property name="ant.http.task.url" value="http://missing-link.googlecode.com/files/ml-ant-http-1.1.3.zip"/>
+  <property name="ant.http.task.file" value="${lib.build.dir}/ml-ant-http-1.1.3.zip"/>
+  <!-- JGit integration -->
+  <property name="jgit.version" value="2.1.0.201209190230-r"/>
+
+  <!-- SASS & CSS stuff -->
+  <property name="jruby.version" value="1.6.8"/>
+  <property name="jruby.home" value="${target.dir}/jruby.home"/>
+  <property name="lib.jruby.dir" value="${lib.dir}/jruby"/>
+  <property name="sass.downlad.git.url" value="https://github.com/nex3/sass.git"/>
+  <property name="lib.sass.dir" value="${lib.dir}/sass"/>
+  <property name="css.dir" value="./css"/>
+  <property name="css.file" value="${css.dir}/style.css"/>
+
+  <!-- YUI -->
+  <property name="yui.version" value="2.4.7"/>
+
+  <!-- Configuration files -->
+  <property name="ropen.conf" value="./edition/js/Config/EditionProperties.js"/>
+  <property name="ropen.conf.local" value="./testdata/conf/EditionProperties.local.js"/>
+  <property name="ropen.conf.remote" value="./testdata/conf/EditionProperties.remote.js"/>
+  <!-- Experimental compass settings -->
+
+  <target name="init" depends="">
+    <!-- Let the user override propeties -->
+    <!-- See http://ant.apache.org/manual/Tasks/property.html -->
+    <property file="./build.properties"/>
+    <mkdir dir="${lib.dir}"/>
+    <mkdir dir="${lib.build.dir}"/>
+    <mkdir dir="${lib.jetty.dir}"/>
+    <mkdir dir="${target.dir}"/>
+    <mkdir dir="${js.target.dir}"/>
+    <!-- Created by git, if git is used
+    <mkdir dir="${lib.sass.dir}"/>
+    -->
+    <mkdir dir="${lib.jruby.dir}"/>
+    <mkdir dir="${lib.quercus.dir}"/>
+    <mkdir dir="${jetty.dir.tmp}"/>
+    <mkdir dir="${lib.envjs.dir}"/>
+    <mkdir dir="${img.tiny.dir}"/>
+  </target>
+
+  <!-- Download of dependencies of the build system -->
+
+  <target name="maven.download" unless="skip.download" depends="init">
+    <echo message="Downloading and installing Maven..."/>
+    <get src="${maven.download.url}" dest="${maven.jar.file}" usetimestamp="true"/>
+    <path id="maven.lib.path">
+      <fileset dir="${lib.build.dir}" includes="*.jar"/>
+    </path>
+    <taskdef uri="antlib:org.apache.maven.artifact.ant" resource="org/apache/maven/artifact/ant/antlib.xml" classpathref="maven.lib.path"/>
+  </target>
+
+  <target name="ant.http.task.download" depends="init">
+    <echo message="Downloading and installing Ant HTTP Tasks..."/>
+    <get src="${ant.http.task.url}" dest="${ant.http.task.file}" usetimestamp="true"/>
+    <unzip src="${ant.http.task.file}" dest="${lib.build.dir}">
+      <patternset>
+        <include name="*.jar"/>
+      </patternset>
+    </unzip>
+    <path id="ant.http.task.classpath">
+      <fileset dir="${lib.build.dir}">
+        <include name="*.jar"/>
+      </fileset>
+    </path>
+    <taskdef name="http" classname="org.missinglink.ant.task.http.HttpClientTask">
+      <classpath refid="ant.http.task.classpath"/>
+    </taskdef>
+  </target>
+
+  <target name="jruby.download" depends="maven.download">
+    <artifact:dependencies filesetId="jruby.local.classpath">
+      <dependency groupId="org.jruby" artifactId="jruby-complete" version="${jruby.version}"/>
+    </artifact:dependencies>
+    <copy todir="${lib.jruby.dir}">
+      <fileset refid="jruby.local.classpath"/>
+      <mapper type="flatten"/>
+    </copy>
+    <path id="jruby.plugin.classpath">
+      <fileset dir="${lib.jruby.dir}" includes="*.jar"/>
+    </path>
+  </target>
+
+  <target name="antcontrib.install" depends="maven.download">
+    <artifact:dependencies pathId="antcontrib.plugin.classpath">
+      <dependency groupId="ant-contrib" artifactId="ant-contrib" version="${antcontrib.version}"/>
+    </artifact:dependencies>
+    <taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="antcontrib.plugin.classpath"/>
+  </target>
+
+  <target name="yui.install" depends="maven.download">
+    <artifact:dependencies pathId="yui.plugin.classpath">
+      <dependency groupId="com.yahoo.platform.yui" artifactId="yuicompressor" version="${yui.version}"/>
+    </artifact:dependencies>
+  </target>
+
+  <target name="jetty.download" depends="maven.download">
+    <artifact:dependencies filesetId="jetty.local.files" pathId="jetty.plugin.classpath">
+      <dependency groupId="org.mortbay.jetty" artifactId="jetty-ant" version="7.6.0.v20120127"/>
+      <dependency groupId="org.tuckey" artifactId="urlrewritefilter" version="4.0.3"/>
+      <dependency groupId="commons-httpclient" artifactId="commons-httpclient" version="3.1"/>
+    </artifact:dependencies>
+    <copy todir="${lib.jetty.dir}">
+      <fileset refid="jetty.local.files"/>
+      <mapper type="flatten"/>
+    </copy>
+    <taskdef classpathref="jetty.plugin.classpath" resource="tasks.properties" loaderref="jetty.loader"/>
+    <typedef name="selectChannelConnector" classname="org.eclipse.jetty.server.nio.SelectChannelConnector" classpathref="jetty.plugin.classpath" loaderref="jetty.loader"/>
+  </target>
+
+  <!-- Experimental dependencies -->
+
+  <target name="jgit.install" depends="maven.download">
+    <artifact:dependencies pathId="jruby.plugin.classpath">
+      <dependency groupId="org.eclipse.jgit" artifactId="org.eclipse.jgit.ant" version="${jgit.version}"/>
+    </artifact:dependencies>
+    <taskdef resource="org/eclipse/jgit/ant/ant-tasks.properties" classpathref="jgit.plugin.classpath"/>
+  </target>
+
+  <!-- TODO: This should be done via Git -->
+  <target name="envjs.download" unless="skip.download" depends="init">
+    <get src="${lib.envjs.download.url}" dest="${lib.envjs.local}" usetimestamp="true"/>
+  </target>
+
+  <target name="rhino.install" depends="maven.download">
+    <artifact:dependencies pathId="rhino.plugin.classpath" filesetId="rhino.local.files">
+      <dependency groupId="org.mozilla" artifactId="rhino" version="${rhiro.version}"> </dependency>
+    </artifact:dependencies>
+  </target>
+
+  <target name="php.install" depends="maven.download">
+    <artifact:dependencies pathId="quercus.plugin.classpath" filesetId="quercus.local.files">
+      <artifact:remoteRepository id="quercus" url="http://repository.threecrickets.com/maven/"/>
+      <dependency groupId="com.caucho" artifactId="quercus" version="${quercus.version}">
+        <exclusion groupId="javax" artifactId="javaee-api"/>
+      </dependency>
+    </artifact:dependencies>
+    <copy todir="${lib.quercus.dir}">
+      <fileset refid="quercus.local.files"/>
+      <mapper type="flatten"/>
+    </copy>
+  </target>
+
+  <!-- Ruby Setup -->
+  <!-- This is need, since the class library of ruby isn't found, if started from jar file -->
+  <target name="jruby.home" depends="sass.check.gem.return" unless="sass.gem.exists">
+    <mkdir dir="${jruby.home}"/>
+    <!-- /META-INF/jruby.home/ -->
+    <unzip dest="${jruby.home}">
+      <patternset>
+        <include name="META-INF/jruby.home/**/*.*"/>
+      </patternset>
+      <fileset dir="${lib.jruby.dir}">
+        <include name="jruby-complete-*.jar"/>
+      </fileset>
+      <!-- See http://ant.apache.org/manual/Types/mapper.html -->
+      <cutdirsmapper dirs="2"/>
+    </unzip>
+  </target>
+
+  <!-- SASS Stuff, we have two methods, via Git or Ruby Gem, the first one was easier to set up, the last one has more features.
+       Git based integration isn't used anymore, just still here for reference.
+  -->
+
+  <!-- Ugly hack to check if Sass is alredy there, otherwise Git will fail -->
+  <!-- See http://stackoverflow.com/questions/1163998/do-i-have-any-way-to-check-the-existence-of-a-directory-in-ant-not-a-file -->
+
+  <target name="sass.dir.check">
+    <condition property="sass.dir.exists">
+      <available file="${lib.sass.dir}" type="dir"/>
+    </condition>
+  </target>
+
+  <target name="sass.download" depends="sass.dir.check, jgit.install" unless="${sass.dir.exists}">
+    <!-- see http://wiki.eclipse.org/JGit/User_Guide#Ant_Tasks -->
+    <git-clone uri="${sass.downlad.git.url}" dest="${lib.sass.dir}"/>
+  </target>
+
+  <target name="sass.check.gem" depends="jruby.download">
+    <!-- Process returns 0 if sass is installed, 1 otherwise -->
+    <java classname="org.jruby.Main" fork="true" dir="." failonerror="false" resultproperty="sass.check.gem.return.code">
+      <sysproperty key="jruby.home" value="${jruby.home}"/>
+      <classpath>
+        <fileset dir="${lib.jruby.dir}" includes="*.jar"/>
+      </classpath>
+      <arg value="-e"/>
+      <arg value="require 'rubygems'"/>
+      <arg value="-e"/>
+      <arg value="Gem::Specification.find_by_name('sass').nil? ? abort : exit"/>
+      <arg value=""/>
+    </java>
+  </target>
+
+  <target name="sass.check.gem.return" depends="sass.check.gem">
+    <condition property="sass.gem.exists">
+      <equals arg1="${sass.check.gem.return.code}" arg2="0"/>
+    </condition>
+  </target>
+
+  <target name="sass.download.gem" depends="jruby.home" unless="sass.gem.exists">
+    <!-- See http://sass-lang.com/tutorial.html -->
+    <!-- See http://kenai.com/projects/jruby/pages/GettingStarted#How_Do_I_Run_rake,_gem,_etc? -->
+    <java classname="org.jruby.Main" fork="true" dir=".">
+      <sysproperty key="jruby.home" value="${jruby.home}"/>
+      <classpath>
+        <fileset dir="${lib.jruby.dir}" includes="*.jar"/>
+      </classpath>
+      <arg value="-S"/>
+      <arg value="gem"/>
+      <arg value="install"/>
+      <arg value="sass"/>
+    </java>
+  </target>
+
+  <!-- Experimental compass stuff, just a clone off Sass -->
+
+  <target name="compass.check.gem" depends="jruby.download">
+    <!-- Process returns 0 if sass is installed, 1 otherwise -->
+    <java classname="org.jruby.Main" fork="true" dir="." failonerror="false" resultproperty="compass.check.gem.return.code">
+      <sysproperty key="jruby.home" value="${jruby.home}"/>
+      <classpath>
+        <fileset dir="${lib.jruby.dir}" includes="*.jar"/>
+      </classpath>
+      <arg value="-e"/>
+      <arg value="require 'rubygems'"/>
+      <arg value="-e"/>
+      <arg value="Gem::Specification.find_by_name('compass').nil? ? abort : exit"/>
+      <arg value=""/>
+    </java>
+  </target>
+
+  <target name="compass.check.gem.return" depends="compass.check.gem">
+    <condition property="compass.gem.exists">
+      <equals arg1="${compass.check.gem.return.code}" arg2="0"/>
+    </condition>
+  </target>
+
+  <target name="compass.download.gem" depends="jruby.home" unless="compass.gem.exists">
+    <!-- See http://sass-lang.com/tutorial.html -->
+    <!-- See http://kenai.com/projects/jruby/pages/GettingStarted#How_Do_I_Run_rake,_gem,_etc? -->
+    <java classname="org.jruby.Main" fork="true" dir=".">
+      <sysproperty key="jruby.home" value="${jruby.home}"/>
+      <classpath>
+        <fileset dir="${lib.jruby.dir}" includes="*.jar"/>
+      </classpath>
+      <arg value="-S"/>
+      <arg value="gem"/>
+      <arg value="install"/>
+      <arg value="compass"/>
+    </java>
+  </target>
+
+  <!-- Jety related targets -->
+
+  <target name="jetty.start" depends="jetty.download">
+    <!-- 
+    See http://docs.codehaus.org/display/JETTY/Ant+Jetty+Plugin for configuration
+    For newer Versions
+    http://www.eclipse.org/jetty/documentation/current/jetty-ant.html
+    -->
+    <echo>starting Jetty...</echo>
+    <jetty tempDirectory="${jetty.dir.tmp}">
+      <connectors>
+        <selectChannelConnector port="${jetty.port}"/>
+      </connectors>
+      <webapp webXmlFile="${servlet.archaeo18.webxml}" contextPath="/archaeo18" name="archaeo18" warfile="."/>
+      <webapp webXmlFile="${servlet.proxy.webxml}" contextPath="/" name="proxy" warfile="${test.dir}/proxy"/>
+    </jetty>
+  </target>
+
+  <!-- Prototype of patch, can be used to have one development mode but default to server deployment -->
+
+  <target name="config.patch">
+    <patch patchfile="${patch.dir}/indeces-local.patch" originalfile="./a18/lib/archaeo18/Archaeo18Properties.js"/>
+  </target>
+
+  <target name="clean" depends="ropen.config.remote">
+    <!--
+    <delete dir="${lib.dir}"/>
+    -->
+    <delete dir="${target.dir}"/>
+  </target>
+
+  <!-- Downloads the test data from eXist -->
+  <!-- TODO: Downlaod KML and Cloud data as well -->
+  <target name="data.download" depends="data.download.entities, data.download.kml, data.download.cloud, data.download.docs"/>
+
+  <target name="data.download.kml">
+    <get src="${exist.kml.placeName.url}" dest="${exist.kml.placeName.local}"/>
+  </target>
+
+  <target name="data.download.cloud">
+    <get src="${exist.cloud.persName.url}" dest="${exist.cloud.persName.local}"/>
+    <get src="${exist.cloud.placeName.url}" dest="${exist.cloud.placeName.local}"/>
+    <get src="${exist.cloud.term.url}" dest="${exist.cloud.term.local}"/>
+  </target>
+
+  <target name="data.download.entities">
+    <get src="${exist.entities.persName.url}" dest="${exist.entities.persName.local}"/>
+    <get src="${exist.entities.placeName.url}" dest="${exist.entities.placeName.local}"/>
+    <get src="${exist.entities.term.url}" dest="${exist.entities.term.local}"/>
+    <get src="${exist.entities.bibl.url}" dest="${exist.entities.bibl.local}"/>
+  </target>
+
+  <target name="data.download.docs">
+    <get src="${exist.other.facets.url}" dest="${exist.other.facets.local}"/>
+    <get src="${exist.other.docs.url}" dest="${exist.other.docs.local}"/>
+  </target>
+  <!-- Work in progress to create a deployment package -->
+  <target name="war.structure" depends="init">
+    <property name="war.dir" value="${target.dir}/webapp"/>
+    <property name="war.file" value="${target.dir}/archaeo18.war"/>
+    <property name="war.dir.lib" value="${war.dir}/WEB-INF/lib"/>
+    <property name="war.dir.css.dir" value="${war.dir}/${css.dir}"/>
+    <property name="war.dir.css.file" value="${war.dir}/${css.file}"/>
+    <property name="war.dir.js.dir" value="${war.dir}/${js.dir}"/>
+    <property name="war.dir.js.file" value="${war.dir.js.dir}/${js.merged.file}"/>
+
+    <mkdir dir="${war.dir}"/>
+    <mkdir dir="${war.dir.lib}"/>
+    <mkdir dir="${war.dir.css.dir}"/>
+    <mkdir dir="${war.dir.js.dir}"/>
+  </target>
+
+  <target name="war.dependencies" depends="maven.download, war.structure">
+    <artifact:dependencies filesetId="war.classpath">
+      <artifact:remoteRepository id="quercus" url="http://repository.threecrickets.com/maven/"/>
+      <!-- This is only used in development
+      <dependency groupId="org.tuckey" artifactId="urlrewritefilter" version="4.0.3"/>
+      -->
+      <dependency groupId="com.caucho" artifactId="quercus" version="${quercus.version}"/>
+    </artifact:dependencies>
+    <copy todir="${war.dir.lib}">
+      <fileset refid="war.classpath"/>
+      <mapper type="flatten"/>
+    </copy>
+  </target>
+
+  <!-- This currently only a demo, need to check dependencies first -->
+  <target name="war.js" depends="war.js.dependencies, yui.install, war.structure">
+    <!-- See http://www.samaxes.com/2009/05/combine-and-minimize-javascript-and-css-files-for-faster-loading/ -->
+    <!-- See also https://github.com/yui/yuicompressor/blob/master/build.xml -->
+    <concat destfile="${js.target.file}">
+      <fileset dir="${js.dir}" includes="*.js">
+        <exclude name="plugins.js"/>
+      </fileset>
+    </concat>
+    <java classname="com.yahoo.platform.yui.compressor.YUICompressor" fork="true" dir="." classpathref="yui.plugin.classpath">
+      <arg value="--type"/>
+      <arg value="js"/>
+      <arg value="${js.target.file}"/>
+      <arg value="-o"/>
+      <arg value="${war.dir.js.file}"/>
+    </java>
+  </target>
+
+  <!-- http://www.webjars.org/ -->
+  <target name="war.js.dependencies" depends="maven.download, war.structure">
+    <property name="war.dir.js.dir.lib" value="${war.dir.js.dir}/libs"/>
+    <artifact:dependencies filesetId="war.js.files">
+      <dependency groupId="org.webjars" artifactId="jquery" version="1.8.3"/>
+    </artifact:dependencies>
+    <!-- TODO: find a suitable mechanism for dependencies -->
+
+  </target>
+
+  <target name="war.css" depends="yui.install, scss.compile, war.structure">
+    <!-- https://github.com/yui/yuicompressor/blob/master/src/com/yahoo/platform/yui/compressor/YUICompressor.java -->
+    <java classname="com.yahoo.platform.yui.compressor.YUICompressor" fork="true" dir="." classpathref="yui.plugin.classpath">
+      <arg value="--type"/>
+      <arg value="css"/>
+      <arg value="${css.file}"/>
+      <arg value="-o"/>
+      <arg value="${war.dir.css.file}"/>
+    </java>
+  </target>
+
+  <target name="war.content" depends="war.js">
+    <copy todir="${war.dir}">
+      <fileset dir=".">
+        <include name="*.txt"/>
+        <!-- This is handeled by the filter below
+        <include name="*.php"/>
+        <include name="*.html"/>
+        -->
+        <include name="*.ico"/>
+        <include name="*.xml"/>
+        <include name="img/**"/>
+        <include name="WEB-INF/web.xml"/>
+        <exclude name="build**"/>
+        <exclude name="css**"/>
+      </fileset>
+    </copy>
+    <!-- Filter PHP & HTML -->
+    <copy todir="${war.dir}">
+      <fileset dir=".">
+        <include name="*.php"/>
+        <include name="*.html"/>
+      </fileset>
+      <!-- TODO: Use the variables of the buid system in here -->
+      <filterchain>
+        <!-- See http://ant.apache.org/manual/Types/filterchain.html -->
+        <!-- This helps to escape xml stuff: http://www.freeformatter.com/xml-escape.html -->
+        <!-- Use this if there is a method that works for each script tag
+          <filterreader classname="org.apache.tools.ant.filters.LineContainsRegExp">
+            <param type="negate" value="true"/>
+            <param type="regexp" value="foo*"/>
+          </filterreader>
+           -->
+        <!-- Change to merged JS file -->
+        <tokenfilter>
+          <replacestring from="&lt;script src=&quot;./js/script.js&quot;&gt;&lt;/script&gt;" to="&lt;script src=&quot;${js.dir}/${js.merged.file}&quot;&gt;&lt;/script&gt;"/>
+        </tokenfilter>
+        <!-- Rewrite relocations -->
+        <!-- This section is currently empty -->
+        <!-- Get rid of other js -->
+        <tokenfilter>
+          <replacestring from="&lt;script src=&quot;js/Indices.js&quot;&gt;&lt;/script&gt;" to=""/>
+        </tokenfilter>
+        <tokenfilter>
+          <replacestring from="&lt;script src=&quot;./js/Scripts.js&quot;&gt;&lt;/script&gt;" to=""/>
+        </tokenfilter>
+      </filterchain>
+    </copy>
+  </target>
+
+  <target name="war" depends="war.content, war.css, war.dependencies">
+    <war destfile="${war.file}" webxml="${war.dir}/WEB-INF/web.xml">
+      <fileset dir="${war.dir}"/>
+    </war>
+  </target>
+
+  <!-- This can be used to test the constructed war file -->
+  <target name="war.run" depends="jetty.download, war">
+    <jetty tempDirectory="${jetty.dir.tmp}">
+      <connectors>
+        <selectChannelConnector port="${jetty.port}"/>
+      </connectors>
+      <webApp name="archaeo18" warfile="${war.file}" contextpath="/archaeo18"/>
+    </jetty>
+  </target>
+
+  <!-- SASS Stuff -->
+
+  <target name="scss.compile" depends="sass.download.gem, antcontrib.install">
+    <foreach target=".scss.compile" param="scss.file">
+      <path>
+        <fileset dir="${css.dir}" includes="**/*.scss" excludes="**/_*"/>
+      </path>
+    </foreach>
+  </target>
+
+  <target name="scss.compile.watch" depends="sass.download.gem">
+    <!-- JRuby Commandline: http://kenai.com/projects/jruby/pages/JRubyCommandLineParameters -->
+    <java classname="org.jruby.Main" fork="true" dir="." spawn="true">
+      <sysproperty key="jruby.home" value="${jruby.home}"/>
+      <classpath>
+        <fileset dir="${lib.jruby.dir}" includes="*.jar"/>
+      </classpath>
+      <arg value="-S"/>
+      <arg value="sass"/>
+      <arg value="--watch"/>
+      <arg value="--poll"/>
+      <arg value="--debug-info"/>
+      <arg value="${css.dir}:${css.dir}"/>
+    </java>
+  </target>
+
+  <target name=".scss.compile">
+    <propertyregex property="css.out" input="${scss.file}" regexp="(.*)\.scss" select="\1.css" casesensitive="false"/>
+    <!-- Another approach: http://stackoverflow.com/questions/7262342/sass-to-css-via-an-ant-task-directory-creation -->
+
+    <java classname="org.jruby.Main" fork="true" dir=".">
+      <sysproperty key="jruby.home" value="${jruby.home}"/>
+      <classpath>
+        <fileset dir="${lib.jruby.dir}" includes="*.jar"/>
+      </classpath>
+      <!--
+      <arg value="- -headless"/>
+      -->
+      <arg value="-S"/>
+      <arg value="sass"/>
+      <arg value="--trace"/>
+      <arg value="--unix-newlines"/>
+      <arg value="${scss.file}"/>
+      <arg value="${css.out}"/>
+    </java>
+  </target>
+
+  <!-- The PHP compiler stuff -->
+
+  <target name="php.compile" depends="php.install, jetty.download, antcontrib.install">
+    <mkdir dir="${html.dir}"/>
+    <foreach target=".php.compile" param="php.file">
+      <path>
+        <fileset dir="${php.dir}" casesensitive="yes" includes="*.php"/>
+      </path>
+    </foreach>
+    <move todir="${html.dir}">
+      <fileset dir=".">
+        <include name="*.html"/>
+      </fileset>
+      <filterchain>
+        <tokenfilter>
+          <replacestring from=".php" to="${html.suffix}"/>
+        </tokenfilter>
+      </filterchain>
+    </move>
+  </target>
+
+  <target name=".php.compile">
+    <!-- Warning the properties doesn't seem to work in the select attribute -->
+    <propertyregex property="php.out" input="${php.file}" regexp="(.*)[\\/](.*)\.php" select="./\2.html" casesensitive="false"/>
+    <path id="quercus.plugin.classpath">
+      <fileset dir="${lib.quercus.dir}" includes="*.jar"/>
+    </path>
+    <path id="jetty.plugin.classpath">
+      <fileset dir="${lib.jetty.dir}" includes="*.jar"/>
+    </path>
+    <echo>Compiling ${php.file} to ${php.out}</echo>
+    <!-- See http://marc.info/?l=ant-user&m=102519197329459 for multiple path entries -->
+    <!-- See http://wiki3.caucho.com/Quercus:_Command_Line_Interface_%28CLI%29 for Quercus CLI -->
+    <java classname="com.caucho.quercus.CliQuercus" classpathref="quercus.plugin.classpath" outputproperty="compiler.output">
+      <classpath>
+        <path refid="quercus.plugin.classpath"/>
+        <path refid="jetty.plugin.classpath"/>
+      </classpath>
+      <arg value="-f"/>
+      <arg value="${php.file}"/>
+    </java>
+    <echo force="true" encoding="UTF-8" output="${php.out}" append="false" message="${compiler.output}"/>
+  </target>
+
+  <target name="js.setup" depends="php.compile">
+    <copy todir="${html.dir}">
+      <fileset dir=".">
+        <include name="**/*.js"/>
+        <exclude name="target/**/*.*"/>
+        <exclude name="build/**/*.*"/>
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="compress.images" depends="ant.http.task.download, antcontrib.install">
+    <foreach target=".compress.images" param="png.file">
+      <path>
+        <fileset dir="${img.dir}" casesensitive="yes" includes="*.png"/>
+      </path>
+    </foreach>
+  </target>
+
+  <target name=".compress.images">
+    <propertyregex property="png.out.file" input="${png.file}" regexp="(.*)[\\/](.*)\.png" select="./\2.png" casesensitive="false"/>
+    <property name="img.out" value="${img.tiny.dir}/${png.out.file}"/>
+    <!-- 
+    Here is an API key for you to use:
+    aLqbWi6VBpKM3rGvFVw2W4TTVPFrSEEP
+
+    We have some documentation about our API at:
+    https://gist.github.com/1eef650dcfb1609931fc
+
+    The key is valid for one year. There are no limits attached to the API. Feel free to use it to convert a large number of images but keep in mind the service is paid for entirely by donations.
+    -->
+    <http url="${tinypng.endpoint}" method="POST" entityProperty="json.result">
+      <credentials username="api" password="${tinypng.apikey}"/>
+      <entity file="${png.file}" binary="true"/>
+    </http>
+    <!-- Now it get's really ugly - this will fail on Ant below 1.7 or if you are still on Java 5 or earlier -->
+    <!-- We use the embeded JS Runtime from newer Java versions to decode the JSON Snippet -->
+    <!-- Stolen from
+    http://jeffreysambells.com/2012/02/20/using-javascript-to-parse-json-properties-with-ant
+    http://ant.apache.org/manual/Tasks/script.html
+    -->
+    <script language="javascript">
+      <![CDATA[
+      resultJson = project.getProperty("json.result");
+      var struct = eval("(" + resultJson + ")");
+      project.setProperty("tinypng.result.url", struct.output.url);
+    ]]></script>
+    <echo message="Result is at ${tinypng.result.url}, will be saved as ${img.out}"/>
+    <get src="${tinypng.result.url}" dest="${img.out}" usetimestamp="true"/>
+  </target>
+
+  <!-- Java Script compiler -->
+  <!-- See https://developer.mozilla.org/en-US/docs/Rhino/Shell -->
+  <!-- See http://www.envjs.com/doc/guides -->
+  <target name="js.compile" depends="rhino.install, js.setup, envjs.download">
+    <java classname="org.mozilla.javascript.tools.shell.Main" classpathref="rhino.plugin.classpath" outputproperty="compiler.output" fork="true">
+      <!-- See http://www.coderanch.com/t/108033/tools/xms-xmx-arguments-ant-don -->
+      <jvmarg value="-Xmx512M"/>
+      <arg value="-opt"/>
+      <arg value="-1"/>
+      <arg value="-e"/>
+      <arg value="load('${lib.envjs.local}')"/>
+      <arg value="-e"/>
+      <arg value="window.location = '${html.dir}/handschriften.html';"/>
+    </java>
+    <!-- TODO
+    * Parse HTML and get a DOM after the script executes
+    * Walk the document nodes for event attributes (on* like onclick)
+    ** Create a id of the node
+    ** Wrap node in <a> tag with special style, mybe the one of the node itself
+    ** add a href attribute containing the id to the a tag
+    * Walk <a>'s witch href Attribustes start with javascript
+    ** Create a id of the node
+    ** change the href attribute containing the id to the a tag
+    -->
+
+
+  </target>
+
+  <target name="ropen.config.local">
+    <copy file="${ropen.conf.local}" tofile="${ropen.conf}"/>
+  </target>
+
+  <target name="ropen.config.remote">
+    <copy file="${ropen.conf.remote}" tofile="${ropen.conf}"/>
+  </target>
+
+  <!-- Meta targets -->
+  <target name="serve" depends="scss.compile.watch, ropen.config.local, jetty.start"/>
+  <target name="devel" depends="serve"/>
+  <target name="all.static" depends="clean, war, php.compile"/>
+
+</project>

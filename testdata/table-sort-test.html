@@ -1,0 +1,202 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="header-normal no-js index" lang="de"> <!--<![endif]-->
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <!-- <base href="http://archaeo18/" /> -->
+        <title>ARCHAEO 18 - </title>
+        <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
+        <link rel="shortcut icon" href="../favicon.ico" />
+        <meta name="viewport" content="width=device-width">
+        
+        <link rel="stylesheet" href="../css/style.css">
+        <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
+        <script src="../js/libs/modernizr-2.5.3.min.js"></script>
+
+</head>
+<body>
+
+<header>
+        <nav>
+                <ul>
+                        <li><a href="./start.html" title="Lorem ipsum dolor sit amet" hreflang="de" id="linkstart">Start</a></li>
+                        <li><a href="./edition.html" title="Lorem ipsum dolor sit amet" hreflang="de" id="linkedition">Edition</a></li>
+                        <li><a href="./indices.html" title="Lorem ipsum dolor sit amet" hreflang="de" id="linkindices">Indices</a></li>
+                        <li><a href="./handschriften.html" title="Lorem ipsum dolor sit amet" hreflang="de" id="linkhandschriften">Handschriften</a></li>
+                </ul>
+        </nav>
+        <a href="#" title="Lorem ipsum dolor sit amet" hreflang="de" class="header-button header-button-close">&nbsp;<span class="visuallyhidden">Close Header</span></a>
+</header>
+
+<noscript>
+        <p>Dieses Angebot setzt aktiviertes JavaScript in Ihrem Browser zwingend voraus.</p>
+</noscript>
+<div class="content clearfix">
+        <div id="selectionContainer" class="wrap">
+        </div>
+        <div id="sectionContainer" class="wrap">
+        </div>
+</div>
+<!-- include geotico -->
+<link rel="stylesheet" href="a18/lib/geotico/minify/geotico-styles.css" type="text/css" />
+<script src="a18/lib/geotico/minify/geotico-complete-min.js"></script>
+
+<script src="a18/lib/jQuery/jquery-1.5.1.js"></script>
+<link href="a18/lib/jqcloud/jqcloud.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="a18/lib/jqcloud/jqcloud-1.0.0.js"></script> 
+
+<link type="text/css" rel="stylesheet" href="a18/css/tei.css">
+<script src="a18/lib/archaeo18/Util.js"></script>
+<script src="a18/lib/archaeo18/Archaeo18Properties.js"></script>
+<script src="js/Indices.js"></script>
+<!--
+Ugly table for debuging, see http://www.somacon.com/p141.php
+-->
+<style type="text/css">
+table.test {
+	border-width: 2px;
+	border-spacing: 1px;
+	border-style: outset;
+	border-color: gray;
+	border-collapse: separate;
+	background-color: white;
+}
+table.test th {
+	border-width: 1px;
+	padding: 1px;
+	border-style: inset;
+	border-color: gray;
+	background-color: white;
+	-moz-border-radius: ;
+}
+table.test td {
+	border-width: 1px;
+	padding: 1px;
+	border-style: inset;
+	border-color: gray;
+	background-color: white;
+	-moz-border-radius: ;
+}
+</style>
+<table class="test">
+<thead><td>Spalte 1</td><td>Spalte 2</td><td>Spalte 2</td></thead>
+<tbody>
+
+<tr><td data-rowspan="2">1a</td><td>1b</td><td>1c</td></tr>
+<tr><td data-hide="true">-</td><td>2b</td><td>2c</td></tr>
+<tr><td>3a</td><td data-rowspan="3">3b</td><td>3c</td></tr>
+<tr><td>4a</td><td data-hide="true">-</td><td>4c</td></tr>
+<tr><td>5a</td><td data-hide="true">-</td><td>5c</td></tr>
+<tr><td>6a</td><td>6b</td><td data-rowspan="3">6c</td></tr>
+<tr><td>7a</td><td>7b</td><td data-hide="true">-</td></tr>
+<tr><td>8a</td><td>8b</td><td data-hide="true">-</td></tr>
+<tr><td data-rowspan="2">9a</td><td>9b</td><td>9c</td></tr>
+<tr><td data-hide="true">-</td><td>10b</td><td>10c</td></tr>
+
+<!-- This is displayed correctly but doesn't work
+<tr><td rowspan="2">1a</td><td>1b</td><td>1c</td></tr>
+<tr><td>2b</td><td>2c</td></tr>
+<tr><td>3a</td><td rowspan="3">3b</td><td>3c</td></tr>
+<tr><td>4a</td><td>4c</td></tr>
+<tr><td>5a</td><td>5c</td></tr>
+<tr><td>6a</td><td>6b</td><td rowspan="3">6c</td></tr>
+<tr><td>7a</td><td>7b</td></tr>
+<tr><td>8a</td><td>8b</td></tr>
+<tr><td rowspan="2">9a</td><td>9b</td><td>9c</td></tr>
+<tr><td>10b</td><td>10c</td></tr>
+-->
+<!--
+<tr><td rowspan="2">1a</td><td>1b</td><td>1c</td></tr>
+<tr><td></td><td>2b</td><td>2c</td></tr>
+<tr><td>3a</td><td rowspan="3">3b</td><td></td>3c</tr>
+<tr><td>4a</td><td></td><td>4c</td></tr>
+<tr><td>5a</td><td></td><td>5c</td></tr>
+<tr><td>6a</td><td>6b</td><td rowspan="3">6c</td></tr>
+<tr><td>7a</td><td>7b</td><td></td></tr>
+<tr><td>8a</td><td>8b</td><td></td></tr>
+<tr><td rowspan="2">9a</td><td>9b</td><td>9c</td></tr>
+<tr><td></td><td>10b</td><td>10c</td></tr>
+-->
+
+</tbody>
+</table>
+
+<footer class="clearfix">
+        <div class="wrap">
+                <div>
+                        <!-- <img src="img/footer-lakon.png" /> -->
+                </div>
+                <div class="footer-col-bg-gradient clearfix">
+                        <ul>
+                                <li><a href="./start.html" title="Lorem ipsum dolor sit amet" hreflang="de">Start</a></li>
+                                <li><a href="./handschriften.html" title="Lorem ipsum dolor sit amet" hreflang="de">Handschriften</a></li>
+                                <li><a href="./indices.html" title="Lorem ipsum dolor sit amet" hreflang="de">Indices</a></li>
+                                <li><a href="./edition.html" title="Lorem ipsum dolor sit amet" hreflang="de">Edition</a></li>
+                        </ul>
+                        <ul>
+                                <li><a href="./impressum.html" title="Lorem ipsum dolor sit amet" hreflang="de">Impressum</a></li>
+                                <li><a href="./nutzungsbedingungen.html" title="Lorem ipsum dolor sit amet" hreflang="de">Nutzungsbedingungen</a></li>
+                                <li><a href="./hilfe.html" title="Lorem ipsum dolor sit amet" hreflang="de">Hilfe</a></li>
+                        </ul>
+                </div>
+                <div>
+                        <a href="http://www.sub.uni-goettingen.de" title="Nieders√§chsische Staats- und Universit√§tsbibliothek G√∂ttingen" hreflang="de"><img src="./img/logo-sub.png" alt="" /></a>
+                        <a href="http://www.dfg.de" title="Deutsche Forschungsgemeinschaft" hreflang="de"><img src="./img/logo-dfg.png" alt="" /></a>
+                        <a href="" hreflang="de"><img src="http://placehold.it/135x50" style="padding: 0 0 0 11px;" alt="" /></a>
+                </div>
+        </div>
+</footer>
+
+<!--
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="../js/libs/jquery-1.7.2.min.js"><\/script>')</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+-->
+<script>window.jQuery || document.write('<script src="../js/libs/jquery-1.5.1.min.js"><\/script>')</script>
+
+
+<script src="../js/libs/plugins.js"></script>
+<script src="../js/libs/cookie.js"></script>
+<script src="../js/libs/fixie.js"></script>
+<script src="../js/libs/dataTables.js"></script>
+<script src="../js/libs/prefixfree.js"></script>
+<script src="../js/script.js"></script>
+<!-- end scripts-->
+
+<script type="text/javascript">
+//See http://stackoverflow.com/questions/6971461/jquery-plugin-datatable-using-rowspan-in-tbody-causes-wrong
+/*
+$.fn.dataTableExt.oApi.fnFakeRowspan = function (oSettings) {
+    _.each(oSettings.aoData, function(oData) {
+      for (var iColumn = 0; iColumn < oData.nTr.childNodes.length; iColumn++) {
+        var cell = oData.nTr.childNodes[iColumn];
+        var rowspan = $(cell).data('rowspan');
+        var hide = $(cell).data('hide');
+
+        if (rowspan > 1) {
+            cell.rowSpan = rowspan;
+        }
+        if (hide) {
+          oData.nTr.removeChild(cell);
+        }
+      }
+    });
+
+    oSettings.aoDrawCallback.push({ "sName": "fnFakeRowspan" });
+      
+    return this;
+};
+*/
+
+
+$(document).ready(function(){
+    $('.test').dataTable().fnFakeRowspan();
+});
+</script>
+
+</body>
+</html>

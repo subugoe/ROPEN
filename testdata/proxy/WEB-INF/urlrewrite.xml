@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 3.2//EN"
+        "http://www.tuckey.org/res/dtds/urlrewrite3.2.dtd">
+
+<!--
+
+    Configuration file for UrlRewriteFilter
+    http://www.tuckey.org/urlrewrite/
+
+-->
+<urlrewrite use-query-string="true">
+    <rule>
+        <from>^/exist/(.*?)$</from>
+        <to type="proxy">http://134.76.21.92:8080/exist/$1</to>
+    </rule>
+</urlrewrite>
