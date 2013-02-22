@@ -501,9 +501,11 @@ noscript p {
       background: -ms-linear-gradient(top, #feffff 0%, #ded9c8 26%, #ded9c8 90%, #eeeeee 100%);
       background: linear-gradient(to bottom, #feffff 0%, #ded9c8 26%, #ded9c8 90%, #eeeeee 100%);
       filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#feffff', endColorstr='#eeeeee',GradientType=0 ); }
+/*
     .edition .search .scope-selector a:active {
       background: none;
       background-color: red; }
+*/
   .edition .search .main {
     background-color: #f0f0f0;
     border-radius: 4px;
@@ -909,6 +911,14 @@ noscript p {
 
 #editionContainer {
   background-color: #EEEEEE; }
+  
+#editionContainer a ,
+#editionContainer a:hover,
+#editionContainer a:visited {
+		color: $color-content-font !important;
+		text-decoration: none !important;
+	}
+}
 
 
 /* =============================================================================
