@@ -11,6 +11,7 @@ Tags = function(document,container,parent){
 	this.type = "tags";
 	this.container = container;
 	this.stopped = true;
+	this.pages = document.pages;
 	this.document = document;
 	this.container = container;
 	this.parent = parent;
@@ -146,8 +147,13 @@ Tags.prototype.display = function(page){
 	if( this.documentScope ){
 		this.showTags();
 	}
+	else if( page ){
+		this.parent.paginator.setPage(page,true);
+		this.showPage(page);
+	}
 	else {
-		page ? this.parent.paginator.setPage(page,false) : this.parent.paginator.setPage(1,false);
+		this.parent.paginator.setPage(1,true);
+		this.showPage(1);
 	}
 };
 
