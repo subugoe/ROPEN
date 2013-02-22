@@ -31,7 +31,13 @@ Tags.prototype.initialize = function(){
 	this.contentPanel = $('<div/>').appendTo(this.container);
 	$(this.contentPanel).css('overflow','auto');
 	this.parent.facetSelector.setTriggerFunc(function(facetSelection){
-		context.display();
+		$(context.contentPanel).empty();
+		if( context.documentScope ){
+			context.showTags();
+		}
+		else {
+			context.show(context.parent.page);
+		}
 		context.parent.facetsChanged(facetSelection);
 	});
 	this.parent.paginator.setTriggerFunc(function(page){
