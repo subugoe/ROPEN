@@ -44,8 +44,12 @@ Browser.prototype.initialize = function(){
 	var w = w1+w2;
 	$(this.searchTab).css('padding-left',((w/2-wa1)/2)+'px');
 	$(this.searchTab).css('padding-right',((w/2-wa1)/2)+'px');
+	$(this.searchTab).addClass('search-scope-search');
+
 	$(this.documentTab).css('padding-left',((w/2-wa2)/2)+'px');
 	$(this.documentTab).css('padding-right',((w/2-wa2)/2)+'px');
+	$(this.documentTab).addClass('search-scope-documents');
+
 	this.main = $("<div class='main'/>").appendTo(this.content);
 	this.main.css('overflow-x','hidden');
 	this.main.css('overflow-y','auto');
