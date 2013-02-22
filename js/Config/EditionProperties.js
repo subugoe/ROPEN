@@ -315,7 +315,6 @@ EditionProperties.applySettings = function(settings) {
 			});
 			$.extend(EditionProperties, data);
 		})
-	} else {
-		$.extend(this, settings);
 	}
+	$.extend(this, settings);
 };
