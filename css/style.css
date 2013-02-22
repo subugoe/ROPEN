@@ -502,7 +502,8 @@ noscript p {
       background: linear-gradient(to bottom, #feffff 0%, #ded9c8 26%, #ded9c8 90%, #eeeeee 100%);
       filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#feffff', endColorstr='#eeeeee',GradientType=0 ); }
     .edition .search .scope-selector a:active {
-    	background-color: red; }
+      background: none;
+      background-color: red; }
   .edition .search .main {
     background-color: #f0f0f0;
     border-radius: 4px;
