@@ -307,5 +307,15 @@ var EditionProperties = {
  * @param {JSON} settings Preferred settings to overwrite the given defaults.
  */
 EditionProperties.applySettings = function(settings) {
-	$.extend(this, settings);
+	if (settings.configurationUrl.length > 0) {
+		var conf = [];
+		$.getJSON(settings.configurationUrl, function(data) {
+			$.each(data, function(i, item){
+				conf[i] = item;
+			});
+			$.extend(EditionProperties, data);
+		})
+	} else {
+		$.extend(this, settings);
+	}
 };
