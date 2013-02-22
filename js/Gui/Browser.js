@@ -202,8 +202,9 @@ Browser.prototype.prepareAdvancedSearch = function(){
 	var facetsHeight;
 	var facetSelection = [];
 	var addFacet = function(facet,index,div){
+		var rand = Math.random();
 		var entry = $("<li/>").appendTo(div);
-		var checkbox = $("<input type='checkbox'>"+Util.getFacetLabel(facet)+"</input>").appendTo(entry);
+		var checkbox = $("<input type='checkbox' id='"+ rand * index + "' /><label for='" + rand * index + "'>"+Util.getFacetLabel(facet)+"</label>").appendTo(entry);
 		facetSelection.push(false);
 		checkbox.click(function(){
 			facetSelection[index] = !facetSelection[index];
