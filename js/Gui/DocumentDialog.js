@@ -142,9 +142,6 @@ DocumentDialog.prototype.initDocTypeSelector = function(){
 	var addButton = function(id){
 		var li = $('<li/>').appendTo(viewsList);
 		var button = $('<a class="tools-'+id+'"/>').appendTo(li);
-		if( i==0 ){
-			button = $('<a class="tools-'+id+'"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(li);
-		}
 		button.attr('title',Util.getString(id));
 		button.click(function(){
 			dialog.setDocType(id);
