@@ -50,7 +50,7 @@ DocumentDialog.prototype.initFunctions = function(){
 	var toolsList = $("<ul/>").appendTo(this.funcDiv);
 	if( EditionProperties.lineNumbering ){
 		var numberingLi = $('<li/>').appendTo(paginationTools);
-		this.lineNumbering = $('<a class="tools-linecount"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(numberingLi);
+		this.lineNumbering = $('<a class="tools-linecount"><span class="visuallyhidden"></span></a>').appendTo(numberingLi);
 		var setLineNumbering = function(){
 			if( dialog.lineNumbers ){
 				dialog.lineNumbering.addClass('active');
@@ -71,7 +71,7 @@ DocumentDialog.prototype.initFunctions = function(){
 	}
 	if( EditionProperties.pdfLink ){
 		var pdfLi = $('<li/>').appendTo(toolsList);
-		var pdf = $('<a class="tools-pdf"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(pdfLi);
+		var pdf = $('<a class="tools-pdf"><span class="visuallyhidden"></span></a>').appendTo(pdfLi);
 		pdf.attr('title',Util.getString('pdf'));
 		pdf.click(function(){
 			var pdfLink = EditionProperties.pdfLink.replace('DOC_ID',dialog.document.title).replace('DOC_ID',dialog.document.title);
@@ -91,7 +91,7 @@ DocumentDialog.prototype.initFunctions = function(){
 	if( EditionProperties.connectable ){
 		this.linked = false;
 		var linkLi = $('<li/>').appendTo(toolsList);
-		var link = $('<a class="tools-link"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(linkLi);
+		var link = $('<a class="tools-link"><span class="visuallyhidden"></span></a>').appendTo(linkLi);
 		link.attr('title',Util.getString('linkDeactivated'));
 		this.linkDialog = function(){
 			if( dialog.linked ){
@@ -142,6 +142,9 @@ DocumentDialog.prototype.initDocTypeSelector = function(){
 	var addButton = function(id){
 		var li = $('<li/>').appendTo(viewsList);
 		var button = $('<a class="tools-'+id+'"/>').appendTo(li);
+		if( i==0 ){
+			button = $('<a class="tools-'+id+'"><span class="visuallyhidden"></span></a>').appendTo(li);
+		}
 		button.attr('title',Util.getString(id));
 		button.click(function(){
 			dialog.setDocType(id);
