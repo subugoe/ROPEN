@@ -137,125 +137,148 @@ Browser.prototype.stopProcessing = function(){
  */
 Browser.prototype.prepareAdvancedSearch = function(){
 	var browser = this;
+
 	this.advancedSearch = $("<div/>").appendTo(this.as);
+
 	var div1 = $('<div/>').appendTo(this.advancedSearch);
-	$("<input id='allDocsSearch' type='radio' name='scope' /><label for='allDocsSearch'>"+Util.getString('allDocuments')+"</label> "+Util.getString('or')+"<input id='selectedDocsSearch' type='radio' name='scope' /><label for='selectedDocsSearch'>"+Util.getString('selectDocuments')+"</label>").appendTo(div1);
+
+	$("<input id='allDocsSearch' type='radio' name='scope' /><label for='allDocsSearch'>" + Util.getString('allDocuments') + "</label> " + Util.getString('or') + "<input id='selectedDocsSearch' type='radio' name='scope' /><label for='selectedDocsSearch'>" + Util.getString('selectDocuments') + "</label>").appendTo(div1);
+
 	var allDocuments = $('#allDocsSearch')[0];
 	var selectDocuments = $('#selectedDocsSearch')[0];
 	var documents = $('<div class="selectedDocsDisplay"/>').appendTo(this.advancedSearch);
 	var documentList = $('<ul/>').appendTo(documents);
+
 	$(documents).css('overflow','hidden');
 	$(allDocuments).attr('checked',true);
+
 	var docsSelected = false;
 	var docsHeight;
 	var documentSelection = [];
-	var addDocument = function(document,index){
+
+	var addDocument = function(document, index) {
+		var rand = Math.random() * 10;
 		var entry = $("<li/>").appendTo(documentList);
-		var checkbox = $("<input type='checkbox'>"+document.name+"</input>").appendTo(entry);
+		var checkbox = $("<input type='checkbox' id='" + rand + "' /><label for='" + rand + "'>" + document.name + "</label>").appendTo(entry);
 		documentSelection.push(false);
-		checkbox.click(function(){
+		checkbox.click(function() {
 			documentSelection[index] = !documentSelection[index];
 		});
 	}
-	var loadDocs = function(){
-		$.each(Util.documents,function(i,document){
-			addDocument(document,i);
+
+	var loadDocs = function() {
+		$.each(Util.documents,function(i, document) {
+			addDocument(document, i);
 		});
 		docsHeight = $(documents).height();
 		$(documents).css('height','0px');
 		$(documents).css('display','block');
 	}
-	var checkDocumentVisibility = function(){
-		if( $(selectDocuments).attr('checked') && !docsSelected ){
-			if( documentSelection.length == 0 ){
+
+	var checkDocumentVisibility = function() {
+		if ($(selectDocuments).attr('checked') && !docsSelected) {
+			if (documentSelection.length == 0) {
 				loadDocs();
 			}
 			$(documents).animate({
-				height: "+="+docsHeight,
+				height: "+=" + docsHeight
 			});
 			docsSelected = true;
 		}
-		else if( !$(selectDocuments).attr('checked') && docsSelected ){
+		else if (!$(selectDocuments).attr('checked') && docsSelected){
 			$(documents).animate({
-				height: "-="+docsHeight,
+				height: "-=" + docsHeight
 			});
 			docsSelected = false;
 		}
 	}
 	$(allDocuments).click(checkDocumentVisibility);
 	$(selectDocuments).click(checkDocumentVisibility);
+
 	var div2 = $("<div/>").appendTo(this.advancedSearch);
-	$("<input id='textsSearch' type='radio' name='type'><label for='textsSearch'>"+Util.getString('texts')+"</label></input> "+Util.getString('or')+"<input id='facetsSearch' type='radio' name='type'><label for='facetsSearch'>"+Util.getString('facets')+"</label></input>").appendTo(div2);
+
+	$("<input id='textsSearch' type='radio' name='type'><label for='textsSearch'>" + Util.getString('texts') + "</label></input> " + Util.getString('or') + " <input id='facetsSearch' type='radio' name='type'><label for='facetsSearch'>" + Util.getString('facets') + "</label></input>").appendTo(div2);
+
 	var inTexts = $('#textsSearch')[0];
 	var inFacets = $('#facetsSearch')[0];
+
 	$(inTexts).attr('checked',true);
+
 	var facets = $('<div class="facetOptions"/>').appendTo(this.advancedSearch);
+
 	$(facets).css('display','none');
 	$(facets).css('overflow','hidden');
+
 	var structureFacets = $('<div class="facetList"/>').appendTo(facets);
-	var structureHeader = $('<span class="facetsHeader">'+Util.getString('documentStructure')+'</span>').appendTo(structureFacets);
+	var structureHeader = $('<span class="facetsHeader">' + Util.getString('documentStructure') + '</span>').appendTo(structureFacets);
 	var structureList = $('<ul/>').appendTo(structureFacets);
 	var entityFacets = $('<div class="facetList"/>').appendTo(facets);
-	var entitiesHeader = $('<span class="facetsHeader">'+Util.getString('entities')+'</span>').appendTo(entityFacets);
+	var entitiesHeader = $('<span class="facetsHeader">' + Util.getString('entities') + '</span>').appendTo(entityFacets);
 	var entitiesList = $('<ul/>').appendTo(entityFacets);
 	var facetsSelected = false;
 	var facetsHeight;
 	var facetSelection = [];
-	var addFacet = function(facet,index,div){
+
+	var addFacet = function(facet, index, div) {
 		var rand = Math.random();
 		var entry = $("<li/>").appendTo(div);
-		var checkbox = $("<input type='checkbox' id='"+ rand * index + "' /><label for='" + rand * index + "'>"+Util.getFacetLabel(facet)+"</label>").appendTo(entry);
+		var checkbox = $("<input type='checkbox' id='" + rand * index + "' /><label for='" + rand * index + "'>" + Util.getFacetLabel(facet) + "</label>").appendTo(entry);
 		facetSelection.push(false);
-		checkbox.click(function(){
+		checkbox.click(function() {
 			facetSelection[index] = !facetSelection[index];
 		});
 	}
-	var loadFacets = function(){
-		$.each(Util.facets,function(i,facet){
-			if( facet.render ){
-				addFacet(facet,i,entitiesList);
+
+	var loadFacets = function() {
+		$.each(Util.facets,function(i, facet) {
+			if (facet.render){
+				addFacet(facet, i, entitiesList);
 			}
 			else {
-				addFacet(facet,i,structureList);
+				addFacet(facet, i, structureList);
 			}
 		});
 		facetsHeight = $(facets).height();
-		$(facets).css('height','0px');
-		$(facets).css('display','block');
+		$(facets).css('height', '0px');
+		$(facets).css('display', 'block');
 	}
-	var checkFacetVisibility = function(){
-		if( $(inFacets).attr('checked') && !facetsSelected ){
-			if( facetSelection.length == 0 ){
+
+	var checkFacetVisibility = function() {
+		if ($(inFacets).attr('checked') && !facetsSelected){
+			if (facetSelection.length == 0){
 				loadFacets();
 			}
 			$(facets).animate({
-				height: "+="+facetsHeight,
+				height: "+=" + facetsHeight
 			});
 			facetsSelected = true;
 		}
 		else if( !$(inFacets).attr('checked') && facetsSelected ){
 			$(facets).animate({
-				height: "-="+facetsHeight,
+				height: "-=" + facetsHeight
 			});
 			facetsSelected = false;
 		}
 	}
+
 	$(inTexts).click(checkFacetVisibility);
 	$(inFacets).click(checkFacetVisibility);
-	this.doAdvancedSearch = function(){
+
+	this.doAdvancedSearch = function() {
 		var facet = '';
-		if( $(inFacets).attr('checked') ){
-			for( var i in Util.facets ){
-				if( facetSelection[i] ){
-					if( facet != '' ){
+		if ($(inFacets).attr('checked')) {
+			for (var i in Util.facets) {
+				if (facetSelection[i]) {
+					if (facet != '') {
 						facet += ',';
 					}
-					facet += Util.facets[i].facet.substring(Util.facets[i].facet.indexOf(':')+1);
+					facet += Util.facets[i].facet.substring(Util.facets[i].facet.indexOf(':') + 1);
 				}
 			}
 		}
 		browser.search(facet);
 	};
+
 	this.advancedSearch.css('display','none');
 };
 
