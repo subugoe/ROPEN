@@ -230,11 +230,6 @@ var EditionProperties = {
 		outlineQuery: '/exist/rest/db/archaeo18/queries/getText.xq?mode=structure&format=xhtml&doc=DOC_ID',
 
 		/**
-		   URL to retrieve the number of pages of a document
-		*/
-		pageCountQuery:	'/exist/rest/db/archaeo18/queries/pageCount.xquery?doc=DOC_ID',
-
-		/**
 		   URL to retrieve perform a search
 		*/
 		searchQuery: '/exist/rest/db/archaeo18/queries/search.xq?query=QUERY_ID&mode=xhtml',
