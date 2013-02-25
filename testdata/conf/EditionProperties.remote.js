@@ -1,4 +1,4 @@
-/**
+/geC**
  * Configuration file
  */
 var EditionProperties = {
@@ -115,7 +115,6 @@ var EditionProperties = {
 		textQuery: 		'/exist/rest/db/archaeo18/queries/getText.xq?mode=raw&format=xhtml&doc=DOC_ID&page=0',
 		pageQuery: 		'/exist/rest/db/archaeo18/queries/getText.xq?mode=raw&format=xhtml&doc=DOC_ID&page=PAGE_ID',
 		outlineQuery: 		'/exist/rest/db/archaeo18/queries/getText.xq?mode=structure&format=xhtml&doc=DOC_ID',
-		pageCountQuery: 	'/exist/rest/db/archaeo18/queries/pageCount.xquery?doc=DOC_ID',
 		searchQuery: 		'/exist/rest/db/archaeo18/queries/search.xq?query=QUERY_ID&mode=xhtml',
 		facetsQuery: 		'/exist/rest/db/archaeo18/queries/getFacets.xq',
 		metadataQuery: 		'/exist/rest/db/archaeo18/queries/getText.xq?mode=header&format=xhtml&doc=DOC_ID',
