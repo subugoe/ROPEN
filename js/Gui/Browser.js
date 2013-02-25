@@ -12,89 +12,106 @@ Browser = function(){
  *
  * @this {Browser}
  */
-Browser.prototype.initialize = function(){
+Browser.prototype.initialize = function() {
 	var browser = this;
-	var show = function(showSearch){
-		if( showSearch ){
-			browser.searchTypes.css('display','block');
-			browser.documents.css('display','none');
+
+	var show = function(showSearch) {
+		if (showSearch) {
+			browser.searchTypes.css('display', 'block');
+			browser.documents.css('display', 'none');
 			browser.searchTab.addClass('selected');
 			browser.documentTab.removeClass('selected');
-		} 
+		}
 		else {
-			browser.searchTypes.css('display','none');
-			browser.documents.css('display','block');
+			browser.searchTypes.css('display', 'none');
+			browser.documents.css('display', 'block');
 			browser.searchTab.removeClass('selected');
 			browser.documentTab.addClass('selected');
 		} 
 	}
+
 	this.header = $("<div class='scope-selector'/>").appendTo(this.content);
 	this.searchTab = $("<a>"+Util.getString('search')+"</a>").appendTo(this.header);
 	this.documentTab = $("<a>"+Util.getString('documents')+"</a>").appendTo(this.header);
-	this.searchTab.click(function(){
+
+	this.searchTab.click(function() {
 		show(true);
 	});
-	this.documentTab.click(function(){
+
+	this.documentTab.click(function() {
 		show(false);
 	});
+
 	var wa1 = $(this.searchTab).width();
 	var wa2 = $(this.documentTab).width();
-	var w1 = parseInt($(this.searchTab).css("padding-left"))*2+$(this.searchTab).width();
-	var w2 = parseInt($(this.documentTab).css("padding-left"))*2+$(this.documentTab).width();
-	var w = w1+w2;
-	$(this.searchTab).css('padding-left',((w/2-wa1)/2)+'px');
-	$(this.searchTab).css('padding-right',((w/2-wa1)/2)+'px');
+	var w1 = parseInt($(this.searchTab).css("padding-left")) * 2 + $(this.searchTab).width();
+	var w2 = parseInt($(this.documentTab).css("padding-left")) * 2 + $(this.documentTab).width();
+	var w = w1 + w2;
+
+	$(this.searchTab).css('padding-left', ((w / 2 - wa1) / 2) + 'px');
+	$(this.searchTab).css('padding-right', ((w / 2 - wa1) / 2) + 'px');
 	$(this.searchTab).addClass('search-scope-search');
 
-	$(this.documentTab).css('padding-left',((w/2-wa2)/2)+'px');
-	$(this.documentTab).css('padding-right',((w/2-wa2)/2)+'px');
+	$(this.documentTab).css('padding-left', ((w / 2 - wa2) / 2) + 'px');
+	$(this.documentTab).css('padding-right', (( w / 2 - wa2) / 2) + 'px');
 	$(this.documentTab).addClass('search-scope-documents');
 
 	this.main = $("<div class='main'/>").appendTo(this.content);
-	this.main.css('overflow-x','hidden');
-	this.main.css('overflow-y','auto');
-	this.main.css('position','relative');
+	this.main.css('overflow-x', 'hidden');
+	this.main.css('overflow-y', 'auto');
+	this.main.css('position', 'relative');
+
 	var selectedSearchType = 'simple';
-	var toggleSearch = function(searchType){
-		if( selectedSearchType == searchType ){
-			browser.advancedSearch.css('display','none');
+
+	var toggleSearch = function(searchType) {
+		if (selectedSearchType == searchType){
+			browser.advancedSearch.css('display', 'none');
 			selectedSearchType = 'simple';
 		} 
-		else if( searchType == 'advanced' ){
-			browser.advancedSearch.css('display','block');
+		else if (searchType == 'advanced'){
+			browser.advancedSearch.css('display', 'block');
 			selectedSearchType = searchType;
 		} 
 	}
 	this.searchTypes = $('<div/>').appendTo(this.main);
-	$(this.searchTypes).css('position','relative');
+	$(this.searchTypes).css('position', 'relative');
+
 	var simpleSearch = $("<form/>").appendTo(this.searchTypes);
-	this.searchField = $("<input type='text'/>").appendTo(simpleSearch);
-	this.searchButton = $("<input type='submit' value=''/>").appendTo(simpleSearch);
-	var search = function(){
-		if( browser.searchField.val() != '' ){
+
+	this.searchField = $("<input type='text' />").appendTo(simpleSearch);
+	$("<input type='submit' value='' />").appendTo(simpleSearch);
+
+	var search = function() {
+		if (browser.searchField.val() != '') {
 			browser.clearSearch();
-			if( selectedSearchType == 'simple' ){
+			if (selectedSearchType == 'simple') {
 				browser.search('');
 			}
-			else if( selectedSearchType == 'advanced' ){
+			else if (selectedSearchType == 'advanced') {
 				browser.doAdvancedSearch();
 			}
 		}
 	};
-	simpleSearch.submit(function(evt){
+
+	simpleSearch.submit(function(evt) {
 		evt.preventDefault();
 		search();
 	});
+
 	this.as = $("<div class='advancedSearch'/>").appendTo(this.searchTypes);
-	this.advancedSearchTab = $("<span>"+Util.getString('advancedSearch')+"</span>").appendTo(this.as);
-	this.advancedSearchTab.click(function(){
+	this.advancedSearchTab = $("<span>" + Util.getString('advancedSearch') + "</span>").appendTo(this.as);
+
+	this.advancedSearchTab.click(function() {
 		toggleSearch('advanced');
 	});
+
 	this.prepareAdvancedSearch();
 	this.documents = $('<div/>').appendTo(this.main);
-	this.documents.css('overflow','auto')
+	this.documents.css('overflow', 'auto')
 	this.searchResults = $('<ul class="hits"/>').appendTo(this.searchTypes);
+
 	show(EditionProperties.browserSearch);
+
 	$(this.label).html(Util.getString('browser'));
 	this.overlay = new OverlayWindow(this.searchTypes);
 	this.resizeContent();
@@ -105,7 +122,7 @@ Browser.prototype.initialize = function(){
  *
  * @this {Browser}
  */
-Browser.prototype.clearSearch = function(){
+Browser.prototype.clearSearch = function() {
 	$(this.searchResults).empty();
 	this.searchTabs = [];
 	this.searchContents = [];
@@ -117,7 +134,7 @@ Browser.prototype.clearSearch = function(){
  * @this {Browser}
  * @param {Object} onclose A trigger function to be called when the user closes/removes the overlay.
  */
-Browser.prototype.startProcessing = function(onclose){
+Browser.prototype.startProcessing = function(onclose) {
 	this.overlay.loaderOverlay(onclose);
 };
 
@@ -126,7 +143,7 @@ Browser.prototype.startProcessing = function(onclose){
  *
  * @this {Browser}
  */
-Browser.prototype.stopProcessing = function(){
+Browser.prototype.stopProcessing = function() {
 	this.overlay.removeOverlay();
 };
 
@@ -135,7 +152,7 @@ Browser.prototype.stopProcessing = function(){
  *
  * @this {Browser}
  */
-Browser.prototype.prepareAdvancedSearch = function(){
+Browser.prototype.prepareAdvancedSearch = function() {
 	var browser = this;
 
 	this.advancedSearch = $("<div/>").appendTo(this.as);
@@ -170,8 +187,8 @@ Browser.prototype.prepareAdvancedSearch = function(){
 			addDocument(document, i);
 		});
 		docsHeight = $(documents).height();
-		$(documents).css('height','0px');
-		$(documents).css('display','block');
+		$(documents).css('height', '0px');
+		$(documents).css('display', 'block');
 	}
 
 	var checkDocumentVisibility = function() {
@@ -218,6 +235,7 @@ Browser.prototype.prepareAdvancedSearch = function(){
 	var facetsHeight;
 	var facetSelection = [];
 
+	// adds facets to advanced search with checkboxes and localized labels
 	var addFacet = function(facet, index, div) {
 		var entry = $("<li/>").appendTo(div);
 		var checkbox = $("<input type='checkbox' id='" + facet.facet + "-" + index + "' /><label for='" + facet.facet + "-" + index + "'>" + Util.getFacetLabel(facet) + "</label>").appendTo(entry);
@@ -289,36 +307,42 @@ Browser.prototype.prepareAdvancedSearch = function(){
 Browser.prototype.search = function(facet){
 	var browser = this;
 	var cancel = false;
-	var onclose = function(){
+	var onclose = function() {
 		cancel = true;
 		browser.stopProcessing();
 	}
 	this.startProcessing(onclose);
-	var callback = function(xml){
-		if( !cancel ){
-	    		var results = [];
-			$(xml).find('result').each(function(){
+	var callback = function(xml) {
+		if (!cancel) {
+			var results = [];
+			$(xml).find('result').each(function() {
 				var page = parseInt($(this).find('page').text());
-				if( page == '' ){
+
+				if (page == ''){
 					page = 1;
 				}
+
 				var text = $(this).find('fragment').find('body').find('p');
 				var doc = $(this).find('doc').text();
-				if( typeof results[doc] == 'undefined' ){
+
+				if (typeof results[doc] === 'undefined') {
 					results[doc] = [];
 				}
-			    	results[doc].push( { page: page, text: text } );
+				results[doc].push({
+					page: page,
+					text: text
+			  	});
 			});
-			for( var i in Util.documents ){
+			for (var i in Util.documents) {
 				var id = Util.documents[i].title;
-				if( typeof results[id] != 'undefined' ){
-					browser.addCategory(Util.documents[i],results[id]);
+				if (typeof results[id] !== 'undefined') {
+					browser.addCategory(Util.documents[i], results[id]);
 				}
 			}
 			browser.stopProcessing();
 		}
 	}
-	DocumentServerConnection.getSearchResults(this.searchField.val(),facet,callback);
+	DocumentServerConnection.getSearchResults(this.searchField.val(), facet,callback);
 };
 
 /**
@@ -329,12 +353,17 @@ Browser.prototype.search = function(facet){
 Browser.prototype.resizeContent = function(){
 	var height = $(this.content).height();
 	var diff1 = parseInt($(this.header).css("padding-bottom"))+parseInt($(this.header).css("padding-top"));
+
 	diff1 += parseInt($(this.header).css("margin-bottom"))+parseInt($(this.header).css("margin-top"));
+
 	var diff2 = parseInt($(this.main).css("padding-bottom"))+parseInt($(this.main).css("padding-top"));
+
 	diff2 += parseInt($(this.main).css("margin-bottom"))+parseInt($(this.main).css("margin-top"));
-	$(this.main).css('height',(height-this.header.height()-diff1-diff2)+'px');
-	$(this.searchTypes).css('height',(height-this.header.height()-diff1-diff2)+'px');
-	$(this.searchTypes).css('width',$(this.main).width()+'px');
+
+	$(this.main).css('height',(height - this.header.height() - diff1 - diff2) + 'px');
+	$(this.searchTypes).css('height', (height - this.header.height() - diff1 - diff2) + 'px');
+	$(this.searchTypes).css('width', $(this.main).width() + 'px');
+
 	this.overlay.resize();
 };
 
@@ -344,27 +373,31 @@ Browser.prototype.resizeContent = function(){
  * @this {Browser}
  * @param {Document} doc The document to add to the documents list.
  */
-Browser.prototype.addDocument = function(doc){
+Browser.prototype.addDocument = function(doc) {
 	var browser = this;
-	var callback = function(outline){
+
+	var callback = function(outline) {
 		var tempDiv = $("<div/>");
 		$(outline).appendTo(tempDiv);
 		var outlineTree = (new XHTMLProcessor(tempDiv)).generateOutlineTree(doc.name);
-	    	var root = $("<div/>").appendTo(browser.documents);
-		var setLinks = function(){
-			var oldLinks = $('.dynatree-title',root);
-			for( var i=0; i<oldLinks.length; i++ ){
+		var root = $("<div/>").appendTo(browser.documents);
+
+		var setLinks = function() {
+			var oldLinks = $('.dynatree-title', root);
+
+			for (var i = 0; i < oldLinks.length; i++) {
 				$(oldLinks[i]).remove();
 			}
-			var setEvents = function(node){
+
+			var setEvents = function(node) {
 				var position = $(newLinks[i]).attr("name");
 				$(node).unbind('click');
-			    	$(node).click(function(evt){
+				$(node).click(function(evt) {
 					if( position == '' ){
-				    		EditionGui.openDocument(evt,doc);
+						EditionGui.openDocument(evt, doc);
 					}
 					else {
-				    		EditionGui.openDocument(evt,doc,undefined,'text',position);
+						EditionGui.openDocument(evt, doc, undefined, 'text', position);
 					}
 			    	});
 				/*
@@ -379,14 +412,16 @@ Browser.prototype.addDocument = function(doc){
 					});
 				*/
 			}
-			var newLinks = $('.head-anchor',root);
-			for( var i=0; i<newLinks.length; i++ ){
+			var newLinks = $('.head-anchor', root);
+			for (var i = 0; i < newLinks.length; i++) {
 				setEvents(newLinks[i]);
 			}
 		}
-		var calcTree = function(){
-			if( typeof $(root).dynatree == 'undefined' ){
-				setTimeout(function(){ calcTree() }, 100);
+		var calcTree = function() {
+			if (typeof $(root).dynatree === 'undefined') {
+				setTimeout(function() {
+					calcTree()
+				}, 100);
 			}
 			else {
 				$(root).dynatree({
@@ -398,7 +433,7 @@ Browser.prototype.addDocument = function(doc){
 		}
 		calcTree();
 	}
-	DocumentServerConnection.getDocumentOutline(doc,callback);
+	DocumentServerConnection.getDocumentOutline(doc, callback);
 };
 
 /**
@@ -408,42 +443,50 @@ Browser.prototype.addDocument = function(doc){
  * @param {Document} doc The document with hitsto add to the documents list.
  * @param {Document} results The results within the given document.
  */
-Browser.prototype.addCategory = function(doc,results){
+Browser.prototype.addCategory = function(doc, results) {
 	var browser = this;
 	var searchTab = $('<li/>').appendTo(this.searchResults);
 	var searchLink = $('<a>' + doc.name + ' (' + results.length + ')' + '</a>').appendTo(searchTab);
 	var searchContent = [];
 	var visible = false;
-	$.each(results, function(index,result){
+
+	$.each(results, function(index, result) {
 		var searchResult = $('<div class="clearfix"/>').appendTo(searchTab);
 		searchContent.push(searchResult);
+
 		$(searchResult).css('display','none');
+
 		var thumb = $("<div class='searchresult-thumbnail'/>").appendTo(searchResult);
 		var thumbDiv = $("<div class='dummyThumbSmall'/>").appendTo(thumb);
+
 		$(thumbDiv).css('margin-bottom','20px');
+
 		var thumbnail = $("<div class='loadme'/>").appendTo(thumbDiv);
-		thumbnail.css('height',thumbDiv.height()+'px');
-		thumbnail.css('width',thumbDiv.width()+'px');
-		thumbnail.attr("innerHTML","<!--<img class='thumbnail' src='" + doc.imagePath+"80/"+doc.images[result.page-1] + "'/>-->");
-	    	thumbDiv.click(function(evt){
-	    		EditionGui.openDocument(evt,doc,result.page,"images");
-	    	});
+
+		thumbnail.css('height', thumbDiv.height() + 'px');
+		thumbnail.css('width', thumbDiv.width() + 'px');
+		thumbnail.attr("innerHTML", "<!--<img class='thumbnail' src='" + doc.imagePath+"80/" + doc.images[result.page - 1] + "'/>-->");
+
+		thumbDiv.click(function(evt) {
+			EditionGui.openDocument(evt, doc, result.page, "images");
+		});
 		var textDiv = $("<p/>").appendTo(searchResult);
 		$(textDiv).html(result.text);
-	    	$(textDiv).click(function(evt){
-	    		EditionGui.openDocument(evt,doc,result.page,"pages");
-	    	});
+		$(textDiv).click(function(evt) {
+			EditionGui.openDocument(evt, doc, result.page, "pages");
+		});
 	});
-    	$(searchLink).click(function(){
+
+	$(searchLink).click(function(){
 		visible = !visible;
-		for( var i=0; i<searchContent.length; i++ ){
-			if( visible ){
-				$(searchContent[i]).css('display','block');
+		for (var i = 0; i < searchContent.length; i++) {
+			if (visible) {
+				$(searchContent[i]).css('display', 'block');
 			}
 			else {
-				$(searchContent[i]).css('display','none');
+				$(searchContent[i]).css('display', 'none');
 			}
 		}
-		$('div.loadme',this.searchResults).lazyLoad(searchTab,imageLoad,1000);
-    	});
+		$('div.loadme', this.searchResults).lazyLoad(searchTab, imageLoad, 1000);
+	});
 };
