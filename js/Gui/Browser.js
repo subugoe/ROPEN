@@ -157,9 +157,8 @@ Browser.prototype.prepareAdvancedSearch = function(){
 	var documentSelection = [];
 
 	var addDocument = function(document, index) {
-		var rand = Math.random() * 10;
 		var entry = $("<li/>").appendTo(documentList);
-		var checkbox = $("<input type='checkbox' id='" + rand + "' /><label for='" + rand + "'>" + document.name + "</label>").appendTo(entry);
+		var checkbox = $("<input type='checkbox' id='advanced-document-" + index + "' /><label for='advanced-document-" + index + "'>" + document.name + "</label>").appendTo(entry);
 		documentSelection.push(false);
 		checkbox.click(function() {
 			documentSelection[index] = !documentSelection[index];
@@ -220,9 +219,8 @@ Browser.prototype.prepareAdvancedSearch = function(){
 	var facetSelection = [];
 
 	var addFacet = function(facet, index, div) {
-		var rand = Math.random();
 		var entry = $("<li/>").appendTo(div);
-		var checkbox = $("<input type='checkbox' id='" + rand * index + "' /><label for='" + rand * index + "'>" + Util.getFacetLabel(facet) + "</label>").appendTo(entry);
+		var checkbox = $("<input type='checkbox' id='advanced-facet-" + index + "' /><label for='advanced-facet-" + index + "'>" + Util.getFacetLabel(facet) + "</label>").appendTo(entry);
 		facetSelection.push(false);
 		checkbox.click(function() {
 			facetSelection[index] = !facetSelection[index];
