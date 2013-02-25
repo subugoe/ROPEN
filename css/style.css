@@ -423,7 +423,7 @@ noscript p {
   width: 600px;
   border-radius: 4px;
   box-shadow: 0px 2px 2px #999999;
-  border: 0 px solid #999999;
+  border: 0px solid #999999;
   background: #ababab;
   background: -moz-radial-gradient(center, ellipse cover, #ababab 0%, #c8c8c8 100%);
   background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #ababab), color-stop(100%, #c8c8c8));
@@ -915,10 +915,10 @@ noscript p {
 #editionContainer a ,
 #editionContainer a:hover,
 #editionContainer a:visited {
-		color: #666666 !important;
-		text-decoration: none !important;
-	}
+	color: #666666 !important;
+	text-decoration: none !important;
 }
+
 
 
 /* =============================================================================
