@@ -220,7 +220,7 @@ Browser.prototype.prepareAdvancedSearch = function(){
 
 	var addFacet = function(facet, index, div) {
 		var entry = $("<li/>").appendTo(div);
-		var checkbox = $("<input type='checkbox' id='advanced-facet-" + index + "' /><label for='advanced-facet-" + index + "'>" + Util.getFacetLabel(facet) + "</label>").appendTo(entry);
+		var checkbox = $("<input type='checkbox' id='" + facet.facet + "-" + index + "' /><label for='" + facet.facet + "-" + index + "'>" + Util.getFacetLabel(facet) + "</label>").appendTo(entry);
 		facetSelection.push(false);
 		checkbox.click(function() {
 			facetSelection[index] = !facetSelection[index];
