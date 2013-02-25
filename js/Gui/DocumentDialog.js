@@ -100,9 +100,16 @@ DocumentDialog.prototype.initFunctions = function(){
 				link.attr('title',Util.getString('linkDeactivated'));
 			}
 			else {
-				Publisher.Subscribe(dialog.document.title,dialog,function(data){
+				Publisher.Subscribe(dialog.document.title,dialog,function(change){
+					if( change.type == "pageChange" ){
+						dialog.page = change.data;
+						dialog.paginator.setPage(change.data,true);
+					}
+					else if( change.type == "facetsChange" ){
+						dialog.facetSelector.setFacetSelection(change.data);
+					}
 					if( typeof dialog.doctype.onChange != 'undefined' ){
-						dialog.doctype.onChange(data);
+						dialog.doctype.onChange(change);
 					}
 				});
 				$(link).addClass('active');
@@ -232,6 +239,7 @@ DocumentDialog.prototype.showTextAtPosition = function(id){
  */
 DocumentDialog.prototype.pageChanged = function(page){
 	this.page = page;
+
 	if( this.linked ){
 		Publisher.Publish(this.document.title, {
 			type: 'pageChange',

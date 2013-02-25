@@ -10,6 +10,7 @@
 Text = function(document,container,parent){
 	this.type = "text";	
 	this.document = document;
+	this.pages = document.pages;
 	this.container = container;
 	this.parent = parent;
 	this.lp = new LinkProcessor();
@@ -127,8 +128,6 @@ Text.prototype.display = function(page,id){
  */
 Text.prototype.onChange = function(change){
 	if( change.type == "pageChange" ){
-		this.parent.page = change.data;
-		this.parent.paginator.setPage(change.data,true);
 		var node = $(this.pageHooks[change.data-1]);
 		$(this.container).scrollTop($(node).offset().top-$(this.container).offset().top+$(this.container).scrollTop());
 	}
@@ -137,7 +136,6 @@ Text.prototype.onChange = function(change){
 		$(this.container).scrollTop($(node).offset().top-$(this.container).offset().top+$(this.container).scrollTop());
 	}
 	else if( change.type == "facetsChange" ){
-		this.parent.facetSelector.setFacetSelection(change.data);
 		this.lp.colorizeLinks($(this.container),change.data);
 	}
 };

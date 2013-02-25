@@ -184,13 +184,10 @@ Tags.prototype.resize = function(){
  */
 Tags.prototype.onChange = function(change){
 	if( change.type == "facetsChange" ){
-		this.parent.facetSelector.setFacetSelection(change.data);
 		this.context.display(this.parent.page);
 	}
 	if( change.type == "pageChange" ){
 		if( this.actualPage != change.data ){
-			this.parent.page = change.data;
-			this.parent.paginator.setPage(change.data,true);
 			this.showPage(change.data);
 		}
 	}

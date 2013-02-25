@@ -188,8 +188,6 @@ Images.prototype.resize = function(){
 Images.prototype.onChange = function(change){
 	if( change.type == "pageChange" ){
 		if( this.actualPage != change.data ){
-			this.parent.page = change.data;
-			this.parent.paginator.setPage(change.data,true);
 			this.showPage(change.data);
 		}
 	}

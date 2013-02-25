@@ -145,11 +145,23 @@ Places.prototype.showPlaces = function(){
  * @param {number} page The page to be shown.
  */
 Places.prototype.display = function(page){
+	/*
 	if( this.documentScope ){
 		this.showPlaces();
 	}
 	else {
 		page ? this.parent.paginator.setPage(page,false) : this.parent.paginator.setPage(1,false);
+	}*/
+	if( this.documentScope ){
+		this.showTags();
+	}
+	else if( page ){
+		this.parent.paginator.setPage(page,true);
+		this.showPage(page);
+	}
+	else {
+		this.parent.paginator.setPage(1,true);
+		this.showPage(1);
 	}
 };
 
@@ -178,8 +190,6 @@ Places.prototype.resize = function(){
 Places.prototype.onChange = function(change){
 	if( change.type == "pageChange" ){
 		if( this.actualPage != change.data ){
-			this.parent.page = change.data;
-			this.parent.paginator.setPage(change.data,true);
 			this.showPage(change.data);
 		}
 	}

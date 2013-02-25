@@ -116,13 +116,10 @@ Pages.prototype.display = function(page){
 Pages.prototype.onChange = function(change){
 	if( change.type == "pageChange" ){
 		if( this.actualPage != change.data ){
-			this.parent.page = change.data;
-			this.parent.paginator.setPage(change.data,true);
 			this.showPage(change.data);
 		}
 	}
 	else if( change.type == "facetsChange" ){
-		this.parent.facetSelector.setFacetSelection(change.data);
 		this.lp.colorizeLinks($(this.container),change.data);
 	}
 };
