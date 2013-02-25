@@ -116,16 +116,16 @@ Util.loadDocuments = function(trigger){
 Util.loadDocument = function(title,name,nameShort,preview,trigger){
 	var pagesCallback = function(xml){
 		var pageCount = $(xml).find('count').text();
-	    	var imagePath, images = [];
+		var imagePath, images = [];
 		var metsCallback = function(xml){
 			$(xml).find('[nodeName="METS:mets"]').find('[nodeName="METS:fileSec"]').find('[nodeName="METS:fileGrp"]').first().find('[nodeName="METS:file"]').each(function(){
 				var node = $(this).find('[nodeName="METS:FLocat"]')[0];
-       	    			var fullPath = Util.getAttribute(node,'xlink:href');
-       	    			images.push(fullPath.substring(fullPath.lastIndexOf("/")+1));
-       	    			if( !imagePath ){
-       	    				var dummy = fullPath.substring(0,fullPath.lastIndexOf("/"));
-       	    				imagePath = dummy.substring(0,dummy.lastIndexOf("/")+1);
-       	    			}
+				var fullPath = Util.getAttribute(node,'xlink:href');
+				images.push(fullPath.substring(fullPath.lastIndexOf("/")+1));
+				if( !imagePath ){
+					var dummy = fullPath.substring(0,fullPath.lastIndexOf("/"));
+					imagePath = dummy.substring(0,dummy.lastIndexOf("/")+1);
+				}
 			})
 			var doc = new Document(title,name,nameShort,preview,pageCount,imagePath,images);
 			Util.documents.push(doc);
