@@ -28,7 +28,7 @@ var EditionGui = new function(){
 	$(window).resize(function(){
 		EditionGui.minWidth = $(window).width();
 		EditionGui.gridLayout();
-	});	
+	});
 }
 
 /**
@@ -390,9 +390,9 @@ EditionGui.gridLayout = function(){
 	if( typeof this.windowWidth == 'undefined' ){
 		this.windowWidth = windowWidth;
 	}
-	this.checkBounds();	
+	this.checkBounds();
 };
-	
+
 /**
  * Opens a document with a given page, document type, fulltext position and/or activated facet. All of the 4 attributes are optional.
  *
@@ -404,7 +404,7 @@ EditionGui.gridLayout = function(){
  * @param {string} position A position to scroll to, when the selected document type is 'text' (used to navigate from the outline to the chapters in the fulltext).
  * @param {string} entity An entity, which should be initially colored (e.g. 'placeName').
  */
-EditionGui.openDocument = function(evt,document,page,type,position,entity){
+EditionGui.openDocument = function(evt, document, page, type, position, entity){
 	var gui = this;
 	var candidates = [];
 	var doc = {
@@ -457,7 +457,7 @@ EditionGui.openDocument = function(evt,document,page,type,position,entity){
 			$(dialog).remove();
 		}
 	}
-};		
+};
 
 /**
  * Computes a string, which represents the actual state of the main window. The string is used to generate a magnetic link. Currently part of the string representation are folders with all opened documents and the index of the selected tab, and for each opened document, the shown document type, the page, selected facets and its current "linked-status".
@@ -622,18 +622,18 @@ EditionGui.addControls = function(){
 			    	header: 'Content-Type: application/json',
 			    	data: JSON.stringify({longUrl: linkString})
 			}, function(response){
-			    	var result = null;
-			    	try {
-			      		result = JSON.parse(response.content).id;
-			      		if (typeof result != 'string') result = null;
+					var result = null;
+					try {
+						result = JSON.parse(response.content).id;
+						if (typeof result != 'string') result = null;
 					if( result != null ){
 						gui.magneticLinks.push(result);
 						updateLinks();
 					}
-			    	} catch (e) {
-				gui.magneticLinks.push(linkString);
+				} catch (e) {
+					gui.magneticLinks.push(linkString);
 					updateLinks();
-			    	}
+				}
 			});
 		}
 		var magneticLink = $('<a class="button-magneticlink"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(controls);
@@ -725,5 +725,5 @@ EditionGui.checkGrid = function(){
 		else {
 			this.gridLayout();
 		}
-	}		
+	}
 };

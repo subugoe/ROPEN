@@ -142,7 +142,7 @@ Util.loadDocument = function(title,name,nameShort,preview,trigger){
 		};
 		DocumentServerConnection.getMets(title,true,metsCallback);
 	}
-	DocumentServerConnection.getPages(title,true,pagesCallback);
+	DocumentServerConnection.getPageCount(title, true, pagesCallback);
 };
 
 /**

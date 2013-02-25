@@ -11,7 +11,7 @@
  * @param {string} imagePath An URI for all images, extent independent.
  * @param {Array} images An array of images file names. The complete URI for an image consists of {imagePath}+{desired width of image}+/+{images[i]}.
  */
-Document = function(title,name,nameShort,preview,pages,imagePath,images){
+Document = function(title, name, nameShort, preview, pages, imagePath, images){
 	this.title = title;
 	this.name = name;
 	this.nameShort = nameShort;
@@ -26,7 +26,7 @@ Document = function(title,name,nameShort,preview,pages,imagePath,images){
 	this.pageCache = [];
 	this.kmlCache = [];
 	this.cloudCache = [];
-	for( var i=0; i<this.pages; i++ ){
+	for (var i = 0; i < this.pages; i++) {
 		this.pageCache.push(false);
 		this.kmlCache.push(false);
 		this.cloudCache.push(false);
