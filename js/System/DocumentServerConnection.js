@@ -155,19 +155,6 @@ DocumentServerConnection.getFacets = function(callback){
 };
 
 /**
- * Getter for the number of pages of a document.
- *
- * @this {DocumentServerConnection}
- * @param {Document} document The document to get the pagenumber.
- * @param {boolean} async If the ajax request should be done asynchronously or not.
- * @param {Object} callback A callback function to be called for successfully retrieved data like: function(data).
- */
-DocumentServerConnection.getPageCount = function(document , async, callback){
-	var url = EditionProperties.pageCountQuery.replace('DOC_ID', document);
-	this.getData(url, 'xml', async, callback);
-};
-
-/**
  * Getter for the METS fragment of a document.
  *
  * @this {DocumentServerConnection}
