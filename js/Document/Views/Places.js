@@ -145,15 +145,8 @@ Places.prototype.showPlaces = function(){
  * @param {number} page The page to be shown.
  */
 Places.prototype.display = function(page){
-	/*
 	if( this.documentScope ){
 		this.showPlaces();
-	}
-	else {
-		page ? this.parent.paginator.setPage(page,false) : this.parent.paginator.setPage(1,false);
-	}*/
-	if( this.documentScope ){
-		this.showTags();
 	}
 	else if( page ){
 		this.parent.paginator.setPage(page,true);

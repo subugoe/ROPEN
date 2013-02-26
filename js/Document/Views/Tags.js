@@ -32,13 +32,7 @@ Tags.prototype.initialize = function(){
 	this.contentPanel = $('<div/>').appendTo(this.container);
 	$(this.contentPanel).css('overflow','auto');
 	this.parent.facetSelector.setTriggerFunc(function(facetSelection){
-		$(context.contentPanel).empty();
-		if( context.documentScope ){
-			context.showTags();
-		}
-		else {
-			context.show(context.parent.page);
-		}
+		context.display(context.parent.page);
 		context.parent.facetsChanged(facetSelection);
 	});
 	this.parent.paginator.setTriggerFunc(function(page){
@@ -109,7 +103,44 @@ Tags.prototype.show = function(page){
 				context.lp.appendTooltips(context.contentPanel);
 				context.parent.stopProcessing();
 			};
+
+/*
+  var draw = function(words) {
+console.info(d3.select("body"),context.contentPanel,$());
+    d3.select("body").append("svg")
+        .attr("width", w)
+        .attr("height", h)
+      .append("g")
+        .attr("transform", "translate(150,150)")
+      .selectAll("text")
+        .data(words)
+      .enter().append("text")
+        .style("font-size", function(d) { return d.size + "px"; })
+        .attr("text-anchor", "middle")
+        .attr("transform", function(d) {
+          return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
+        })
+        .text(function(d) { return d.text; });
+  }
+
+var w = $(context.contentPanel).width();
+var h = $(context.contentPanel).height();
+d3.layout.cloud().size([w,h])
+      .words([
+        "Hello", "world", "normally", "you", "want", "more", "words",
+        "than", "this"].map(function(d) {
+        return {text: d, size: 10 + Math.random() * 90};
+      }))
+      .rotate(function() { return ~~(Math.random() * 2) * 90; })
+      .fontSize(function(d) { return d.size; })
+      .on("end", draw)
+      .start();
+				context.parent.stopProcessing();
+*/
+
+
 			$(context.contentPanel).jQCloud(tagArray,{trigger:trigger});
+
 		}
 	}
 	DocumentServerConnection.getDocumentTags(context.document,page,facets,success,failure);

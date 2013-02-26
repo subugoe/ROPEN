@@ -8,7 +8,7 @@ DocumentDialog = function(parent,document,div,page){
 	this.parent = parent;
 	this.document = document;
 	this.div = div;
-	this.page = page || 0;
+	this.page = page || 1;
 	this.doctypes = [];
 	this.initialize();
 }
@@ -239,7 +239,6 @@ DocumentDialog.prototype.showTextAtPosition = function(id){
  */
 DocumentDialog.prototype.pageChanged = function(page){
 	this.page = page;
-
 	if( this.linked ){
 		Publisher.Publish(this.document.title, {
 			type: 'pageChange',

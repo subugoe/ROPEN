@@ -24,20 +24,32 @@ Text = function(document,container,parent){
  */
 Text.prototype.initialize = function(){
 	var context = this;
+	this.contentPanel = $('<div/>').appendTo(this.container);
+	$(this.contentPanel).css('overflow','auto');
 	this.parent.paginator.setTriggerFunc(function(page){
 		var node = $(context.pageHooks[page-1]);
-		$(context.container).scrollTop($(node).offset().top-$(context.container).offset().top+$(context.container).scrollTop());
+		$(context.contentPanel).scrollTop($(node).offset().top-$(context.contentPanel).offset().top+$(context.contentPanel).scrollTop());
 		context.parent.pageChanged(page);
 	});
 	this.parent.showPagination();
 	if( EditionProperties.colorizeEntities ){
 		this.parent.facetSelector.setTriggerFunc(function(facetSelection){
-			context.lp.colorizeLinks($(context.container),facetSelection);
+			context.lp.colorizeLinks($(context.contentPanel),facetSelection);
 			context.parent.facetsChanged(facetSelection);
 		});
 		this.parent.showFacets();
 	}
 }
+
+/**
+ * Resizes the text view.
+ *
+ * @this {Text}
+ */
+Text.prototype.resize = function(){
+	$(this.contentPanel).css('height',$(this.container).height()+'px');
+	$(this.contentPanel).css('width','100%');
+};
 
 /**
  * Displays a specific page.
@@ -47,20 +59,20 @@ Text.prototype.initialize = function(){
  */
 Text.prototype.display = function(page,id){
 	var context = this;
-	$(this.container).empty();
+	$(this.contentPanel).empty();
 	var show = function(text){
-	    	$(text).appendTo(context.container);
-		context.lp.appendTooltips($(context.container),context.parent);
-		context.lp.colorizeLinks($(context.container),context.parent.facetSelection);
-		context.pageHooks = $("hr[class='tei:pb']",context.container);
+	    	$(text).appendTo(context.contentPanel);
+		context.lp.appendTooltips($(context.contentPanel),context.parent);
+		context.lp.colorizeLinks($(context.contentPanel),context.parent.facetSelection);
+		context.pageHooks = $("hr[class='tei:pb']",context.contentPanel);
 		context.avoidScroll = false;
-		$(context.container).scroll(function(){
+		$(context.contentPanel).scroll(function(){
 			if( context.avoidScroll ){
 				context.avoidScroll = false;
 				return;
 			}
-			var scrollTop = $(context.container).scrollTop();
-			var height = $(context.container).height();
+			var scrollTop = $(context.contentPanel).scrollTop();
+			var height = $(context.contentPanel).height();
 			var found = false;
 			for( var i=0; i<context.pageHooks.length; i++ ){
 				var top = $(context.pageHooks[i]).position().top+scrollTop;
@@ -84,16 +96,16 @@ Text.prototype.display = function(page,id){
 			}
 		});
 		if( context.parent.lineNumbers ){
-			(new XHTMLProcessor(context.container)).insertLineNumbers(EditionProperties.lineNumbering);
+			(new XHTMLProcessor(context.contentPanel)).insertLineNumbers(EditionProperties.lineNumbering);
 		}
 		if( typeof id != 'undefined' ){
-			var node = $(context.container).find("a[name='"+id+"']")[0];
-			$(context.container).scrollTop($(node).offset().top-$(context.container).offset().top+$(context.container).scrollTop());
+			var node = $(context.contentPanel).find("a[name='"+id+"']")[0];
+			$(context.contentPanel).scrollTop($(node).offset().top-$(context.contentPanel).offset().top+$(context.contentPanel).scrollTop());
 		}
 		else if( context.parent.page > 0 ){
 			context.avoidScroll = true;
 			var node = $(context.pageHooks[context.parent.page-1]);
-			$(context.container).scrollTop($(node).offset().top-$(context.container).offset().top+$(context.container).scrollTop());
+			$(context.contentPanel).scrollTop($(node).offset().top-$(context.contentPanel).offset().top+$(context.contentPanel).scrollTop());
 			context.parent.paginator.setPage(context.parent.page,true);
 		}
 	}
@@ -129,13 +141,13 @@ Text.prototype.display = function(page,id){
 Text.prototype.onChange = function(change){
 	if( change.type == "pageChange" ){
 		var node = $(this.pageHooks[change.data-1]);
-		$(this.container).scrollTop($(node).offset().top-$(this.container).offset().top+$(this.container).scrollTop());
+		$(this.contentPanel).scrollTop($(node).offset().top-$(this.contentPanel).offset().top+$(this.container).scrollTop());
 	}
 	else if( change.type == "positionChange" ){
-		var node = $(this.container).find("a[name='"+change.data+"']")[0];
-		$(this.container).scrollTop($(node).offset().top-$(this.container).offset().top+$(this.container).scrollTop());
+		var node = $(this.contentPanel).find("a[name='"+change.data+"']")[0];
+		$(this.contentPanel).scrollTop($(node).offset().top-$(this.contentPanel).offset().top+$(this.container).scrollTop());
 	}
 	else if( change.type == "facetsChange" ){
-		this.lp.colorizeLinks($(this.container),change.data);
+		this.lp.colorizeLinks($(this.contentPanel),change.data);
 	}
 };

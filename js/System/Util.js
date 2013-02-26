@@ -119,34 +119,34 @@ Util.loadDocuments = function(trigger){
  * @param {string} nameShort The short name of the document.
  * @param {string} preview A preview thumbnail for the document (currently unused).
  * @param {Object} trigger A trigger function to be called when a document has been loaded.
- * @param {Integer} Number of pages.
+ * @param {number} pageCount Number of pages.
  */
 Util.loadDocument = function(title, name, nameShort, preview, trigger, pageCount){
-		var imagePath, images = [];
-		var metsCallback = function(xml){
-			$(xml).find('[nodeName="METS:mets"]').find('[nodeName="METS:fileSec"]').find('[nodeName="METS:fileGrp"]').first().find('[nodeName="METS:file"]').each(function(){
-				var node = $(this).find('[nodeName="METS:FLocat"]')[0];
-				var fullPath = Util.getAttribute(node,'xlink:href');
-				images.push(fullPath.substring(fullPath.lastIndexOf("/")+1));
-				if( !imagePath ){
-					var dummy = fullPath.substring(0,fullPath.lastIndexOf("/"));
-					imagePath = dummy.substring(0,dummy.lastIndexOf("/")+1);
-				}
-			})
-			var doc = new Document(title, name, nameShort, preview, pageCount, imagePath, images);
-			Util.documents.push(doc);
-			if( typeof trigger == 'undefined' ){
-				return doc;
+	var imagePath, images = [];
+	var metsCallback = function(xml){
+		$(xml).find('[nodeName="METS:mets"]').find('[nodeName="METS:fileSec"]').find('[nodeName="METS:fileGrp"]').first().find('[nodeName="METS:file"]').each(function(){
+			var node = $(this).find('[nodeName="METS:FLocat"]')[0];
+			var fullPath = Util.getAttribute(node,'xlink:href');
+			images.push(fullPath.substring(fullPath.lastIndexOf("/")+1));
+			if( !imagePath ){
+				var dummy = fullPath.substring(0,fullPath.lastIndexOf("/"));
+				imagePath = dummy.substring(0,dummy.lastIndexOf("/")+1);
 			}
-			else {
-				trigger(doc);
-			}
-			Util.docLoad++;
-			if( Util.docLoad == Util.docCount ){
-				Util.docsLoaded = true;
-			}
-		};
-		DocumentServerConnection.getMets(title,true,metsCallback);
+		})
+		var doc = new Document(title, name, nameShort, preview, pageCount, imagePath, images);
+		Util.documents.push(doc);
+		if( typeof trigger == 'undefined' ){
+			return doc;
+		}
+		else {
+			trigger(doc);
+		}
+		Util.docLoad++;
+		if( Util.docLoad == Util.docCount ){
+			Util.docsLoaded = true;
+		}
+	};
+	DocumentServerConnection.getMets(title,true,metsCallback);
 };
 
 /**
