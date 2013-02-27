@@ -399,6 +399,8 @@ noscript p {
 .edition .edition-tools {
   position: absolute;
   left: 5px; }
+  .edition .edition-tools a:hover {
+	  text-decoration: none !important; }
 .edition .gridselector {
   position: absolute;
   right: 0; }
@@ -406,6 +408,8 @@ noscript p {
     margin: 0 34px 0 0;
     padding: 26px 0 0 26px;
     background-repeat: no-repeat; }
+  .edition .gridselector a:hover {
+	  text-decoration: none !important; }
   .edition .gridselector .normal {
     background-image: url("../images/edition-gridselector.png");
     margin: 0; }
