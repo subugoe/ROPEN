@@ -467,6 +467,7 @@ noscript p {
     box-shadow: inset 0px 0px 1px 0px #666666;
     text-align: center; }
     .edition .search .scope-selector a {
+      color: #666666;
       display: inline;
       border-radius: 4px;
       border: 1px solid #c2c2c2;
