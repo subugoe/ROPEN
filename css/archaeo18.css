@@ -230,7 +230,8 @@ span.dynatree-active a {
 }
 
 ul.dynatree-container a:hover {
-	background: white !important;
+	/* background: white !important; */
+	background: #F0F0F0 !important;
 	border-color: black !important;
 }
 
