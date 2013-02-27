@@ -915,8 +915,10 @@ noscript p {
 #editionContainer a ,
 #editionContainer a:hover,
 #editionContainer a:visited {
+/*
 	color: #666666 !important;
 	text-decoration: none !important;
+*/
 }
 
 
