@@ -9,6 +9,7 @@ requirejs.config({
 								 'System/DocumentServerConnection',
 								 'System/Util',
 								 'System/BrowserDetect',
+								 'System/DocumentLoader',
 								 'Processors/TEIProcessor',
 								'Processors/XHTMLProcessor',
 								'Processors/LinkProcessor',

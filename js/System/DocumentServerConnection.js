@@ -133,12 +133,16 @@ DocumentServerConnection.getDocumentTags = function(document, page, facets, succ
  * @this {DocumentServerConnection}
  * @param {string} term The search term to be searched for.
  * @param {string} facet If the search should be done on specific facets, e.g. facets = tei:placeName,tei:persName. If facets='' the search will be performed on the full texts of the documents.
+ * @param {string} documents If the search should be done on specific documents; if the parameter is empty, the search will be performed on all documents.
  * @param {Object} callback A callback function to be called for successfully retrieved data like: function(data).
  */
-DocumentServerConnection.getSearchResults = function(term, facet, callback){
+DocumentServerConnection.getSearchResults = function(term, facet, documents, callback){
 	var url = EditionProperties.searchQuery.replace('QUERY_ID', term);
 	if( facet != '' ){
 		url += '&facet=' + facet;
+	}
+	if( documents != '' ){
+		url += '&document=' + documents;
 	}
 	this.getData(url, 'xml', true, callback);
 };

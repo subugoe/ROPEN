@@ -14,6 +14,7 @@ Images = function(document,container,parent){
 	this.pages = document.pages;
 	this.container = container;
 	this.parent = parent;
+	this.documentLoader = new DocumentLoader();
 	this.initialize();
 }
 
@@ -51,6 +52,8 @@ Images.prototype.showPage = function(page){
 	var width = this.container.width()-4;
 	var height = this.container.height()-4;
 	var url = this.path+"1200/"+this.images[page-1];
+	this.parent.stopProcessing();
+	var process = this.documentLoader.startProcess();
 	this.parent.startProcessing();
 	var mapId = EditionGui.getIndependentId();
 	var zoomDiv = $("<div id='imageZoom"+mapId+"'/>").appendTo(this.container);
@@ -108,51 +111,55 @@ Images.prototype.showPage = function(page){
 	this.map.addControl(navi);
 	var graphic = new Image();
 	graphic.onerror = function(){
-		doc.container.empty();
-		$(Util.getErrorMessage(404)).appendTo(doc.container);
-		doc.parent.stopProcessing();
+		if( process.active ){
+			doc.container.empty();
+			$(Util.getErrorMessage(404)).appendTo(doc.container);
+			doc.parent.stopProcessing();
+		}
 	}
 	graphic.onload = function(){
-		var w = graphic.naturalWidth || this.width;
-		var h = graphic.naturalHeight || this.height;
-		var ws, hs;
-		if( height/h*w < width ){
-			hs = height;
-			ws = height/h*w;
+		if( process.active ){
+			var w = graphic.naturalWidth || this.width;
+			var h = graphic.naturalHeight || this.height;
+			var ws, hs;
+			if( height/h*w < width ){
+				hs = height;
+				ws = height/h*w;
+			}
+			else {
+				ws = width;
+				hs = width/w*h;       				
+			}
+	   		var imageLayer = new OpenLayers.Layer.Image(
+				'Page '+page,
+				url,
+				new OpenLayers.Bounds(-w/2, -h/2, w, h),
+				new OpenLayers.Size(ws,hs),
+				{isBaseLayer: true, displayInLayerSwitcher: false}
+	   		);
+	   		doc.map.addLayer(imageLayer);
+			if( typeof doc.initialZoom != 'undefined' ){
+				doc.map.zoomTo(doc.initialZoom);
+				doc.zoom = doc.initialZoom;
+				doc.initialZoom = undefined;
+			}
+			else {
+				doc.map.zoomTo(doc.zoom);
+			}
+			if( typeof doc.initialCenter != 'undefined' ){
+				doc.map.setCenter( new OpenLayers.LonLat(doc.initialCenter.x,doc.initialCenter.y) );
+				doc.center = doc.initialCenter;
+				doc.initialCenter = undefined;
+			}
+			else if( typeof doc.center != 'undefined' ){
+				doc.map.setCenter( new OpenLayers.LonLat(doc.center.x,doc.center.y) );
+			}
+			else {
+				doc.map.setCenter( new OpenLayers.LonLat(Math.round(ws/2),Math.round(hs/2)) );
+				doc.center = { x: Math.round(ws/2), y: Math.round(hs/2) };
+			}
+			doc.parent.stopProcessing();
 		}
-		else {
-			ws = width;
-			hs = width/w*h;       				
-		}
-   		var imageLayer = new OpenLayers.Layer.Image(
-			'Page '+page,
-			url,
-			new OpenLayers.Bounds(-w/2, -h/2, w, h),
-			new OpenLayers.Size(ws,hs),
-			{isBaseLayer: true, displayInLayerSwitcher: false}
-   		);
-   		doc.map.addLayer(imageLayer);
-		if( typeof doc.initialZoom != 'undefined' ){
-			doc.map.zoomTo(doc.initialZoom);
-			doc.zoom = doc.initialZoom;
-			doc.initialZoom = undefined;
-		}
-		else {
-			doc.map.zoomTo(doc.zoom);
-		}
-		if( typeof doc.initialCenter != 'undefined' ){
-			doc.map.setCenter( new OpenLayers.LonLat(doc.initialCenter.x,doc.initialCenter.y) );
-			doc.center = doc.initialCenter;
-			doc.initialCenter = undefined;
-		}
-		else if( typeof doc.center != 'undefined' ){
-			doc.map.setCenter( new OpenLayers.LonLat(doc.center.x,doc.center.y) );
-		}
-		else {
-			doc.map.setCenter( new OpenLayers.LonLat(Math.round(ws/2),Math.round(hs/2)) );
-			doc.center = { x: Math.round(ws/2), y: Math.round(hs/2) };
-		}
-		doc.parent.stopProcessing();
 	}
 	graphic.src = url;
 };

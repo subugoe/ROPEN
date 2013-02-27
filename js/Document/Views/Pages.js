@@ -13,7 +13,8 @@ Pages = function(document,container,parent){
 	this.pages = document.pages;
 	this.container = container;
 	this.parent = parent;
-	this.lp = new LinkProcessor();
+	this.linkProcessor = new LinkProcessor();
+	this.documentLoader = new DocumentLoader();
 	this.initialize();
 }
 
@@ -31,7 +32,7 @@ Pages.prototype.initialize = function(){
 	this.parent.showPagination();
 	if( EditionProperties.colorizeEntities ){
 		this.parent.facetSelector.setTriggerFunc(function(facetSelection){
-			context.lp.colorizeLinks($(context.container),facetSelection);
+			context.linkProcessor.colorizeLinks($(context.container),facetSelection);
 			context.parent.facetsChanged(facetSelection);
 		});
 		this.parent.showFacets();
@@ -58,39 +59,39 @@ Pages.prototype.showPage = function(page){
 			}
 		}
 	}
-	var show = function(text){
+	var show = function(){
+		var text = context.document.pageCache[context.actualPage-1];
 		$(context.container).empty();
 		$(context.container).html(text);
 	    	checkBlank();
-		context.lp.appendTooltips($(context.container),context.parent);
-		context.lp.colorizeLinks($(context.container),context.parent.facetSelection);
+		context.linkProcessor.appendTooltips($(context.container),context.parent);
+		context.linkProcessor.colorizeLinks($(context.container),context.parent.facetSelection);
 		if( context.parent.lineNumbers ){
 			(new XHTMLProcessor(context.container)).insertLineNumbers(EditionProperties.lineNumbering);
 		}
 	}
 	if( !context.document.pageCache[page-1] ){
-		if( !this.stopped ){
-			context.parent.stopProcessing();
-		}
-		this.stopped = false;
+		context.parent.stopProcessing();
+		var process = context.documentLoader.startProcess();
 		context.parent.startProcessing();
 		var failure = function(errorObject){
-			if( !context.stopped ){
-				show(Util.getErrorMessage(errorObject.status));
+			if( process.active ){
+				$(context.container).empty();
+				$(context.container).html(Util.getErrorMessage(errorObject.status));
 				context.parent.stopProcessing();
 			}
 		}
 		var success = function(text){
-			if( !context.stopped ){
-				show(text);
+			context.document.pageCache[page-1] = text;
+			if( process.active ){
+				show();
 				context.parent.stopProcessing();
 			}
-			context.document.pageCache[page-1] = text;
 		}
 		DocumentServerConnection.getDocumentPage(context.document,page,success,failure);
 	}
 	else {
-		show(context.document.pageCache[page-1]);
+		show();
 	}
 };
 	
@@ -120,6 +121,6 @@ Pages.prototype.onChange = function(change){
 		}
 	}
 	else if( change.type == "facetsChange" ){
-		this.lp.colorizeLinks($(this.container),change.data);
+		this.linkProcessor.colorizeLinks($(this.container),change.data);
 	}
 };

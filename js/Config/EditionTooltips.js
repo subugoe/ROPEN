@@ -462,5 +462,17 @@ var EditionTooltips = {
 	"bibl" : {
 		"en": "literature",
 		"de": "Literatur"
+	},
+	"noDocumentsSelected" : {
+		"en": "Please select one or more documents to perform the search!",
+		"de": "Bitte selektieren Sie ein oder mehrere Dokumente um die Suche durchzuführen!"
+	},
+	"noFacetsSelected" : {
+		"en": "Please select one or more facets to perform the search!",
+		"de": "Bitte selektieren Sie ein oder mehrere Facetten um die Suche durchzuführen!"
+	},
+	"noSearchString" : {
+		"en": "Please enter a search string to perform the search!",
+		"de": "Bitte geben Sie einen Suchbegriff ein um die Suche durchzuführen!"
 	}
 };

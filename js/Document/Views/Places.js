@@ -14,6 +14,7 @@ Places = function(document,container,parent){
 	this.document = document;
 	this.container = container;
 	this.parent = parent;
+	this.documentLoader = new DocumentLoader();
 	this.documentScope = EditionProperties.documentScope;
 	this.initialize();
 }
@@ -89,14 +90,12 @@ Places.prototype.initialize = function(){
 Places.prototype.show = function(page){
 	var context = this;
 	if( !this.document.kmlCache[page] ){
-		if( !this.stopped ){
-			context.parent.stopProcessing();
-		}
-		this.stopped = false;
-		context.parent.startProcessing();
+		this.parent.stopProcessing();
+		var process = this.documentLoader.startProcess();
+		this.parent.startProcessing();
 		var callback = function(kml){
 			context.document.kmlCache[page] = GeoTemConfig.loadKml(kml);
-			if( !context.stopped ){
+			if( process.active ){
 				context.map.display([new Dataset(context.document.kmlCache[page])]);
 				context.parent.stopProcessing();
 			}

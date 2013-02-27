@@ -15,12 +15,14 @@ var EditionGui = new function(){
 	/**
 	* stops loading process of actual window tab
 	*/
+	/*
 	$(document).keypress(function(e){
 		if( e.keyCode == 27 ){
 			e.preventDefault();
 			EditionGui.activeWindow.stopProcessing();
 		}
 	});
+	*/
 
 	/**
 	* automatic grid layout, if user resizes browser

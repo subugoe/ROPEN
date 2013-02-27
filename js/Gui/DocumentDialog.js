@@ -197,7 +197,9 @@ DocumentDialog.prototype.resize = function(){
 DocumentDialog.prototype.startProcessing = function(){
 	var dialog = this;
 	var stop = function(){
-		dialog.doctype.stopped = true;
+		if( typeof dialog.doctype.documentLoader != 'undefined' ){
+			dialog.doctype.documentLoader.stopProcess();
+		}
 		dialog.overlay.removeOverlay();
 	};
 	this.overlay.loaderOverlay(stop);
@@ -209,7 +211,9 @@ DocumentDialog.prototype.startProcessing = function(){
  * @this {DocumentDialog}
  */
 DocumentDialog.prototype.stopProcessing = function(){
-	this.doctype.stopped = true;
+	if( typeof this.doctype.documentLoader != 'undefined' ){
+		this.doctype.documentLoader.stopProcess();
+	}
 	this.overlay.removeOverlay();
 };
 
@@ -326,7 +330,7 @@ DocumentDialog.prototype.setDocType = function(type,id){
 		else {
 			this.showPagination();
 		}
-		if( type == 'outline' || type == 'thumbnails' || type == 'tei' || type == 'images' ){
+		if( type == 'outline' || type == 'thumbnails' || type == 'tei' || type == 'images' || type == 'map' ){
 			this.hideFacets();
 		}
 		else {

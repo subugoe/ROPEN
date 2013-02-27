@@ -97,7 +97,7 @@ Tooltip.setTooltip = function(parent,content,trigger){
 			}
 			tt.checkActivity();
 			if ( typeof content != 'undefined' ){
-				var tooltip = $("<div class='info'/>").appendTo(EditionGui.containerDiv);
+				var tooltip = $("<div class='info info-tooltip'/>").appendTo(EditionGui.containerDiv);
 				$(tooltip).css('z-index','99999');
 				$(content).appendTo(tooltip);
 				var activeTooltip = {
@@ -129,7 +129,7 @@ Tooltip.setTooltip = function(parent,content,trigger){
 	else if( EditionProperties.tooltipMode == 'click' ){
 		$(parent).mouseenter(function(e){
 			if ( typeof content != 'undefined' && content != '' ){			
-				var tooltip = $("<div class='info'/>").appendTo(EditionGui.containerDiv);
+				var tooltip = $("<div class='info info-tooltip'/>").appendTo(EditionGui.containerDiv);
 				$(tooltip).css('z-index','99999');
 				$(content).appendTo(tooltip);
 				var clicked = false;

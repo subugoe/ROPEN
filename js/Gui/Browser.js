@@ -79,23 +79,30 @@ Browser.prototype.initialize = function() {
 	var simpleSearch = $("<form/>").appendTo(this.searchTypes);
 
 	this.searchField = $("<input type='text' />").appendTo(simpleSearch);
-	$("<input type='submit' value='' />").appendTo(simpleSearch);
+	var searchButton = $("<input type='submit' value='' />").appendTo(simpleSearch);
 
-	var search = function() {
+	var search = function(evt) {
 		if (browser.searchField.val() != '') {
 			browser.clearSearch();
 			if (selectedSearchType == 'simple') {
 				browser.search('');
 			}
 			else if (selectedSearchType == 'advanced') {
-				browser.doAdvancedSearch();
+				browser.doAdvancedSearch(evt);
 			}
+		}
+		else {
+			var content = $("<div class='inner'/>");
+			Util.getAlertMessage(Util.getString('noSearchString')).appendTo(content);
+			EditionGui.createDialog(Util.getString('warning'),content,evt,20,20);
 		}
 	};
 
+	searchButton.click(function(evt) {
+		search(evt);
+	});
 	simpleSearch.submit(function(evt) {
 		evt.preventDefault();
-		search();
 	});
 
 	this.as = $("<div class='advancedSearch'/>").appendTo(this.searchTypes);
@@ -280,7 +287,7 @@ Browser.prototype.prepareAdvancedSearch = function() {
 	$(inTexts).click(checkFacetVisibility);
 	$(inFacets).click(checkFacetVisibility);
 
-	this.doAdvancedSearch = function() {
+	this.doAdvancedSearch = function(evt) {
 		var facet = '';
 		if ($(inFacets).attr('checked')) {
 			for (var i in Util.facets) {
@@ -291,8 +298,31 @@ Browser.prototype.prepareAdvancedSearch = function() {
 					facet += Util.facets[i].facet.substring(Util.facets[i].facet.indexOf(':') + 1);
 				}
 			}
+			if( facet == '' ){
+				var content = $("<div class='inner'/>");
+				Util.getAlertMessage(Util.getString('noFacetsSelected')).appendTo(content);
+				EditionGui.createDialog(Util.getString('warning'),content,evt,20,20);
+				return;
+			}
 		}
-		browser.search(facet);
+		var documents = '';
+		if ($(selectDocuments).attr('checked')) {
+			for (var i in Util.documents) {
+				if (documentSelection[i]) {
+					if (documents != '') {
+						documents += ',';
+					}
+					documents += Util.documents[i].title;
+				}
+			}
+			if( documents == '' ){
+				var content = $("<div class='inner'/>");
+				Util.getAlertMessage(Util.getString('noDocumentsSelected')).appendTo(content);
+				EditionGui.createDialog(Util.getString('warning'),content,evt,20,20);
+				return;
+			}
+		}
+		browser.search(facet,documents);
 	};
 
 	this.advancedSearch.css('display','none');
@@ -304,7 +334,7 @@ Browser.prototype.prepareAdvancedSearch = function() {
  * @this {Browser}
  * @param {string} facet A facets string to perform the search on selected facets instead of whole document texts.
  */
-Browser.prototype.search = function(facet){
+Browser.prototype.search = function(facet,documents){
 	var browser = this;
 	var cancel = false;
 	var onclose = function() {
@@ -342,7 +372,7 @@ Browser.prototype.search = function(facet){
 			browser.stopProcessing();
 		}
 	}
-	DocumentServerConnection.getSearchResults(this.searchField.val(), facet,callback);
+	DocumentServerConnection.getSearchResults(this.searchField.val(),facet,documents,callback);
 };
 
 /**

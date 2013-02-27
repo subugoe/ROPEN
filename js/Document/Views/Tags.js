@@ -10,12 +10,12 @@
 Tags = function(document,container,parent){	
 	this.type = "tags";
 	this.container = container;
-	this.stopped = true;
 	this.pages = document.pages;
 	this.document = document;
 	this.container = container;
 	this.parent = parent;
-	this.lp = new LinkProcessor();
+	this.linkProcessor = new LinkProcessor();
+	this.documentLoader = new DocumentLoader();
 	this.documentScope = EditionProperties.documentScope;
 	this.initialize();
 }
@@ -27,7 +27,8 @@ Tags = function(document,container,parent){
  */
 Tags.prototype.initialize = function(){
 	var context = this;
-	this.buttonPanel = $('<div/>').appendTo(this.container);
+	this.tagcloudId = "tagcloud"+EditionGui.getIndependentId();
+	this.buttonPanel = $('<div id="'+this.tagcloudId+'"/>').appendTo(this.container);
 	this.buttonPanel.addClass('buttonPanel');
 	this.contentPanel = $('<div/>').appendTo(this.container);
 	$(this.contentPanel).css('overflow','auto');
@@ -84,63 +85,22 @@ Tags.prototype.show = function(page){
 		$(Util.getAlertMessage(Util.getString('selectFacetsAlert'))).appendTo(this.contentPanel);
 		return;
 	}
-	if( !this.stopped ){
-		this.parent.stopProcessing();
-	}
-	this.stopped = false;
+	this.parent.stopProcessing();
+	var process = this.documentLoader.startProcess();
 	this.parent.startProcessing();
 	var failure = function(errorObject){
-		if( !context.stopped ){
+		if( process.active ){
 			$(Util.getErrorMessage(errorObject.status)).appendTo(context.contentPanel);
 			context.parent.stopProcessing();
 		}
 	}
 	var success = function(xml){
-		if( !context.stopped ){
+		if( process.active ){
 			var tagArray = Util.getTags($(xml).find('tag'));
 			context.tags = tagArray;
-			var trigger = function(){
-				context.lp.appendTooltips(context.contentPanel);
-				context.parent.stopProcessing();
-			};
-
-/*
-  var draw = function(words) {
-console.info(d3.select("body"),context.contentPanel,$());
-    d3.select("body").append("svg")
-        .attr("width", w)
-        .attr("height", h)
-      .append("g")
-        .attr("transform", "translate(150,150)")
-      .selectAll("text")
-        .data(words)
-      .enter().append("text")
-        .style("font-size", function(d) { return d.size + "px"; })
-        .attr("text-anchor", "middle")
-        .attr("transform", function(d) {
-          return "translate(" + [d.x, d.y] + ")rotate(" + d.rotate + ")";
-        })
-        .text(function(d) { return d.text; });
-  }
-
-var w = $(context.contentPanel).width();
-var h = $(context.contentPanel).height();
-d3.layout.cloud().size([w,h])
-      .words([
-        "Hello", "world", "normally", "you", "want", "more", "words",
-        "than", "this"].map(function(d) {
-        return {text: d, size: 10 + Math.random() * 90};
-      }))
-      .rotate(function() { return ~~(Math.random() * 2) * 90; })
-      .fontSize(function(d) { return d.size; })
-      .on("end", draw)
-      .start();
-				context.parent.stopProcessing();
-*/
-
-
-			$(context.contentPanel).jQCloud(tagArray,{trigger:trigger});
-
+			$(context.contentPanel).jQCloud(tagArray);
+			context.linkProcessor.appendTooltips(context.contentPanel);
+			context.parent.stopProcessing();
 		}
 	}
 	DocumentServerConnection.getDocumentTags(context.document,page,facets,success,failure);
@@ -194,16 +154,13 @@ Tags.prototype.display = function(page){
  * @this {Tags}
  */
 Tags.prototype.resize = function(){
-	var context = this;
 	$(this.contentPanel).css('width','100%');
 	$(this.contentPanel).css('height',($(this.container).height()-$(this.buttonPanel).height())+'px');
 	if( typeof this.tags != 'undefined' ){
 		$(this.contentPanel).empty();
-		var trigger = function(){
-			context.lp.appendTooltips(context.contentPanel);
-		};
-		$(this.contentPanel).jQCloud(this.tags,{trigger:trigger});
-		this.lp.appendTooltips(this.contentPanel);
+		$(this.contentPanel).jQCloud(this.tags);
+		this.linkProcessor.appendTooltips(this.contentPanel);
+		this.linkProcessor.appendTooltips(context.contentPanel);
 	}
 };
 

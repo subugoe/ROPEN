@@ -11,6 +11,7 @@
 
 3. jqcloud
 - used to generate tag clouds
+- modified (removed default font, removed setTimeouts, added trigger function to color tags and append tooltips after the tag cloud was computed)
 - used in: Tags.js
 
 4. jQuery

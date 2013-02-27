@@ -12,6 +12,7 @@ Outline = function(document,container,parent){
 	this.document = document;
 	this.container = container;
 	this.parent = parent;
+	this.documentLoader = new DocumentLoader();
 }
 
 /**
@@ -22,17 +23,17 @@ Outline = function(document,container,parent){
 Outline.prototype.display = function(){
 	var context = this;
 	$(this.container).empty();
-	this.stopped = false;
+	var process = context.documentLoader.startProcess();
 	this.parent.startProcessing();
 	var failure = function(errorObject){
-		if( !context.stopped ){
+		if( process.active ){
 			$(Util.getErrorMessage(errorObject.status)).appendTo(context.container);
 			context.parent.stopProcessing();
 		}
 	}
 	var success = function(outline){
 		var outlineTmp = $(outline);
-		if( !context.stopped ){
+		if( process.active ){
 			$(outlineTmp).find('a').each(function(){
 				$(this).click(function(){
 					context.parent.showTextAtPosition($(this).attr('name'));
