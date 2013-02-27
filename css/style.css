@@ -485,6 +485,7 @@ noscript p {
       filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eeeeee',GradientType=0 );
       cursor: pointer; }
     .edition .search .scope-selector a:hover {
+      text-decoration: none !important;
       background-color: #feffff;
       background: -moz-linear-gradient(top, #feffff 0%, #ded9c8 26%, #ded9c8 90%, #eeeeee 100%);
       background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #feffff), color-stop(26%, #ded9c8), color-stop(90%, #ded9c8), color-stop(100%, #eeeeee));
