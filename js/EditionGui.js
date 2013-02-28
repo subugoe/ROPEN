@@ -11,6 +11,7 @@ var EditionGui = new function(){
 	this.automaticGridLayout = false;
 	this.zIndex = 0;
 	this.magneticLinks = [];
+	this.initialized = false;
 
 	/**
 	* stops loading process of actual window tab
@@ -28,8 +29,10 @@ var EditionGui = new function(){
 	* automatic grid layout, if user resizes browser
 	*/
 	$(window).resize(function(){
-		EditionGui.minWidth = $(window).width();
-		EditionGui.gridLayout();
+		if( EditionGui.initialized ){
+			EditionGui.minWidth = $(window).width();
+			EditionGui.gridLayout();
+		}
 	});
 }
 
@@ -88,10 +91,8 @@ EditionGui.addFolder = function(){
  *
  * @this {EditionGui}
  */
-EditionGui.initialize = function(settings){
-	if( typeof settings != 'undefined' ){
-		EditionProperties.applySettings(settings);
-	}
+EditionGui.initialize = function(){
+	this.initialized = true;
 	var gui = this;
 	this.containerDiv = $('#editionContainer');
 	this.containerDiv.css('height',(EditionProperties.windowHeight+2*EditionProperties.margin)+'px');
@@ -101,7 +102,9 @@ EditionGui.initialize = function(settings){
 		highlightEvents : false,
 		selectionEvents : false
 	});
-	Util.loadFacets();
+	if( !Util.facetsLoaded ){
+		Util.loadFacets();
+	}
 	this.browser = $('<div/>').appendTo(this.containerDiv);
 	$.extend(this.browser,new FrameWindow());
 	this.browser.initialize({
@@ -118,9 +121,26 @@ EditionGui.initialize = function(settings){
 	this.browser.resize();
 	this.browser.resizeContent();
 	this.browser.setFixed(this.automaticGridLayout);
-	Util.loadDocuments(function(doc){
-    		gui.browser.addDocument(doc);
-	});
+	if( Util.docsLoaded == -1 ){
+		Util.loadDocuments(function(doc){
+	    		gui.browser.addDocument(doc);
+		});
+	}
+	else {
+		var loadDocs = function(){
+			if( Util.docsLoaded == 1 ){
+				for( var i=0; i<Util.documents.length; i++ ){
+					gui.browser.addDocument(Util.documents[i]);
+				}
+			}
+			else {
+				setTimeout(function(){
+					loadDocs();
+				}, 100 );
+			}
+		}
+		loadDocs();
+	}
 	this.addControls();
 	this.minHeight = $(this.containerDiv).height();
 	this.minWidth = $(window).width();

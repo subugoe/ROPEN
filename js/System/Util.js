@@ -11,9 +11,7 @@ var Util = new function(){
 	this.facets = [];
 	/* array of strings for all possible document views */
 	this.docTypes = [ 'outline', 'text', 'pages', 'thumbnails', 'images', 'tei', 'map', 'tags' ];
-	this.docsLoaded = false;
-	this.docCount = false;
-	this.docLoad = 0;
+	this.docsLoaded = -1;
 	this.facetsLoaded = false;
 	this.texts = EditionTooltips;
 	if( typeof navigator.language != 'undefined' && navigator.language.indexOf("de") > -1  ){
@@ -92,61 +90,46 @@ Util.getString = function(id){
  * @param {Object} trigger A trigger function to be called when a document has been loaded.
  */
 Util.loadDocuments = function(trigger){
+	Util.docsLoaded = 0;
 	var gui = this;
 	var callback = function(xml){
 		var docs = $(xml).find('doc');
-		Util.docCount = docs.length;
+		var loadMets = function(document){
+			var imagePath, images = [];
+			var metsCallback = function(xml){
+				$(xml).find('[nodeName="METS:mets"]').find('[nodeName="METS:fileSec"]').find('[nodeName="METS:fileGrp"]').first().find('[nodeName="METS:file"]').each(function(){
+					var node = $(this).find('[nodeName="METS:FLocat"]')[0];
+					var fullPath = Util.getAttribute(node,'xlink:href');
+					images.push(fullPath.substring(fullPath.lastIndexOf("/")+1));
+					if( !imagePath ){
+						var dummy = fullPath.substring(0,fullPath.lastIndexOf("/"));
+						imagePath = dummy.substring(0,dummy.lastIndexOf("/")+1);
+					}
+				})
+				document.imagePath = imagePath;
+				document.images = images;
+				Util.documents.push(document);
+				if( Util.documents.length == docs.length ){
+					Util.docsLoaded = 1;
+				}
+				if( typeof trigger != 'undefined' ){
+					trigger(document);
+				}
+			};
+			DocumentServerConnection.getMets(document.title,true,metsCallback);
+		}
 		for (var i = 0; i < docs.length; i++){
-			Util.loadDocument(
-					$(docs[i]).find('id').text(),
-					$(docs[i]).find('title').text(),
-					$(docs[i]).find('titleShort').text(),
-					$(docs[i]).find('preview').text(),
-					trigger,
-					$(docs[i]).find('pageCount').text()
+			var document = new Document(
+				$(docs[i]).find('id').text(),
+				$(docs[i]).find('title').text(),
+				$(docs[i]).find('titleShort').text(),
+				$(docs[i]).find('preview').text(),
+				$(docs[i]).find('pageCount').text()
 			);
+			loadMets(document);
 		};
 	}
 	DocumentServerConnection.getDocuments(callback);
-};
-
-/**
- * Loads a single document asynchronously.
- *
- * @this {Util}
- * @param {string} title The title (id) of the document.
- * @param {string} name The name of the document.
- * @param {string} nameShort The short name of the document.
- * @param {string} preview A preview thumbnail for the document (currently unused).
- * @param {Object} trigger A trigger function to be called when a document has been loaded.
- * @param {number} pageCount Number of pages.
- */
-Util.loadDocument = function(title, name, nameShort, preview, trigger, pageCount){
-	var imagePath, images = [];
-	var metsCallback = function(xml){
-		$(xml).find('[nodeName="METS:mets"]').find('[nodeName="METS:fileSec"]').find('[nodeName="METS:fileGrp"]').first().find('[nodeName="METS:file"]').each(function(){
-			var node = $(this).find('[nodeName="METS:FLocat"]')[0];
-			var fullPath = Util.getAttribute(node,'xlink:href');
-			images.push(fullPath.substring(fullPath.lastIndexOf("/")+1));
-			if( !imagePath ){
-				var dummy = fullPath.substring(0,fullPath.lastIndexOf("/"));
-				imagePath = dummy.substring(0,dummy.lastIndexOf("/")+1);
-			}
-		})
-		var doc = new Document(title, name, nameShort, preview, pageCount, imagePath, images);
-		Util.documents.push(doc);
-		if( typeof trigger == 'undefined' ){
-			return doc;
-		}
-		else {
-			trigger(doc);
-		}
-		Util.docLoad++;
-		if( Util.docLoad == Util.docCount ){
-			Util.docsLoaded = true;
-		}
-	};
-	DocumentServerConnection.getMets(title,true,metsCallback);
 };
 
 /**
@@ -162,6 +145,7 @@ Util.loadDocumentSync = function(title,nameShort){
 		pageCount = $(xml).find('count').text();
 	}
 	DocumentServerConnection.getPages(title,false,pagesCallback);
+	var document = new Document(title,'',nameShort,'',pageCount)
 	var imagePath, images = [];
 	var metsCallback = function(xml){
 		$(xml).find('[nodeName="METS:mets"]').find('[nodeName="METS:fileSec"]').find('[nodeName="METS:fileGrp"]').first().find('[nodeName="METS:file"]').each(function(){
@@ -172,11 +156,12 @@ Util.loadDocumentSync = function(title,nameShort){
 				var dummy = fullPath.substring(0,fullPath.lastIndexOf("/"));
 				imagePath = dummy.substring(0,dummy.lastIndexOf("/")+1);
 			}
-		});
-	}
-	DocumentServerConnection.getMets(title,false,metsCallback);
-	var doc = new Document(title,'',nameShort,'',pageCount,imagePath,images);
-	return doc;
+		})
+		document.imagePath = imagePath;
+		document.images = images;
+	};
+	DocumentServerConnection.getMets(document.title,false,metsCallback);
+	return document;
 };
 
 /**

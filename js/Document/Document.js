@@ -8,17 +8,13 @@
  * @param {string} nameShort The short name of the document, used in tabs of the folders.
  * @param {string} preview URI to a preview image; currently unused.
  * @param {number} pages The number of pages of the document.
- * @param {string} imagePath An URI for all images, extent independent.
- * @param {Array} images An array of images file names. The complete URI for an image consists of {imagePath}+{desired width of image}+/+{images[i]}.
  */
-Document = function(title, name, nameShort, preview, pages, imagePath, images){
+Document = function(title, name, nameShort, preview, pages){
 	this.title = title;
 	this.name = name;
 	this.nameShort = nameShort;
 	this.preview = preview;
 	this.pages = pages;
-	this.imagePath = imagePath;
-	this.images = images;
 
 	// cache variables to avoid multiple server requests
 	this.fullText;
