@@ -337,6 +337,9 @@ noscript p {
     padding: 5px 0 0 0; }
   .edition .info .place {
     color: #004BCA; }
+.edition.info.info-tooltip p {
+	padding: 0 !important;
+}
 .edition .dialog {
   position: absolute;
   background-color: #ddd8c9;
