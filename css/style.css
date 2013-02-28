@@ -341,11 +341,11 @@ noscript p {
 	padding: 0px !important;
 }
 .edition .info-tooltip p {
-	padding: 2px !important;
+	padding: 2px 5px !important;
 	margin: 0 !important;
 }
 .edition .info-tooltip p:nth-child(2) {
-	border: none !important;
+	border: 1px solid lightgrey !important;
 }
 .edition .info-tooltip hr {
 	-moz-border-bottom-colors: none;
