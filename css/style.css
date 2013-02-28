@@ -338,11 +338,11 @@ noscript p {
   .edition .info .place {
     color: #004BCA; }
 .edition .info-tooltip {
-	padding: 5px;
+	padding: 0px !important;
 }
 .edition .info-tooltip p {
 	padding: 0 !important;
-	margin: !important;
+	margin: 0 !important;
 }
 .edition .info-tooltip hr {
 	-moz-border-bottom-colors: none;
