@@ -60,7 +60,6 @@ Tags.prototype.initialize = function(){
 				}
 				context.documentScope = scope;
 				context.display(context.parent.page);
-				context.resize();
 			}
 		};
 		$(documentTags).click(function(){
@@ -160,7 +159,7 @@ Tags.prototype.resize = function(){
 		$(this.contentPanel).empty();
 		$(this.contentPanel).jQCloud(this.tags);
 		this.linkProcessor.appendTooltips(this.contentPanel);
-		this.linkProcessor.appendTooltips(context.contentPanel);
+		this.linkProcessor.appendTooltips(this.contentPanel);
 	}
 };
 
