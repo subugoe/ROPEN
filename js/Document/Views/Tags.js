@@ -175,7 +175,7 @@ Tags.prototype.onChange = function(change){
 		this.context.display(this.parent.page);
 	}
 	if( change.type == "pageChange" ){
-		if( this.actualPage != change.data ){
+		if( !this.documentScope && this.actualPage != change.data ){
 			this.showPage(change.data);
 		}
 	}
