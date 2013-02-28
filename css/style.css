@@ -345,7 +345,7 @@ noscript p {
 	margin: 0 !important;
 }
 .edition .info-tooltip p:nth-child(2) {
-	border: 1px solid lightgrey !important;
+	border: 1px solid grey !important;
 }
 .edition .info-tooltip hr {
 	-moz-border-bottom-colors: none;
