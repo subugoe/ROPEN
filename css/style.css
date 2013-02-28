@@ -341,7 +341,7 @@ noscript p {
 	padding: 0px !important;
 }
 .edition .info-tooltip p {
-	padding: 0 !important;
+	padding: 2px !important;
 	margin: 0 !important;
 }
 .edition .info-tooltip hr {
