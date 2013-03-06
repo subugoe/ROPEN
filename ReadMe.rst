@@ -1,6 +1,8 @@
 ROPEN
 =====
 
+ROPEN (Resource Oriented Presentation ENvironment) is a digital tool for presenting digital editions.
+
 Dependencies
 ############
 
