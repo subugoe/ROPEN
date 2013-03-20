@@ -123,4 +123,13 @@
 
 .head-anchor {
 	cursor: pointer;
+	width: 82%;
+}
+
+ul ul ul .head-anchor {
+	width: 75%;
+}
+
+ul ul ul ul .head-anchor {
+	width: 68%;
 }

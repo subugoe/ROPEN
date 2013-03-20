@@ -174,7 +174,7 @@ Browser.prototype.prepareAdvancedSearch = function() {
 	var documentList = $('<ul/>').appendTo(documents);
 
 	$(documents).css('overflow','hidden');
-	$(allDocuments).attr('checked',true);
+	$(allDocuments).prop('checked', true);
 
 	var docsSelected = false;
 	var docsHeight;
@@ -225,7 +225,7 @@ Browser.prototype.prepareAdvancedSearch = function() {
 	var inTexts = $('#textsSearch')[0];
 	var inFacets = $('#facetsSearch')[0];
 
-	$(inTexts).attr('checked',true);
+	$(inTexts).prop('checked', true);
 
 	var facets = $('<div class="facetOptions"/>').appendTo(this.advancedSearch);
 
