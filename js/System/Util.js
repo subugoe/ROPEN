@@ -144,7 +144,7 @@ Util.loadDocumentSync = function(title,nameShort){
 	var pagesCallback = function(xml){
 		pageCount = $(xml).find('count').text();
 	}
-	DocumentServerConnection.getPages(title,false,pagesCallback);
+	//DocumentServerConnection.getPageCount(title,false,pagesCallback);
 	var document = new Document(title,'',nameShort,'',pageCount)
 	var imagePath, images = [];
 	var metsCallback = function(xml){
