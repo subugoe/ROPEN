@@ -115,12 +115,12 @@ var EditionProperties = {
 		/**
 		  allow/disallow line numbering in textual views. A valid integer for line number steps if line numbering is allowed, false if not. (1 means to show line numbers on each line, 5 means to show line numbers for lines 5, 10, 15, ...)
 		*/
-    		lineNumbering: 1,
+		lineNumbering: 1,
 
 		/**
 		  allow/disallow initial line numbering (if lineNumbering=true)
 		*/
-    		numbersOnStart: false,
+		numbersOnStart: false,
 
 		/**
 		  allow/disallow coloring of entities
@@ -133,19 +133,19 @@ var EditionProperties = {
 		colorizeOnStart: false,
 
 		/**
-		   If the user shoul be able to change the scope for the views Places and Tags (document, page).
+		   If the user should be able to change the scope for the views Places and Tags (document, page).
 		*/
-    		scopeSelection: true,
+		scopeSelection: true,
 
 		/**
 		   The initial scope for Places and Tags (document, page).
 		*/
-    		documentScope: false,
+		documentScope: false,
 
 		/**
 		   Image zoom factor. 0.1 makes 10 zoom steps instead of one.
 		*/
-    		fractionalZoomFactor: 0.1,
+		fractionalZoomFactor: 0.1,
 
 		/**
 		   windows gui options: if windows can be dragged
