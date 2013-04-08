@@ -1303,6 +1303,7 @@ noscript p {
 .edition .window .inner .toolstop ul:first-child {
 	float: left;
 	margin: 5px;
+	width: 50%;
 }
 
 .edition .window .inner .toolstop ul:first-child li:first-child {
@@ -1311,7 +1312,9 @@ noscript p {
 
 .edition .window .inner .toolstop ul:nth-child(2) {
 	float: right;
-	margin: 5px -8px 5px 5px;
+	width: 39%;
+	margin: 0 -42px;
+	padding: 8px 0;
 }
 
 .edition .window .inner .tools {
