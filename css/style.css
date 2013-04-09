@@ -1313,8 +1313,9 @@ noscript p {
 .edition .window .inner .toolstop ul:nth-child(2) {
 	float: right;
 	width: 39%;
-	margin: 0 -80px;
+	margin: 0;
 	padding: 8px 0;
+	text-align: right;
 }
 
 .edition .window .inner .tools {
