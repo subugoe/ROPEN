@@ -341,12 +341,12 @@ noscript p {
 .edition .windowtools {
 	float: right;
 	padding: 4px 0 0 0;
-	margin: 0;
+	margin: 0 4px 0 0;
 }
 
 .edition .windowtools a {
 	padding: 0 19px 0 0;
-	margin: 0 5px 0 0;
+	margin: 0;
 	width: 25px;
 }
 
