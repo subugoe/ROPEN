@@ -720,9 +720,21 @@ EditionGui.addControls = function(){
 			});
 		}
 	}
-	if( EditionProperties.fullscreen ){
+	if (EditionProperties.fullscreen) {
 		var fsButton = $('<a class="browser-fullscreen"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(gridDiv);
-		fsButton.click(function(){
+
+		// add event listener for fullscreen toggle
+		var browsersEventNames = ['mozfullscreenchange', 'webkitfullscreenchange'];
+
+		for (var i in browsersEventNames) {
+			document.addEventListener(browsersEventNames[i], function() {
+				if ($('#editionContainer').fullScreen() === false) {
+					$('.browser-fullscreen').removeClass('browser-fullscreen-off');
+				}
+			}, false);
+		}
+
+		fsButton.click(function() {
 			if ($('.browser-fullscreen').hasClass('browser-fullscreen-off')) {
 				$('#editionContainer').fullScreen(false);
 				$('.browser-fullscreen').removeClass('browser-fullscreen-off');
