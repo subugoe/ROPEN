@@ -4,20 +4,20 @@
  * @constructor
  * @this {Util}
  */
-var Util = new function(){
+var Util = new function() {
 	/* array for all documents metadata from the server */
 	this.documents = [];
 	/* array for all possible facets */
 	this.facets = [];
 	/* array of strings for all possible document views */
-	this.docTypes = [ 'outline', 'text', 'pages', 'thumbnails', 'images', 'tei', 'map', 'tags' ];
+	this.docTypes = ['outline', 'text', 'pages', 'thumbnails', 'images', 'tei', 'map', 'tags'];
 	this.docsLoaded = -1;
 	this.facetsLoaded = false;
 	this.texts = EditionTooltips;
-	if( typeof navigator.language != 'undefined' && navigator.language.indexOf("de") > -1  ){
+	if (typeof navigator.language != 'undefined' && navigator.language.indexOf("de") > -1 ) {
 		this.language = "de";
 	}
-	else if( typeof navigator.browserLanguage != 'undefined' && navigator.browserLanguage.indexOf("de") > -1 ){
+	else if (typeof navigator.browserLanguage != 'undefined' && navigator.browserLanguage.indexOf("de") > -1) {
 		this.language = "de";
 	}
 	else {
@@ -32,9 +32,9 @@ var Util = new function(){
  * @param {string} type The document type.
  * @return {number} The corresponding document type id.
  */
-Util.getIdByType = function(type){
-	for( var i=0; i<this.docTypes.length; i++ ){
-		if( this.docTypes[i] == type ){
+Util.getIdByType = function(type) {
+	for (var i=0; i < this.docTypes.length; i++) {
+		if (this.docTypes[i] == type) {
 			return i;
 		}
 	}
@@ -47,7 +47,7 @@ Util.getIdByType = function(type){
  * @param {number} id The id of the document type.
  * @return {string} The corresponding document type.
  */
-Util.getTypeById = function(id){
+Util.getTypeById = function(id) {
 	return this.docTypes[id];
 };
 
@@ -59,11 +59,11 @@ Util.getTypeById = function(id){
  * @param {string} attributeName The attribute to search for.
  * @return {string} The value of the attribute.
  */
-Util.getAttribute = function(node,attributeName){
+Util.getAttribute = function(node,attributeName) {
 	var value = $(node).attr(attributeName);
-	if( typeof value == 'undefined' ){
-		for( var i=0; i<node.attributes.length; i++ ){
-			if( attributeName == node.attributes[i].name ){
+	if (typeof value == 'undefined') {
+		for (var i = 0; i < node.attributes.length; i++) {
+			if (attributeName == node.attributes[i].name) {
 				value = node.attributes[i].nodeValue;
 				break;
 			}
@@ -79,7 +79,7 @@ Util.getAttribute = function(node,attributeName){
  * @param {string} id The id of the tooltip, e.g. 'folder'.
  * @return {string} The corresponding tooltip dependent on the applications language.
  */
-Util.getString = function(id){
+Util.getString = function(id) {
 	return Util.texts[id][Util.language];
 };
 
@@ -89,36 +89,36 @@ Util.getString = function(id){
  * @this {Util}
  * @param {Object} trigger A trigger function to be called when a document has been loaded.
  */
-Util.loadDocuments = function(trigger){
+Util.loadDocuments = function(trigger) {
 	Util.docsLoaded = 0;
 	var gui = this;
-	var callback = function(xml){
+	var callback = function(xml) {
 		var docs = $(xml).find('doc');
-		var loadMets = function(document){
+		var loadMets = function(document) {
 			var imagePath, images = [];
-			var metsCallback = function(xml){
-				$(xml).find('[nodeName="METS:mets"]').find('[nodeName="METS:fileSec"]').find('[nodeName="METS:fileGrp"]').first().find('[nodeName="METS:file"]').each(function(){
+			var metsCallback = function(xml) {
+				$(xml).find('[nodeName="METS:mets"]').find('[nodeName="METS:fileSec"]').find('[nodeName="METS:fileGrp"]').first().find('[nodeName="METS:file"]').each(function() {
 					var node = $(this).find('[nodeName="METS:FLocat"]')[0];
-					var fullPath = Util.getAttribute(node,'xlink:href');
-					images.push(fullPath.substring(fullPath.lastIndexOf("/")+1));
-					if( !imagePath ){
-						var dummy = fullPath.substring(0,fullPath.lastIndexOf("/"));
-						imagePath = dummy.substring(0,dummy.lastIndexOf("/")+1);
+					var fullPath = Util.getAttribute(node, 'xlink:href');
+					images.push(fullPath.substring(fullPath.lastIndexOf("/") + 1));
+					if (!imagePath) {
+						var dummy = fullPath.substring(0, fullPath.lastIndexOf("/"));
+						imagePath = dummy.substring(0, dummy.lastIndexOf("/") + 1);
 					}
 				})
 				document.imagePath = imagePath;
 				document.images = images;
 				Util.documents.push(document);
-				if( Util.documents.length == docs.length ){
+				if (Util.documents.length == docs.length) {
 					Util.docsLoaded = 1;
 				}
-				if( typeof trigger != 'undefined' ){
+				if (typeof trigger != 'undefined') {
 					trigger(document);
 				}
 			};
-			DocumentServerConnection.getMets(document.title,true,metsCallback);
+			DocumentServerConnection.getMets(document.title, true, metsCallback);
 		}
-		for (var i = 0; i < docs.length; i++){
+		for (var i = 0; i < docs.length; i++) {
 			var document = new Document(
 				$(docs[i]).find('id').text(),
 				$(docs[i]).find('title').text(),
@@ -139,28 +139,28 @@ Util.loadDocuments = function(trigger){
  * @param {string} title The title (id) of the document.
  * @param {string} nameShort The short name of the document.
  */
-Util.loadDocumentSync = function(title,nameShort){
+Util.loadDocumentSync = function(title, nameShort) {
 	var pageCount;
-	var pagesCallback = function(xml){
+	var pagesCallback = function(xml) {
 		pageCount = $(xml).find('count').text();
 	}
 	//DocumentServerConnection.getPageCount(title,false,pagesCallback);
-	var document = new Document(title,'',nameShort,'',pageCount)
+	var document = new Document(title, '', nameShort, '', pageCount)
 	var imagePath, images = [];
-	var metsCallback = function(xml){
-		$(xml).find('[nodeName="METS:mets"]').find('[nodeName="METS:fileSec"]').find('[nodeName="METS:fileGrp"]').first().find('[nodeName="METS:file"]').each(function(){
+	var metsCallback = function(xml) {
+		$(xml).find('[nodeName="METS:mets"]').find('[nodeName="METS:fileSec"]').find('[nodeName="METS:fileGrp"]').first().find('[nodeName="METS:file"]').each(function() {
 			var node = $(this).find('[nodeName="METS:FLocat"]')[0];
 			var fullPath = Util.getAttribute(node,'xlink:href');
-			images.push(fullPath.substring(fullPath.lastIndexOf("/")+1));
-			if( !imagePath ){
-				var dummy = fullPath.substring(0,fullPath.lastIndexOf("/"));
-				imagePath = dummy.substring(0,dummy.lastIndexOf("/")+1);
+			images.push(fullPath.substring(fullPath.lastIndexOf("/") + 1));
+			if (!imagePath) {
+				var dummy = fullPath.substring(0, fullPath.lastIndexOf("/"));
+				imagePath = dummy.substring(0, dummy.lastIndexOf("/") + 1);
 			}
 		})
 		document.imagePath = imagePath;
 		document.images = images;
 	};
-	DocumentServerConnection.getMets(document.title,false,metsCallback);
+	DocumentServerConnection.getMets(document.title, false, metsCallback);
 	return document;
 };
 
@@ -171,9 +171,9 @@ Util.loadDocumentSync = function(title,nameShort){
  * @param {string} title The title (id) of the document.
  * @return {Document} The document with the given title.
  */
-Util.getDoc = function(title){
-	for( var i in Util.documents ){
-		if( Util.documents[i].title == title ){
+Util.getDoc = function(title) {
+	for (var i in Util.documents) {
+		if (Util.documents[i].title == title) {
 			return Util.documents[i];
 		}
 	}
@@ -187,21 +187,21 @@ Util.getDoc = function(title){
  * @this {Util}
  * @param {Object} trigger A trigger function to be called when the facets have been loaded.
  */
-Util.loadFacets = function(trigger){
+Util.loadFacets = function(trigger) {
 	var i = 0;
-	var callback = function(xml){
-		$(xml).find('[nodeName="tei:tei"]').children().each(function(){
+	var callback = function(xml) {
+		$(xml).find('[nodeName="tei:tei"]').children().each(function() {
 			var labels = [];
-			$(this).find('foreign').each(function(){
+			$(this).find('foreign').each(function() {
 				labels.push({
-					language: Util.getAttribute(this,'xml:lang'),
+					language: Util.getAttribute(this, 'xml:lang'),
 					label: $(this).text()
 				});
 			});
 			var render = $(this).attr("rend");
 			var color = undefined;
-			if( render ){
-				var dummy = $("<div class='entity"+i+"'/>").appendTo('body');
+			if (render) {
+				var dummy = $("<div class='entity" + i + "'/>").appendTo('body');
 				color = $(dummy).css('color');
 				$(dummy).remove();
 				i++;
@@ -213,7 +213,7 @@ Util.loadFacets = function(trigger){
 				color: color
 			};
 			Util.facets.push(facet);
-			if( typeof trigger != 'undefined' && render ){
+			if (typeof trigger != 'undefined' && render) {
 				trigger(facet);
 			}
 		});
@@ -229,9 +229,9 @@ Util.loadFacets = function(trigger){
  * @param {JSON} facet The facet to get the label.
  * @return {string} The label of the facet in the browsers language.
  */
-Util.getFacetLabel = function(facet){
-	for( var i in facet.labels ){
-		if( facet.labels[i].language == Util.language ){
+Util.getFacetLabel = function(facet) {
+	for (var i in facet.labels) {
+		if (facet.labels[i].language == Util.language) {
 			return facet.labels[i].label;
 		}
 	}
@@ -244,9 +244,9 @@ Util.getFacetLabel = function(facet){
  * @param {string} The id of the facet, e.g. 'tei:placeName'.
  * @return {JSON} The JSON data of the corresponding facet.
  */
-Util.getFacet = function(id){
-	for( var i in Util.facets ){
-		if( Util.facets[i].facet == id ){
+Util.getFacet = function(id) {
+	for (var i in Util.facets) {
+		if (Util.facets[i].facet == id) {
 			return Util.facets[i];
 		}
 	}
@@ -259,23 +259,23 @@ Util.getFacet = function(id){
  * @param {XML} tags The xml file containing the tag data.
  * @return {Array} A specific number of most frequent tags.
  */
-Util.getTags = function(tags){
+Util.getTags = function(tags) {
 	var tagArray = [];
-	for( var i=0; i<tags.length; i++ ){
+	for (var i = 0; i < tags.length; i++) {
 		var text = $(tags[i]).find('tag').text();
-		if( text == "" ){
+		if (text == "") {
 			continue;
 		}
 		var weight = $(tags[i]).find('count').text();
 		var url = $(tags[i]).find('link').text();
 		var facet = Util.getFacet($(tags[i]).find('facet').text());
-		var tooltip = weight+" "+Util.getString('occurences');
-		var link = '<a title="'+tooltip+'" class="tagcloudTag '+facet.facet+'" href="'+url+'" style="color:'+facet.color+';" target="_blank">'+text+'</a>';
+		var tooltip = weight + " " + Util.getString('occurences');
+		var link = '<a title="' + tooltip + '" class="tagcloudTag ' + facet.facet + '" href="' + url + '" style="color:' + facet.color + ';" target="_blank">' + text + '</a>';
 		tagArray.push({
 			text: link,
 			weight: weight
 		});
-		if( EditionProperties.maxTags && EditionProperties.maxTags == tagArray.length ){
+		if (EditionProperties.maxTags && EditionProperties.maxTags == tagArray.length) {
 			break;
 		}
 	}
@@ -289,9 +289,9 @@ Util.getTags = function(tags){
  * @param {number} errorType The error id (e.g. 404).
  * @return {HTML} The error message content DIV.
  */
-Util.getErrorMessage = function(errorType){
+Util.getErrorMessage = function(errorType) {
 	var errorDiv = $("<div/>");
-	$("<div class='errorMessage'>"+Util.getString('errorMessage')+' ('+errorType+')'+"</div>").appendTo(errorDiv);
+	$("<div class='errorMessage'>" + Util.getString('errorMessage') + ' (' + errorType + ')' + "</div>").appendTo(errorDiv);
 	$('<div class="errorSign"/>').appendTo(errorDiv);
 	return errorDiv;
 };
@@ -303,9 +303,9 @@ Util.getErrorMessage = function(errorType){
  * @param {string} message The alert message to be shown.
  * @return {HTML} The alert message content DIV.
  */
-Util.getAlertMessage = function(message){
+Util.getAlertMessage = function(message) {
 	var alertDiv = $("<div/>");
-	$("<div class='alertMessage'>"+message+"</div>").appendTo(alertDiv);
+	$("<div class='alertMessage'>" + message + "</div>").appendTo(alertDiv);
 	$('<div class="alertSign"/>').appendTo(alertDiv);
 	return alertDiv;
 };
@@ -317,15 +317,15 @@ Util.getAlertMessage = function(message){
  * @param {string} text The text to transform.
  * @return {string} The transformed hex code.
  */
-Util.asciiToHex = function(text){
-	var ascii = new Array( "!","#","$","%","&","'","(",")","*","+",",","/",":",";","=","?","@","[","]", " " );
-	var hex = new Array( "%21","%23","%24","!$#","%26","%27","%28","%29","%2a","%2b","%2c","%2f","%3a","%3b","%3d","%3f","%40","%5b","%5d","%20" );
-	for( var i=0; i<ascii.length; i++ ){
-		while(text.indexOf(ascii[i])!= -1){
-			text = text.replace(ascii[i],hex[i]);	
+Util.asciiToHex = function(text) {
+	var ascii = new Array("!","#","$","%","&","'","(",")","*","+",",","/",":",";","=","?","@","[","]", " ");
+	var hex = new Array("%21","%23","%24","!$#","%26","%27","%28","%29","%2a","%2b","%2c","%2f","%3a","%3b","%3d","%3f","%40","%5b","%5d","%20");
+	for (var i = 0; i < ascii.length; i++) {
+		while (text.indexOf(ascii[i]) != -1) {
+			text = text.replace(ascii[i], hex[i]);
 		}
 	}
-	text = text.replace(/!$#/g,"%25");
+	text = text.replace(/!$#/g, "%25");
 	return text;
 };
 
@@ -355,23 +355,23 @@ Util.getMousePosition = function(event) {
  * @param {HTML} image The images'  html tag.
  * @param {HTML} div The parent DIV which contains the image.
  */
-var imageLoad = function(response,image,div){
+var imageLoad = function(response, image, div) {
 	var width = div.width(), height = div.height();
 	var w = response.naturalWidth || response.width, h = response.naturalHeight || response.height;
-	if( typeof w != "undefined" && w > 0 ){
-		if( h > height ){
-			image.attr('height',height);
+	if (typeof w != "undefined" && w > 0) {
+		if (h > height) {
+			image.attr('height', height);
 			h = height;
 		}
-		if( w > width ){
-			image.attr('width',width);
+		if (w > width) {
+			image.attr('width', width);
 			w = width;
 		}
-		var top = (height-$(image).height())/2;
-		var left = (width-$(image).width())/2;
-		image.css('position','absolute');
-		image.css('top',top+'px');
-		image.css('left',left+'px');
-		image.parent().css("background-image","none");
+		var top = (height - $(image).height()) / 2;
+		var left = (width - $(image).width()) / 2;
+		image.css('position', 'absolute');
+		image.css('top', top + 'px');
+		image.css('left', left + 'px');
+		image.parent().css("background-image", "none");
 	}
 }
