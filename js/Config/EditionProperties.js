@@ -267,8 +267,7 @@ var EditionProperties = {
 		/**
 		   URL to get entities of a specific kind for all documents in form of a table (for displaying with dataTables)
 		*/
-		facetTableQuery: './testdata/indices/listEntities.xq?facet=FACET_ID&format=xhtml',
-		//facetTableQuery: '/exist/rest/db/archaeo18/queries/experimental/listEntities.xq?facet=FACET_ID&format=xhtml',
+		facetTableQuery: '/exist/rest/db/archaeo18/queries/experimental/listEntities.xq?facet=FACET_ID&format=xhtml',
 
 		/**
 		   URL to get places mentioned in all documents
