@@ -6,12 +6,23 @@
 	width: 26px;
 	height: 26px;
 	cursor: pointer;
+	margin-right: 0!important;
 }
 
 .browser-fullscreen:hover {
 	background: url(../images/edition-fullscreen-hover.png);
 }
 
+.browser-help {
+	background: url(../images/edition-help-mark.png);
+	width: 26px;
+	height: 26px;
+	cursor: pointer;
+}
+
+.browser-help:hover {
+	background: url(../images/edition-help-mark-hover.png);
+}
 
 .browser-fullscreen-off {
 	background: url(../images/edition-fullscreen-off.png);

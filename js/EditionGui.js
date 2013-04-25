@@ -722,6 +722,7 @@ EditionGui.addControls = function(){
 	}
 	if (EditionProperties.fullscreen) {
 		var fsButton = $('<a class="browser-fullscreen"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(gridDiv);
+		var helpButton = $('<a class="browser-help" href="#?page=#help_page"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(gridDiv);
 
 		// add event listener for fullscreen toggle
 		var browsersEventNames = ['mozfullscreenchange', 'webkitfullscreenchange'];
