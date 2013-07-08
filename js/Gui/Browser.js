@@ -481,7 +481,10 @@ Browser.prototype.addCategory = function(doc, results) {
 	var visible = false;
 
 	$.each(results, function(index, result) {
-		var searchResult = $('<div class="clearfix"/>').appendTo(searchTab);
+
+		var oddEven = index % 2 === 0? 'even' : 'odd';
+
+		var searchResult = $('<div class="clearfix searchresult ' + oddEven + '"/>').appendTo(searchTab);
 		searchContent.push(searchResult);
 
 		$(searchResult).css('display','none');

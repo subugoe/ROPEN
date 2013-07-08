@@ -848,7 +848,21 @@ noscript p {
 }
 
 .edition .search .main .hits div {
-	padding: 0 0 10px 0;
+	padding-bottom: 10px;
+	padding-left: 10px;
+}
+
+.edition .search .hits .odd {
+	background: #dcdcdc;
+}
+
+.edition .search .searchresult {
+	padding-top: 10px;
+}
+
+.edition .search .main .hits li>a {
+	padding-left: 10px;
+	font-size: 90%;
 }
 
 .edition .search .main .hits div img {
@@ -880,7 +894,7 @@ noscript p {
 	border-radius: 4px;
 	list-style-type: none;
 	margin: 8px 0;
-	padding: 10px;
+	padding: 10px 0;
 	box-shadow: 0 1px 2px 1px lightgrey;
 	background: #fdfcfd;
 	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZkZmNmZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZWVlZWUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
