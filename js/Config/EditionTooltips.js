@@ -84,8 +84,8 @@ var EditionTooltips = {
 		"de": "Dokumente"
 	},
 	"texts" : {
-		"en": "Texts",
-		"de": "Texten"
+		"en": "Text",
+		"de": "Text"
 	},
 	"search" : {
 		"en": "Search",
