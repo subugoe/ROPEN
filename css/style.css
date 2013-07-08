@@ -454,13 +454,17 @@ noscript p {
 	padding: 0px !important;
 }
 
+.edition .info-tooltip hr {
+	background: black;
+}
+
 .edition .info-tooltip p {
 	padding: 2px 5px !important;
 	margin: 0 !important;
 }
 
 .edition .info-tooltip p:nth-child(2) {
-	border-top: 1px solid grey !important;
+	border-top: 1px solid #dedede !important;
 }
 
 .edition .info-tooltip hr {
