@@ -476,7 +476,11 @@ Browser.prototype.addDocument = function(doc) {
 Browser.prototype.addCategory = function(doc, results) {
 	var browser = this;
 	var searchTab = $('<li/>').appendTo(this.searchResults);
-	var searchLink = $('<a>' + doc.name + ' (' + results.length + ')' + '</a>').appendTo(searchTab);
+	var searchLink = $('<a><span class=".icon-chevron-right">&nbsp;</span>'
+							   + doc.name
+							   + ' (' + results.length + ')'
+							   + '</a>')
+			.appendTo(searchTab);
 	var searchContent = [];
 	var visible = false;
 

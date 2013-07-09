@@ -36,6 +36,17 @@ body {
 	line-height: 1.4;
 }
 
+@font-face {
+	font-family: 'archaeo';
+	src:url('../Resources/Public/Fonts/archaeo.eot');
+	src:url('../Resources/Public/Fonts/archaeo.eot?#iefix') format('embedded-opentype'),
+		url('../Resources/Public/Fonts/archaeo.woff') format('woff'),
+		url('../Resources/Public/Fonts/archaeo.ttf') format('truetype'),
+		url('../Resources/Public/Fonts/archaeo.svg#archaeo') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
 /*::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }*/
 /*::selection { background: #fe57a1; color: #fff; text-shadow: none; }*/
 a {
@@ -303,22 +314,22 @@ noscript p {
 }
 
 .edition-tools .button-magneticlink {
-	background-image: url("../images/edition-window-magneticlink.png");
+	background-image: url("../Images/edition-window-magneticlink.png");
 	background-repeat: no-repeat;
 	background-position: center center;
 	padding: 26px 0 0 26px;
 }
 
 .edition-tools .button-magneticlink:hover {
-	background-image: url("../images/edition-window-magneticlink-hover.png");
+	background-image: url("../Images/edition-window-magneticlink-hover.png");
 }
 
 .edition-tools .button-magneticlink:active {
-	background-image: url("../images/edition-window-magneticlink-active.png");
+	background-image: url("../Images/edition-window-magneticlink-active.png");
 }
 
 .edition-tools .button-newwindow {
-	background-image: url("../images/edition-window-new-window.png");
+	background-image: url("../Images/edition-window-new-window.png");
 	background-repeat: no-repeat;
 	background-position: center center;
 	padding: 26px 0 0 26px;
@@ -326,11 +337,11 @@ noscript p {
 }
 
 .edition-tools .button-newwindow:hover {
-	background-image: url("../images/edition-window-new-window-hover.png");
+	background-image: url("../Images/edition-window-new-window-hover.png");
 }
 
 .edition-tools .button-newwindow:active {
-	background-image: url("../images/edition-window-new-window-active.png");
+	background-image: url("../Images/edition-window-new-window-active.png");
 }
 
 .content {
@@ -366,51 +377,51 @@ noscript p {
 }
 
 .edition .button-minimize {
-	background-image: url("../images/edition-window-tools-minimize.png");
+	background-image: url("../Images/edition-window-tools-minimize.png");
 }
 
 .edition .button-minimize:hover {
-	background-image: url("../images/edition-window-tools-minimize-hover.png");
+	background-image: url("../Images/edition-window-tools-minimize-hover.png");
 }
 
 .edition .button-minimize:active {
-	background-image: url("../images/edition-window-tools-minimize-active.png");
+	background-image: url("../Images/edition-window-tools-minimize-active.png");
 }
 
 .edition .button-close {
-	background-image: url("../images/edition-window-tools-close.png");
+	background-image: url("../Images/edition-window-tools-close.png");
 }
 
 .edition .button-close:hover {
-	background-image: url("../images/edition-window-tools-close-hover.png");
+	background-image: url("../Images/edition-window-tools-close-hover.png");
 }
 
 .edition .button-close:active {
-	background-image: url("../images/edition-window-tools-close-active.png");
+	background-image: url("../Images/edition-window-tools-close-active.png");
 }
 
 .edition .button-open {
-	background-image: url("../images/edition-window-tools-maximize.png");
+	background-image: url("../Images/edition-window-tools-maximize.png");
 }
 
 .edition .button-open:hover {
-	background-image: url("../images/edition-window-tools-maximize-hover.png");
+	background-image: url("../Images/edition-window-tools-maximize-hover.png");
 }
 
 .edition .button-open:active {
-	background-image: url("../images/edition-window-tools-maximize-active.png");
+	background-image: url("../Images/edition-window-tools-maximize-active.png");
 }
 
 .edition .button-maximize {
-	background-image: url("../images/edition-window-tools-maximize.png");
+	background-image: url("../Images/edition-window-tools-maximize.png");
 }
 
 .edition .button-maximize:hover {
-	background-image: url("../images/edition-window-tools-maximize-hover.png");
+	background-image: url("../Images/edition-window-tools-maximize-hover.png");
 }
 
 .edition .button-maximize:active {
-	background-image: url("../images/edition-window-tools-maximize-active.png");
+	background-image: url("../Images/edition-window-tools-maximize-active.png");
 }
 
 .edition .info {
@@ -589,29 +600,29 @@ noscript p {
 }
 
 .edition .gridselector .normal {
-	background-image: url("../images/edition-gridselector.png");
+	background-image: url("../Images/edition-gridselector.png");
 	margin: 0;
 }
 
 .edition .gridselector .normal:hover {
-	background-image: url("../images/edition-gridselector-normal-hover.png");
+	background-image: url("../Images/edition-gridselector-normal-hover.png");
 }
 
 .edition .gridselector .normal:active {
-	background-image: url("../images/edition-gridselector-normal-active.png");
+	background-image: url("../Images/edition-gridselector-normal-active.png");
 }
 
 .edition .gridselector .active {
 	margin: 0;
-	background-image: url("../images/edition-gridselector-active.png");
+	background-image: url("../Images/edition-gridselector-active.png");
 }
 
 .edition .gridselector .active:hover {
-	background-image: url("../images/edition-gridselector-select-hover.png");
+	background-image: url("../Images/edition-gridselector-select-hover.png");
 }
 
 .edition .gridselector .active:active {
-	background-image: url("../images/edition-gridselector-select-active.png");
+	background-image: url("../Images/edition-gridselector-select-active.png");
 }
 
 .edition .search {
@@ -632,7 +643,7 @@ noscript p {
 
 .edition .search .resize {
 	float: right;
-	background-image: url("../images/edition-search-resize.png");
+	background-image: url("../Images/edition-search-resize.png");
 	background-repeat: no-repeat;
 	padding: 0;
 	margin: 5px 5px 0 0;
@@ -663,7 +674,7 @@ noscript p {
 
 .edition .search .close {
 	float: right;
-	background-image: url("../images/edition-search-close.png");
+	background-image: url("../Images/edition-search-close.png");
 	background-repeat: no-repeat;
 	padding: 0;
 	margin: 5px 5px 0 0;
@@ -723,6 +734,47 @@ noscript p {
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#feffff', endColorstr='#eeeeee', GradientType=0);
 }
 
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+	font-family: 'archaeo';
+	content: attr(data-icon);
+	speak: none;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+/*
+Instead of a list of all class selectors,
+you can use the generic selector below, but it's slower:
+[class*="icon-"] {
+*/
+.icon-chevron-down, .icon-chevron-up, .icon-chevron-right, .icon-chevron-left {
+	font-family: 'archaeo';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+.icon-chevron-down:before {
+	content: "\f078";
+}
+.icon-chevron-up:before {
+	content: "\f077";
+}
+.icon-chevron-right:before {
+	content: "\f054";
+}
+.icon-chevron-left:before {
+	content: "\f053";
+}
+
 /*
     .edition .search .scope-selector a:active {
       background: none;
@@ -757,7 +809,7 @@ noscript p {
 .edition .search .main input[type="submit"] {
 	display: inline;
 	border: none;
-	background-image: url("../images/edition-search-searchbutton.png");
+	background-image: url("../Images/edition-search-searchbutton.png");
 	background-repeat: no-repeat;
 	background-position: center center;
 	float: right;
@@ -779,14 +831,14 @@ noscript p {
 }
 
 .edition .search .main .check {
-	background-image: url("../images/edition-search-filter-boxempty.png");
+	background-image: url("../Images/edition-search-filter-boxempty.png");
 	background-repeat: no-repeat;
 	background-position: left center;
 	padding: 0 0 0 15px;
 }
 
 .edition .search .main .checked {
-	background-image: url("../images/edition-search-filter-boxchecked.png");
+	background-image: url("../Images/edition-search-filter-boxchecked.png");
 	background-repeat: no-repeat;
 	background-position: left top;
 	padding: 0 0 0 15px;
@@ -842,7 +894,7 @@ noscript p {
 }
 
 .edition .search .main .hits .selected a {
-	background-image: url("../images/edition-search-hits-arrowclose.png");
+	background-image: url("../Images/edition-search-hits-arrowclose.png");
 	background-repeat: no-repeat;
 	background-position: left center;
 }
@@ -920,7 +972,7 @@ noscript p {
 }
 
 .edition .search .main .hits .hits-a {
-	background-image: url("../images/edition-search-hits-arrowopen.png");
+	background-image: url("../Images/edition-search-hits-arrowopen.png");
 	background-repeat: no-repeat;
 	background-position-y: 20px;
 	padding: 0 25px;
@@ -1035,131 +1087,131 @@ noscript p {
 }
 
 .edition .window .inner .pagination li:hover .tools-outline {
-	background-image: url("../images/edition-window-tools-list-hover.png");
+	background-image: url("../Images/edition-window-tools-list-hover.png");
 }
 
 .edition .window .inner .pagination li:hover .tools-text {
-	background-image: url("../images/edition-window-tools-txt-hover.png");
+	background-image: url("../Images/edition-window-tools-txt-hover.png");
 }
 
 .edition .window .inner .pagination li:hover .tools-thumbnails {
-	background-image: url("../images/edition-window-tools-img-hover.png");
+	background-image: url("../Images/edition-window-tools-img-hover.png");
 }
 
 .edition .window .inner .pagination li:hover .tools-pages {
-	background-image: url("../images/edition-window-tools-onepage-hover.png");
+	background-image: url("../Images/edition-window-tools-onepage-hover.png");
 }
 
 .edition .window .inner .pagination li:hover .tools-images {
-	background-image: url("../images/edition-window-tools-images-hover.png");
+	background-image: url("../Images/edition-window-tools-images-hover.png");
 }
 
 .edition .window .inner .pagination li:hover .tools-tei {
-	background-image: url("../images/edition-window-tools-tei-hover.png");
+	background-image: url("../Images/edition-window-tools-tei-hover.png");
 }
 
 .edition .window .inner .pagination li:hover .tools-map {
-	background-image: url("../images/edition-window-tools-map-hover.png");
+	background-image: url("../Images/edition-window-tools-map-hover.png");
 }
 
 .edition .window .inner .pagination li:hover .tools-tags {
-	background-image: url("../images/edition-window-tools-tags-hover.png");
+	background-image: url("../Images/edition-window-tools-tags-hover.png");
 }
 
 .edition .window .inner .pagination li:active .tools-outline {
-	background-image: url("../images/edition-window-tools-list-active.png");
+	background-image: url("../Images/edition-window-tools-list-active.png");
 }
 
 .edition .window .inner .pagination li:active .tools-text {
-	background-image: url("../images/edition-window-tools-txt-active.png");
+	background-image: url("../Images/edition-window-tools-txt-active.png");
 }
 
 .edition .window .inner .pagination li:active .tools-thumbnails {
-	background-image: url("../images/edition-window-tools-img-active.png");
+	background-image: url("../Images/edition-window-tools-img-active.png");
 }
 
 .edition .window .inner .pagination li:active .tools-pages {
-	background-image: url("../images/edition-window-tools-onepage-active.png");
+	background-image: url("../Images/edition-window-tools-onepage-active.png");
 }
 
 .edition .window .inner .pagination li:active .tools-images {
-	background-image: url("../images/edition-window-tools-images-active.png");
+	background-image: url("../Images/edition-window-tools-images-active.png");
 }
 
 .edition .window .inner .pagination li:active .tools-tei {
-	background-image: url("../images/edition-window-tools-tei-active.png");
+	background-image: url("../Images/edition-window-tools-tei-active.png");
 }
 
 .edition .window .inner .pagination li:active .tools-map {
-	background-image: url("../images/edition-window-tools-map-active.png");
+	background-image: url("../Images/edition-window-tools-map-active.png");
 }
 
 .edition .window .inner .pagination li:active .tools-tags {
-	background-image: url("../images/edition-window-tools-tags-active.png");
+	background-image: url("../Images/edition-window-tools-tags-active.png");
 }
 
 .edition .window .inner .pagination li .tools-outline {
-	background-image: url("../images/edition-window-tools-list.png");
+	background-image: url("../Images/edition-window-tools-list.png");
 }
 
 .edition .window .inner .pagination li .tools-outline.active {
-	background-image: url("../images/edition-window-tools-list-hover.png");
+	background-image: url("../Images/edition-window-tools-list-hover.png");
 }
 
 .edition .window .inner .pagination li .tools-text {
-	background-image: url("../images/edition-window-tools-txt.png");
+	background-image: url("../Images/edition-window-tools-txt.png");
 }
 
 .edition .window .inner .pagination li .tools-text.active {
-	background-image: url("../images/edition-window-tools-txt-hover.png");
+	background-image: url("../Images/edition-window-tools-txt-hover.png");
 }
 
 .edition .window .inner .pagination li .tools-pages {
-	background-image: url("../images/edition-window-tools-onepage.png");
+	background-image: url("../Images/edition-window-tools-onepage.png");
 }
 
 .edition .window .inner .pagination li .tools-pages.active {
-	background-image: url("../images/edition-window-tools-onepage-hover.png");
+	background-image: url("../Images/edition-window-tools-onepage-hover.png");
 }
 
 .edition .window .inner .pagination li .tools-thumbnails {
-	background-image: url("../images/edition-window-tools-img.png");
+	background-image: url("../Images/edition-window-tools-img.png");
 }
 
 .edition .window .inner .pagination li .tools-thumbnails.active {
-	background-image: url("../images/edition-window-tools-img-hover.png");
+	background-image: url("../Images/edition-window-tools-img-hover.png");
 }
 
 .edition .window .inner .pagination li .tools-images {
-	background-image: url("../images/edition-window-tools-images.png");
+	background-image: url("../Images/edition-window-tools-images.png");
 }
 
 .edition .window .inner .pagination li .tools-images.active {
-	background-image: url("../images/edition-window-tools-images-hover.png");
+	background-image: url("../Images/edition-window-tools-images-hover.png");
 }
 
 .edition .window .inner .pagination li .tools-tei {
-	background-image: url("../images/edition-window-tools-tei.png");
+	background-image: url("../Images/edition-window-tools-tei.png");
 }
 
 .edition .window .inner .pagination li .tools-tei.active {
-	background-image: url("../images/edition-window-tools-tei-hover.png");
+	background-image: url("../Images/edition-window-tools-tei-hover.png");
 }
 
 .edition .window .inner .pagination li .tools-map {
-	background-image: url("../images/edition-window-tools-map.png");
+	background-image: url("../Images/edition-window-tools-map.png");
 }
 
 .edition .window .inner .pagination li .tools-map.active {
-	background-image: url("../images/edition-window-tools-map-hover.png");
+	background-image: url("../Images/edition-window-tools-map-hover.png");
 }
 
 .edition .window .inner .pagination li .tools-tags {
-	background-image: url("../images/edition-window-tools-tags.png");
+	background-image: url("../Images/edition-window-tools-tags.png");
 }
 
 .edition .window .inner .pagination li .tools-tags.active {
-	background-image: url("../images/edition-window-tools-tags-hover.png");
+	background-image: url("../Images/edition-window-tools-tags-hover.png");
 }
 
 .edition .window .inner .pagination li a {
@@ -1174,123 +1226,123 @@ noscript p {
 }
 
 .edition .window .inner li:hover .tools-link {
-	background-image: url("../images/edition-window-tools-link-hover.png");
+	background-image: url("../Images/edition-window-tools-link-hover.png");
 }
 
 .edition .window .inner li:hover .tools-pdf {
-	background-image: url("../images/edition-window-tools-pdf-hover.png");
+	background-image: url("../Images/edition-window-tools-pdf-hover.png");
 }
 
 .edition .window .inner li:hover .tools-dfg {
-	background-image: url("../images/edition-window-tools-dfg-hover.png");
+	background-image: url("../Images/edition-window-tools-dfg-hover.png");
 }
 
 .edition .window .inner li:active .tools-link {
-	background-image: url("../images/edition-window-tools-link-active.png");
+	background-image: url("../Images/edition-window-tools-link-active.png");
 }
 
 .edition .window .inner li:active .tools-pdf {
-	background-image: url("../images/edition-window-tools-pdf-active.png");
+	background-image: url("../Images/edition-window-tools-pdf-active.png");
 }
 
 .edition .window .inner li:active .tools-dfg {
-	background-image: url("../images/edition-window-tools-dfg-active.png");
+	background-image: url("../Images/edition-window-tools-dfg-active.png");
 }
 
 .edition .window .inner li .tools-link {
-	background-image: url("../images/edition-window-tools-link.png");
+	background-image: url("../Images/edition-window-tools-link.png");
 }
 
 .edition .window .inner li .tools-link.active {
-	background-image: url("../images/edition-window-tools-unlink.png");
+	background-image: url("../Images/edition-window-tools-unlink.png");
 }
 
 .edition .window .inner li .tools-pdf {
-	background-image: url("../images/edition-window-tools-pdf.png");
+	background-image: url("../Images/edition-window-tools-pdf.png");
 }
 
 .edition .window .inner li .tools-dfg {
-	background-image: url("../images/edition-window-tools-dfg.png");
+	background-image: url("../Images/edition-window-tools-dfg.png");
 }
 
 .edition .window .inner li .tools-paginationforward {
-	background-image: url("../images/edition-window-pagination-forward.png");
+	background-image: url("../Images/edition-window-pagination-forward.png");
 }
 
 .edition .window .inner li:hover .tools-paginationforward {
-	background-image: url("../images/edition-window-pagination-forward-hover.png");
+	background-image: url("../Images/edition-window-pagination-forward-hover.png");
 }
 
 .edition .window .inner li:active .tools-paginationforward {
-	background-image: url("../images/edition-window-pagination-forward-active.png");
+	background-image: url("../Images/edition-window-pagination-forward-active.png");
 }
 
 .edition .window .inner li .tools-paginationforward-disabled {
-	background-image: url("../images/edition-window-pagination-forward.png");
+	background-image: url("../Images/edition-window-pagination-forward.png");
 }
 
 .edition .window .inner li .tools-paginationbackward {
-	background-image: url("../images/edition-window-pagination-backward.png");
+	background-image: url("../Images/edition-window-pagination-backward.png");
 }
 
 .edition .window .inner li:hover .tools-paginationbackward {
-	background-image: url("../images/edition-window-pagination-backward-hover.png");
+	background-image: url("../Images/edition-window-pagination-backward-hover.png");
 }
 
 .edition .window .inner li:active .tools-paginationbackward {
-	background-image: url("../images/edition-window-pagination-backward-active.png");
+	background-image: url("../Images/edition-window-pagination-backward-active.png");
 }
 
 .edition .window .inner li .tools-paginationbackward-disabled {
-	background-image: url("../images/edition-window-pagination-backward.png");
+	background-image: url("../Images/edition-window-pagination-backward.png");
 }
 
 .edition .window .inner li .tools-doublepage {
-	background-image: url("../images/edition-window-tools-doublepage.png");
+	background-image: url("../Images/edition-window-tools-doublepage.png");
 }
 
 .edition .window .inner li:hover .tools-doublepage {
-	background-image: url("../images/edition-window-tools-doublepage-hover.png");
+	background-image: url("../Images/edition-window-tools-doublepage-hover.png");
 }
 
 .edition .window .inner li .tools-doublepage-active {
-	background-image: url("../images/edition-window-tools-doublepage-active.png");
+	background-image: url("../Images/edition-window-tools-doublepage-active.png");
 }
 
 .edition .window .inner li .tools-highlight {
-	background-image: url("../images/edition-window-tools-highlight.png");
+	background-image: url("../Images/edition-window-tools-highlight.png");
 }
 
 .edition .window .inner li:hover .tools-highlight {
-	background-image: url("../images/edition-window-tools-highlight-hover.png");
+	background-image: url("../Images/edition-window-tools-highlight-hover.png");
 }
 
 .edition .window .inner li .tools-highlight-active {
-	background-image: url("../images/edition-window-tools-highlight-active.png");
+	background-image: url("../Images/edition-window-tools-highlight-active.png");
 }
 
 .edition .window .inner li .tools-linecount {
-	background-image: url("../images/edition-window-tools-linecount.png");
+	background-image: url("../Images/edition-window-tools-linecount.png");
 }
 
 .edition .window .inner li:hover .tools-linecount {
-	background-image: url("../images/edition-window-tools-linecount-hover.png");
+	background-image: url("../Images/edition-window-tools-linecount-hover.png");
 }
 
 .edition .window .inner li .tools-linecount-active {
-	background-image: url("../images/edition-window-tools-linecount-active.png");
+	background-image: url("../Images/edition-window-tools-linecount-active.png");
 }
 
 .edition .window .inner li .tools-maximize {
-	background-image: url("../images/edition-window-tools-maximize.png");
+	background-image: url("../Images/edition-window-tools-maximize.png");
 }
 
 .edition .window .inner li:hover .tools-maximize {
-	background-image: url("../images/edition-window-tools-maximize-hover.png");
+	background-image: url("../Images/edition-window-tools-maximize-hover.png");
 }
 
 .edition .window .inner li .tools-maximize .active {
-	background-image: url("../images/edition-window-tools-maximize-active.png");
+	background-image: url("../Images/edition-window-tools-maximize-active.png");
 }
 
 .edition .window .inner .toolstop a {
@@ -1365,7 +1417,7 @@ noscript p {
 }
 
 .button-alpha {
-	background-image: url("../images/content-button-down.png");
+	background-image: url("../Images/content-button-down.png");
 	background-repeat: no-repeat;
 	padding: 0 25px 25px 30px;
 	margin: 0 10px 0 0;
