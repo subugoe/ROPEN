@@ -38,11 +38,11 @@ body {
 
 @font-face {
 	font-family: 'archaeo';
-	src:url('../Resources/Public/Fonts/archaeo.eot');
-	src:url('../Resources/Public/Fonts/archaeo.eot?#iefix') format('embedded-opentype'),
-		url('../Resources/Public/Fonts/archaeo.woff') format('woff'),
-		url('../Resources/Public/Fonts/archaeo.ttf') format('truetype'),
-		url('../Resources/Public/Fonts/archaeo.svg#archaeo') format('svg');
+	src:url('../Fonts/archaeo.eot');
+	src:url('../Fonts/archaeo.eot?#iefix') format('embedded-opentype'),
+		url('../Fonts/archaeo.woff') format('woff'),
+		url('../Fonts/archaeo.ttf') format('truetype'),
+		url('../Fonts/archaeo.svg#archaeo') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
