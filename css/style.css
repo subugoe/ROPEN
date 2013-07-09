@@ -852,7 +852,7 @@ noscript p {
 	padding-left: 10px;
 }
 
-.edition .search .hits .odd {
+.edition .search .hits .even {
 	background: #dcdcdc;
 }
 
