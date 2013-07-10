@@ -2,7 +2,7 @@
 
 
 .browser-fullscreen {
-	background: url(../images/edition-fullscreen.png);
+	background: url(../Images/edition-fullscreen.png);
 	width: 26px;
 	height: 26px;
 	cursor: pointer;
@@ -10,34 +10,34 @@
 }
 
 .browser-fullscreen:hover {
-	background: url(../images/edition-fullscreen-hover.png);
+	background: url(../Images/edition-fullscreen-hover.png);
 }
 
 .browser-help {
-	background: url(../images/edition-help-mark.png);
+	background: url(../Images/edition-help-mark.png);
 	width: 26px;
 	height: 26px;
 	cursor: pointer;
 }
 
 .browser-help:hover {
-	background: url(../images/edition-help-mark-hover.png);
+	background: url(../Images/edition-help-mark-hover.png);
 }
 
 .browser-fullscreen-off {
-	background: url(../images/edition-fullscreen-off.png);
+	background: url(../Images/edition-fullscreen-off.png);
 	width: 26px;
 	height: 26px;
 	cursor: pointer;
 }
 
 .browser-fullscreen-off:hover {
-	background: url(../images/edition-fullscreen-off-hover.png);
+	background: url(../Images/edition-fullscreen-off-hover.png);
 }
 
 .intern_link {
 	display: inline-block;
-	background: url(../images/intern_link.png);
+	background: url(../Images/intern_link.png);
 	width: 10px;
 	height: 10px;
 	margin: 0px 5px;
@@ -45,7 +45,7 @@
 
 .extern_link {
 	display: inline-block;
-	background: url(../images/extern_link.png);
+	background: url(../Images/extern_link.png);
 	width: 10px;
 	height: 10px;
 	margin: 0px 5px;
@@ -99,7 +99,7 @@
 	display: inline-block;
 	width: 140px;
 	height: 168px;
-	background: url(../images/dummy.png);
+	background: url(../Images/dummy.png);
 	cursor: pointer;
 }
 
@@ -108,7 +108,7 @@
 	display: inline-block;
 	width: 80px;
 	height: 96px;
-	background: url(../images/dummySmall.png);
+	background: url(../Images/dummySmall.png);
 	cursor: pointer;
 }
 
@@ -125,7 +125,7 @@
 	right: 10px;
 	width: 24px;
 	height: 24px;
-	background-image: url(../images/download-tei.png);
+	background-image: url(../Images/download-tei.png);
 	cursor: pointer;
 }
 
@@ -144,7 +144,7 @@
 	height: 36px;
 	top: 0px;
 	right: 0px;
-	background-image: url(../images/close-small.png);
+	background-image: url(../Images/close-small.png);
 	cursor: pointer;
 }
 
@@ -154,14 +154,14 @@
 	height: 20px;
 	top: 0px;
 	right: 0px;
-	background-image: url(../images/close-smaller.png);
+	background-image: url(../Images/close-smaller.png);
 	cursor: pointer;
 }
 
 .teiThumbnail {
 	width: 128px;
 	height: 128px;
-	background: url(../images/tei.png);
+	background: url(../Images/tei.png);
 	cursor: pointer;
 	margin: auto;
 }
@@ -216,7 +216,7 @@
 	vertical-align: middle;
 	height: 16px;
 	width: 16px;
-	background-image: url(../images/anchor.png);
+	background-image: url(../Images/anchor.png);
 }
 
 .closeLoader {
