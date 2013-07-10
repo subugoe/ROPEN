@@ -78,7 +78,7 @@ Browser.prototype.initialize = function() {
 
 	var simpleSearch = $("<form/>").appendTo(this.searchTypes);
 
-	this.searchField = $("<input type='text' />").appendTo(simpleSearch);
+	this.searchField = $("<input type='text' class='edition-searchfield'/>").appendTo(simpleSearch);
 	var searchButton = $("<input type='submit' value='' />").appendTo(simpleSearch);
 
 	var search = function(evt) {
@@ -476,10 +476,11 @@ Browser.prototype.addDocument = function(doc) {
 Browser.prototype.addCategory = function(doc, results) {
 	var browser = this;
 	var searchTab = $('<li/>').appendTo(this.searchResults);
-	var searchLink = $('<a><span class="icon-chevron-right">&nbsp;</span>'
-							   + doc.name
-							   + ' (' + results.length + ')'
-							   + '</a>')
+	var searchLink = $('<a class="result-title">'
+						   + '<span class="icon-chevron-right">&nbsp;</span>'
+						   + '<span class="doc-name">' + doc.name + '</span>'
+						   + '<span class="results-counter">' + results.length + ' ' + Util.getString('searchResults') + '</span>'
+						   + '</a>')
 			.appendTo(searchTab);
 	var searchContent = [];
 	var visible = false;
@@ -519,13 +520,11 @@ Browser.prototype.addCategory = function(doc, results) {
 
 		for (var i = 0; i < searchContent.length; i++) {
 			if (visible) {
-				$(this).children().removeClass('icon-chevron-right').addClass('icon-chevron-down')
-
+				$(this).children().first().removeClass('icon-chevron-right').addClass('icon-chevron-down');
 				$(searchContent[i]).css('display', 'block');
 			}
 			else {
-				$(this).children().removeClass('icon-chevron-down').addClass('icon-chevron-right')
-
+				$(this).children().first().removeClass('icon-chevron-down').addClass('icon-chevron-right');
 				$(searchContent[i]).css('display', 'none');
 			}
 		}

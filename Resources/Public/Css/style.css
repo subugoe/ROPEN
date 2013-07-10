@@ -481,6 +481,16 @@ you can use the generic selector below, but it's slower:
 .edition .button-close {
   background-image: url("../Images/edition-window-tools-close.png");
 }
+.edition .hits a.result-title:hover {
+  text-decoration: none !important;
+}
+.edition .hits a.result-title .doc-name:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.edition .hits .searchresult p {
+  font-size: 90%;
+}
 
 .edition .button-close:active {
   background-image: url("../Images/edition-window-tools-close-active.png");
@@ -958,7 +968,9 @@ you can use the generic selector below, but it's slower:
 }
 
 .edition .search .main .hits li > a {
-  padding-left: 10px;
+  text-indent: -14px;
+  display: block;
+  padding-left: 19px;
   font-size: 90%;
 }
 
@@ -984,6 +996,14 @@ you can use the generic selector below, but it's slower:
   color: white;
   background-color: #b8b8b8;
   border: 10px solid #b8b8b8;
+}
+
+.edition .search .hits .results-counter {
+  display: block;
+  text-align: right;
+  padding-right: 20px;
+  font-style: italic;
+  font-size: 80%;
 }
 
 .edition .search .main .hits li {
