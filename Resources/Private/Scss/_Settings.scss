@@ -1,0 +1,26 @@
+$font-path: '../Fonts/';
+
+@mixin iconFont($content) {
+	$backColor: #eee;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	font-family: 'ropen';
+	&:before {
+		content: $content;
+	}
+	&:hover {
+		background: darken($backColor, 10%);
+	}
+	&:active {
+		border-color: darken($backColor, 10%);
+	}
+	background: $backColor;
+	border: 1px;
+	border-radius: 3px;
+	padding: 3px;
+}
