@@ -225,14 +225,14 @@
 	height: 36px;
 	top: 0px;
 	right: 0px;
-	background-image: url(../images/close-loader.png);
+	background-image: url(../Images/close-loader.png);
 	cursor: pointer;
 }
 
 .loader {
 	width: 32px;
 	height: 32px;
-	background-image: url(../images/ajax-loader.gif);
+	background-image: url(../Images/ajax-loader.gif);
 }
 
 span.dynatree-active a {
@@ -256,7 +256,7 @@ ul.dynatree-container a:hover {
 .errorSign {
 	height: 48px;
 	width: 48px;
-	background-image: url(../images/error.png);
+	background-image: url(../Images/error.png);
 	margin: auto;
 }
 
@@ -267,6 +267,6 @@ ul.dynatree-container a:hover {
 .alertSign {
 	height: 48px;
 	width: 48px;
-	background-image: url(../images/alert.png);
+	background-image: url(../Images/alert.png);
 	margin: auto;
 }

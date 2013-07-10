@@ -516,11 +516,16 @@ Browser.prototype.addCategory = function(doc, results) {
 
 	$(searchLink).click(function(){
 		visible = !visible;
+
 		for (var i = 0; i < searchContent.length; i++) {
 			if (visible) {
+				$(this).children().removeClass('icon-chevron-right').addClass('icon-chevron-down')
+
 				$(searchContent[i]).css('display', 'block');
 			}
 			else {
+				$(this).children().removeClass('icon-chevron-down').addClass('icon-chevron-right')
+
 				$(searchContent[i]).css('display', 'none');
 			}
 		}
