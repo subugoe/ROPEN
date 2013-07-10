@@ -508,7 +508,7 @@ Browser.prototype.addCategory = function(doc, results) {
 		thumbDiv.click(function(evt) {
 			EditionGui.openDocument(evt, doc, result.page, "images");
 		});
-		var textDiv = $("<p/>").appendTo(searchResult);
+		var textDiv = $('<div class="result-text"/>').appendTo(searchResult);
 		$(textDiv).html(result.text);
 		$(textDiv).click(function(evt) {
 			EditionGui.openDocument(evt, doc, result.page, "pages");
