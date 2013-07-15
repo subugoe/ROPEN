@@ -591,8 +591,10 @@
 
 .edition .search .main .hits div img {
 	float: left;
-	border: 10px solid white;
-	border-radius: 8px;
+	&.fat-border {
+		border: 10px solid white;
+		border-radius: 8px;
+	}
 }
 
 .edition .search .main .hits .hits-p {

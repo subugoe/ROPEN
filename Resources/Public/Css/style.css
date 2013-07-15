@@ -975,6 +975,8 @@ you can use the generic selector below, but it's slower:
 
 .edition .search .main .hits div img {
   float: left;
+}
+.edition .search .main .hits div img.fat-border {
   border: 10px solid white;
   border-radius: 8px;
 }

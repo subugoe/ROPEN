@@ -503,7 +503,7 @@ Browser.prototype.addCategory = function(doc, results) {
 
 		thumbnail.css('height', thumbDiv.height() + 'px');
 		thumbnail.css('width', thumbDiv.width() + 'px');
-		thumbnail.attr("innerHTML", "<!--<img class='thumbnail' src='" + doc.imagePath+"80/" + doc.images[result.page - 1] + "'/>-->");
+		thumbnail.attr("innerHTML", "<!--<img class='thumbnail fat-border' src='" + doc.imagePath + "80/" + doc.images[result.page - 1] + "'/>-->");
 
 		thumbDiv.click(function(evt) {
 			EditionGui.openDocument(evt, doc, result.page, "images");
