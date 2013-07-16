@@ -374,6 +374,9 @@
 .edition .search .advancedSearch {
 	color: #666666;
 	margin: 0 0 0 5px;
+	.advancedSearchLabel {
+		font-size: 80%;
+	}
 }
 
 .edition .search .advancedSearch span:first-child {

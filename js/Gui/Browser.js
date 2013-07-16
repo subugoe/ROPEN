@@ -65,10 +65,12 @@ Browser.prototype.initialize = function() {
 
 	var toggleSearch = function(searchType) {
 		if (selectedSearchType == searchType){
+			$('.advancedSearchLabel').removeClass('icon-chevron-down').addClass('icon-chevron-right');
 			browser.advancedSearch.css('display', 'none');
 			selectedSearchType = 'simple';
 		} 
 		else if (searchType == 'advanced'){
+			$('.advancedSearchLabel').removeClass('icon-chevron-right').addClass('icon-chevron-down');
 			browser.advancedSearch.css('display', 'block');
 			selectedSearchType = searchType;
 		} 
@@ -106,7 +108,7 @@ Browser.prototype.initialize = function() {
 	});
 
 	this.as = $("<div class='advancedSearch'/>").appendTo(this.searchTypes);
-	this.advancedSearchTab = $("<span>" + Util.getString('advancedSearch') + "</span>").appendTo(this.as);
+	this.advancedSearchTab = $("<span class='advancedSearchLabel icon-chevron-right'> " + Util.getString('advancedSearch') + "</span>").appendTo(this.as);
 
 	this.advancedSearchTab.click(function() {
 		toggleSearch('advanced');

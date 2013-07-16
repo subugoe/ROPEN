@@ -759,6 +759,9 @@ you can use the generic selector below, but it's slower:
   color: #666666;
   margin: 0 0 0 5px;
 }
+.edition .search .advancedSearch .advancedSearchLabel {
+  font-size: 80%;
+}
 
 .edition .search .advancedSearch span:first-child {
   cursor: pointer;
