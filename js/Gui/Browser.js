@@ -362,6 +362,8 @@ Browser.prototype.search = function(facet,documents){
 					page: page,
 					text: text
 			  	});
+				// update length of array
+				results.length++;
 			});
 			for (var i in Util.documents) {
 				var id = Util.documents[i].title;
@@ -369,10 +371,14 @@ Browser.prototype.search = function(facet,documents){
 					browser.addCategory(Util.documents[i], results[id]);
 				}
 			}
+			// in case we have no results
+			if (results.length === 0) {
+				browser.searchResults.html('<li>' + Util.getString('noResults') + '<em>»' + browser.searchField.val() + '«</em></li>');
+			}
 			browser.stopProcessing();
 		}
 	}
-	DocumentServerConnection.getSearchResults(this.searchField.val(),facet,documents,callback);
+	DocumentServerConnection.getSearchResults(this.searchField.val(), facet, documents, callback);
 };
 
 /**

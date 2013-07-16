@@ -111,6 +111,10 @@ var EditionTooltips = {
 		"en": "Search Results",
 		"de": "Suchergebnisse"
 	},
+	"noResults" : {
+		"en": "No results",
+		"de": "Keine Suchergebnisse für den Suchbegriff "
+	},
 	"facets" : {
 		"en": "Facets",
 		"de": "Facetten"
