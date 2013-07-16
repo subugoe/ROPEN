@@ -1482,6 +1482,10 @@ you can use the generic selector below, but it's slower:
   margin: 0;
 }
 
+#manuscripts_page #scriptContainer h3 {
+  margin-top: 10px;
+}
+
 .gridselector {
   top: 30px;
 }
