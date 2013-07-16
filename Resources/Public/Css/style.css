@@ -491,6 +491,15 @@ you can use the generic selector below, but it's slower:
 .edition .hits .searchresult p {
   font-size: 80%;
 }
+.edition .hits .searchresult .searchresult-thumbnail {
+  display: inline-block;
+  float: left;
+  width: 41%;
+}
+.edition .hits .searchresult .result-text {
+  width: 92%;
+  margin-top: -10px;
+}
 
 .edition .button-close:active {
   background-image: url("../Images/edition-window-tools-close-active.png");

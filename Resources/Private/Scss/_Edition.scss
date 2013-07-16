@@ -104,6 +104,15 @@
 			p {
 				font-size: 80%;
 			}
+			.searchresult-thumbnail {
+				display: inline-block;
+				float: left;
+				width: 41%;
+			}
+			.result-text {
+				width: 92%;
+				margin-top: -10px;
+			}
 		}
 	}
 }
