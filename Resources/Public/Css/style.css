@@ -866,9 +866,9 @@ you can use the generic selector below, but it's slower:
 .edition .search .main input[type="text"] {
   border-radius: 4px;
   border: 1px solid #b4b4b4;
-  padding: 6px 0;
-  margin: 8px 3px;
-  width: 97%;
+  padding: 6px 10px;
+  margin: 8px 0px;
+  width: 90%;
 }
 
 .edition .search .main input[type="submit"] {
