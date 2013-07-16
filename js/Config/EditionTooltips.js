@@ -288,8 +288,8 @@ var EditionTooltips = {
 		"de": "Leerseite"
 	},
 	"allDocuments" : {
-		"en": "All",
-		"de": "Alle"
+		"en": "All documents",
+		"de": "Alle Dokumente"
 	},
 	"selectDocuments" : {
 		"en": "Select Documents",
