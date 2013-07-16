@@ -498,7 +498,8 @@ you can use the generic selector below, but it's slower:
 }
 .edition .hits .searchresult .result-text {
   width: 92%;
-  margin-top: -10px;
+  margin-top: -0.8em;
+  padding-left: 0.5em;
 }
 
 .edition .button-close:active {
@@ -961,10 +962,6 @@ you can use the generic selector below, but it's slower:
   background-image: url("../Images/edition-search-hits-arrowclose.png");
   background-repeat: no-repeat;
   background-position: left center;
-}
-
-.edition .search .main .hits div {
-  padding-left: 10px;
 }
 
 .edition .search .hits .even {
