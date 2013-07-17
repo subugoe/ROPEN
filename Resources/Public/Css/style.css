@@ -1431,6 +1431,10 @@ you can use the generic selector below, but it's slower:
   margin: 0 10px;
   border: none;
 }
+.edition .search .main .advancedSearch {
+  text-align: right;
+  margin-right: 1em;
+}
 .edition .search .main .advancedSearch > div {
   font-size: 80%;
 }
