@@ -695,6 +695,7 @@ you can use the generic selector below, but it's slower:
 }
 
 .edition .gridselector {
+  top: 15px;
   position: absolute;
   right: 0;
   margin-right: 30px;
@@ -1503,10 +1504,6 @@ you can use the generic selector below, but it's slower:
   padding: 0 0px 0 0;
   margin: 0 4px 0 0;
   width: 25px;
-}
-
-.gridselector {
-  top: 30px;
 }
 
 .button-alpha {
