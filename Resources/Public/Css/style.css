@@ -697,29 +697,15 @@ you can use the generic selector below, but it's slower:
 .edition .gridselector {
   position: absolute;
   right: 0;
+  margin-right: 30px;
 }
-
 .edition .gridselector a {
-  margin: 0 34px 0 0;
-  padding: 26px 0 0 26px;
-  background-repeat: no-repeat;
+  border: 1px solid #ddd;
+  padding: 4px 0 4px 4px;
+  margin-right: 10px;
 }
-
 .edition .gridselector a:hover {
   text-decoration: none !important;
-}
-
-.edition .gridselector .normal {
-  background-image: url("../Images/edition-gridselector.png");
-  margin: 0;
-}
-
-.edition .gridselector .normal:hover {
-  background-image: url("../Images/edition-gridselector-normal-hover.png");
-}
-
-.edition .gridselector .normal:active {
-  background-image: url("../Images/edition-gridselector-normal-active.png");
 }
 
 .edition .gridselector .active {

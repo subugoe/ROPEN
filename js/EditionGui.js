@@ -679,14 +679,16 @@ EditionGui.addControls = function(){
 		});
 	}
 	var gridDiv = $('<div class="gridselector"/>').appendTo(this.containerDiv);
-	if( EditionProperties.gridLayout && ( EditionProperties.resizable || EditionProperties.draggable ) ){
-		var gridButton = $('<a class="normal"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(gridDiv);
+	if (EditionProperties.gridLayout && ( EditionProperties.resizable || EditionProperties.draggable )) {
+		var gridButton = $('<a class="icon-th"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(gridDiv);
+
 		if( EditionProperties.automaticGridLayout ){
-			gridButton.attr('title',Util.getString('enableGridLayout'));
+			gridButton.attr('title', Util.getString('enableGridLayout'));
 		}
 		else {
-			gridButton.attr('title',Util.getString('gridLayout'));
+			gridButton.attr('title', Util.getString('gridLayout'));
 		}
+
 		gridButton.click(function(){
 			gui.toggleGridLayout();
 		});
@@ -722,8 +724,8 @@ EditionGui.addControls = function(){
 		}
 	}
 	if (EditionProperties.fullscreen) {
-		var fsButton = $('<a class="browser-fullscreen"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(gridDiv);
-		var helpButton = $('<a class="browser-help" href="#?page=#help_page"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(gridDiv);
+		var fsButton = $('<a class="icon-fullscreen"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(gridDiv);
+		var helpButton = $('<a class="icon-question" href="#?page=#help_page"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(gridDiv);
 
 		// add event listener for fullscreen toggle
 		var browsersEventNames = ['mozfullscreenchange', 'webkitfullscreenchange'];
@@ -731,18 +733,18 @@ EditionGui.addControls = function(){
 		for (var i in browsersEventNames) {
 			document.addEventListener(browsersEventNames[i], function() {
 				if ($('#editionContainer').fullScreen() === false) {
-					$('.browser-fullscreen').removeClass('browser-fullscreen-off');
+					$('.icon-fullscreen').removeClass('icon-contract');
 				}
 			}, false);
 		}
 
 		fsButton.click(function() {
-			if ($('.browser-fullscreen').hasClass('browser-fullscreen-off')) {
+			if ($('.icon-fullscreen').hasClass('icon-contract')) {
 				$('#editionContainer').fullScreen(false);
-				$('.browser-fullscreen').removeClass('browser-fullscreen-off');
+				$('.icon-fullscreen').removeClass('icon-contract');
 			} else {
 				$('#editionContainer').fullScreen(true);
-				$('.browser-fullscreen').addClass('browser-fullscreen-off');
+				$('.icon-fullscreen').addClass('icon-contract');
 			}
 		});
 	}

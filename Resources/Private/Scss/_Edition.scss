@@ -285,29 +285,15 @@
 .edition .gridselector {
 	position: absolute;
 	right: 0;
-}
-
-.edition .gridselector a {
-	margin: 0 34px 0 0;
-	padding: 26px 0 0 26px;
-	background-repeat: no-repeat;
-}
-
-.edition .gridselector a:hover {
-	text-decoration: none !important;
-}
-
-.edition .gridselector .normal {
-	background-image: url("../Images/edition-gridselector.png");
-	margin: 0;
-}
-
-.edition .gridselector .normal:hover {
-	background-image: url("../Images/edition-gridselector-normal-hover.png");
-}
-
-.edition .gridselector .normal:active {
-	background-image: url("../Images/edition-gridselector-normal-active.png");
+	margin-right: 30px;
+	a {
+		border: 1px solid #ddd;
+		padding: 4px 0 4px 4px;
+		margin-right: 10px;
+		&:hover {
+			text-decoration: none !important;
+		}
+	}
 }
 
 .edition .gridselector .active {
