@@ -1,0 +1,11 @@
+.frame {
+	.windowtools {
+		a {
+			font-size: 80%;
+			padding: 0 8px 0 0;
+			&:hover {
+				cursor: link;
+			}
+		}
+	}
+}

@@ -44,7 +44,7 @@ FrameWindow.prototype.initialize = function(params){
 	}
 	if( params.concealable ){
 		this.visibilityButton = $("<li/>").appendTo(this.windowTools);
-		this.visibilityLink = $('<a class="button-minimize"><span class="visuallyhidden"/>&nbsp;</a>').appendTo(this.visibilityButton);
+		this.visibilityLink = $('<a class="icon-minus"><span class="visuallyhidden"/>&nbsp;</a>').appendTo(this.visibilityButton);
 		this.visibilityLink.attr("title",Util.getString('minimizeWindow'));
 		this.visibilityButton.click(function(){
 			frame.toggleVisibility();
@@ -52,8 +52,8 @@ FrameWindow.prototype.initialize = function(params){
 	}
 	if( params.removable ){
 		this.removeButton = $("<li/>").appendTo(this.windowTools);
-		var removeLink = $('<a class="button-close"/>').appendTo(this.removeButton);
-		removeLink.attr("title",Util.getString('removeWindow'));
+		var removeLink = $('<a class="icon-remove"/>').appendTo(this.removeButton);
+		removeLink.attr("title", Util.getString('removeWindow'));
 		this.removeButton.click(function(){
 			frame.toolbarDiv.remove();
 			if( typeof params.triggerRemove != 'undefined' ){
@@ -149,8 +149,8 @@ FrameWindow.prototype.setResizability = function(append){
  * @param {number} height The desired height of the frame in pixel.
  */
 FrameWindow.prototype.setSize = function(width,height){
-	this.css('width', width+"px" );
-	this.css('height',height+'px');
+	this.css('width', width + "px" );
+	this.css('height',height + 'px');
 };
 
 /**
@@ -161,8 +161,8 @@ FrameWindow.prototype.setSize = function(width,height){
  * @param {number} top The desired top distance of the frame in pixel.
  */
 FrameWindow.prototype.position = function(left,top){
-	this.css('left',left+'px');
-	this.css('top',top+'px');
+	this.css('left', left + 'px');
+	this.css('top', top + 'px');
 };
 
 /**
@@ -208,8 +208,8 @@ FrameWindow.prototype.toggleVisibility = function(){
 	var padding = parseInt($(this).css("padding-top"));
 	this.visibility = !this.visibility;
 	if( this.visibility ){
-		this.visibilityLink.removeClass("button-open");
-		this.visibilityLink.addClass("button-minimize");
+		this.visibilityLink.removeClass("icon-fullscreen");
+		this.visibilityLink.addClass("icon-minus");
 		$(this).animate({
 			height: "-="+($(frame).height()-frame.height),
 			top: "-="+($(frame).position().top-frame.top),
@@ -227,8 +227,8 @@ FrameWindow.prototype.toggleVisibility = function(){
 		this.left = $(this).position().left;
 		this.width = $(this).width();
 		this.height = $(this).height();
-		this.visibilityLink.removeClass("button-minimize");
-		this.visibilityLink.addClass("button-open");
+		this.visibilityLink.removeClass("icon-minus");
+		this.visibilityLink.addClass("icon-fullscreen");
 		$(this).animate({
 			height: "-="+($(frame).height()-$(frame.toolbarDiv).height()+5),
 			top: "-="+(frame.top-10),
