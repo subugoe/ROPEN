@@ -270,11 +270,16 @@
 
 .edition .edition-tools {
 	position: absolute;
-	left: 5px;
-}
-
-.edition .edition-tools a:hover {
-	text-decoration: none !important;
+	left: 60px;
+	a {
+		border: 1px solid #ddd;
+		padding: 4px 0 4px 4px;
+		margin-right: 10px;
+		&:hover {
+			text-decoration: none !important;
+			cursor: pointer;
+		}
+	}
 }
 
 .edition .gridselector {

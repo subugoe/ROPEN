@@ -593,9 +593,9 @@ EditionGui.setParams = function(params){
  */
 EditionGui.addControls = function(){
 	var gui = this;
-	var controls = $('<div class="edition-tools"/>').appendTo(this.containerDiv);		
+	var controls = $('<div class="edition-tools"/>').appendTo(this.containerDiv);
 	if( EditionProperties.addable ){
-		var addWindow = $('<a class="button-newwindow"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(controls);
+		var addWindow = $('<a class="icon-file"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(controls);
 		$(addWindow).attr('title',Util.getString('newFolder'));
 		addWindow.click(function(){
 			if( gui.folders.length < EditionProperties.maxWindows ){
@@ -619,8 +619,9 @@ EditionGui.addControls = function(){
 			if( gui.magneticLinks.length > 0 ){
 				$("<p><hr/></p>").appendTo(linkList);
 				var p = $("<p/>").appendTo(linkList);
-				$("<div>"+Util.getString('generatedMagneticLinks')+"</div>").appendTo(p);
-				for( var i=0; i<gui.magneticLinks.length; i++ ){
+				$("<div>" + Util.getString('generatedMagneticLinks') + "</div>").appendTo(p);
+
+				for (var i = 0; i < gui.magneticLinks.length; i++) {
 					var ml = gui.magneticLinks[i];
 					var linkDiv = $("<div/>").appendTo(p);
 					var link;
@@ -658,7 +659,7 @@ EditionGui.addControls = function(){
 				}
 			});
 		}
-		var magneticLink = $('<a class="button-magneticlink"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(controls);
+		var magneticLink = $('<a class="icon-link"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(controls);
 		$(magneticLink).attr('title',Util.getString('magneticLink'));
 		magneticLink.click(function(evt){
 			$(magneticLink).addClass('button-magneticlink-active');
