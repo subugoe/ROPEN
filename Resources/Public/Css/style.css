@@ -1027,9 +1027,6 @@ you can use the generic selector below, but it's slower:
   margin: 10px;
   background-color: #ddd8c9;
   width: 700px;
-  border-radius: 4px;
-  border: 0px solid #a6a5a2;
-  box-shadow: 0 0 2px #999999;
   background: -moz-radial-gradient(center, ellipse cover, #ded9c8 0%, #ddd5b8 100%);
   background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #ded9c8), color-stop(100%, #ddd5b8));
   background: -webkit-radial-gradient(center, ellipse cover, #ded9c8 0%, #ddd5b8 100%);
@@ -1494,6 +1491,8 @@ you can use the generic selector below, but it's slower:
 }
 .edition .search {
   background: #ddd;
+  border-radius: 0;
+  box-shadow: none;
 }
 .edition .search .main {
   background-color: white;
@@ -1501,6 +1500,9 @@ you can use the generic selector below, but it's slower:
   border-radius: 0;
   margin: 0 10px;
   border: none;
+}
+.edition .search .main .advancedSearch > div {
+  font-size: 80%;
 }
 
 .gridselector {
