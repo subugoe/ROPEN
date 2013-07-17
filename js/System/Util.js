@@ -80,7 +80,14 @@ Util.getAttribute = function(node,attributeName) {
  * @return {string} The corresponding tooltip dependent on the applications language.
  */
 Util.getString = function(id) {
-	return Util.texts[id][Util.language];
+	var label = '';
+
+	try {
+		label = Util.texts[id][Util.language];
+	} catch(e) {
+		// console.log(e);
+	}
+	return label;
 };
 
 /**

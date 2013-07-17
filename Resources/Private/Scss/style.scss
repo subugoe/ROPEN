@@ -1,13 +1,13 @@
 @import 'Settings';
 
 @import 'h5bp';
-@import 'Base';
-@import 'Icons';
-@import 'Edition';
-@import 'Manuscripts';
-@import 'Browser';
-@import 'Frame';
-@import 'Dialog';
+@import '_Sections/Base';
+@import '_Sections/Icons';
+@import '_Sections/Edition';
+@import '_Sections/Manuscripts';
+@import '_Sections/Browser';
+@import '_Sections/Frame';
+@import '_Sections/Dialog';
 
 .button-alpha {
 	background-image: url("../Images/content-button-down.png");

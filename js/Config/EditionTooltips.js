@@ -478,5 +478,9 @@ var EditionTooltips = {
 	"noSearchString" : {
 		"en": "Please enter a search string to perform the search!",
 		"de": "Bitte geben Sie einen Suchbegriff ein um die Suche durchzuführen!"
+	},
+	"editionSearchfieldPlaceholder" : {
+		"en": "Your search term",
+		"de": "Ihr Suchbegriff"
 	}
 };

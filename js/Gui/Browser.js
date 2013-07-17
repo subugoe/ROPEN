@@ -80,8 +80,8 @@ Browser.prototype.initialize = function() {
 
 	var simpleSearch = $("<form/>").appendTo(this.searchTypes);
 
-	this.searchField = $("<input type='text' class='edition-searchfield'/>").appendTo(simpleSearch);
-	var searchButton = $("<input type='submit' value='' />").appendTo(simpleSearch);
+	this.searchField = $("<input type='search' class='edition-searchfield' placeholder='" + Util.getString('editionSearchfieldPlaceholder') + "' />").appendTo(simpleSearch);
+	var searchButton = $("<button type='submit' class='icon-search edition-submitbutton' value='Submit' />").appendTo(simpleSearch);
 
 	var search = function(evt) {
 		if (browser.searchField.val() != '') {
