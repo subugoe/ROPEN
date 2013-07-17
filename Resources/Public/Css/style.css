@@ -1492,6 +1492,14 @@ you can use the generic selector below, but it's slower:
   width: 25px;
 }
 
+ul.dynatree-container {
+  font-size: 10pt;
+  border-bottom: 1px solid #d6d6d6;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding: 10px 0 !important;
+}
+
 .button-alpha {
   background-image: url("../Images/content-button-down.png");
   background-repeat: no-repeat;
