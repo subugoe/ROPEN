@@ -696,8 +696,8 @@ EditionGui.addControls = function(){
 			if( EditionProperties.automaticGridLayout ){
 				gui.automaticGridLayout = !gui.automaticGridLayout;
 				if( gui.automaticGridLayout ){
-					gridButton.attr('class','active');
-					gridButton.attr('title',Util.getString('disableGridLayout'));
+					gridButton.addClass('active');
+					gridButton.attr('title', Util.getString('disableGridLayout'));
 					if( EditionProperties.guiConfig ){
 						gui.initialLayout();
 					}
@@ -706,8 +706,8 @@ EditionGui.addControls = function(){
 					}
 				}
 				else {
-					gridButton.attr('class','normal');
-					gridButton.attr('title',Util.getString('enableGridLayout'));
+					gridButton.removeClass('active');
+					gridButton.attr('title', Util.getString('enableGridLayout'));
 				}
 			}
 			else {

@@ -721,21 +721,12 @@ you can use the generic selector below, but it's slower:
   padding: 4px 0 4px 4px;
   margin-right: 10px;
 }
+.edition .gridselector a.active {
+  color: #900000 !important;
+}
 .edition .gridselector a:hover {
+  cursor: pointer;
   text-decoration: none !important;
-}
-
-.edition .gridselector .active {
-  margin: 0;
-  background-image: url("../Images/edition-gridselector-active.png");
-}
-
-.edition .gridselector .active:hover {
-  background-image: url("../Images/edition-gridselector-select-hover.png");
-}
-
-.edition .gridselector .active:active {
-  background-image: url("../Images/edition-gridselector-select-active.png");
 }
 
 .edition .search {
@@ -803,11 +794,6 @@ you can use the generic selector below, but it's slower:
   background: none !important;
 }
 
-/*
-    .edition .search .scope-selector a:active {
-      background: none;
-      background-color: red; }
-*/
 .edition .search .main {
   background-color: #f0f0f0;
   border-radius: 4px;
