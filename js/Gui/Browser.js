@@ -30,9 +30,9 @@ Browser.prototype.initialize = function() {
 		} 
 	}
 
-	this.header = $("<div class='scope-selector'/>").appendTo(this.content);
-	this.searchTab = $("<a>"+Util.getString('search')+"</a>").appendTo(this.header);
-	this.documentTab = $("<a>"+Util.getString('documents')+"</a>").appendTo(this.header);
+	this.header = $("<ul class='scope-selector'/>").appendTo(this.content);
+	this.searchTab = $("<li><a class='link-scope-search'>" + Util.getString('search') + "</a></li>").appendTo(this.header);
+	this.documentTab = $("<li><a class='link-scope-documents'>" + Util.getString('documents') + "</a></li>").appendTo(this.header);
 
 	this.searchTab.click(function() {
 		show(true);
@@ -231,8 +231,8 @@ Browser.prototype.prepareAdvancedSearch = function() {
 
 	var facets = $('<div class="facetOptions"/>').appendTo(this.advancedSearch);
 
-	$(facets).css('display','none');
-	$(facets).css('overflow','hidden');
+	$(facets).css('display', 'none');
+	$(facets).css('overflow', 'hidden');
 
 	var structureFacets = $('<div class="facetList"/>').appendTo(facets);
 	var structureHeader = $('<span class="facetsHeader">' + Util.getString('documentStructure') + '</span>').appendTo(structureFacets);

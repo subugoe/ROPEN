@@ -1,0 +1,44 @@
+.edition {
+	ul {
+		&.scope-selector {
+			width: 92.2%;
+			background-color: #dedede;
+			margin: 0 0 0 14px;
+			text-align: right;
+			padding-left: 0;
+			li {
+				border-bottom: 1px solid #ddd;
+				background-color: #ddd8c9;
+				padding: 6px 10px!important;
+				width: 30%;
+				border-right: 1px solid #dedede;
+				display: inline-block;
+				text-align: center;
+				&.search-scope-documents {
+					border-right: none!important;
+				}
+				&:hover {
+					background-color: white;
+				}
+				&.selected {
+					background-color: white;
+				}
+				a {
+					&:hover {
+						text-decoration: none!important;
+					}
+				}
+			}
+		}
+	}
+	.search {
+		background: #ddd;
+		.main {
+			background-color: white;
+			box-shadow: none;
+			border-radius: 0;
+			margin: 0 10px;
+			border: none;
+		}
+	}
+}

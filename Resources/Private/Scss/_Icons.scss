@@ -27,7 +27,7 @@ Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
 [class*="icon-"] {
 */
-.icon-chevron-down, .icon-chevron-up, .icon-chevron-right, .icon-chevron-left, .icon-search, .icon-fullscreen, .icon-contract, .icon-th, .icon-question, .icon-remove, .icon-contract-2, .icon-spin, .icon-sort-up, .icon-sort-down, .icon-sort {
+.icon-chevron-down, .icon-chevron-up, .icon-chevron-right, .icon-chevron-left, .icon-search, .icon-fullscreen, .icon-contract, .icon-th, .icon-question, .icon-remove, .icon-contract-2, .icon-spin, .icon-sort-up, .icon-sort-down, .icon-sort, .icon-books, .icon-book, .icon-link, .icon-bookmark {
 	font-family: 'ropen';
 	speak: none;
 	font-style: normal;
@@ -81,4 +81,16 @@ you can use the generic selector below, but it's slower:
 }
 .icon-sort:before {
 	content: "\f0dc";
+}
+.icon-books:before {
+	content: "\e004";
+}
+.icon-book:before {
+	content: "\e005";
+}
+.icon-link:before {
+	content: "\e006";
+}
+.icon-bookmark:before {
+	content: "\e007";
 }

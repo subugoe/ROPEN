@@ -114,7 +114,7 @@ FrameWindow.prototype.setResizability = function(append){
 			stop: function() {
 				frame.resize();
 				if( typeof frame.params.triggerResize != 'undefined' ){
-					frame.params.triggerResize();						
+					frame.params.triggerResize();
 				}
 			}
 		});
@@ -206,7 +206,7 @@ FrameWindow.prototype.getPosition = function(){
 FrameWindow.prototype.toggleVisibility = function(){
 	var frame = this;
 	var padding = parseInt($(this).css("padding-top"));
-	this.visibility = !this.visibility;		
+	this.visibility = !this.visibility;
 	if( this.visibility ){
 		this.visibilityLink.removeClass("button-open");
 		this.visibilityLink.addClass("button-minimize");
