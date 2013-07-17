@@ -3,8 +3,8 @@
 		&.scope-selector {
 			width: 92.2%;
 			background-color: #dedede;
-			margin: 0 0 0 14px;
-			text-align: right;
+			margin: 0 0 0 10px;
+			text-align: left;
 			padding-left: 0;
 			li {
 				border-bottom: 1px solid #ddd;
@@ -43,6 +43,26 @@
 				&>div {
 					font-size: 80%
 				}
+			}
+			.edition-searchfield {
+				border: 1px solid #b4b4b4;
+				padding: 6px 10px;
+				margin: 8px 0px;
+				width: 90%;
+				border-radius: 0;
+			}
+			input[type="submit"] {
+				display: inline;
+				border: none;
+				background-image: url("../Images/edition-search-searchbutton.png");
+				background-repeat: no-repeat;
+				background-position: center center;
+				float: right;
+				width: 23px;
+				height: 23px;
+				top: -28px;
+				margin: -6px 11px 0 0;
+				position: relative;
 			}
 		}
 		border-radius: 0;

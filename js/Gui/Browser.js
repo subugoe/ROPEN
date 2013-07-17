@@ -121,7 +121,7 @@ Browser.prototype.initialize = function() {
 
 	show(EditionProperties.browserSearch);
 
-	$(this.label).html(Util.getString('browser'));
+	$(this.label).html(Util.getString('browser')).parent('h4').hide();
 	this.overlay = new OverlayWindow(this.searchTypes);
 	this.resizeContent();
 };

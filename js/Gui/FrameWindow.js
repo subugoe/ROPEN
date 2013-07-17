@@ -22,7 +22,7 @@ FrameWindow = function(){
 FrameWindow.prototype.initialize = function(params){
 	var frame = this;
 	this.params = params;
-	this.addClass("frame "+params.class);
+	this.addClass("frame " + params.class);
 	this.toolbarDiv = $("<div class='clearfix'/>").appendTo(this);
 	this.windowTools = $("<ul class='windowtools'/>").appendTo(this.toolbarDiv);
 	var headline = $("<h4/>").appendTo(this.toolbarDiv);

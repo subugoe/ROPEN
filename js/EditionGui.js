@@ -255,7 +255,7 @@ EditionGui.createDialog = function(headline,content,event,sx,sy,onclose){
 	var gui = this;
 	var id = "dialog"+this.getIndependentId();
 	var dialog = $('<div id="'+id+'" class="dialog"/>').appendTo(this.containerDiv);
-	var closeDialog = function(){			
+	var closeDialog = function(){
 		$(dialog).remove();
 		if( typeof onclose != 'undefined' ){
 			onclose();
