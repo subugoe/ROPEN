@@ -216,29 +216,9 @@
 	padding: 0;
 }
 
-.edition .dialog {
-	position: absolute;
-	background-color: #ddd8c9;
-	border-radius: 4px;
-	border: 1px solid #a6a5a2;
-	box-shadow: 0px 2px 2px #999999;
-}
-
 .edition .dialog .text {
 	float: left;
 	padding: 4px 0 0 6px;
-}
-
-.edition .dialog .dialog-tools {
-	float: right;
-	padding: 4px 0 0 0;
-	margin: 0;
-}
-
-.edition .dialog .dialog-tools a {
-	padding: 0 18px 0 0;
-	margin: 0 4px 0 0;
-	width: 25px;
 }
 
 .edition .dialog .dialog-tools li a {
@@ -250,15 +230,6 @@
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
-}
-
-.edition .dialog .inner {
-	background-color: white;
-	border-radius: 4px;
-	border: 1px solid #a6a5a2;
-	padding: 20px 10px;
-	margin: 30px 5px 5px 5px;
-	text-align: center;
 }
 
 .edition .dialog .inner a {

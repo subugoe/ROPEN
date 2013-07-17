@@ -253,8 +253,8 @@ EditionGui.checkBounds = function(){
  */
 EditionGui.createDialog = function(headline,content,event,sx,sy,onclose){
 	var gui = this;
-	var id = "dialog"+this.getIndependentId();
-	var dialog = $('<div id="'+id+'" class="dialog"/>').appendTo(this.containerDiv);
+	var id = "dialog" + this.getIndependentId();
+	var dialog = $('<div id="' + id + '" class="dialog"/>').appendTo(this.containerDiv);
 	var closeDialog = function(){
 		$(dialog).remove();
 		if( typeof onclose != 'undefined' ){
@@ -269,9 +269,9 @@ EditionGui.createDialog = function(headline,content,event,sx,sy,onclose){
 			$(dialog).css('z-index',zIndex);
 		}
 	});
-	$('<div class="text">'+headline+'</div>').appendTo(dialog);
+	$('<div class="text">' + headline + '</div>').appendTo(dialog);
 	var ul = $('<ul class="dialog-tools"/>').appendTo(dialog);
-	var close = $('<li><a class="button-close"/><span class="visuallyhidden"></span></a></li>').appendTo(ul);
+	var close = $('<li><a class="icon-remove"/><span class="visuallyhidden"></span></a></li>').appendTo(ul);
 	$(close).css('display','inherit');
 	$(close).click(closeDialog);
 	$(content).appendTo(dialog);

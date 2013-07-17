@@ -315,13 +315,25 @@ noscript p {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+  font-family: 'ropen';
+  content: attr(data-icon);
+  speak: none;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}
+
 /* Use the following CSS code if you want to have a class per icon */
 /*
 Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
 [class*="icon-"] {
 */
-.icon-chevron-down, .icon-chevron-up, .icon-chevron-right, .icon-chevron-left, .icon-search, .icon-fullscreen, .icon-contract, .icon-th, .icon-question, .icon-remove, .icon-contract-2, .icon-spin, .icon-sort-up, .icon-sort-down, .icon-sort, .icon-books, .icon-book, .icon-link, .icon-bookmark, .icon-minus {
+.icon-chevron-down, .icon-chevron-up, .icon-chevron-right, .icon-chevron-left, .icon-search, .icon-fullscreen, .icon-contract, .icon-th, .icon-question, .icon-remove, .icon-contract-2, .icon-spin, .icon-sort-up, .icon-sort-down, .icon-sort, .icon-books, .icon-book, .icon-link, .icon-bookmark, .icon-minus, .icon-warning-sign {
   font-family: 'ropen';
   speak: none;
   font-style: normal;
@@ -410,6 +422,10 @@ you can use the generic selector below, but it's slower:
 
 .icon-minus:before {
   content: "\f068";
+}
+
+.icon-warning-sign:before {
+  content: "\f071";
 }
 
 #editionContainer {
@@ -620,29 +636,9 @@ you can use the generic selector below, but it's slower:
   padding: 0;
 }
 
-.edition .dialog {
-  position: absolute;
-  background-color: #ddd8c9;
-  border-radius: 4px;
-  border: 1px solid #a6a5a2;
-  box-shadow: 0px 2px 2px #999999;
-}
-
 .edition .dialog .text {
   float: left;
   padding: 4px 0 0 6px;
-}
-
-.edition .dialog .dialog-tools {
-  float: right;
-  padding: 4px 0 0 0;
-  margin: 0;
-}
-
-.edition .dialog .dialog-tools a {
-  padding: 0 18px 0 0;
-  margin: 0 4px 0 0;
-  width: 25px;
 }
 
 .edition .dialog .dialog-tools li a {
@@ -654,15 +650,6 @@ you can use the generic selector below, but it's slower:
   list-style-type: none;
   padding: 0;
   margin: 0;
-}
-
-.edition .dialog .inner {
-  background-color: white;
-  border-radius: 4px;
-  border: 1px solid #a6a5a2;
-  padding: 20px 10px;
-  margin: 30px 5px 5px 5px;
-  text-align: center;
 }
 
 .edition .dialog .inner a {
@@ -1510,6 +1497,29 @@ you can use the generic selector below, but it's slower:
 }
 .frame .windowtools a:hover {
   cursor: pointer;
+}
+
+.edition .dialog {
+  position: absolute;
+  background-color: #ddd8c9;
+  border: 1px solid #a6a5a2;
+}
+.edition .dialog .inner {
+  background-color: white;
+  border: 1px solid #a6a5a2;
+  padding: 20px 10px;
+  margin: 30px 5px 5px 5px;
+  text-align: center;
+}
+.edition .dialog .dialog-tools {
+  float: right;
+  padding: 4px 0 0 0;
+  margin: 0;
+}
+.edition .dialog .dialog-tools a {
+  padding: 0 0px 0 0;
+  margin: 0 4px 0 0;
+  width: 25px;
 }
 
 .gridselector {

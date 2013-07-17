@@ -292,7 +292,6 @@ Util.getTags = function(tags) {
 Util.getErrorMessage = function(errorType) {
 	var errorDiv = $("<div/>");
 	$("<div class='errorMessage'>" + Util.getString('errorMessage') + ' (' + errorType + ')' + "</div>").appendTo(errorDiv);
-	$('<div class="errorSign"/>').appendTo(errorDiv);
 	return errorDiv;
 };
 
@@ -306,7 +305,6 @@ Util.getErrorMessage = function(errorType) {
 Util.getAlertMessage = function(message) {
 	var alertDiv = $("<div/>");
 	$("<div class='alertMessage'>" + message + "</div>").appendTo(alertDiv);
-	$('<div class="alertSign"/>').appendTo(alertDiv);
 	return alertDiv;
 };
 
