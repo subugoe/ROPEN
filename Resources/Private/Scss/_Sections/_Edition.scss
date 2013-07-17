@@ -276,6 +276,7 @@
 		padding: 4px 0 4px 4px;
 		margin-right: 10px;
 		&:hover {
+			color: #900000!important;
 			text-decoration: none !important;
 			cursor: pointer;
 		}
@@ -296,6 +297,7 @@
 		}
 		&:hover {
 			cursor: pointer;
+			color: #900000!important;
 			text-decoration: none !important;
 		}
 	}

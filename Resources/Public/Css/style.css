@@ -706,6 +706,7 @@ you can use the generic selector below, but it's slower:
   margin-right: 10px;
 }
 .edition .edition-tools a:hover {
+  color: #900000 !important;
   text-decoration: none !important;
   cursor: pointer;
 }
@@ -726,6 +727,7 @@ you can use the generic selector below, but it's slower:
 }
 .edition .gridselector a:hover {
   cursor: pointer;
+  color: #900000 !important;
   text-decoration: none !important;
 }
 
