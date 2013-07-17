@@ -463,7 +463,7 @@
 }
 
 .edition .search .hits .even {
-	background: #dcdcdc;
+	background: #fdfcfd;
 }
 
 .edition .search .searchresult {
@@ -518,11 +518,11 @@
 }
 
 .edition .search .main .hits li {
-	border: 1px solid #c2c2c2;
+	border-bottom: 1px solid #c2c2c2;
 	list-style-type: none;
 	margin: 8px 0;
 	padding: 10px 0;
-	background: #fdfcfd;
+//	background: #fdfcfd;
 }
 
 .edition .search .main .hits li:hover {

@@ -887,7 +887,7 @@ you can use the generic selector below, but it's slower:
 }
 
 .edition .search .hits .even {
-  background: #dcdcdc;
+  background: #fdfcfd;
 }
 
 .edition .search .searchresult {
@@ -936,11 +936,10 @@ you can use the generic selector below, but it's slower:
 }
 
 .edition .search .main .hits li {
-  border: 1px solid #c2c2c2;
+  border-bottom: 1px solid #c2c2c2;
   list-style-type: none;
   margin: 8px 0;
   padding: 10px 0;
-  background: #fdfcfd;
 }
 
 .edition .search .main .hits li:hover {
@@ -1399,7 +1398,7 @@ you can use the generic selector below, but it's slower:
 }
 .edition ul.scope-selector li {
   border-bottom: 1px solid #ddd;
-  background-color: #ddd8c9;
+  background-color: white;
   padding: 6px 10px !important;
   width: 30%;
   border-right: 1px solid #dedede;
@@ -1411,9 +1410,11 @@ you can use the generic selector below, but it's slower:
 }
 .edition ul.scope-selector li:hover {
   background-color: white;
+  border-bottom: 1px solid #900000;
 }
 .edition ul.scope-selector li.selected {
   background-color: white;
+  border-bottom: 1px solid #900000;
 }
 .edition ul.scope-selector li a:hover {
   text-decoration: none !important;
@@ -1437,17 +1438,23 @@ you can use the generic selector below, but it's slower:
   border: 1px solid #b4b4b4;
   padding: 6px 10px;
   margin: 8px 0px;
-  width: 77%;
+  width: 79%;
   border-radius: 0;
 }
 .edition .search .main .edition-submitbutton {
   display: inline;
-  border: 1px solid #b4b4b4;
+  border-right: 1px solid #b4b4b4;
+  border-bottom: 1px solid #b4b4b4;
+  border-top: 1px solid #b4b4b4;
+  border-left: none;
   float: right;
   margin: 8px 4px 0 0;
   background-color: white;
   font-size: 12pt;
   padding: 8px 5px 7px 5px;
+}
+.edition .search .main .edition-submitbutton:hover {
+  color: #900000;
 }
 
 .frame .windowtools a {
