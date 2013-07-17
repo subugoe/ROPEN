@@ -1511,7 +1511,7 @@ you can use the generic selector below, but it's slower:
   padding: 0 8px 0 0;
 }
 .frame .windowtools a:hover {
-  cursor: link;
+  cursor: pointer;
 }
 
 .gridselector {
