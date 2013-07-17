@@ -16,7 +16,7 @@ function FacetSelector(div){
  * @this {FacetSelector}
  */
 FacetSelector.prototype.initialize = function(){
-	var selector = this;a
+	var selector = this;
 	var facetsBar = document.createElement("div");
 	$(this.div).append(facetsBar);
 	this.checkboxes = [];
