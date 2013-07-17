@@ -150,15 +150,6 @@
 	z-index: 99999;
 	position: absolute;
 	background: white;
-	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZWVlZWUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-	background: -moz-linear-gradient(top, white 0%, #eeeeee 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, white), color-stop(100%, #eeeeee));
-	background: -webkit-linear-gradient(top, white 0%, #eeeeee 100%);
-	background: -o-linear-gradient(top, white 0%, #eeeeee 100%);
-	background: -ms-linear-gradient(top, white 0%, #eeeeee 100%);
-	background: linear-gradient(top, white 0%, #eeeeee 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eeeeee', GradientType=0);
-	border-radius: 4px;
 	border: 1px solid #a6a5a2;
 	box-shadow: 0px 2px 2px #999999;
 }
@@ -361,8 +352,6 @@
 	margin: 5px 5px 0 0;
 }
 
-
-
 .search-scope-search, .search-scope-documents {
 	display: inline;
 	&:selected {
@@ -459,6 +448,7 @@
 
 .edition .search .main ul.hits {
 	padding: 0;
+	margin: 0 4px;
 }
 
 .edition .search .main .hits .selected a {
@@ -528,32 +518,14 @@
 
 .edition .search .main .hits li {
 	border: 1px solid #c2c2c2;
-	border-radius: 4px;
 	list-style-type: none;
 	margin: 8px 0;
 	padding: 10px 0;
-	box-shadow: 0 1px 2px 1px lightgrey;
 	background: #fdfcfd;
-	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZkZmNmZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlZWVlZWUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-	background: -moz-linear-gradient(top, #fdfcfd 0%, #eeeeee 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fdfcfd), color-stop(100%, #eeeeee));
-	background: -webkit-linear-gradient(top, #fdfcfd 0%, #eeeeee 100%);
-	background: -o-linear-gradient(top, #fdfcfd 0%, #eeeeee 100%);
-	background: -ms-linear-gradient(top, #fdfcfd 0%, #eeeeee 100%);
-	background: linear-gradient(top, #fdfcfd 0%, #eeeeee 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fdfcfd', endColorstr='#eeeeee', GradientType=0);
 }
 
 .edition .search .main .hits li:hover {
 	background: #fafafa;
-	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZhZmFmYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNkZWQ5YzkiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-	background: -moz-linear-gradient(top, #fafafa 0%, #ded9c9 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fafafa), color-stop(100%, #ded9c9));
-	background: -webkit-linear-gradient(top, #fafafa 0%, #ded9c9 100%);
-	background: -o-linear-gradient(top, #fafafa 0%, #ded9c9 100%);
-	background: -ms-linear-gradient(top, #fafafa 0%, #ded9c9 100%);
-	background: linear-gradient(top, #fafafa 0%, #ded9c9 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa', endColorstr='#ded9c9', GradientType=0);
 }
 
 .edition .search .main .hits .hits-a {
