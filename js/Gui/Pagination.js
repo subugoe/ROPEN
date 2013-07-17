@@ -21,7 +21,7 @@ function Pagination(div,pages){
 Pagination.prototype.initialize = function(){
 	var pagination = this;	
 	var previousPageLi = $('<li/>').appendTo(this.div);
-	this.previousPage = $('<a class="tools-paginationbackward"><span class="visuallyhidden"/></a>').appendTo(previousPageLi);
+	this.previousPage = $('<a class="icon-chevron-left"><span class="visuallyhidden"/></a>').appendTo(previousPageLi);
 	this.previousPage.title = Util.getString('previousPage');
 	this.previousPage.click(function(){
 		if( pagination.page > 1 ){
@@ -39,7 +39,7 @@ Pagination.prototype.initialize = function(){
 		pagination.update();
 	});
 	var nextPageLi = $('<li/>').appendTo(this.div);
-	this.nextPage = $('<a class="tools-paginationforward"><span class="visuallyhidden"/></a>').appendTo(nextPageLi);
+	this.nextPage = $('<a class="icon-chevron-right"><span class="visuallyhidden"/></a>').appendTo(nextPageLi);
 	this.nextPage.title = Util.getString('nextPage');
 	this.nextPage.click(function(){
 		if( pagination.page < pagination.pages ){
