@@ -654,7 +654,6 @@ you can use the generic selector below, but it's slower:
 .edition .dialog .inner a {
   color: #666666 !important;
   display: inline;
-  border-radius: 4px;
   border: 1px solid #c2c2c2;
   background-color: #efefef;
   padding: 5px 20px;
@@ -989,6 +988,7 @@ you can use the generic selector below, but it's slower:
   display: inline;
   padding: 6px 4px;
   border-bottom: 1px solid #dedede;
+  border-right: 1px solid #dedede;
 }
 .edition .window .tabs li a {
   padding: 8px;
@@ -1319,24 +1319,23 @@ you can use the generic selector below, but it's slower:
   margin: 0 4px 0 0;
   width: 25px;
 }
-
 .edition .window .inner .toolstop li a {
   background-repeat: no-repeat;
 }
-
 .edition .window .inner .toolstop ul {
   padding: 0;
 }
-
 .edition .window .inner .toolstop ul li {
   display: inline;
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
-
 .edition .window .inner .toolstop ul li form {
   padding: 0 5px 0 0;
+}
+.edition .window .inner .toolstop select {
+  background-color: white;
 }
 
 .edition .window .inner .toolstop ul:first-child {
