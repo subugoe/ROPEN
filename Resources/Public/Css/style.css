@@ -1198,24 +1198,8 @@ you can use the generic selector below, but it's slower:
   background-image: url("../Images/edition-window-tools-link-hover.png");
 }
 
-.edition .window .inner li:hover .tools-pdf {
-  background-image: url("../Images/edition-window-tools-pdf-hover.png");
-}
-
-.edition .window .inner li:hover .tools-dfg {
-  background-image: url("../Images/edition-window-tools-dfg-hover.png");
-}
-
 .edition .window .inner li:active .tools-link {
   background-image: url("../Images/edition-window-tools-link-active.png");
-}
-
-.edition .window .inner li:active .tools-pdf {
-  background-image: url("../Images/edition-window-tools-pdf-active.png");
-}
-
-.edition .window .inner li:active .tools-dfg {
-  background-image: url("../Images/edition-window-tools-dfg-active.png");
 }
 
 .edition .window .inner li .tools-link {
@@ -1226,12 +1210,10 @@ you can use the generic selector below, but it's slower:
   background-image: url("../Images/edition-window-tools-unlink.png");
 }
 
-.edition .window .inner li .tools-pdf {
-  background-image: url("../Images/edition-window-tools-pdf.png");
-}
-
-.edition .window .inner li .tools-dfg {
-  background-image: url("../Images/edition-window-tools-dfg.png");
+.edition .window .inner li .tools-dfg, .edition .window .inner li .tools-pdf {
+  font-size: 70%;
+  border: 1px solid #dedede;
+  padding: 5px 3px !important;
 }
 
 .edition .window .inner li .tools-paginationforward {

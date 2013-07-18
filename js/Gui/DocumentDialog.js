@@ -71,7 +71,7 @@ DocumentDialog.prototype.initFunctions = function(){
 	}
 	if( EditionProperties.pdfLink ){
 		var pdfLi = $('<li/>').appendTo(toolsList);
-		var pdf = $('<a class="tools-pdf"><span class="visuallyhidden"></span></a>').appendTo(pdfLi);
+		var pdf = $('<a class="tools-pdf">PDF</a>').appendTo(pdfLi);
 		pdf.attr('title',Util.getString('pdf'));
 		pdf.click(function(){
 			var pdfLink = EditionProperties.pdfLink.replace('DOC_ID',dialog.document.title).replace('DOC_ID',dialog.document.title);
@@ -80,7 +80,7 @@ DocumentDialog.prototype.initFunctions = function(){
 	}
 	if( EditionProperties.dfgViewer ){
 		var dfgLi = $('<li/>').appendTo(toolsList);
-		var dfgViewer = $('<a class="tools-dfg"/>').appendTo(dfgLi);
+		var dfgViewer = $('<a class="tools-dfg">DFG</a>').appendTo(dfgLi);
 		dfgViewer.attr('title',Util.getString('dfgViewer'));
 		dfgViewer.click(function(){
 			var metsLink = 'http://'+location.host+''+EditionProperties.metsUri.replace('DOC_ID',dialog.document.title);
