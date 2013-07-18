@@ -540,13 +540,6 @@
 	margin: 10px;
 	background-color: #ddd8c9;
 	width: 700px;
-	background: -moz-radial-gradient(center, ellipse cover, #ded9c8 0%, #ddd5b8 100%);
-	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #ded9c8), color-stop(100%, #ddd5b8));
-	background: -webkit-radial-gradient(center, ellipse cover, #ded9c8 0%, #ddd5b8 100%);
-	background: -o-radial-gradient(center, ellipse cover, #ded9c8 0%, #ddd5b8 100%);
-	background: -ms-radial-gradient(center, ellipse cover, #ded9c8 0%, #ddd5b8 100%);
-	background: radial-gradient(ellipse at center, #ded9c8 0%, #ddd5b8 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ded9c8', endColorstr='#ddd5b8', GradientType=1);
 }
 
 .edition .window .h4 {
@@ -797,6 +790,10 @@
 	font-size: 70%;
 	border: 1px solid #dedede;
 	padding: 5px 3px !important;
+	&:hover {
+		text-decoration: none!important;
+		color: $hoverColor!important;
+	}
 }
 
 .edition .window .inner li .tools-paginationforward {
@@ -908,6 +905,12 @@
 			form {
 				padding: 0 5px 0 0;
 			}
+		}
+		.icon-unlocked {
+			border: 1px solid #dedede;
+			padding: 1px 6px 2px!important;
+			height: 20px!important;
+			width: 20px;
 		}
 	}
 	select {

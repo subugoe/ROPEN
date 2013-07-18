@@ -91,8 +91,8 @@ DocumentDialog.prototype.initFunctions = function(){
 	if( EditionProperties.connectable ){
 		this.linked = false;
 		var linkLi = $('<li/>').appendTo(toolsList);
-		var link = $('<a class="tools-link"><span class="visuallyhidden"></span></a>').appendTo(linkLi);
-		link.attr('title',Util.getString('linkDeactivated'));
+		var link = $('<a class="icon-unlocked"><span class="visuallyhidden"></span></a>').appendTo(linkLi);
+		link.attr('title', Util.getString('linkDeactivated'));
 		this.linkDialog = function(){
 			if( dialog.linked ){
 				Publisher.Unsubscribe(dialog.document.title,dialog);

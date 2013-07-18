@@ -308,14 +308,6 @@ noscript p {
   font-family: 'ropen';
   content: attr(data-icon);
   speak: none;
-  /* Enable Ligatures */
-  -webkit-font-feature-settings: "liga","dlig";
-  -moz-font-feature-settings: "liga=1, dlig=1";
-  -moz-font-feature-settings: "liga","dlig";
-  -ms-font-feature-settings: "liga","dlig";
-  -o-font-feature-settings: "liga","dlig";
-  font-feature-settings: "liga","dlig";
-  text-rendering: optimizeLegibility;
   font-weight: normal;
   font-variant: normal;
   text-transform: none;
@@ -329,17 +321,9 @@ Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
 [class*="icon-"] {
 */
-.icon-chevron-down, .icon-chevron-up, .icon-chevron-right, .icon-chevron-left, .icon-search, .icon-fullscreen, .icon-contract, .icon-th, .icon-question, .icon-remove, .icon-contract-2, .icon-spin, .icon-sort-up, .icon-sort-down, .icon-sort, .icon-books, .icon-book, .icon-link, .icon-bookmark, .icon-minus, .icon-warning-sign, .icon-file {
+.icon-chevron-down, .icon-chevron-up, .icon-chevron-right, .icon-chevron-left, .icon-search, .icon-fullscreen, .icon-contract, .icon-th, .icon-question, .icon-remove, .icon-contract-2, .icon-spin, .icon-sort-up, .icon-sort-down, .icon-sort, .icon-books, .icon-book, .icon-link, .icon-bookmark, .icon-minus, .icon-warning-sign, .icon-file, .icon-lock, .icon-unlocked {
   font-family: 'ropen';
   speak: none;
-  /* Enable Ligatures */
-  -webkit-font-feature-settings: "liga","dlig";
-  -moz-font-feature-settings: "liga=1, dlig=1";
-  -moz-font-feature-settings: "liga","dlig";
-  -ms-font-feature-settings: "liga","dlig";
-  -o-font-feature-settings: "liga","dlig";
-  font-feature-settings: "liga","dlig";
-  text-rendering: optimizeLegibility;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -434,6 +418,14 @@ you can use the generic selector below, but it's slower:
 
 .icon-file:before {
   content: "\f016";
+}
+
+.icon-lock:before {
+  content: "\e008";
+}
+
+.icon-unlocked:before {
+  content: "\e009";
 }
 
 #editionContainer {
@@ -957,13 +949,6 @@ you can use the generic selector below, but it's slower:
   margin: 10px;
   background-color: #ddd8c9;
   width: 700px;
-  background: -moz-radial-gradient(center, ellipse cover, #ded9c8 0%, #ddd5b8 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #ded9c8), color-stop(100%, #ddd5b8));
-  background: -webkit-radial-gradient(center, ellipse cover, #ded9c8 0%, #ddd5b8 100%);
-  background: -o-radial-gradient(center, ellipse cover, #ded9c8 0%, #ddd5b8 100%);
-  background: -ms-radial-gradient(center, ellipse cover, #ded9c8 0%, #ddd5b8 100%);
-  background: radial-gradient(ellipse at center, #ded9c8 0%, #ddd5b8 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ded9c8', endColorstr='#ddd5b8', GradientType=1);
 }
 
 .edition .window .h4 {
@@ -1215,6 +1200,10 @@ you can use the generic selector below, but it's slower:
   border: 1px solid #dedede;
   padding: 5px 3px !important;
 }
+.edition .window .inner li .tools-dfg:hover, .edition .window .inner li .tools-pdf:hover {
+  text-decoration: none !important;
+  color: #900000 !important;
+}
 
 .edition .window .inner li .tools-paginationforward {
   background-image: url("../Images/edition-window-pagination-forward.png");
@@ -1325,6 +1314,12 @@ you can use the generic selector below, but it's slower:
 }
 .edition .window .inner .toolstop ul li form {
   padding: 0 5px 0 0;
+}
+.edition .window .inner .toolstop ul .icon-unlocked {
+  border: 1px solid #dedede;
+  padding: 1px 6px 2px !important;
+  height: 20px !important;
+  width: 20px;
 }
 .edition .window .inner .toolstop select {
   background-color: white;

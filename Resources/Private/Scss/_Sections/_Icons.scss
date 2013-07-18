@@ -13,12 +13,8 @@
 [data-icon]:before {
 	font-family: 'ropen';
 	content: attr(data-icon);
-		speak: none;
-	/* Enable Ligatures */
-	-webkit-font-feature-settings:"liga","dlig";-moz-font-feature-settings:"liga=1, dlig=1";-moz-font-feature-settings:"liga","dlig";-ms-font-feature-settings:"liga","dlig";-o-font-feature-settings:"liga","dlig";
-	font-feature-settings:"liga","dlig";
-	text-rendering:optimizeLegibility;
-		font-weight: normal;
+	speak: none;
+	font-weight: normal;
 	font-variant: normal;
 	text-transform: none;
 	line-height: 1;
@@ -31,13 +27,9 @@ Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
 [class*="icon-"] {
 */
-.icon-chevron-down, .icon-chevron-up, .icon-chevron-right, .icon-chevron-left, .icon-search, .icon-fullscreen, .icon-contract, .icon-th, .icon-question, .icon-remove, .icon-contract-2, .icon-spin, .icon-sort-up, .icon-sort-down, .icon-sort, .icon-books, .icon-book, .icon-link, .icon-bookmark, .icon-minus, .icon-warning-sign, .icon-file {
+.icon-chevron-down, .icon-chevron-up, .icon-chevron-right, .icon-chevron-left, .icon-search, .icon-fullscreen, .icon-contract, .icon-th, .icon-question, .icon-remove, .icon-contract-2, .icon-spin, .icon-sort-up, .icon-sort-down, .icon-sort, .icon-books, .icon-book, .icon-link, .icon-bookmark, .icon-minus, .icon-warning-sign, .icon-file, .icon-lock, .icon-unlocked {
 	font-family: 'ropen';
 	speak: none;
-	/* Enable Ligatures */
-	-webkit-font-feature-settings:"liga","dlig";-moz-font-feature-settings:"liga=1, dlig=1";-moz-font-feature-settings:"liga","dlig";-ms-font-feature-settings:"liga","dlig";-o-font-feature-settings:"liga","dlig";
-	font-feature-settings:"liga","dlig";
-	text-rendering:optimizeLegibility;
 	font-style: normal;
 	font-weight: normal;
 	font-variant: normal;
@@ -110,4 +102,10 @@ you can use the generic selector below, but it's slower:
 }
 .icon-file:before {
 	content: "\f016";
+}
+.icon-lock:before {
+	content: "\e008";
+}
+.icon-unlocked:before {
+	content: "\e009";
 }
