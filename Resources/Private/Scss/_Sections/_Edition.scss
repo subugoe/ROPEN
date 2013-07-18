@@ -911,6 +911,10 @@
 			padding: 1px 6px 2px!important;
 			height: 20px!important;
 			width: 20px;
+			&:hover {
+				text-decoration: none!important;
+				color: $hoverColor;
+			}
 		}
 	}
 	select {

@@ -1321,6 +1321,10 @@ you can use the generic selector below, but it's slower:
   height: 20px !important;
   width: 20px;
 }
+.edition .window .inner .toolstop ul .icon-unlocked:hover {
+  text-decoration: none !important;
+  color: #900000;
+}
 .edition .window .inner .toolstop select {
   background-color: white;
 }
