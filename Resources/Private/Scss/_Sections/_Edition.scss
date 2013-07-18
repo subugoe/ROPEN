@@ -913,6 +913,12 @@
 			list-style-type: none;
 			padding: 0;
 			margin: 0;
+			.icon-chevron-left {
+				padding-right: 1px!important;
+			}
+			.icon-chevron-right {
+				padding-left: 4px;
+			}
 			form {
 				padding: 0 5px 0 0;
 			}
