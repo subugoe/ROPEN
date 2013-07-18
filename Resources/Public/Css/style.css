@@ -1334,8 +1334,12 @@ you can use the generic selector below, but it's slower:
 .edition .window .inner .toolstop ul li .icon-chevron-left {
   padding-right: 1px !important;
 }
+.edition .window .inner .toolstop ul li .icon-chevron-left:hover {
+  text-decoration: none !important;
+}
 .edition .window .inner .toolstop ul li .icon-chevron-right {
   padding-left: 4px;
+  text-decoration: none !important;
 }
 .edition .window .inner .toolstop ul li form {
   padding: 0 5px 0 0;

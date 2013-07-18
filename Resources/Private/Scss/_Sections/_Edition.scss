@@ -915,9 +915,13 @@
 			margin: 0;
 			.icon-chevron-left {
 				padding-right: 1px!important;
+				&:hover {
+					text-decoration: none!important;
+				}
 			}
 			.icon-chevron-right {
 				padding-left: 4px;
+				text-decoration: none!important;
 			}
 			form {
 				padding: 0 5px 0 0;
