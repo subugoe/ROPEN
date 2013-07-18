@@ -977,33 +977,35 @@ you can use the generic selector below, but it's slower:
 .edition .window .tabs {
   font-size: 8pt;
   margin: 0;
-  padding: 0 0 0 15px;
+  padding: 0 0 0 4px;
 }
-
 .edition .window .tabs img {
   margin: 0 3px;
   cursor: pointer;
 }
-
 .edition .window .tabs li {
-  background-color: #ababab;
-  border: 1px solid #a6a5a2;
-  border-radius: 4px 4px 0 0;
+  background-color: white;
   list-style-type: none;
   display: inline;
+  padding: 6px 4px;
+  border-bottom: 1px solid #dedede;
 }
-
 .edition .window .tabs li a {
   padding: 8px;
   color: white;
   cursor: pointer;
 }
-
+.edition .window .tabs li a:hover {
+  text-decoration: none !important;
+}
+.edition .window .tabs li:hover {
+  border-bottom: 1px solid #900000;
+}
 .edition .window .tabs .selected {
-  background-color: #eae6db;
+  background-color: white;
+  border-bottom: 1px solid #900000;
   cursor: pointer;
 }
-
 .edition .window .tabs .selected a {
   color: black;
 }
@@ -1011,14 +1013,12 @@ you can use the generic selector below, but it's slower:
 .edition .window .inner {
   background-color: white;
   padding: 4px;
-  margin: 0 4px 4px 4px;
+  margin: 7px 4px 4px 4px;
 }
-
 .edition .window .inner .resize {
   float: right;
   cursor: pointer;
 }
-
 .edition .window .inner .windowcontent {
   border-bottom: 1px solid #a6a5a2;
   border-top: 1px solid #a6a5a2;

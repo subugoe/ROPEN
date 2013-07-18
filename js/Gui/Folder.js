@@ -122,7 +122,11 @@ Folder.prototype.addTab = function(data){
 	this.documents.push(data.document);
 	var tab = $("<li/>").appendTo(this.tabs);
 	var tabLink = $("<a>"+data.document.nameShort+"</a>").appendTo(tab);
-	var tabClose = $("<img src='ropen/Resources/Public/Images/edition-window-tab-close-active.png'/>").appendTo(tab);
+	var tabClose = $("<span class='icon-remove'>"
+							 + "<div class='visuallyhidden'>"
+							 + Util.getString('closeFolder')
+							 + "</div>"
+							 + "</span>").appendTo(tab);
 	var tabDiv = $("<div/>").appendTo(this.documentDiv);
 	var tabData = {
 		tab: tab,

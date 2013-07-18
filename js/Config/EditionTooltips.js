@@ -482,5 +482,9 @@ var EditionTooltips = {
 	"editionSearchfieldPlaceholder" : {
 		"en": "Your search term",
 		"de": "Ihr Suchbegriff"
+	},
+	"closeFolder" : {
+		"en": "Close current folder",
+		"de": "Mappe schließen"
 	}
 };
