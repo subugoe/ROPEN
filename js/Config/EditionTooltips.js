@@ -9,7 +9,7 @@ var EditionTooltips = {
 	},
 	"newFolder" : {
 		"en": "New Folder",
-		"de": "Neue Mappe"
+		"de": "Neuer Mappe"
 	},
 	"folder" : {
 		"en": "Folder",
