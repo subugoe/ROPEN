@@ -224,34 +224,19 @@
 }
 
 .edition .dialog .inner a {
-	color: #666666 !important;
 	display: inline;
-	border: 1px solid #c2c2c2;
+	border: 1px solid white;
+	border-bottom: 1px solid #dedede;
 	background-color: #efefef;
 	padding: 5px 20px;
 	margin: 5px;
-	box-shadow: 0 0 1px 0px #cccccc;
 	background: #ffffff;
-	background: -moz-linear-gradient(top, white 3%, #efefef 28%, #ededed 75%, #eeeeee 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(3%, white), color-stop(28%, #efefef), color-stop(75%, #ededed), color-stop(100%, #eeeeee));
-	background: -webkit-linear-gradient(top, white 3%, #efefef 28%, #ededed 75%, #eeeeee 100%);
-	background: -o-linear-gradient(top, white 3%, #efefef 28%, #ededed 75%, #eeeeee 100%);
-	background: -ms-linear-gradient(top, white 3%, #efefef 28%, #ededed 75%, #eeeeee 100%);
-	background: linear-gradient(to bottom, white 3%, #efefef 28%, #ededed 75%, #eeeeee 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#eeeeee', GradientType=0);
 	cursor: pointer;
 }
 
 .edition .dialog .inner a:hover {
 	text-decoration: none !important;
-	background-color: #feffff;
-	background: -moz-linear-gradient(top, #feffff 0%, #ded9c8 26%, #ded9c8 90%, #eeeeee 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #feffff), color-stop(26%, #ded9c8), color-stop(90%, #ded9c8), color-stop(100%, #eeeeee));
-	background: -webkit-linear-gradient(top, #feffff 0%, #ded9c8 26%, #ded9c8 90%, #eeeeee 100%);
-	background: -o-linear-gradient(top, #feffff 0%, #ded9c8 26%, #ded9c8 90%, #eeeeee 100%);
-	background: -ms-linear-gradient(top, #feffff 0%, #ded9c8 26%, #ded9c8 90%, #eeeeee 100%);
-	background: linear-gradient(to bottom, #feffff 0%, #ded9c8 26%, #ded9c8 90%, #eeeeee 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#feffff', endColorstr='#eeeeee', GradientType=0);
+	border-bottom: 1px solid $hoverColor;
 }
 
 .edition .dialog .inner a .selected {
