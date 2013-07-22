@@ -44,7 +44,7 @@ Folder.prototype.updateName = function(index){
  * @return {string} The folders name.
  */
 Folder.prototype.getName = function(){
-	return Util.getString('folder')+" #"+this.nameId;
+	return Util.getString('folder') + " #" + this.nameId;
 };
 
 /**
@@ -54,11 +54,12 @@ Folder.prototype.getName = function(){
  */
 Folder.prototype.resizeContent = function(){
 	var cw = this;
-	var padding = parseInt($(cw.documentDiv).css("padding-bottom"))+parseInt($(cw.documentDiv).css("padding-top"));
-	$(this.documentDiv).css('height',(this.content.height()-this.tabs.height()-padding)+'px');
-	var padding = parseInt($(cw.documentDiv).css("padding-bottom"))+parseInt($(cw.documentDiv).css("padding-top"));
-	$.each(this.tabData,function(i,div){
-		div.tabDiv.css('height',(cw.content.height()-cw.tabs.height()-padding)+'px');
+	var padding = parseInt($(cw.documentDiv).css("padding-bottom")) + parseInt($(cw.documentDiv).css("padding-top"));
+	$(this.documentDiv).css('height', (this.content.height() - this.tabs.height() - padding) + 'px');
+	var padding = parseInt($(cw.documentDiv).css("padding-bottom")) + parseInt($(cw.documentDiv).css("padding-top"));
+	$.each(this.tabData,function(i, div){
+		var contentHeight = cw.content.height() - cw.tabs.height() - padding;
+		div.tabDiv.css('height', contentHeight + 'px');
 	});
 	var dialog = this.dialog();
 	if( dialog != null ){
@@ -121,7 +122,7 @@ Folder.prototype.addTab = function(data){
 	var container = this;
 	this.documents.push(data.document);
 	var tab = $("<li/>").appendTo(this.tabs);
-	var tabLink = $("<a>"+data.document.nameShort+"</a>").appendTo(tab);
+	var tabLink = $("<a>" + data.document.nameShort + "</a>").appendTo(tab);
 	var tabClose = $("<span class='icon-remove'>"
 							 + "<div class='visuallyhidden'>"
 							 + Util.getString('closeFolder')
@@ -139,8 +140,12 @@ Folder.prototype.addTab = function(data){
 	$(tabClose).click(function(){
 		container.removeTab(tabData);
 	});
-	var padding = parseInt($(this.documentDiv).css("padding-bottom"))+parseInt($(this.documentDiv).css("padding-top"));
-	tabDiv.css('height',(this.content.height()-this.tabs.height()-padding)+'px');
+
+	var padding = parseInt($(this.documentDiv).css("padding-bottom")) + parseInt($(this.documentDiv).css("padding-top"));
+	var tabHeight = this.content.height() - this.tabs.height() - padding;
+
+	tabDiv.css('height', tabHeight + 'px');
+
 	var documentDialog = new DocumentDialog(this,data.document,tabDiv,data.page,data.position);
 	documentDialog.activateFacet(data.entity);
 	documentDialog.setDocType(data.type,data.position);

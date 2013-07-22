@@ -45,7 +45,7 @@ FrameWindow.prototype.initialize = function(params){
 	if( params.concealable ){
 		this.visibilityButton = $("<li/>").appendTo(this.windowTools);
 		this.visibilityLink = $('<a class="icon-minus"><span class="visuallyhidden"/>&nbsp;</a>').appendTo(this.visibilityButton);
-		this.visibilityLink.attr("title",Util.getString('minimizeWindow'));
+		this.visibilityLink.attr("title", Util.getString('minimizeWindow'));
 		this.visibilityButton.click(function(){
 			frame.toggleVisibility();
 		});
@@ -150,7 +150,7 @@ FrameWindow.prototype.setResizability = function(append){
  */
 FrameWindow.prototype.setSize = function(width,height){
 	this.css('width', width + "px" );
-	this.css('height',height + 'px');
+	this.css('height', height + 'px');
 };
 
 /**
