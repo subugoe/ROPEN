@@ -207,15 +207,16 @@ FrameWindow.prototype.toggleVisibility = function(){
 	var frame = this;
 	var padding = parseInt($(this).css("padding-top"));
 	this.visibility = !this.visibility;
-	if( this.visibility ){
+	if (this.visibility) {
 		this.visibilityLink.removeClass("icon-fullscreen");
 		this.visibilityLink.addClass("icon-minus");
+		this.visibilityLink.attr('title', Util.getString('minimizeWindow'));
 		$(this).animate({
 			height: "-="+($(frame).height()-frame.height),
 			top: "-="+($(frame).position().top-frame.top),
 			left: "-="+($(frame).position().left-frame.left),
 			width: "-="+($(frame).width()-frame.width)
-		  }, 500, function(){
+		  }, 500, function() {
 			frame.resize();
 			EditionGui.checkGrid();
 			EditionGui.checkBounds();
@@ -229,6 +230,7 @@ FrameWindow.prototype.toggleVisibility = function(){
 		this.height = $(this).height();
 		this.visibilityLink.removeClass("icon-minus");
 		this.visibilityLink.addClass("icon-fullscreen");
+		this.visibilityLink.attr('title', Util.getString('maximizeWindow'));
 		$(this).animate({
 			height: "-="+($(frame).height()-$(frame.toolbarDiv).height()+5),
 			top: "-="+(frame.top-10),

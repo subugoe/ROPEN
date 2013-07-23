@@ -549,33 +549,8 @@ you can use the generic selector below, but it's slower:
   margin-top: -0.8em;
   padding-left: 0.5em;
 }
-
-.edition .button-close:active {
-  background-image: url("../Images/edition-window-tools-close-active.png");
-}
-
-.edition .button-open {
-  background-image: url("../Images/edition-window-tools-maximize.png");
-}
-
-.edition .button-open:hover {
-  background-image: url("../Images/edition-window-tools-maximize-hover.png");
-}
-
-.edition .button-open:active {
-  background-image: url("../Images/edition-window-tools-maximize-active.png");
-}
-
-.edition .button-maximize {
-  background-image: url("../Images/edition-window-tools-maximize.png");
-}
-
-.edition .button-maximize:hover {
-  background-image: url("../Images/edition-window-tools-maximize-hover.png");
-}
-
-.edition .button-maximize:active {
-  background-image: url("../Images/edition-window-tools-maximize-active.png");
+.edition .hits .searchresult .result-text .tei\:p {
+  cursor: pointer;
 }
 
 .edition .info {
@@ -713,7 +688,6 @@ you can use the generic selector below, but it's slower:
 .edition .search {
   margin: 10px 0;
   width: 600px;
-  border-radius: 4px;
   box-shadow: 0px 2px 2px #999999;
   border: 0px solid #999999;
   background: #ababab;
@@ -777,7 +751,6 @@ you can use the generic selector below, but it's slower:
 
 .edition .search .main {
   background-color: #f0f0f0;
-  border-radius: 4px;
   padding: 10px 4px;
   margin: 10px 10px 0 10px;
   border: 1px solid #9e9e9e;
@@ -833,7 +806,6 @@ you can use the generic selector below, but it's slower:
   text-align: left;
   margin: 0 0 10px 0;
   border: 1px solid #9d9d9d;
-  border-radius: 4px;
   background-color: white;
   font-size: 9pt;
 }
@@ -849,7 +821,6 @@ you can use the generic selector below, but it's slower:
   background: linear-gradient(top, #f2f2f2 0%, #e1e1e1 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f2f2f2', endColorstr='#e1e1e1', GradientType=0);
   padding: 4px 12px;
-  border-radius: 4px;
   border-bottom: 1px solid #9d9d9d;
   box-shadow: inset 0 0 5px 1px lightgrey;
 }
@@ -893,8 +864,7 @@ you can use the generic selector below, but it's slower:
   float: left;
 }
 .edition .search .main .hits div img.fat-border {
-  border: 10px solid white;
-  border-radius: 8px;
+  border: 4px solid white;
 }
 
 .edition .search .main .hits .hits-p {
@@ -902,7 +872,6 @@ you can use the generic selector below, but it's slower:
   margin: 0 0 0 120px;
   background-color: white;
   border: 10px solid white;
-  border-radius: 8px;
 }
 
 .edition .search .main .hits .show img {
@@ -1408,13 +1377,11 @@ you can use the generic selector below, but it's slower:
 }
 .edition .search {
   background: #ddd;
-  border-radius: 0;
   box-shadow: none;
 }
 .edition .search .main {
   background-color: white;
   box-shadow: none;
-  border-radius: 0;
   margin: 0 10px;
   border: none;
 }
@@ -1430,7 +1397,6 @@ you can use the generic selector below, but it's slower:
   padding: 6px 10px;
   margin: 8px 0px;
   width: 79%;
-  border-radius: 0;
 }
 .edition .search .main .edition-submitbutton {
   display: inline;
