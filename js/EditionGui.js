@@ -659,7 +659,7 @@ EditionGui.addControls = function(){
 				}
 			});
 		}
-		var magneticLink = $('<a class="icon-link"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(controls);
+		var magneticLink = $('<a class="icon-bookmark"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(controls);
 		$(magneticLink).attr('title',Util.getString('magneticLink'));
 		magneticLink.click(function(evt){
 			$(magneticLink).addClass('button-magneticlink-active');
