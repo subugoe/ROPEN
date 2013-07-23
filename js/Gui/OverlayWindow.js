@@ -22,10 +22,11 @@ OverlayWindow.prototype.loaderOverlay = function(onclose){
 	this.setOverlay(content);
 	if( typeof onclose != 'undefined' ){
 		var close = $("<div/>").appendTo(this.overlayWindow.overlay);
+		close.addClass('icon-remove');
 		close.addClass('closeLoader');
 		close.click(function(){
 			onclose();
-		});			
+		});
 	}
 }
 
