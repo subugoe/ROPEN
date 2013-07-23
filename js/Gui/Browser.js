@@ -166,9 +166,11 @@ Browser.prototype.prepareAdvancedSearch = function() {
 
 	this.advancedSearch = $("<div/>").appendTo(this.as);
 
-	var div1 = $('<div/>').appendTo(this.advancedSearch);
+	var div1 = $('<div/>')
+			.addClass('documentSelection')
+			.appendTo(this.advancedSearch);
 
-	$("<input id='allDocsSearch' type='radio' name='scope' /><label for='allDocsSearch'>" + Util.getString('allDocuments') + "</label><input id='selectedDocsSearch' type='radio' name='scope' /><label for='selectedDocsSearch'>" + Util.getString('selectDocuments') + "</label>").appendTo(div1);
+	$("<input id='allDocsSearch' type='radio' name='scope' /><label for='allDocsSearch'>" + Util.getString('allDocuments') + "</label><input id='selectedDocsSearch' type='radio' name='scope' /><label for='selectedDocsSearch'>" + Util.getString('selectDocuments') + "</label><br />").appendTo(div1);
 
 	var allDocuments = $('#allDocsSearch')[0];
 	var selectDocuments = $('#selectedDocsSearch')[0];
@@ -220,9 +222,12 @@ Browser.prototype.prepareAdvancedSearch = function() {
 	$(allDocuments).click(checkDocumentVisibility);
 	$(selectDocuments).click(checkDocumentVisibility);
 
-	var div2 = $("<div/>").appendTo(this.advancedSearch);
+	var div2 = $("<div/>")
+			.addClass('facetSelection')
+			.appendTo(this.advancedSearch);
 
-	$("<input id='textsSearch' type='radio' name='type'><label for='textsSearch'>" + Util.getString('texts') + "</label></input><input id='facetsSearch' type='radio' name='type'><label for='facetsSearch'>" + Util.getString('facets') + "</label></input>").appendTo(div2);
+	$("<input id='textsSearch' type='radio' name='type'><label for='textsSearch'>" + Util.getString('texts') + "</label></input><input id='facetsSearch' type='radio' name='type'><label for='facetsSearch'>" + Util.getString('facets') + "</label></input>")
+			.appendTo(div2);
 
 	var inTexts = $('#textsSearch')[0];
 	var inFacets = $('#facetsSearch')[0];
