@@ -732,6 +732,8 @@ you can use the generic selector below, but it's slower:
 .edition .search .advancedSearch li {
   list-style-type: none;
   font-size: 85%;
+  text-align: left;
+  margin-left: 22px;
 }
 
 .edition .search .close {
@@ -1390,7 +1392,7 @@ you can use the generic selector below, but it's slower:
   margin-right: 1em;
 }
 .edition .search .main .advancedSearch > div {
-  font-size: 80%;
+  font-size: 75%;
 }
 .edition .search .main .edition-searchfield {
   border: 1px solid #b4b4b4;
