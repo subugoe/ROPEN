@@ -55,7 +55,7 @@ var EditionProperties = {
 						left: 440,
 						height: 400,
 						width: 400
-					}				
+					}
 				]
 			},
 		*/
@@ -207,7 +207,7 @@ var EditionProperties = {
 		/**
 		   maximum number of tags to be displayed in tag cloud
 		*/
-		maxTags: 50,
+		maxTags: 15,
 		
 		/**
 		   URL to retrieve the document list
