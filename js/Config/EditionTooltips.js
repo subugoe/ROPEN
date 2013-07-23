@@ -1,14 +1,14 @@
 var EditionTooltips = {
 	"openDocument" : {
-		"en": "Open Document in ...",
+		"en": "Open document in ...",
 		"de": "Öffne Dokument in ..."
 	},
 	"showSpaceDistribution" : {
-		"en": "Map Distribution",
+		"en": "Map distribution",
 		"de": "Kartenverteilung"
 	},
 	"newFolder" : {
-		"en": "New Folder",
+		"en": "New folder",
 		"de": "Neue Mappe"
 	},
 	"folder" : {
@@ -24,19 +24,19 @@ var EditionTooltips = {
 		"de": "Lesezeichen"
 	},
 	"generate" : {
-		"en": "Generate Bookmark",
+		"en": "Generate bookmark",
 		"de": "Lesezeichen erstellen"
 	},
 	"generatedMagneticLinks" : {
-		"en": "Generated Bookmark:",
+		"en": "Generated bookmark:",
 		"de": "Erstellte Lesezeichen:"
 	},
 	"selectPage" : {
-		"en": "Select Page ...",
+		"en": "Select page ...",
 		"de": "Wähle Seite ..."
 	},
 	"selectOption" : {
-		"en": "Select Option ...",
+		"en": "Select option ...",
 		"de": "Wähle Option ..."
 	},
 	"reset" : {
@@ -52,11 +52,11 @@ var EditionTooltips = {
 		"de": "Seite"
 	},
 	"magneticLinkText" : {
-		"en": "The actual setting is represented by the following link",
+		"en": "The current settings are represented by the following link",
 		"de": "Die aktuelle Einstellung wird repräsentiert durch den folgenden Link"
 	},
 	"occurences" : {
-		"en": "occurences",
+		"en": "Occurrences",
 		"de": "Auftreten"
 	},
 	"browser" : {
@@ -64,12 +64,12 @@ var EditionTooltips = {
 		"de": "Browser"
 	},
 	"minimizeWindow" : {
-		"en": "Minimize Window",
-		"de": "Minimiere Fenster"
+		"en": "Minimize folder",
+		"de": "Minimiere Mappe"
 	},
 	"maximizeWindow" : {
-		"en": "Maximize Window",
-		"de": "Maximiere Fenster"
+		"en": "Restore folder",
+		"de": "Mappe wiederherstellen"
 	},
 	"document" : {
 		"en": "Document",
@@ -92,19 +92,19 @@ var EditionTooltips = {
 		"de": "Suche"
 	},
 	"simpleSearch" : {
-		"en": "Simple Search",
+		"en": "Simple search",
 		"de": "Einfache Suche"
 	},
 	"advancedSearch" : {
-		"en": "Advanced Search",
+		"en": "Advanced search",
 		"de": "Erweiterte Suche"
 	},
 	"proximitySearch" : {
-		"en": "Proximity Search",
+		"en": "Proximity search",
 		"de": "Nachbarschaftssuche"
 	},
 	"searchResults" : {
-		"en": "Search Results",
+		"en": "Search results",
 		"de": "Suchergebnisse"
 	},
 	"noResults" : {
@@ -116,31 +116,31 @@ var EditionTooltips = {
 		"de": "Facetten"
 	},	
 	"removeDoc" : {
-		"en": "Remove Document",
+		"en": "Remove document",
 		"de": "Entferne Dokument"
 	},
 	"fullscreenMode" : {
-		"en": "Fullscreen Mode",
+		"en": "Fullscreen mode",
 		"de": "Vollbildmodus"
 	},
 	"removeWindow" : {
-		"en": "Remove Window",
-		"de": "Entferne Fenster"
+		"en": "Remove folder",
+		"de": "Entferne Mappe"
 	},
 	"dragWindow" : {
-		"en": "Drag Window",
+		"en": "Move window",
 		"de": "Verschiebe Fenster"
 	},
 	"downloadTei" : {
-		"en": "Download TEI Document",
+		"en": "Download TEI document",
 		"de": "TEI herunterladen"
 	},
 	"expandAll" : {
-		"en": "Expand All Nodes",
+		"en": "Expand all nodes",
 		"de": "Alle Knoten ausklappen"
 	},
 	"collapseAll" : {
-		"en": "Collapse All Nodes",
+		"en": "Collapse all nodes",
 		"de": "Alle Knoten einklappen"
 	},
 	"text" : {
@@ -152,7 +152,7 @@ var EditionTooltips = {
 		"de": "Seiten"
 	},
 	"selectPage" : {
-		"en": "Select Page",
+		"en": "Select page",
 		"de": "Wähle Seite"
 	},
 	"singlePage" : {
@@ -160,19 +160,19 @@ var EditionTooltips = {
 		"de": "Nur 1 Seite"
 	},
 	"firstPage" : {
-		"en": "First Page",
+		"en": "First page",
 		"de": "Erste Seite"
 	},
 	"previousPage" : {
-		"en": "Previous Page",
+		"en": "Previous page",
 		"de": "Vorige Seite"
 	},
 	"nextPage" : {
-		"en": "Next Page",
+		"en": "Next page",
 		"de": "Nächste Seite"
 	},
 	"lastPage" : {
-		"en": "Last Page",
+		"en": "Last page",
 		"de": "Letzte Seite"
 	},
 	"thumbnails" : {
@@ -196,7 +196,7 @@ var EditionTooltips = {
 		"de": "Karte"
 	},
 	"tags" : {
-		"en": "Tag Cloud",
+		"en": "Tag cloud",
 		"de": "Schlagwortwolke"
 	},
 	"downloadHeader" : {
@@ -208,7 +208,7 @@ var EditionTooltips = {
 		"de": "Zum Herunterzuladen, klicken Sie mit der rechten Maustaste auf das Dokument und wählen Sie"
 	},
 	"downloadOpen" : {
-		"en": "If you want to open the file in your browser, just click",
+		"en": "If you would like to open the file in your browser, just click",
 		"de": "Wenn sie die Datei im Browser öffnen wollen, klicken Sie einfach"
 	},
 	"here" : {
@@ -252,15 +252,15 @@ var EditionTooltips = {
 		"de": "Öffnen"
 	},
 	"hideLineNumbers" : {
-		"en": "Hide Line Numbers",
+		"en": "Hide Line numbers",
 		"de": "Verstecke Zeilennummern"
 	},
 	"showLineNumbers" : {
-		"en": "Show Line Numbers",
+		"en": "Show line numbers",
 		"de": "Zeige Zeilennummern"
 	},
 	"documentStructure" : {
-		"en": "Document Structure",
+		"en": "Document structure",
 		"de": "Dokumentstruktur"
 	},
 	"entities" : {
@@ -268,19 +268,19 @@ var EditionTooltips = {
 		"de": "Entitäten"
 	},
 	"gridLayout" : {
-		"en": "Automatic Layout",
+		"en": "Automatic layout",
 		"de": "Automatische Ausrichtung"
 	},
 	"enableGridLayout" : {
-		"en": "Activate Automatic Layout",
-		"de": "Aktiviere Automatische Ausrichtung"
+		"en": "Activate automatic layout",
+		"de": "Aktiviere automatische Ausrichtung"
 	},
 	"disableGridLayout" : {
-		"en": "Deactivate Automatic Layout",
-		"de": "Deaktiviere Automatische Ausrichtung"
+		"en": "Deactivate automatic layout",
+		"de": "Deaktiviere automatische Ausrichtung"
 	},
 	"blankPage" : {
-		"en": "blank page",
+		"en": "Blank page",
 		"de": "Leerseite"
 	},
 	"allDocuments" : {
@@ -288,7 +288,7 @@ var EditionTooltips = {
 		"de": "Alle Dokumente"
 	},
 	"selectDocuments" : {
-		"en": "Select Documents",
+		"en": "Select documents",
 		"de": "Wähle Dokumente"
 	},
 	"facetsMenu" : {
@@ -296,7 +296,7 @@ var EditionTooltips = {
 		"de": "Suche in Facetten"
 	},
 	"twin" : {
-		"en": "Twin View",
+		"en": "Twin view",
 		"de": "Doppelansicht"
 	},
 	"noFacets" : {
@@ -360,35 +360,35 @@ var EditionTooltips = {
 		"de": "nicht gefolgt von"
 	},
 	"linkActivated" : {
-		"en": "Deactivate Joint View",
-		"de": "Deaktiviere Verknüpfte Sicht"
+		"en": "Deactivate joint view",
+		"de": "Deaktiviere verknüpfte Sicht"
 	},
 	"linkDeactivated" : {
-		"en": "Activate Joint View",
-		"de": "Aktiviere Verknüpfte Sicht"
+		"en": "Activate joint view",
+		"de": "Aktiviere verknüpfte Sicht"
 	},
 	"errorMessage" : {
-		"en": "An error occured while executing the request!",
+		"en": "An error occurred while executing the request!",
 		"de": "Bei der getätigten Anfrage ist ein Fehler aufgetreten!"
 	},
 	"documentTags" : {
-		"en": "document tags",
+		"en": "Document tags",
 		"de": "Schlagworte für Dokument"
 	},
 	"tagsByPages" : {
-		"en": "tags by pages",
+		"en": "Tags by pages",
 		"de": "Schlagworte nach Seiten"
 	},
 	"documentPlaces" : {
-		"en": "document places",
+		"en": "Places by documents",
 		"de": "Orte für Dokument"
 	},
 	"placesByPages" : {
-		"en": "places by pages",
+		"en": "Places by pages",
 		"de": "Orte nach Seiten"
 	},
 	"scriptSelection" : {
-		"en": "Manuscript Selection",
+		"en": "Manuscript selection",
 		"de": "Informationen zu den Handschriften"
 	},
 	"directSelection" : {
@@ -412,7 +412,7 @@ var EditionTooltips = {
 		"de": "Handschrift"
 	},
 	"indexSelection" : {
-		"en": "Index Selection",
+		"en": "Index selection",
 		"de": "Index-Auswahl"
 	},
 	"selectIndex" : {
@@ -424,7 +424,7 @@ var EditionTooltips = {
 		"de": "Lade Tabelle ..."
 	},
 	"loadTagcloud" : {
-		"en": "Loading tagcloud ...",
+		"en": "Loading tag cloud ...",
 		"de": "Lade Tagcloud ..."
 	},
 	"loadMap" : {
@@ -432,7 +432,7 @@ var EditionTooltips = {
 		"de": "Lade Karte ..."
 	},
 	"selectFacetsAlert" : {
-		"en": "Please select facets by activating checkboxes above ...",
+		"en": "Please select facets by activating the checkboxes above ...",
 		"de": "Bitte wählen sie Facetten aus durch Aktivieren der Checkboxen ..."
 	},
 	"showPage" : {
