@@ -626,7 +626,7 @@ EditionGui.addControls = function(){
 					var linkDiv = $("<div/>").appendTo(p);
 					var link;
 					if( ml.indexOf('goo.gl') == -1 ){
-						link = $('<a target=_blank href="'+gui.magneticLinks[i]+'">MagneticLink</a>').appendTo(linkDiv);
+						link = $('<a target=_blank href="'+gui.magneticLinks[i]+'">' + Util.getString('magneticLink') + '</a>').appendTo(linkDiv);
 					}
 					else {
 						link = $('<a target=_blank href="'+gui.magneticLinks[i]+'">'+gui.magneticLinks[i]+'</a>').appendTo(linkDiv);
@@ -666,7 +666,6 @@ EditionGui.addControls = function(){
 			var content = $("<div class='inner'/>");
 			$(content).css("text-align","center");
 			var p = $("<p/>").appendTo(content);
-			$("<div>"+Util.getString('newMagneticLink')+"</div>").appendTo(p);
 			var generateButton = $('<a>'+Util.getString('generate')+'</a>').appendTo(p);
 			generateButton.click(function(){
 				generateMagneticLink();

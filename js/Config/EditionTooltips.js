@@ -20,20 +20,16 @@ var EditionTooltips = {
 		"de": "Inhalt"
 	},
 	"magneticLink" : {
-		"en": "Magnetic Link",
-		"de": "Magnetic Link"
-	},
-	"newMagneticLink" : {
-		"en": "For a new Magnetic Link press:",
-		"de": "Für neuen Magnetic Link drücke:"
+		"en": "Bookmark",
+		"de": "Lesezeichen"
 	},
 	"generate" : {
-		"en": "Generate Magnetic Link",
-		"de": "Erzeuge Magnetic Link"
+		"en": "Generate Bookmark",
+		"de": "Lesezeichen erstellen"
 	},
 	"generatedMagneticLinks" : {
-		"en": "Generated Magnetic Links:",
-		"de": "Erzeugte Magnetic Links:"
+		"en": "Generated Bookmark:",
+		"de": "Erstellte Lesezeichen:"
 	},
 	"selectPage" : {
 		"en": "Select Page ...",
