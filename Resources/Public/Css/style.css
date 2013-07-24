@@ -973,10 +973,9 @@ you can use the generic selector below, but it's slower:
   cursor: pointer;
 }
 .edition .window .inner .windowcontent {
-  border-bottom: 1px solid #a6a5a2;
   border-top: 1px solid #a6a5a2;
   padding: 10px 10px 15px 10px;
-  margin: 0 0 5px 0;
+  margin: 0;
   font-size: 10pt;
 }
 
@@ -999,13 +998,17 @@ you can use the generic selector below, but it's slower:
 .edition .window .inner .pagination {
   font-size: 12pt;
   margin: 0;
-  padding: 5px;
+  padding: 15px 0;
   float: left;
-  width: 98%;
+  width: 102%;
+  background-color: #ddd8c9;
+  margin-left: -4px;
 }
 
 .edition .window .inner .pagination li {
-  display: inline;
+  display: inline-block;
+  width: 12%;
+  text-align: center;
 }
 
 .edition .window .inner .pagination li:hover .tools-outline {
@@ -1141,7 +1144,7 @@ you can use the generic selector below, but it's slower:
 }
 
 .edition .window .inner .pagination a {
-  padding: 0 25px 0 0;
+  padding: 0 19px 0 0;
   margin: 0 0px 0 0;
   width: 25px;
   cursor: pointer;
