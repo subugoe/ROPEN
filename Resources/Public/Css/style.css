@@ -1372,6 +1372,7 @@ you can use the generic selector below, but it's slower:
 .edition ul.scope-selector li:hover {
   background-color: white;
   border-bottom: 1px solid #900000;
+  cursor: pointer;
 }
 .edition ul.scope-selector li.selected {
   background-color: white;
