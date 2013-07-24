@@ -81,8 +81,12 @@ EditionGui.addFolder = function(){
 	folder.setSize(this.windowWidth,EditionProperties.windowHeight);
 	folder.resize();
 	folder.resizeContent();
-	folder.css('top',(($(this.containerDiv).height()-folder.height())/2)+'px');
-	folder.css('left',(($(this.containerDiv).width()-folder.width())/2)+'px');
+
+	var folderTop = ($(this.containerDiv).height()-folder.height()) / 2;
+	var folderLeft = ($(this.containerDiv).width()-folder.width()) / 2;
+
+	folder.css('top', folderTop + 'px');
+	folder.css('left', folderLeft + 'px');
 	folder.setFixed(this.automaticGridLayout);
 };
 
