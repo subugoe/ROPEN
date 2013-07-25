@@ -7,7 +7,7 @@
  * @param {DIV} container The conatiner div for the Outline view.
  * @param {DocumentDialog} parent The parent document dialog.
  */
-Outline = function(document,container,parent){
+Outline = function(document, container, parent) {
 	this.type = "outline";
 	this.document = document;
 	this.container = container;
@@ -20,28 +20,35 @@ Outline = function(document,container,parent){
  *
  * @this {Outline}
  */
-Outline.prototype.display = function(){
+Outline.prototype.display = function() {
 	var context = this;
 	$(this.container).empty();
-	var process = context.documentLoader.startProcess();
+	var process = context
+			.documentLoader
+			.startProcess();
 	this.parent.startProcessing();
-	var failure = function(errorObject){
-		if( process.active ){
-			$(Util.getErrorMessage(errorObject.status)).appendTo(context.container);
-			context.parent.stopProcessing();
+	var failure = function(errorObject) {
+		if (process.active) {
+			$(Util.getErrorMessage(errorObject.status))
+					.appendTo(context.container);
+			context
+					.parent
+					.stopProcessing();
 		}
 	}
-	var success = function(outline){
+	var success = function(outline) {
 		var outlineTmp = $(outline);
-		if( process.active ){
-			$(outlineTmp).find('a').each(function(){
-				$(this).click(function(){
-					context.parent.showTextAtPosition($(this).attr('name'));
-				});
-			});
+		if (process.active) {
+			$(outlineTmp)
+					.find('a')
+					.each(function() {
+							  $(this).click(function() {
+								  context.parent.showTextAtPosition($(this).attr('name'));
+							  });
+						  });
 			$(outlineTmp).appendTo(context.container);
 			context.parent.stopProcessing();
 		}
 	}
-	DocumentServerConnection.getDocumentOutline(this.document,success,failure);
+	DocumentServerConnection.getDocumentOutline(this.document, success, failure);
 }
