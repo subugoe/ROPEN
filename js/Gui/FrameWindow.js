@@ -4,7 +4,7 @@
  * @constructor
  * @this {FrameWindow}
  */
-FrameWindow = function(){
+FrameWindow = function() {
 	/* if the frame is fixed, it cannot be resized anymore */
 	this.fixed = false;
 	/* when minimizing, a frame gets invisible */
@@ -17,9 +17,9 @@ FrameWindow = function(){
  * Initialization of the Frame Window with close/resize/drag functionality dependent on the given params.
  *
  * @this {FrameWindow}
- * @param {JSON} params Parameters to initialize the frame window, e.g. if a frame should be draggable,	resizable, concealable and/or removable.
+ * @param {JSON} params Parameters to initialize the frame window, e.g. if a frame should be draggable,    resizable, concealable and/or removable.
  */
-FrameWindow.prototype.initialize = function(params){
+FrameWindow.prototype.initialize = function(params) {
 	var frame = this;
 	this.params = params;
 	this.addClass("frame " + params.class);
@@ -28,42 +28,42 @@ FrameWindow.prototype.initialize = function(params){
 	var headline = $("<h4/>").appendTo(this.toolbarDiv);
 	this.label = $("<span></span>").appendTo(headline);
 	this.content = $("<div/>").appendTo(this);
-	$(this.content).css('position','relative');
-	$(this.content).mousedown(function(){
+	$(this.content).css('position', 'relative');
+	$(this.content).mousedown(function() {
 		frame.updateZIndex(false);
 	});
-	if( params.draggable ){
-		this.mousedown(function(evt){
-			if( !frame.fixed ){
+	if (params.draggable) {
+		this.mousedown(function(evt) {
+			if (!frame.fixed) {
 				frame.dragFrame(evt);
 			}
 		});
-		$(this.content).bind('mousedown',function(e){
+		$(this.content).bind('mousedown', function(e) {
 			e.stopPropagation();
 		});
 	}
-	if( params.concealable ){
+	if (params.concealable) {
 		this.visibilityButton = $("<li/>").appendTo(this.windowTools);
 		this.visibilityLink = $('<a class="icon-minus"><span class="visuallyhidden"/>&nbsp;</a>').appendTo(this.visibilityButton);
 		this.visibilityLink.attr("title", Util.getString('minimizeWindow'));
-		this.visibilityButton.click(function(){
+		this.visibilityButton.click(function() {
 			frame.toggleVisibility();
 		});
 	}
-	if( params.removable ){
+	if (params.removable) {
 		this.removeButton = $("<li/>").appendTo(this.windowTools);
 		var removeLink = $('<a class="icon-remove"/>').appendTo(this.removeButton);
 		removeLink.attr("title", Util.getString('removeWindow'));
-		this.removeButton.click(function(){
+		this.removeButton.click(function() {
 			frame.toolbarDiv.remove();
-			if( typeof params.triggerRemove != 'undefined' ){
+			if (typeof params.triggerRemove != 'undefined') {
 				params.triggerRemove();
 			}
 			EditionGui.checkGrid();
 			$(frame).remove();
 		});
 	}
-	$(this).mousedown(function(){
+	$(this).mousedown(function() {
 		frame.updateZIndex(false);
 	});
 	this.updateZIndex(true);
@@ -75,25 +75,25 @@ FrameWindow.prototype.initialize = function(params){
  * @this {FrameWindow}
  * @param {boolean} set If a new z-index should be assigned. It avoids needless raising of the z-index when clicking one and the same frame multiple times.
  */
-FrameWindow.prototype.updateZIndex = function(set){
-	if( !set ){
+FrameWindow.prototype.updateZIndex = function(set) {
+	if (!set) {
 		var zIndex = $(this).css('z-index');
-		if( EditionGui.zIndex != zIndex ){
+		if (EditionGui.zIndex != zIndex) {
 			set = true;
 		}
 	}
-	if( set ){
-		$(this).css('z-index',EditionGui.getZIndex());
+	if (set) {
+		$(this).css('z-index', EditionGui.getZIndex());
 	}
 };
-	
+
 /**
  * Sets or removed fixed state of the frame (when toggling automatic grid layout).
  *
  * @this {FrameWindow}
  * @param {boolean} fixed If the new state is fixed or not.
  */
-FrameWindow.prototype.setFixed = function(fixed){
+FrameWindow.prototype.setFixed = function(fixed) {
 	this.fixed = fixed;
 	this.setResizability(!fixed);
 };
@@ -104,41 +104,42 @@ FrameWindow.prototype.setFixed = function(fixed){
  * @this {FrameWindow}
  * @param {boolean} append If the frame should be resizable or not.
  */
-FrameWindow.prototype.setResizability = function(append){
+FrameWindow.prototype.setResizability = function(append) {
 	var frame = this;
-	if( this.params.resizable && append && !this.fixed && this.visibility ){
+	if (this.params.resizable && append && !this.fixed && this.visibility) {
 		$(this).resizable({
-			helper: "ui-resizable-helper",
-			minHeight: EditionProperties.minWindowHeight,
-			minWidth: EditionProperties.minWindowWidth,
-			stop: function() {
-				frame.resize();
-				if( typeof frame.params.triggerResize != 'undefined' ){
-					frame.params.triggerResize();
-				}
-			}
-		});
-		var resizeHandles = $('.ui-resizable-handle',frame);
-		for( var i=0; i<resizeHandles.length; i++ ){
-			$(resizeHandles[i]).mousedown(function(){
+							  helper: "ui-resizable-helper",
+							  minHeight: EditionProperties.minWindowHeight,
+							  minWidth: EditionProperties.minWindowWidth,
+							  stop: function() {
+								  frame.resize();
+								  if (typeof frame.params.triggerResize != 'undefined') {
+									  frame.params.triggerResize();
+								  }
+							  }
+						  });
+		var resizeHandles = $('.ui-resizable-handle', frame);
+		for (var i = 0; i < resizeHandles.length; i++) {
+			$(resizeHandles[i]).mousedown(function() {
 				frame.dragLock = true;
-				$(document).mousemove(function(){
+				$(document).mousemove(function() {
 					EditionGui.checkBounds();
 				});
-				$(document).mouseup(function(){
+				$(document).mouseup(function() {
 					$(document).mousemove(null);
 					frame.dragLock = false;
 				});
 			});
 		}
 	}
-	else if( this.params.resizable ){
-		try {
-			$(this).resizable('destroy');
+	else
+		if (this.params.resizable) {
+			try {
+				$(this).resizable('destroy');
+			}
+			catch (e) {
+			}
 		}
-		catch(e){
-		}
-	}
 };
 
 /**
@@ -148,8 +149,8 @@ FrameWindow.prototype.setResizability = function(append){
  * @param {number} width The desired width of the frame in pixel.
  * @param {number} height The desired height of the frame in pixel.
  */
-FrameWindow.prototype.setSize = function(width,height){
-	this.css('width', width + "px" );
+FrameWindow.prototype.setSize = function(width, height) {
+	this.css('width', width + "px");
 	this.css('height', height + 'px');
 };
 
@@ -160,7 +161,7 @@ FrameWindow.prototype.setSize = function(width,height){
  * @param {number} left The desired left distance of the frame in pixel.
  * @param {number} top The desired top distance of the frame in pixel.
  */
-FrameWindow.prototype.position = function(left,top){
+FrameWindow.prototype.position = function(left, top) {
 	this.css('left', left + 'px');
 	this.css('top', top + 'px');
 };
@@ -170,19 +171,19 @@ FrameWindow.prototype.position = function(left,top){
  *
  * @this {FrameWindow}
  */
-FrameWindow.prototype.resize = function(){
-	var p = parseInt($(this).css("padding-top"))*2-4;
-	this.content.css('height', ($(this).height()-p-this.toolbarDiv.height())+"px");
+FrameWindow.prototype.resize = function() {
+	var p = parseInt($(this).css("padding-top")) * 2 - 4;
+	this.content.css('height', ($(this).height() - p - this.toolbarDiv.height()) + "px");
 };
-	
+
 /**
  * Getter for the position and bounds of the frame (currently unused). May be used for additional parameters for the magnetic link.
  *
  * @this {FrameWindow}
  * @return {JSON} The width, height, top and left value of the frame in pixel.
  */
-FrameWindow.prototype.getPosition = function(){
-	if( this.visibility ){
+FrameWindow.prototype.getPosition = function() {
+	if (this.visibility) {
 		return {
 			t: $(this).position().top,
 			l: $(this).position().left,
@@ -203,7 +204,7 @@ FrameWindow.prototype.getPosition = function(){
  *
  * @this {FrameWindow}
  */
-FrameWindow.prototype.toggleVisibility = function(){
+FrameWindow.prototype.toggleVisibility = function() {
 	var frame = this;
 	var padding = parseInt($(this).css("padding-top"));
 	this.visibility = !this.visibility;
@@ -212,11 +213,11 @@ FrameWindow.prototype.toggleVisibility = function(){
 		this.visibilityLink.addClass("icon-minus");
 		this.visibilityLink.attr('title', Util.getString('minimizeWindow'));
 		$(this).animate({
-			height: "-="+($(frame).height()-frame.height),
-			top: "-="+($(frame).position().top-frame.top),
-			left: "-="+($(frame).position().left-frame.left),
-			width: "-="+($(frame).width()-frame.width)
-		  }, 500, function() {
+							height: "-=" + ($(frame).height() - frame.height),
+							top: "-=" + ($(frame).position().top - frame.top),
+							left: "-=" + ($(frame).position().left - frame.left),
+							width: "-=" + ($(frame).width() - frame.width)
+						}, 500, function() {
 			frame.resize();
 			EditionGui.checkGrid();
 			EditionGui.checkBounds();
@@ -232,11 +233,11 @@ FrameWindow.prototype.toggleVisibility = function(){
 		this.visibilityLink.addClass("icon-fullscreen");
 		this.visibilityLink.attr('title', Util.getString('maximizeWindow'));
 		$(this).animate({
-			height: "-="+($(frame).height()-$(frame.toolbarDiv).height()+5),
-			top: "-="+(frame.top-10),
-			left: "+="+(frame.width/2-(frame.label.width()+frame.windowTools.width()+20)/2),
-		    	width: "-="+($(frame).width()-frame.label.width()-frame.windowTools.width()-20)
-		  }, 500, function(){
+							height: "-=" + ($(frame).height() - $(frame.toolbarDiv).height() + 5),
+							top: "-=" + (frame.top - 10),
+							left: "+=" + (frame.width / 2 - (frame.label.width() + frame.windowTools.width() + 20) / 2),
+							width: "-=" + ($(frame).width() - frame.label.width() - frame.windowTools.width() - 20)
+						}, 500, function() {
 			frame.resize();
 			EditionGui.checkGrid();
 			EditionGui.checkBounds();
@@ -244,27 +245,27 @@ FrameWindow.prototype.toggleVisibility = function(){
 		this.setResizability(false);
 	}
 };
-	
+
 /**
  * Implements the frame's drag functionality.
  *
  * @this {FrameWindow}
  * @param {Object} evt The mousedown event which indicates the start of the drag event.
  */
-FrameWindow.prototype.dragFrame = function(evt){
+FrameWindow.prototype.dragFrame = function(evt) {
 	var frame = this;
 	var startPos = Util.getMousePosition(evt);
 	var windowLeft = $(frame).position().left;
 	var windowTop = $(frame).position().top;
-	document.onmouseup = function(){
+	document.onmouseup = function() {
 		document.onmousemove = null;
 		document.onmouseup = null;
 	}
-	document.onmousemove = function(e){
-		if( !frame.dragLock ){
+	document.onmousemove = function(e) {
+		if (!frame.dragLock) {
 			var pos = Util.getMousePosition(e);
-			frame.css('left',(windowLeft+pos.left-startPos.left)+'px');
-			frame.css('top',(windowTop+pos.top-startPos.top)+'px');
+			frame.css('left', (windowLeft + pos.left - startPos.left) + 'px');
+			frame.css('top', (windowTop + pos.top - startPos.top) + 'px');
 			EditionGui.checkBounds();
 		}
 	}
