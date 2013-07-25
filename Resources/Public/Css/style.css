@@ -929,7 +929,7 @@ you can use the generic selector below, but it's slower:
 .edition .window .tabs {
   font-size: 8pt;
   margin: 0;
-  padding: 0 0 0 4px;
+  padding: 0 0 3px 4px;
 }
 .edition .window .tabs img {
   margin: 0 3px;
@@ -965,8 +965,8 @@ you can use the generic selector below, but it's slower:
 
 .edition .window .inner {
   background-color: white;
-  padding: 4px;
-  margin: 7px 4px 4px 4px;
+  padding: 0;
+  margin: 4px;
 }
 .edition .window .inner .resize {
   float: right;
