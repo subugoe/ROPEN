@@ -620,30 +620,31 @@ EditionGui.addControls = function(){
 		var linkList = $("<div/>");
 		var updateLinks = function(){
 			$(linkList).empty();
-			if( gui.magneticLinks.length > 0 ){
+			if (gui.magneticLinks.length > 0) {
 				$("<p><hr/></p>").appendTo(linkList);
 				var p = $("<p/>").appendTo(linkList);
+
 				$("<div>" + Util.getString('generatedMagneticLinks') + "</div>").appendTo(p);
 
 				for (var i = 0; i < gui.magneticLinks.length; i++) {
 					var ml = gui.magneticLinks[i];
 					var linkDiv = $("<div/>").appendTo(p);
 					var link;
-					if( ml.indexOf('goo.gl') == -1 ){
-						link = $('<a target=_blank href="'+gui.magneticLinks[i]+'">' + Util.getString('magneticLink') + '</a>').appendTo(linkDiv);
+					if (ml.indexOf('goo.gl') == -1) {
+						link = $('<a target=_blank href="' + gui.magneticLinks[i] + '">' + Util.getString('magneticLink') + '</a>').appendTo(linkDiv);
 					}
 					else {
-						link = $('<a target=_blank href="'+gui.magneticLinks[i]+'">'+gui.magneticLinks[i]+'</a>').appendTo(linkDiv);
+						link = $('<a target=_blank href="' + gui.magneticLinks[i] + '">' + gui.magneticLinks[i] + '</a>').appendTo(linkDiv);
 					}
-					$(link).css('border','none');
-					$(link).css('box-shadow','none');
-					$(link).css('background-color','white');
+					$(link).css('border', 'none');
+					$(link).css('box-shadow', 'none');
+					$(link).css('background-color', 'white');
 				}
 			}
 		}
 		var generateMagneticLink = function(){
 			var params = gui.getParams();
-			var linkString = 'http://'+location.host+''+location.pathname+'#?params='+params;
+			var linkString = location.protocol + '//' + location.host + '' + location.pathname + '#?params=' + params;
 			jsonlib.fetch({
 				url: EditionProperties.urlShortenerRequest,
 			    	header: 'Content-Type: application/json',
@@ -664,13 +665,13 @@ EditionGui.addControls = function(){
 			});
 		}
 		var magneticLink = $('<a class="icon-bookmark"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(controls);
-		$(magneticLink).attr('title',Util.getString('magneticLink'));
+		$(magneticLink).attr('title', Util.getString('magneticLink'));
 		magneticLink.click(function(evt){
 			$(magneticLink).addClass('button-magneticlink-active');
 			var content = $("<div class='inner'/>");
-			$(content).css("text-align","center");
+			$(content).css("text-align", "center");
 			var p = $("<p/>").appendTo(content);
-			var generateButton = $('<a>'+Util.getString('generate')+'</a>').appendTo(p);
+			var generateButton = $('<a>' + Util.getString('generate') + '</a>').appendTo(p);
 			generateButton.click(function(){
 				generateMagneticLink();
 			});
@@ -678,11 +679,18 @@ EditionGui.addControls = function(){
 			var onclose = function(){
 				$(magneticLink).removeClass('button-magneticlink-active');
 			}
-			gui.createDialog(Util.getString('magneticLink'),content,evt,20,20,onclose);
+			gui.createDialog(
+					Util.getString('magneticLink'),
+					content,
+					evt,
+					20,
+					20,
+					onclose
+			);
 		});
 	}
 	var gridDiv = $('<div class="gridselector"/>').appendTo(this.containerDiv);
-	if (EditionProperties.gridLayout && ( EditionProperties.resizable || EditionProperties.draggable )) {
+	if (EditionProperties.gridLayout && ( EditionProperties.resizable || EditionProperties.draggable)) {
 		var gridButton = $('<a class="icon-th"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(gridDiv);
 
 		if( EditionProperties.automaticGridLayout ){
