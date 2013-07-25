@@ -1244,18 +1244,6 @@ you can use the generic selector below, but it's slower:
   background-image: url("../Images/edition-window-tools-linecount-active.png");
 }
 
-.edition .window .inner li .tools-maximize {
-  background-image: url("../Images/edition-window-tools-maximize.png");
-}
-
-.edition .window .inner li:hover .tools-maximize {
-  background-image: url("../Images/edition-window-tools-maximize-hover.png");
-}
-
-.edition .window .inner li .tools-maximize .active {
-  background-image: url("../Images/edition-window-tools-maximize-active.png");
-}
-
 .edition .window .inner .toolstop a {
   padding: 0 22px 0 0;
   margin: 0 4px 0 0;
@@ -1286,13 +1274,13 @@ you can use the generic selector below, but it's slower:
 .edition .window .inner .toolstop ul li form {
   padding: 0 5px 0 0;
 }
-.edition .window .inner .toolstop ul .icon-unlocked {
+.edition .window .inner .toolstop ul .icon-unlocked, .edition .window .inner .toolstop ul .icon-lock {
   border: 1px solid #dedede;
   padding: 1px 6px 2px !important;
   height: 20px !important;
   width: 20px;
 }
-.edition .window .inner .toolstop ul .icon-unlocked:hover {
+.edition .window .inner .toolstop ul .icon-unlocked:hover, .edition .window .inner .toolstop ul .icon-lock:hover {
   text-decoration: none !important;
   color: #900000;
 }

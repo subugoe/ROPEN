@@ -823,18 +823,6 @@
 	background-image: url("../Images/edition-window-tools-linecount-active.png");
 }
 
-.edition .window .inner li .tools-maximize {
-	background-image: url("../Images/edition-window-tools-maximize.png");
-}
-
-.edition .window .inner li:hover .tools-maximize {
-	background-image: url("../Images/edition-window-tools-maximize-hover.png");
-}
-
-.edition .window .inner li .tools-maximize .active {
-	background-image: url("../Images/edition-window-tools-maximize-active.png");
-}
-
 .edition .window .inner .toolstop {
 	a {
 		padding: 0 22px 0 0;
@@ -865,7 +853,7 @@
 				padding: 0 5px 0 0;
 			}
 		}
-		.icon-unlocked {
+		.icon-unlocked, .icon-lock {
 			border: 1px solid #dedede;
 			padding: 1px 6px 2px!important;
 			height: 20px!important;

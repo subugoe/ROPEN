@@ -96,7 +96,7 @@ DocumentDialog.prototype.initFunctions = function() {
 		this.linkDialog = function() {
 			if (dialog.linked) {
 				Publisher.Unsubscribe(dialog.document.title, dialog);
-				$(link).removeClass('active');
+				$(link).removeClass('icon-lock').addClass('icon-unlocked');
 				link.attr('title', Util.getString('linkDeactivated'));
 			}
 			else {
@@ -113,7 +113,7 @@ DocumentDialog.prototype.initFunctions = function() {
 						dialog.doctype.onChange(change);
 					}
 				});
-				$(link).addClass('active');
+				$(link).addClass('icon-lock').removeClass('icon-unlocked');
 				link.attr('title', Util.getString('linkActivated'));
 			}
 			dialog.linked = !dialog.linked;
