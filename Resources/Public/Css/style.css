@@ -1001,6 +1001,7 @@ you can use the generic selector below, but it's slower:
   padding: 0;
   float: left;
   width: 100%;
+  border-top: 1px solid #dedede;
 }
 .edition .window .inner .pagination li {
   display: inline-block;
@@ -1008,10 +1009,10 @@ you can use the generic selector below, but it's slower:
   text-align: center;
   border-right: 1px solid #dedede;
   padding: 8px 0;
-  border-top: 1px solid #dedede;
 }
 .edition .window .inner .pagination li:hover {
   border-top: 1px solid #900000;
+  margin-top: -1px;
 }
 .edition .window .inner .pagination li:last-child {
   border-right: none;

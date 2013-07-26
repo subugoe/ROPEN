@@ -580,22 +580,22 @@
 	padding: 0;
 	float: left;
 	width: 100%;
+	border-top: 1px solid #dedede;
 	li {
 		display: inline-block;
 		width: 12.2%;
 		text-align: center;
 		border-right: 1px solid #dedede;
 		padding: 8px 0;
-		border-top: 1px solid #dedede;
 		&:hover {
 			border-top: 1px solid $hoverColor;
+			margin-top: -1px;
 		}
 		&:last-child {
 			border-right: none;
 		}
 	}
 }
-
 
 .edition .window .inner .pagination li:hover .tools-outline {
 	background-image: url("../Images/edition-window-tools-list-hover.png");
