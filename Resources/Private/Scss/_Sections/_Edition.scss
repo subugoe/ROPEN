@@ -577,18 +577,25 @@
 .edition .window .inner .pagination {
 	font-size: 12pt;
 	margin: 0;
-	padding: 15px 0;
+	padding: 0;
 	float: left;
-	width: 102%;
-	background-color: #ddd8c9;
-	margin-left: -4px;
+	width: 100%;
+	li {
+		display: inline-block;
+		width: 12.2%;
+		text-align: center;
+		border-right: 1px solid #dedede;
+		padding: 8px 0;
+		border-top: 1px solid #dedede;
+		&:hover {
+			border-top: 1px solid $hoverColor;
+		}
+		&:last-child {
+			border-right: none;
+		}
+	}
 }
 
-.edition .window .inner .pagination li {
-	display: inline-block;
-	width: 12%;
-	text-align: center;
-}
 
 .edition .window .inner .pagination li:hover .tools-outline {
 	background-image: url("../Images/edition-window-tools-list-hover.png");

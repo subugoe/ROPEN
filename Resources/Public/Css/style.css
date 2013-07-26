@@ -998,17 +998,23 @@ you can use the generic selector below, but it's slower:
 .edition .window .inner .pagination {
   font-size: 12pt;
   margin: 0;
-  padding: 15px 0;
+  padding: 0;
   float: left;
-  width: 102%;
-  background-color: #ddd8c9;
-  margin-left: -4px;
+  width: 100%;
 }
-
 .edition .window .inner .pagination li {
   display: inline-block;
-  width: 12%;
+  width: 12.2%;
   text-align: center;
+  border-right: 1px solid #dedede;
+  padding: 8px 0;
+  border-top: 1px solid #dedede;
+}
+.edition .window .inner .pagination li:hover {
+  border-top: 1px solid #900000;
+}
+.edition .window .inner .pagination li:last-child {
+  border-right: none;
 }
 
 .edition .window .inner .pagination li:hover .tools-outline {
