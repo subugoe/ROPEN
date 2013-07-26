@@ -149,17 +149,17 @@ DocumentDialog.prototype.initDocTypeSelector = function() {
 	var viewsList = $('<ul class="pagination"/>').appendTo(this.docTypeDiv);
 	var addButton = function(id) {
 		var li = $('<li/>').appendTo(viewsList);
-		var button = $('<a class="icon-' + id + '"/>').appendTo(li);
+		var button = $('<a class="icon-' + id['icon'] + '"/>').appendTo(li);
 		if (i === 0) {
-			button = $('<a class="icon-' + id + '"><span class="visuallyhidden"></span></a>').appendTo(li);
+			button = $('<a class="icon-' + id['icon'] + '"><span class="visuallyhidden"></span></a>').appendTo(li);
 		}
-		button.attr('title', Util.getString(id));
+		button.attr('title', Util.getString(id['icon']));
 		button.click(function() {
-			dialog.setDocType(id);
+			dialog.setDocType(id['type']);
 		});
 		dialog.buttons.push({
 								button: button,
-								type: id
+								type: id['type']
 							});
 	}
 	for (var i in Util.docTypes) {

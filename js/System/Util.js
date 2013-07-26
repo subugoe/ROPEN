@@ -11,7 +11,40 @@ var Util = new function() {
 	this.facets = [];
 	/* array of strings for all possible document views */
 	// this.docTypes = ['outline', 'text', 'pages', 'thumbnails', 'images', 'tei', 'map', 'tags'];
-	this.docTypes = ['list-nested', 'type', 'file', 'grid', 'image', 'tree', 'earth', 'cloud'];
+	this.docTypes = [
+		{
+			type: 'outline',
+			icon: 'list-nested'
+		},
+		{
+			type: 'text',
+			icon: 'type'
+		},
+		{
+			type: 'pages',
+			icon: 'file'
+		},
+		{
+			type: 'thumbnails',
+			icon: 'grid'
+		},
+		{
+			type: 'images',
+			icon: 'image'
+		},
+		{
+			type: 'tei',
+			icon: 'tree'
+		},
+		{
+			type: 'map',
+			icon: 'earth'
+		},
+		{
+			type: 'tags',
+			icon: 'cloud'
+		}
+	];
 	this.docsLoaded = -1;
 	this.facetsLoaded = false;
 	this.texts = EditionTooltips;
