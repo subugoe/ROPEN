@@ -321,7 +321,7 @@ Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
 [class*="icon-"] {
 */
-.icon-chevron-down, .icon-chevron-up, .icon-chevron-right, .icon-chevron-left, .icon-search, .icon-fullscreen, .icon-contract, .icon-th, .icon-question, .icon-remove, .icon-contract-2, .icon-spin, .icon-sort-up, .icon-sort-down, .icon-sort, .icon-books, .icon-book, .icon-link, .icon-bookmark, .icon-minus, .icon-warning-sign, .icon-file, .icon-lock, .icon-unlocked, .icon-first, .icon-last, .icon-wrench {
+.icon-chevron-down, .icon-chevron-up, .icon-chevron-right, .icon-chevron-left, .icon-search, .icon-fullscreen, .icon-contract, .icon-th, .icon-question, .icon-remove, .icon-contract-2, .icon-spin, .icon-sort-up, .icon-sort-down, .icon-sort, .icon-books, .icon-book, .icon-link, .icon-bookmark, .icon-minus, .icon-warning-sign, .icon-file, .icon-lock, .icon-unlocked, .icon-first, .icon-last, .icon-wrench, .icon-earth, .icon-cloud, .icon-tree, .icon-image, .icon-list-nested, .icon-type, .icon-grid {
   font-family: 'ropen';
   speak: none;
   font-style: normal;
@@ -438,6 +438,34 @@ you can use the generic selector below, but it's slower:
 
 .icon-wrench:before {
   content: "\e00c";
+}
+
+.icon-earth:before {
+  content: "\e00d";
+}
+
+.icon-cloud:before {
+  content: "\e00e";
+}
+
+.icon-tree:before {
+  content: "\e00f";
+}
+
+.icon-image:before {
+  content: "\e010";
+}
+
+.icon-list-nested:before {
+  content: "\e011";
+}
+
+.icon-type:before {
+  content: "\e012";
+}
+
+.icon-grid:before {
+  content: "\e013";
 }
 
 #editionContainer {
@@ -1010,6 +1038,13 @@ you can use the generic selector below, but it's slower:
   border-right: 1px solid #dedede;
   padding: 8px 0;
 }
+.edition .window .inner .pagination li a {
+  padding: 0;
+  margin: 0;
+}
+.edition .window .inner .pagination li a:hover {
+  text-decoration: none !important;
+}
 .edition .window .inner .pagination li:hover {
   border-top: 1px solid #900000;
   margin-top: -1px;
@@ -1018,141 +1053,7 @@ you can use the generic selector below, but it's slower:
   border-right: none;
 }
 
-.edition .window .inner .pagination li:hover .tools-outline {
-  background-image: url("../Images/edition-window-tools-list-hover.png");
-}
-
-.edition .window .inner .pagination li:hover .tools-text {
-  background-image: url("../Images/edition-window-tools-txt-hover.png");
-}
-
-.edition .window .inner .pagination li:hover .tools-thumbnails {
-  background-image: url("../Images/edition-window-tools-img-hover.png");
-}
-
-.edition .window .inner .pagination li:hover .tools-pages {
-  background-image: url("../Images/edition-window-tools-onepage-hover.png");
-}
-
-.edition .window .inner .pagination li:hover .tools-images {
-  background-image: url("../Images/edition-window-tools-images-hover.png");
-}
-
-.edition .window .inner .pagination li:hover .tools-tei {
-  background-image: url("../Images/edition-window-tools-tei-hover.png");
-}
-
-.edition .window .inner .pagination li:hover .tools-map {
-  background-image: url("../Images/edition-window-tools-map-hover.png");
-}
-
-.edition .window .inner .pagination li:hover .tools-tags {
-  background-image: url("../Images/edition-window-tools-tags-hover.png");
-}
-
-.edition .window .inner .pagination li:active .tools-outline {
-  background-image: url("../Images/edition-window-tools-list-active.png");
-}
-
-.edition .window .inner .pagination li:active .tools-text {
-  background-image: url("../Images/edition-window-tools-txt-active.png");
-}
-
-.edition .window .inner .pagination li:active .tools-thumbnails {
-  background-image: url("../Images/edition-window-tools-img-active.png");
-}
-
-.edition .window .inner .pagination li:active .tools-pages {
-  background-image: url("../Images/edition-window-tools-onepage-active.png");
-}
-
-.edition .window .inner .pagination li:active .tools-images {
-  background-image: url("../Images/edition-window-tools-images-active.png");
-}
-
-.edition .window .inner .pagination li:active .tools-tei {
-  background-image: url("../Images/edition-window-tools-tei-active.png");
-}
-
-.edition .window .inner .pagination li:active .tools-map {
-  background-image: url("../Images/edition-window-tools-map-active.png");
-}
-
-.edition .window .inner .pagination li:active .tools-tags {
-  background-image: url("../Images/edition-window-tools-tags-active.png");
-}
-
-.edition .window .inner .pagination li .tools-outline {
-  background-image: url("../Images/edition-window-tools-list.png");
-}
-
-.edition .window .inner .pagination li .tools-outline.active {
-  background-image: url("../Images/edition-window-tools-list-hover.png");
-}
-
-.edition .window .inner .pagination li .tools-text {
-  background-image: url("../Images/edition-window-tools-txt.png");
-}
-
-.edition .window .inner .pagination li .tools-text.active {
-  background-image: url("../Images/edition-window-tools-txt-hover.png");
-}
-
-.edition .window .inner .pagination li .tools-pages {
-  background-image: url("../Images/edition-window-tools-onepage.png");
-}
-
-.edition .window .inner .pagination li .tools-pages.active {
-  background-image: url("../Images/edition-window-tools-onepage-hover.png");
-}
-
-.edition .window .inner .pagination li .tools-thumbnails {
-  background-image: url("../Images/edition-window-tools-img.png");
-}
-
-.edition .window .inner .pagination li .tools-thumbnails.active {
-  background-image: url("../Images/edition-window-tools-img-hover.png");
-}
-
-.edition .window .inner .pagination li .tools-images {
-  background-image: url("../Images/edition-window-tools-images.png");
-}
-
-.edition .window .inner .pagination li .tools-images.active {
-  background-image: url("../Images/edition-window-tools-images-hover.png");
-}
-
-.edition .window .inner .pagination li .tools-tei {
-  background-image: url("../Images/edition-window-tools-tei.png");
-}
-
-.edition .window .inner .pagination li .tools-tei.active {
-  background-image: url("../Images/edition-window-tools-tei-hover.png");
-}
-
-.edition .window .inner .pagination li .tools-map {
-  background-image: url("../Images/edition-window-tools-map.png");
-}
-
-.edition .window .inner .pagination li .tools-map.active {
-  background-image: url("../Images/edition-window-tools-map-hover.png");
-}
-
-.edition .window .inner .pagination li .tools-tags {
-  background-image: url("../Images/edition-window-tools-tags.png");
-}
-
-.edition .window .inner .pagination li .tools-tags.active {
-  background-image: url("../Images/edition-window-tools-tags-hover.png");
-}
-
-.edition .window .inner .pagination li a {
-  background-repeat: no-repeat;
-}
-
 .edition .window .inner .pagination a {
-  padding: 0 19px 0 0;
-  margin: 0 0px 0 0;
   width: 25px;
   cursor: pointer;
 }

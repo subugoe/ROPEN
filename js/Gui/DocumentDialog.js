@@ -149,9 +149,9 @@ DocumentDialog.prototype.initDocTypeSelector = function() {
 	var viewsList = $('<ul class="pagination"/>').appendTo(this.docTypeDiv);
 	var addButton = function(id) {
 		var li = $('<li/>').appendTo(viewsList);
-		var button = $('<a class="tools-' + id + '"/>').appendTo(li);
+		var button = $('<a class="icon-' + id + '"/>').appendTo(li);
 		if (i === 0) {
-			button = $('<a class="tools-' + id + '"><span class="visuallyhidden"></span></a>').appendTo(li);
+			button = $('<a class="icon-' + id + '"><span class="visuallyhidden"></span></a>').appendTo(li);
 		}
 		button.attr('title', Util.getString(id));
 		button.click(function() {

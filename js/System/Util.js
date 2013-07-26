@@ -10,7 +10,8 @@ var Util = new function() {
 	/* array for all possible facets */
 	this.facets = [];
 	/* array of strings for all possible document views */
-	this.docTypes = ['outline', 'text', 'pages', 'thumbnails', 'images', 'tei', 'map', 'tags'];
+	// this.docTypes = ['outline', 'text', 'pages', 'thumbnails', 'images', 'tei', 'map', 'tags'];
+	this.docTypes = ['list-nested', 'type', 'file', 'grid', 'image', 'tree', 'earth', 'cloud'];
 	this.docsLoaded = -1;
 	this.facetsLoaded = false;
 	this.texts = EditionTooltips;

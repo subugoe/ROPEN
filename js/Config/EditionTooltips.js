@@ -143,11 +143,11 @@ var EditionTooltips = {
 		"en": "Collapse all nodes",
 		"de": "Alle Knoten einklappen"
 	},
-	"text" : {
+	"type" : {
 		"en": "Text",
 		"de": "Fließtext"
 	},
-	"pages" : {
+	"file" : {
 		"en": "Pages",
 		"de": "Seiten"
 	},
@@ -175,27 +175,27 @@ var EditionTooltips = {
 		"en": "Last page",
 		"de": "Letzte Seite"
 	},
-	"thumbnails" : {
+	"grid" : {
 		"en": "Thumbnails",
 		"de": "Thumbnails"
 	},
-	"images" : {
+	"image" : {
 		"en": "Images",
 		"de": "Bilder"
 	},
-	"tei" : {
+	"tree" : {
 		"en": "TEI",
 		"de": "TEI"
 	},
-	"outline" : {
+	"list-nested" : {
 		"en": "Outline",
 		"de": "Inhaltsverzeichnis"
 	},
-	"map" : {
+	"earth" : {
 		"en": "Map",
 		"de": "Karte"
 	},
-	"tags" : {
+	"cloud" : {
 		"en": "Tag cloud",
 		"de": "Schlagwortwolke"
 	},

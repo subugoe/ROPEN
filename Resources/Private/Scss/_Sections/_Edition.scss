@@ -587,6 +587,13 @@
 		text-align: center;
 		border-right: 1px solid #dedede;
 		padding: 8px 0;
+		a {
+			padding: 0;
+			margin: 0;
+			&:hover {
+				text-decoration: none!important;
+			}
+		}
 		&:hover {
 			border-top: 1px solid $hoverColor;
 			margin-top: -1px;
@@ -597,141 +604,7 @@
 	}
 }
 
-.edition .window .inner .pagination li:hover .tools-outline {
-	background-image: url("../Images/edition-window-tools-list-hover.png");
-}
-
-.edition .window .inner .pagination li:hover .tools-text {
-	background-image: url("../Images/edition-window-tools-txt-hover.png");
-}
-
-.edition .window .inner .pagination li:hover .tools-thumbnails {
-	background-image: url("../Images/edition-window-tools-img-hover.png");
-}
-
-.edition .window .inner .pagination li:hover .tools-pages {
-	background-image: url("../Images/edition-window-tools-onepage-hover.png");
-}
-
-.edition .window .inner .pagination li:hover .tools-images {
-	background-image: url("../Images/edition-window-tools-images-hover.png");
-}
-
-.edition .window .inner .pagination li:hover .tools-tei {
-	background-image: url("../Images/edition-window-tools-tei-hover.png");
-}
-
-.edition .window .inner .pagination li:hover .tools-map {
-	background-image: url("../Images/edition-window-tools-map-hover.png");
-}
-
-.edition .window .inner .pagination li:hover .tools-tags {
-	background-image: url("../Images/edition-window-tools-tags-hover.png");
-}
-
-.edition .window .inner .pagination li:active .tools-outline {
-	background-image: url("../Images/edition-window-tools-list-active.png");
-}
-
-.edition .window .inner .pagination li:active .tools-text {
-	background-image: url("../Images/edition-window-tools-txt-active.png");
-}
-
-.edition .window .inner .pagination li:active .tools-thumbnails {
-	background-image: url("../Images/edition-window-tools-img-active.png");
-}
-
-.edition .window .inner .pagination li:active .tools-pages {
-	background-image: url("../Images/edition-window-tools-onepage-active.png");
-}
-
-.edition .window .inner .pagination li:active .tools-images {
-	background-image: url("../Images/edition-window-tools-images-active.png");
-}
-
-.edition .window .inner .pagination li:active .tools-tei {
-	background-image: url("../Images/edition-window-tools-tei-active.png");
-}
-
-.edition .window .inner .pagination li:active .tools-map {
-	background-image: url("../Images/edition-window-tools-map-active.png");
-}
-
-.edition .window .inner .pagination li:active .tools-tags {
-	background-image: url("../Images/edition-window-tools-tags-active.png");
-}
-
-.edition .window .inner .pagination li .tools-outline {
-	background-image: url("../Images/edition-window-tools-list.png");
-}
-
-.edition .window .inner .pagination li .tools-outline.active {
-	background-image: url("../Images/edition-window-tools-list-hover.png");
-}
-
-.edition .window .inner .pagination li .tools-text {
-	background-image: url("../Images/edition-window-tools-txt.png");
-}
-
-.edition .window .inner .pagination li .tools-text.active {
-	background-image: url("../Images/edition-window-tools-txt-hover.png");
-}
-
-.edition .window .inner .pagination li .tools-pages {
-	background-image: url("../Images/edition-window-tools-onepage.png");
-}
-
-.edition .window .inner .pagination li .tools-pages.active {
-	background-image: url("../Images/edition-window-tools-onepage-hover.png");
-}
-
-.edition .window .inner .pagination li .tools-thumbnails {
-	background-image: url("../Images/edition-window-tools-img.png");
-}
-
-.edition .window .inner .pagination li .tools-thumbnails.active {
-	background-image: url("../Images/edition-window-tools-img-hover.png");
-}
-
-.edition .window .inner .pagination li .tools-images {
-	background-image: url("../Images/edition-window-tools-images.png");
-}
-
-.edition .window .inner .pagination li .tools-images.active {
-	background-image: url("../Images/edition-window-tools-images-hover.png");
-}
-
-.edition .window .inner .pagination li .tools-tei {
-	background-image: url("../Images/edition-window-tools-tei.png");
-}
-
-.edition .window .inner .pagination li .tools-tei.active {
-	background-image: url("../Images/edition-window-tools-tei-hover.png");
-}
-
-.edition .window .inner .pagination li .tools-map {
-	background-image: url("../Images/edition-window-tools-map.png");
-}
-
-.edition .window .inner .pagination li .tools-map.active {
-	background-image: url("../Images/edition-window-tools-map-hover.png");
-}
-
-.edition .window .inner .pagination li .tools-tags {
-	background-image: url("../Images/edition-window-tools-tags.png");
-}
-
-.edition .window .inner .pagination li .tools-tags.active {
-	background-image: url("../Images/edition-window-tools-tags-hover.png");
-}
-
-.edition .window .inner .pagination li a {
-	background-repeat: no-repeat;
-}
-
 .edition .window .inner .pagination a {
-	padding: 0 19px 0 0;
-	margin: 0 0px 0 0;
 	width: 25px;
 	cursor: pointer;
 }

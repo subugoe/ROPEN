@@ -27,7 +27,7 @@ Instead of a list of all class selectors,
 you can use the generic selector below, but it's slower:
 [class*="icon-"] {
 */
-.icon-chevron-down, .icon-chevron-up, .icon-chevron-right, .icon-chevron-left, .icon-search, .icon-fullscreen, .icon-contract, .icon-th, .icon-question, .icon-remove, .icon-contract-2, .icon-spin, .icon-sort-up, .icon-sort-down, .icon-sort, .icon-books, .icon-book, .icon-link, .icon-bookmark, .icon-minus, .icon-warning-sign, .icon-file, .icon-lock, .icon-unlocked, .icon-first, .icon-last, .icon-wrench {
+.icon-chevron-down, .icon-chevron-up, .icon-chevron-right, .icon-chevron-left, .icon-search, .icon-fullscreen, .icon-contract, .icon-th, .icon-question, .icon-remove, .icon-contract-2, .icon-spin, .icon-sort-up, .icon-sort-down, .icon-sort, .icon-books, .icon-book, .icon-link, .icon-bookmark, .icon-minus, .icon-warning-sign, .icon-file, .icon-lock, .icon-unlocked, .icon-first, .icon-last, .icon-wrench, .icon-earth, .icon-cloud, .icon-tree, .icon-image, .icon-list-nested, .icon-type, .icon-grid {
 	font-family: 'ropen';
 	speak: none;
 	font-style: normal;
@@ -117,4 +117,25 @@ you can use the generic selector below, but it's slower:
 }
 .icon-wrench:before {
 	content: "\e00c";
+}
+.icon-earth:before {
+	content: "\e00d";
+}
+.icon-cloud:before {
+	content: "\e00e";
+}
+.icon-tree:before {
+	content: "\e00f";
+}
+.icon-image:before {
+	content: "\e010";
+}
+.icon-list-nested:before {
+	content: "\e011";
+}
+.icon-type:before {
+	content: "\e012";
+}
+.icon-grid:before {
+	content: "\e013";
 }
