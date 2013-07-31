@@ -594,7 +594,7 @@
 				text-decoration: none!important;
 			}
 		}
-		&:hover {
+		&:hover, &.active {
 			border-top: 1px solid $hoverColor;
 			margin-top: -1px;
 		}

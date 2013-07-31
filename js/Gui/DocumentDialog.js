@@ -377,9 +377,9 @@ DocumentDialog.prototype.setDocType = function(type, id) {
 									}
 		var dialog = this;
 		$.each(this.buttons, function(i, button) {
-			$(button.button).removeClass('active');
+			$(button.button).parent('li').removeClass('active');
 			if (button.type == type) {
-				$(button.button).addClass('active');
+				$(button.button).parent('li').addClass('active');
 			}
 		});
 		this.resize();
