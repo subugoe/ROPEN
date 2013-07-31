@@ -154,7 +154,7 @@ DocumentDialog.prototype.initDocTypeSelector = function() {
 			button = $('<a class="icon-' + id['icon'] + '"><span class="visuallyhidden"></span></a>').appendTo(li);
 		}
 		button.attr('title', Util.getString(id['icon']));
-		button.click(function() {
+		button.parent('li').click(function() {
 			dialog.setDocType(id['type']);
 		});
 		dialog.buttons.push({

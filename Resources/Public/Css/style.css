@@ -1052,6 +1052,7 @@ you can use the generic selector below, but it's slower:
 .edition .window .inner .pagination li:hover, .edition .window .inner .pagination li.active {
   border-top: 1px solid #900000;
   margin-top: -1px;
+  cursor: pointer;
 }
 .edition .window .inner .pagination li:last-child {
   border-right: none;

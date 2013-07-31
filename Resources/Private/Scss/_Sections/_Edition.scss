@@ -597,6 +597,7 @@
 		&:hover, &.active {
 			border-top: 1px solid $hoverColor;
 			margin-top: -1px;
+			cursor: pointer;
 		}
 		&:last-child {
 			border-right: none;
