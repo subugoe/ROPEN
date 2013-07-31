@@ -101,16 +101,20 @@
 			}
 		}
 		.searchresult {
+			height: 200px;
+			overflow-y: hidden;
+
 			p {
 				font-size: 80%;
 			}
 			.searchresult-thumbnail {
 				display: inline-block;
 				float: left;
-				width: 41%;
+				width: 35%;
 			}
 			.result-text {
-				width: 92%;
+				margin-left: 35%;
+				width: 54%;
 				margin-top: -0.8em;
 				padding-left: 0.5em;
 				.tei\:p {
