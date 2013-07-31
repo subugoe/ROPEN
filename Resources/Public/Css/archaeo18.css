@@ -120,13 +120,12 @@
   padding: 5px;
 }
 
-.teiDownload {
+.icon-download {
   position: absolute;
   top: 10px;
   right: 10px;
   width: 24px;
   height: 24px;
-  background-image: url(../Images/download-tei.png);
   cursor: pointer;
 }
 
