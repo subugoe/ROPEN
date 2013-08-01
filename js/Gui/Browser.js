@@ -509,7 +509,7 @@ Browser.prototype.addCategory = function(doc, results) {
 		var searchResult = $('<div class="clearfix searchresult ' + oddEven + '"/>').appendTo(searchTab);
 		searchContent.push(searchResult);
 
-		$(searchResult).css('display', 'none');
+		$(searchResult).addClass('visuallyhidden');
 
 		var thumb = $("<div class='searchresult-thumbnail'/>").appendTo(searchResult);
 		var thumbDiv = $("<div class='dummyThumbSmall'/>").appendTo(thumb);
@@ -538,11 +538,11 @@ Browser.prototype.addCategory = function(doc, results) {
 		for (var i = 0; i < searchContent.length; i++) {
 			if (visible) {
 				$(this).children().first().removeClass('icon-chevron-right').addClass('icon-chevron-down');
-				$(searchContent[i]).css('display', 'block');
+				$(searchContent[i]).removeClass('visuallyhidden');
 			}
 			else {
 				$(this).children().first().removeClass('icon-chevron-down').addClass('icon-chevron-right');
-				$(searchContent[i]).css('display', 'none');
+				$(searchContent[i]).addClass('visuallyhidden');
 			}
 		}
 		$('div.loadme', this.searchResults).lazyLoad(searchTab, imageLoad, 1000);

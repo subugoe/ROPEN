@@ -50,7 +50,7 @@ DocumentDialog.prototype.initFunctions = function() {
 	var toolsList = $("<ul/>").appendTo(this.funcDiv);
 	if (EditionProperties.lineNumbering) {
 		var numberingLi = $('<li/>').appendTo(paginationTools);
-		this.lineNumbering = $('<a class="tools-linecount"><span class="visuallyhidden"></span></a>').appendTo(numberingLi);
+		this.lineNumbering = $('<a class="icon-numbered-list"><span class="visuallyhidden"></span></a>').appendTo(numberingLi);
 		var setLineNumbering = function() {
 			if (dialog.lineNumbers) {
 				dialog.lineNumbering.addClass('active');

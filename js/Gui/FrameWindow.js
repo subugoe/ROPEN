@@ -172,7 +172,7 @@ FrameWindow.prototype.position = function(left, top) {
  * @this {FrameWindow}
  */
 FrameWindow.prototype.resize = function() {
-	var p = parseInt($(this).css("padding-top")) * 2 - 4;
+	var p = parseInt($(this).css("padding-top")) * 3 - 4;
 	this.content.css('height', ($(this).height() - p - this.toolbarDiv.height()) + "px");
 };
 
