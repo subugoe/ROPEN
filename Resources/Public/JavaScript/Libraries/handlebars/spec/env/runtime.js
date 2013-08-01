@@ -1,6 +1,6 @@
 require('./common');
 
-global.Handlebars = require('../../dist/handlebars.runtime');
+global.Handlebars = require('../../dist/handlebars.runtime.js');
 
 var compiler = require('../../lib/handlebars');
 
