@@ -4,7 +4,7 @@
  * @constructor
  * @this {Folder}
  */
-Folder = function(index){
+Folder = function(index) {
 	this.nameId = index;
 	this.index = index;
 	this.documents = [];
@@ -18,7 +18,7 @@ Folder = function(index){
  *
  * @this {Folder}
  */
-Folder.prototype.initialize = function(){
+Folder.prototype.initialize = function() {
 	this.tabs = $("<ul class='tabs'/>").appendTo(this.content);
 	this.documentDiv = $("<div class='inner'/>").appendTo(this.content);
 	$(this.label).html(this.getName());
@@ -30,8 +30,8 @@ Folder.prototype.initialize = function(){
  * @this {Folder}
  * @param {number} index The new index of the folder.
  */
-Folder.prototype.updateName = function(index){
-	if( this.nameId != index ){
+Folder.prototype.updateName = function(index) {
+	if (this.nameId != index) {
 		this.nameId = index;
 		$(this.label).html(this.getName());
 	}
@@ -43,7 +43,7 @@ Folder.prototype.updateName = function(index){
  * @this {Folder}
  * @return {string} The folders name.
  */
-Folder.prototype.getName = function(){
+Folder.prototype.getName = function() {
 	return Util.getString('folder') + " #" + this.nameId;
 };
 
@@ -52,17 +52,17 @@ Folder.prototype.getName = function(){
  *
  * @this {Folder}
  */
-Folder.prototype.resizeContent = function(){
+Folder.prototype.resizeContent = function() {
 	var cw = this;
 	var padding = parseInt($(cw.documentDiv).css("padding-bottom")) + parseInt($(cw.documentDiv).css("padding-top"));
 	$(this.documentDiv).css('height', (this.content.height() - this.tabs.height() - padding) + 'px');
 	var padding = parseInt($(cw.documentDiv).css("padding-bottom")) + parseInt($(cw.documentDiv).css("padding-top"));
-	$.each(this.tabData,function(i, div){
+	$.each(this.tabData, function(i, div) {
 		var contentHeight = cw.content.height() - cw.tabs.height() - padding;
 		div.tabDiv.css('height', contentHeight + 'px');
 	});
 	var dialog = this.dialog();
-	if( dialog != null ){
+	if (dialog != null) {
 		dialog.resize();
 	}
 };
@@ -73,8 +73,8 @@ Folder.prototype.resizeContent = function(){
  * @this {Folder}
  * @return {string} The actually displayed document dialog or null if there are no tabs opened.
  */
-Folder.prototype.dialog = function(){
-	if( this.documentDialogs.length > 0 ){
+Folder.prototype.dialog = function() {
+	if (this.documentDialogs.length > 0) {
 		return this.documentDialogs[ this.selection ];
 	}
 	return null;
@@ -86,29 +86,30 @@ Folder.prototype.dialog = function(){
  * @this {Folder}
  * @param {JSON} tab The tab data consists of divs for tab and content.
  */
-Folder.prototype.selectTab = function(tab){
-	if( typeof tab.tab != 'undefined' ){
-		for( var i in this.tabData ){
-			if( this.tabData[i] != tab ){
-				$(this.tabData[i].tabDiv).css('display','none');
+Folder.prototype.selectTab = function(tab) {
+	if (typeof tab.tab != 'undefined') {
+		for (var i in this.tabData) {
+			if (this.tabData[i] != tab) {
+				$(this.tabData[i].tabDiv).css('display', 'none');
 				$(this.tabData[i].tab).removeClass('selected');
 			}
 			else {
 				this.selection = i;
-				$(this.tabData[i].tabDiv).css('display','block');
+				$(this.tabData[i].tabDiv).css('display', 'block');
 				$(this.tabData[i].tab).addClass('selected');
 			}
 		}
 	}
-	else if( tab < this.tabData.length ){
-		this.selection = tab;
-		for( var i=0; i<this.tabData.length; i++ ){
-			$(this.tabData[i].tabDiv).css('display','none');
-			$(this.tabData[i].tab).removeClass('selected');
+	else
+		if (tab < this.tabData.length) {
+			this.selection = tab;
+			for (var i = 0; i < this.tabData.length; i++) {
+				$(this.tabData[i].tabDiv).css('display', 'none');
+				$(this.tabData[i].tab).removeClass('selected');
+			}
+			$(this.tabData[tab].tabDiv).css('display', 'block');
+			$(this.tabData[tab].tab).addClass('selected');
 		}
-		$(this.tabData[tab].tabDiv).css('display','block');
-		$(this.tabData[tab].tab).addClass('selected');
-	}
 	this.resizeContent();
 };
 
@@ -118,7 +119,7 @@ Folder.prototype.selectTab = function(tab){
  * @this {Folder}
  * @param {JSON} data It consists of the document and optional information (page, document type, fulltext position).
  */
-Folder.prototype.addTab = function(data){
+Folder.prototype.addTab = function(data) {
 	var container = this;
 	this.documents.push(data.document);
 	var tab = $("<li/>").appendTo(this.tabs);
@@ -134,10 +135,10 @@ Folder.prototype.addTab = function(data){
 		tabDiv: tabDiv
 	};
 	this.tabData.push(tabData);
-	$(tabLink).click(function(){
+	$(tabLink).click(function() {
 		container.selectTab(tabData);
 	});
-	$(tabClose).click(function(){
+	$(tabClose).click(function() {
 		container.removeTab(tabData);
 	});
 
@@ -146,9 +147,9 @@ Folder.prototype.addTab = function(data){
 
 	tabDiv.css('height', tabHeight + 'px');
 
-	var documentDialog = new DocumentDialog(this,data.document,tabDiv,data.page,data.position);
+	var documentDialog = new DocumentDialog(this, data.document, tabDiv, data.page, data.position);
 	documentDialog.activateFacet(data.entity);
-	documentDialog.setDocType(data.type,data.position);
+	documentDialog.setDocType(data.type, data.position);
 	this.documentDialogs.push(documentDialog);
 	this.selectTab(tabData);
 	this.resizeContent();
@@ -159,9 +160,9 @@ Folder.prototype.addTab = function(data){
  *
  * @this {Folder}
  */
-Folder.prototype.stopProcessing = function(){
+Folder.prototype.stopProcessing = function() {
 	var dialog = this.dialog();
-	if( dialog != null ){
+	if (dialog != null) {
 		dialog.stopProcessing();
 	}
 };
@@ -172,18 +173,18 @@ Folder.prototype.stopProcessing = function(){
  * @this {Folder}
  * @param {JSON} tab The tab to remove.
  */
-Folder.prototype.removeTab = function(tab){
-	for( var i in this.tabData ){
-		if( this.tabData[i] == tab ){
+Folder.prototype.removeTab = function(tab) {
+	for (var i in this.tabData) {
+		if (this.tabData[i] == tab) {
 			$(this.tabData[i].tabDiv).remove();
 			$(this.tabData[i].tab).remove();
-			this.documents.splice(i,1);
-			this.documentDialogs.splice(i,1);
-			this.tabData.splice(i,1);
+			this.documents.splice(i, 1);
+			this.documentDialogs.splice(i, 1);
+			this.tabData.splice(i, 1);
 			break;
 		}
 	}
-	if( this.tabData.length > 0 ){
+	if (this.tabData.length > 0) {
 		this.selectTab(this.tabData[0]);
 	}
 	else {
@@ -197,7 +198,7 @@ Folder.prototype.removeTab = function(tab){
  * @this {Folder}
  * @return {number} The current tab index.
  */
-Folder.prototype.getSelectedTab = function(){
+Folder.prototype.getSelectedTab = function() {
 	return this.selection;
 };
 
@@ -207,6 +208,6 @@ Folder.prototype.getSelectedTab = function(){
  * @this {Folder}
  * @param {number} index The index of the tab to be shown.
  */
-Folder.prototype.setSelectedTab = function(index){
+Folder.prototype.setSelectedTab = function(index) {
 	this.selectTab(index);
 };

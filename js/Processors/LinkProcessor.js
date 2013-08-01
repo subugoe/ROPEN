@@ -16,18 +16,18 @@ function LinkProcessor() {
  */
 LinkProcessor.prototype.getAlternativeName = function(node) {
 	var nodes = node.childNodes;
-	for (var i = 0; i < nodes.length; i++){
-		if (nodes[i].firstChild == null){
-			if (i + 1 < nodes.length){
-				if( nodes[i + 1].firstChild == null ){
+	for (var i = 0; i < nodes.length; i++) {
+		if (nodes[i].firstChild == null) {
+			if (i + 1 < nodes.length) {
+				if (nodes[i + 1].firstChild == null) {
 					continue;
 				}
-				if( nodes[i + 1].getAttribute('class') == 'tei:addName' ){
+				if (nodes[i + 1].getAttribute('class') == 'tei:addName') {
 					return nodes[i + 1].innerHTML;
 				}
 			}
 			return null;
-		} 
+		}
 	}
 };
 
@@ -43,11 +43,11 @@ LinkProcessor.prototype.borderLink = function(link) {
 		for (var i = 0; i < Util.facets.length; i++) {
 			var entity = Util.facets[i].facet.replace(':', '\\:');
 			var el = $('.' + entity, l);
-			for (var j = 0; j < el.length; j++){
+			for (var j = 0; j < el.length; j++) {
 				findLinks(el[j], d++);
 			}
 		}
-		if(d > depth) {
+		if (d > depth) {
 			depth = d;
 		}
 	}
@@ -63,10 +63,10 @@ LinkProcessor.prototype.borderLink = function(link) {
  *
  * @this {LinkProcessor}
  * @param {DIV} div The div that contains the links and spans.
-*/
+ */
 LinkProcessor.prototype.appendLinkTooltips = function(div) {
 	var links = this.findLinks(div, 'a');
-	var generateTooltip = function(link, lc, spans, content){
+	var generateTooltip = function(link, lc, spans, content) {
 		var appendHref = function(content) {
 			if (typeof content.hl1 != 'undefined') {
 				$(content.hl1).click(function() {
@@ -86,10 +86,10 @@ LinkProcessor.prototype.appendLinkTooltips = function(div) {
 			appendHref(lc);
 		});
 	}
-	for (var i=0; i<links.links.length; i++) {
+	for (var i = 0; i < links.links.length; i++) {
 		var content = links.contents[i].content;
 		var spans = this.findLinks(links.links[i], 'span');
-		for (var j=0; j<spans.contents.length; j++) {
+		for (var j = 0; j < spans.contents.length; j++) {
 			$('<hr/>').appendTo(content);
 			$(spans.contents[j].content).appendTo(content);
 		}
@@ -123,7 +123,8 @@ LinkProcessor.prototype.appendTooltips = function(div, dialog) {
 			});
 		});
 	}
-	catch(e) {}
+	catch (e) {
+	}
 	// tei notes
 	try {
 		var processor = this;
@@ -138,7 +139,8 @@ LinkProcessor.prototype.appendTooltips = function(div, dialog) {
 			});
 		});
 	}
-	catch(e){}
+	catch (e) {
+	}
 };
 
 LinkProcessor.prototype.findLinks = function(div, type) {
@@ -152,10 +154,10 @@ LinkProcessor.prototype.findLinks = function(div, type) {
 			continue;
 		}
 		entityId++;
-		var entity = facet.facet.replace(':','\\:');
+		var entity = facet.facet.replace(':', '\\:');
 		var color = facet.color;
 		$('.' + entity, div).addClass('entity entity' + entityId);
-		var linksI = $(type + '.' + entity,div);
+		var linksI = $(type + '.' + entity, div);
 		$.each(linksI, function(index, link) {
 			links.push(link);
 			$(link).css('text-decoration', 'none');
@@ -194,12 +196,12 @@ LinkProcessor.prototype.findLinks = function(div, type) {
 				}
 			}
 			contents.push({
-				content: content,
-				hl1: hyperlink1,
-				hl2: hyperlink2,
-				href: hyperl,
-				altName: altName
-			});
+							  content: content,
+							  hl1: hyperlink1,
+							  hl2: hyperlink2,
+							  href: hyperl,
+							  altName: altName
+						  });
 		});
 	}
 	return {
@@ -211,20 +213,20 @@ LinkProcessor.prototype.findLinks = function(div, type) {
 
 /**
  * Colorizes links inside a given div for all facets, which are 'true' in facetSelection
- * 
+ *
  * @this {LinkProcessor}
  * @param {DIV} div The div that contains the links.
  * @param {Array} facetSelection An array of boolean values; each 'true' triggers a coloring for the corresponding entity.
-*/
+ */
 LinkProcessor.prototype.colorizeLinks = function(div, facetSelection) {
 	var processor = this;
 	var plain = true;
-	if( typeof facetSelection != 'undefined' ) {
+	if (typeof facetSelection != 'undefined') {
 		for (var i = 0; i < Util.facets.length; i++) {
 			var facet = Util.facets[i];
-			var entity = facet.facet.replace(':','\\:');
+			var entity = facet.facet.replace(':', '\\:');
 			var links = $('.' + entity, div);
-			$.each(links, function(index, link){
+			$.each(links, function(index, link) {
 				if (facetSelection[i]) {
 					$(link).css('color', facet.color);
 				}
@@ -250,9 +252,9 @@ LinkProcessor.prototype.colorizeLinks = function(div, facetSelection) {
 			if (!facet.render) {
 				continue;
 			}
-			var entity = facet.facet.replace(':','\\:');
+			var entity = facet.facet.replace(':', '\\:');
 			var links = $('.' + entity, div);
-			$.each(links, function(index, link){
+			$.each(links, function(index, link) {
 				var hyperl = link.href || Util.getAttribute(link, 'xlink:to');
 				if (typeof hyperl != 'undefined') {
 					$(link).css('color', EditionProperties.colors.validLink);

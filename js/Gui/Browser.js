@@ -4,7 +4,7 @@
  * @constructor
  * @this {Browser}
  */
-Browser = function(){
+Browser = function() {
 }
 
 /**
@@ -27,7 +27,7 @@ Browser.prototype.initialize = function() {
 			browser.documents.css('display', 'block');
 			browser.searchTab.removeClass('selected');
 			browser.documentTab.addClass('selected');
-		} 
+		}
 	}
 
 	this.header = $("<ul class='scope-selector'/>").appendTo(this.content);
@@ -64,16 +64,17 @@ Browser.prototype.initialize = function() {
 	var selectedSearchType = 'simple';
 
 	var toggleSearch = function(searchType) {
-		if (selectedSearchType == searchType){
+		if (selectedSearchType == searchType) {
 			$('.advancedSearchLabel').removeClass('icon-chevron-down').addClass('icon-chevron-right');
 			browser.advancedSearch.css('display', 'none');
 			selectedSearchType = 'simple';
-		} 
-		else if (searchType == 'advanced'){
-			$('.advancedSearchLabel').removeClass('icon-chevron-right').addClass('icon-chevron-down');
-			browser.advancedSearch.css('display', 'block');
-			selectedSearchType = searchType;
-		} 
+		}
+		else
+			if (searchType == 'advanced') {
+				$('.advancedSearchLabel').removeClass('icon-chevron-right').addClass('icon-chevron-down');
+				browser.advancedSearch.css('display', 'block');
+				selectedSearchType = searchType;
+			}
 	}
 	this.searchTypes = $('<div/>').appendTo(this.main);
 	$(this.searchTypes).css('position', 'relative');
@@ -89,14 +90,15 @@ Browser.prototype.initialize = function() {
 			if (selectedSearchType == 'simple') {
 				browser.search('');
 			}
-			else if (selectedSearchType == 'advanced') {
-				browser.doAdvancedSearch(evt);
-			}
+			else
+				if (selectedSearchType == 'advanced') {
+					browser.doAdvancedSearch(evt);
+				}
 		}
 		else {
 			var content = $("<div class='inner'/>");
 			Util.getAlertMessage(Util.getString('noSearchString')).appendTo(content);
-			EditionGui.createDialog(Util.getString('warning'),content,evt,20,20);
+			EditionGui.createDialog(Util.getString('warning'), content, evt, 20, 20);
 		}
 	};
 
@@ -194,7 +196,7 @@ Browser.prototype.prepareAdvancedSearch = function() {
 	}
 
 	var loadDocs = function() {
-		$.each(Util.documents,function(i, document) {
+		$.each(Util.documents, function(i, document) {
 			addDocument(document, i);
 		});
 		docsHeight = $(documents).height();
@@ -208,16 +210,17 @@ Browser.prototype.prepareAdvancedSearch = function() {
 				loadDocs();
 			}
 			$(documents).animate({
-				height: "+=" + docsHeight
-			});
+									 height: "+=" + docsHeight
+								 });
 			docsSelected = true;
 		}
-		else if (!$(selectDocuments).attr('checked') && docsSelected){
-			$(documents).animate({
-				height: "-=" + docsHeight
-			});
-			docsSelected = false;
-		}
+		else
+			if (!$(selectDocuments).attr('checked') && docsSelected) {
+				$(documents).animate({
+										 height: "-=" + docsHeight
+									 });
+				docsSelected = false;
+			}
 	}
 	$(allDocuments).click(checkDocumentVisibility);
 	$(selectDocuments).click(checkDocumentVisibility);
@@ -232,7 +235,7 @@ Browser.prototype.prepareAdvancedSearch = function() {
 	var inTexts = $('#textsSearch')[0];
 	var inFacets = $('#facetsSearch')[0];
 
-	$(inTexts).attr('checked',true);
+	$(inTexts).attr('checked', true);
 
 	var facets = $('<div class="facetOptions"/>').appendTo(this.advancedSearch);
 
@@ -260,8 +263,8 @@ Browser.prototype.prepareAdvancedSearch = function() {
 	}
 
 	var loadFacets = function() {
-		$.each(Util.facets,function(i, facet) {
-			if (facet.render){
+		$.each(Util.facets, function(i, facet) {
+			if (facet.render) {
 				addFacet(facet, i, entitiesList);
 			}
 			else {
@@ -274,21 +277,22 @@ Browser.prototype.prepareAdvancedSearch = function() {
 	}
 
 	var checkFacetVisibility = function() {
-		if ($(inFacets).attr('checked') && !facetsSelected){
-			if (facetSelection.length == 0){
+		if ($(inFacets).attr('checked') && !facetsSelected) {
+			if (facetSelection.length == 0) {
 				loadFacets();
 			}
 			$(facets).animate({
-				height: "+=" + facetsHeight
-			});
+								  height: "+=" + facetsHeight
+							  });
 			facetsSelected = true;
 		}
-		else if( !$(inFacets).attr('checked') && facetsSelected ){
-			$(facets).animate({
-				height: "-=" + facetsHeight
-			});
-			facetsSelected = false;
-		}
+		else
+			if (!$(inFacets).attr('checked') && facetsSelected) {
+				$(facets).animate({
+									  height: "-=" + facetsHeight
+								  });
+				facetsSelected = false;
+			}
 	}
 
 	$(inTexts).click(checkFacetVisibility);
@@ -305,10 +309,10 @@ Browser.prototype.prepareAdvancedSearch = function() {
 					facet += Util.facets[i].facet.substring(Util.facets[i].facet.indexOf(':') + 1);
 				}
 			}
-			if( facet == '' ){
+			if (facet == '') {
 				var content = $("<div class='inner'/>");
 				Util.getAlertMessage(Util.getString('noFacetsSelected')).appendTo(content);
-				EditionGui.createDialog(Util.getString('warning'),content,evt,20,20);
+				EditionGui.createDialog(Util.getString('warning'), content, evt, 20, 20);
 				return;
 			}
 		}
@@ -322,17 +326,17 @@ Browser.prototype.prepareAdvancedSearch = function() {
 					documents += Util.documents[i].title;
 				}
 			}
-			if( documents == '' ){
+			if (documents == '') {
 				var content = $("<div class='inner'/>");
 				Util.getAlertMessage(Util.getString('noDocumentsSelected')).appendTo(content);
-				EditionGui.createDialog(Util.getString('warning'),content,evt,20,20);
+				EditionGui.createDialog(Util.getString('warning'), content, evt, 20, 20);
 				return;
 			}
 		}
-		browser.search(facet,documents);
+		browser.search(facet, documents);
 	};
 
-	this.advancedSearch.css('display','none');
+	this.advancedSearch.css('display', 'none');
 };
 
 /**
@@ -341,7 +345,7 @@ Browser.prototype.prepareAdvancedSearch = function() {
  * @this {Browser}
  * @param {string} facet A facets string to perform the search on selected facets instead of whole document texts.
  */
-Browser.prototype.search = function(facet,documents){
+Browser.prototype.search = function(facet, documents) {
 	var browser = this;
 	var cancel = false;
 	var onclose = function() {
@@ -355,7 +359,7 @@ Browser.prototype.search = function(facet,documents){
 			$(xml).find('result').each(function() {
 				var page = parseInt($(this).find('page').text());
 
-				if (page == ''){
+				if (page == '') {
 					page = 1;
 				}
 
@@ -366,9 +370,9 @@ Browser.prototype.search = function(facet,documents){
 					results[doc] = [];
 				}
 				results[doc].push({
-					page: page,
-					text: text
-			  	});
+									  page: page,
+									  text: text
+								  });
 				// update length of array
 				results.length++;
 			});
@@ -393,17 +397,17 @@ Browser.prototype.search = function(facet,documents){
  *
  * @this {Browser}
  */
-Browser.prototype.resizeContent = function(){
+Browser.prototype.resizeContent = function() {
 	var height = $(this.content).height();
-	var diff1 = parseInt($(this.header).css("padding-bottom"))+parseInt($(this.header).css("padding-top"));
+	var diff1 = parseInt($(this.header).css("padding-bottom")) + parseInt($(this.header).css("padding-top"));
 
-	diff1 += parseInt($(this.header).css("margin-bottom"))+parseInt($(this.header).css("margin-top"));
+	diff1 += parseInt($(this.header).css("margin-bottom")) + parseInt($(this.header).css("margin-top"));
 
-	var diff2 = parseInt($(this.main).css("padding-bottom"))+parseInt($(this.main).css("padding-top"));
+	var diff2 = parseInt($(this.main).css("padding-bottom")) + parseInt($(this.main).css("padding-top"));
 
-	diff2 += parseInt($(this.main).css("margin-bottom"))+parseInt($(this.main).css("margin-top"));
+	diff2 += parseInt($(this.main).css("margin-bottom")) + parseInt($(this.main).css("margin-top"));
 
-	$(this.main).css('height',(height - this.header.height() - diff1 - diff2) + 'px');
+	$(this.main).css('height', (height - this.header.height() - diff1 - diff2) + 'px');
 	$(this.searchTypes).css('height', (height - this.header.height() - diff1 - diff2) + 'px');
 	$(this.searchTypes).css('width', $(this.main).width() + 'px');
 
@@ -436,24 +440,24 @@ Browser.prototype.addDocument = function(doc) {
 				var position = $(newLinks[i]).attr("name");
 				$(node).unbind('click');
 				$(node).click(function(evt) {
-					if( position == '' ){
+					if (position == '') {
 						EditionGui.openDocument(evt, doc);
 					}
 					else {
 						EditionGui.openDocument(evt, doc, undefined, 'text', position);
 					}
-			    	});
+				});
 				/*
-					$(node).draggable({
-						opacity: 0.7,
-						helper: "clone",
-						start: function( event, ui ) {
-							var dragthing = $('.ui-draggable-dragging')[0];
-							$(dragthing).appendTo($('#editionContainer')[0]);
-							console.info($(node).position(),$(node).offset());
-						}
-					});
-				*/
+				 $(node).draggable({
+				 opacity: 0.7,
+				 helper: "clone",
+				 start: function( event, ui ) {
+				 var dragthing = $('.ui-draggable-dragging')[0];
+				 $(dragthing).appendTo($('#editionContainer')[0]);
+				 console.info($(node).position(),$(node).offset());
+				 }
+				 });
+				 */
 			}
 			var newLinks = $('.head-anchor', root);
 			for (var i = 0; i < newLinks.length; i++) {
@@ -468,9 +472,9 @@ Browser.prototype.addDocument = function(doc) {
 			}
 			else {
 				$(root).dynatree({
-					children: outlineTree,
-					onRender: setLinks
-				});
+									 children: outlineTree,
+									 onRender: setLinks
+								 });
 				setLinks();
 			}
 		}
@@ -490,27 +494,27 @@ Browser.prototype.addCategory = function(doc, results) {
 	var browser = this;
 	var searchTab = $('<li/>').appendTo(this.searchResults);
 	var searchLink = $('<a class="result-title">'
-						   + '<span class="icon-chevron-right">&nbsp;</span>'
-						   + '<span class="doc-name">' + doc.name + '</span>'
-						   + '<span class="results-counter">' + results.length + ' ' + Util.getString('searchResults') + '</span>'
-						   + '</a>')
+							   + '<span class="icon-chevron-right">&nbsp;</span>'
+							   + '<span class="doc-name">' + doc.name + '</span>'
+							   + '<span class="results-counter">' + results.length + ' ' + Util.getString('searchResults') + '</span>'
+							   + '</a>')
 			.appendTo(searchTab);
 	var searchContent = [];
 	var visible = false;
 
 	$.each(results, function(index, result) {
 
-		var oddEven = index % 2 === 0? 'even' : 'odd';
+		var oddEven = index % 2 === 0 ? 'even' : 'odd';
 
 		var searchResult = $('<div class="clearfix searchresult ' + oddEven + '"/>').appendTo(searchTab);
 		searchContent.push(searchResult);
 
-		$(searchResult).css('display','none');
+		$(searchResult).css('display', 'none');
 
 		var thumb = $("<div class='searchresult-thumbnail'/>").appendTo(searchResult);
 		var thumbDiv = $("<div class='dummyThumbSmall'/>").appendTo(thumb);
 
-		$(thumbDiv).css('margin-bottom','20px');
+		$(thumbDiv).css('margin-bottom', '20px');
 
 		var thumbnail = $("<div class='loadme'/>").appendTo(thumbDiv);
 
@@ -528,7 +532,7 @@ Browser.prototype.addCategory = function(doc, results) {
 		});
 	});
 
-	$(searchLink).click(function(){
+	$(searchLink).click(function() {
 		visible = !visible;
 
 		for (var i = 0; i < searchContent.length; i++) {
