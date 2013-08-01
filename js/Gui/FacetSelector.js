@@ -5,7 +5,7 @@
  * @this {FacetSelector}
  * @param {HTML} div The parent DIV to append the facet selection panel.
  */
-function FacetSelector(div){
+function FacetSelector(div) {
 	this.div = div;
 	this.initialize();
 }
@@ -15,29 +15,29 @@ function FacetSelector(div){
  *
  * @this {FacetSelector}
  */
-FacetSelector.prototype.initialize = function(){
+FacetSelector.prototype.initialize = function() {
 	var selector = this;
 	var facetsBar = document.createElement("div");
 	$(this.div).append(facetsBar);
 	this.checkboxes = [];
 	this.facetSelection = [];
-	var addFacet = function(facet,index){
+	var addFacet = function(facet, index) {
 		var entry = $("<div class='facetSelector'/>").appendTo(facetsBar);
 		var checkbox = $("<input type='checkbox'/>").appendTo(entry);
-		$("<span>"+Util.getFacetLabel(facet)+"</span>").appendTo(entry);
-		$(entry).css('color',facet.color);
+		$("<span>" + Util.getFacetLabel(facet) + "</span>").appendTo(entry);
+		$(entry).css('color', facet.color);
 		selector.facetSelection.push(false);
 		selector.checkboxes.push(checkbox);
-		checkbox.click(function(){
+		checkbox.click(function() {
 			selector.facetSelection[index] = !selector.facetSelection[index];
-			if( typeof selector.triggerFunc != 'undefined' ){
+			if (typeof selector.triggerFunc != 'undefined') {
 				selector.triggerFunc(selector.facetSelection);
 			}
 		});
 	}
-	$.each(Util.facets,function(i,facet){
-		if( facet.render ){
-			addFacet(facet,i);
+	$.each(Util.facets, function(i, facet) {
+		if (facet.render) {
+			addFacet(facet, i);
 		}
 		else {
 			selector.facetSelection.push(false);
@@ -52,7 +52,7 @@ FacetSelector.prototype.initialize = function(){
  * @this {FacetSelector}
  * @param {Object} triggerFunc A trigger function to be called when a the facet selection changes.
  */
-FacetSelector.prototype.setTriggerFunc = function(triggerFunc){
+FacetSelector.prototype.setTriggerFunc = function(triggerFunc) {
 	this.triggerFunc = triggerFunc;
 };
 
@@ -62,7 +62,7 @@ FacetSelector.prototype.setTriggerFunc = function(triggerFunc){
  * @this {FacetSelector}
  * @return {Array} An array of boolean values (an entry is 'true', if the facet is selected; false, if not).
  */
-FacetSelector.prototype.getFacetSelection = function(){
+FacetSelector.prototype.getFacetSelection = function() {
 	return this.facetSelection;
 };
 
@@ -72,11 +72,11 @@ FacetSelector.prototype.getFacetSelection = function(){
  * @this {FacetSelector}
  * @return {Array} The string representation of the actual selected facets, e.g. 'placeName,persName'
  */
-FacetSelector.prototype.getFacetString = function(){
+FacetSelector.prototype.getFacetString = function() {
 	var facets = '';
-	for( var i=0; i<this.facetSelection.length; i++ ){
-		if( this.facetSelection[i] ){
-			if( facets != '' ){
+	for (var i = 0; i < this.facetSelection.length; i++) {
+		if (this.facetSelection[i]) {
+			if (facets != '') {
 				facets += ',';
 			}
 			facets += Util.facets[i].facet.substring(4);
@@ -91,20 +91,20 @@ FacetSelector.prototype.getFacetString = function(){
  * @this {FacetSelector}
  * @param {Array} facets An array of boolean values (an entry is 'true', if the facet is selected; false, if not).
  */
-FacetSelector.prototype.setFacetSelection = function(facets){
-	if( typeof facets == 'undefined' ){
+FacetSelector.prototype.setFacetSelection = function(facets) {
+	if (typeof facets == 'undefined') {
 		return;
 	}
 	this.facetSelection = facets;
-	for( var i=0; i<facets.length; i++ ){
-		if( !this.checkboxes[i] ){
+	for (var i = 0; i < facets.length; i++) {
+		if (!this.checkboxes[i]) {
 			continue;
 		}
-		if( facets[i] ){
-			$(this.checkboxes[i]).attr('checked',true);
+		if (facets[i]) {
+			$(this.checkboxes[i]).attr('checked', true);
 		}
 		else {
-			$(this.checkboxes[i]).attr('checked',false);
+			$(this.checkboxes[i]).attr('checked', false);
 		}
 	}
 };
@@ -115,13 +115,13 @@ FacetSelector.prototype.setFacetSelection = function(facets){
  * @this {FacetSelector}
  * @param {string} name The name of the facet to select.
  */
-FacetSelector.prototype.activateFacet = function(name){
+FacetSelector.prototype.activateFacet = function(name) {
 	var i = -1;
-	for( var j=0; j<Util.facets.length; j++ ){
-		if( Util.facets[j].render ){
+	for (var j = 0; j < Util.facets.length; j++) {
+		if (Util.facets[j].render) {
 			i++;
-			if( Util.facets[j].facet == name ){
-				$(this.checkboxes[i]).attr('checked',true);
+			if (Util.facets[j].facet == name) {
+				$(this.checkboxes[i]).attr('checked', true);
 				this.facetSelection[i] = true;
 				break;
 			}

@@ -4,7 +4,7 @@
  * @constructor
  * @this {DocumentLoader}
  */
-function DocumentLoader(){
+function DocumentLoader() {
 	this.processId = -1;
 	this.processes = [];
 }
@@ -14,7 +14,7 @@ function DocumentLoader(){
  *
  * @this {DocumentLoader}
  */
-DocumentLoader.prototype.startProcess = function(){
+DocumentLoader.prototype.startProcess = function() {
 	this.process = {
 		id: ++this.processId,
 		active: true
@@ -28,8 +28,8 @@ DocumentLoader.prototype.startProcess = function(){
  *
  * @this {DocumentLoader}
  */
-DocumentLoader.prototype.stopProcess = function(){
-	if( typeof this.process != 'undefined' ){
+DocumentLoader.prototype.stopProcess = function() {
+	if (typeof this.process != 'undefined') {
 		this.processes[this.process.id].active = false;
 	}
 };

@@ -48,15 +48,16 @@ var Util = new function() {
 	this.docsLoaded = -1;
 	this.facetsLoaded = false;
 	this.texts = EditionTooltips;
-	if (typeof navigator.language != 'undefined' && navigator.language.indexOf("de") > -1 ) {
+	if (typeof navigator.language != 'undefined' && navigator.language.indexOf("de") > -1) {
 		this.language = "de";
 	}
-	else if (typeof navigator.browserLanguage != 'undefined' && navigator.browserLanguage.indexOf("de") > -1) {
-		this.language = "de";
-	}
-	else {
-		this.language = "en";
-	}
+	else
+		if (typeof navigator.browserLanguage != 'undefined' && navigator.browserLanguage.indexOf("de") > -1) {
+			this.language = "de";
+		}
+		else {
+			this.language = "en";
+		}
 };
 
 /**
@@ -67,7 +68,7 @@ var Util = new function() {
  * @return {number} The corresponding document type id.
  */
 Util.getIdByType = function(type) {
-	for (var i=0; i < this.docTypes.length; i++) {
+	for (var i = 0; i < this.docTypes.length; i++) {
 		if (this.docTypes[i] == type) {
 			return i;
 		}
@@ -93,7 +94,7 @@ Util.getTypeById = function(id) {
  * @param {string} attributeName The attribute to search for.
  * @return {string} The value of the attribute.
  */
-Util.getAttribute = function(node,attributeName) {
+Util.getAttribute = function(node, attributeName) {
 	var value = $(node).attr(attributeName);
 	if (typeof value == 'undefined') {
 		for (var i = 0; i < node.attributes.length; i++) {
@@ -118,7 +119,7 @@ Util.getString = function(id) {
 
 	try {
 		label = Util.texts[id][Util.language];
-	} catch(e) {
+	} catch (e) {
 		// console.log(e);
 	}
 	return label;
@@ -161,14 +162,15 @@ Util.loadDocuments = function(trigger) {
 		}
 		for (var i = 0; i < docs.length; i++) {
 			var document = new Document(
-				$(docs[i]).find('id').text(),
-				$(docs[i]).find('title').text(),
-				$(docs[i]).find('titleShort').text(),
-				$(docs[i]).find('preview').text(),
-				$(docs[i]).find('pageCount').text()
+					$(docs[i]).find('id').text(),
+					$(docs[i]).find('title').text(),
+					$(docs[i]).find('titleShort').text(),
+					$(docs[i]).find('preview').text(),
+					$(docs[i]).find('pageCount').text()
 			);
 			loadMets(document);
-		};
+		}
+		;
 	}
 	DocumentServerConnection.getDocuments(callback);
 };
@@ -191,7 +193,7 @@ Util.loadDocumentSync = function(title, nameShort) {
 	var metsCallback = function(xml) {
 		$(xml).find('[nodeName="METS:mets"]').find('[nodeName="METS:fileSec"]').find('[nodeName="METS:fileGrp"]').first().find('[nodeName="METS:file"]').each(function() {
 			var node = $(this).find('[nodeName="METS:FLocat"]')[0];
-			var fullPath = Util.getAttribute(node,'xlink:href');
+			var fullPath = Util.getAttribute(node, 'xlink:href');
 			images.push(fullPath.substring(fullPath.lastIndexOf("/") + 1));
 			if (!imagePath) {
 				var dummy = fullPath.substring(0, fullPath.lastIndexOf("/"));
@@ -235,9 +237,9 @@ Util.loadFacets = function(trigger) {
 			var labels = [];
 			$(this).find('foreign').each(function() {
 				labels.push({
-					language: Util.getAttribute(this, 'xml:lang'),
-					label: $(this).text()
-				});
+								language: Util.getAttribute(this, 'xml:lang'),
+								label: $(this).text()
+							});
 			});
 			var render = $(this).attr("rend");
 			var color = undefined;
@@ -313,9 +315,9 @@ Util.getTags = function(tags) {
 		var tooltip = weight + " " + Util.getString('occurences');
 		var link = '<a title="' + tooltip + '" class="tagcloudTag ' + facet.facet + '" href="' + url + '" style="color:' + facet.color + ';" target="_blank">' + text + '</a>';
 		tagArray.push({
-			text: link,
-			weight: weight
-		});
+						  text: link,
+						  weight: weight
+					  });
 		if (EditionProperties.maxTags && EditionProperties.maxTags == tagArray.length) {
 			break;
 		}
@@ -357,8 +359,8 @@ Util.getAlertMessage = function(message) {
  * @return {string} The transformed hex code.
  */
 Util.asciiToHex = function(text) {
-	var ascii = new Array("!","#","$","%","&","'","(",")","*","+",",","/",":",";","=","?","@","[","]", " ");
-	var hex = new Array("%21","%23","%24","!$#","%26","%27","%28","%29","%2a","%2b","%2c","%2f","%3a","%3b","%3d","%3f","%40","%5b","%5d","%20");
+	var ascii = new Array("!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "/", ":", ";", "=", "?", "@", "[", "]", " ");
+	var hex = new Array("%21", "%23", "%24", "!$#", "%26", "%27", "%28", "%29", "%2a", "%2b", "%2c", "%2f", "%3a", "%3b", "%3d", "%3f", "%40", "%5b", "%5d", "%20");
 	for (var i = 0; i < ascii.length; i++) {
 		while (text.indexOf(ascii[i]) != -1) {
 			text = text.replace(ascii[i], hex[i]);
@@ -381,8 +383,8 @@ Util.getMousePosition = function(event) {
 	}
 	var body = (window.document.compatMode && window.document.compatMode == "CSS1Compat") ? window.document.documentElement : window.document.body;
 	return {
-		top : event.pageY ? event.pageY : event.clientY,
-		left : event.pageX ? event.pageX : event.clientX
+		top: event.pageY ? event.pageY : event.clientY,
+		left: event.pageX ? event.pageX : event.clientX
 	};
 };
 

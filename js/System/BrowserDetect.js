@@ -4,14 +4,14 @@
  * @constructor
  * @this {BrowserDetect}
  */
-function BrowserDetect(){
+function BrowserDetect() {
 	this.dataBrowser = [
 		{
 			string: navigator.userAgent,
 			subString: "Chrome",
 			identity: "Chrome"
 		},
-		{ 	string: navigator.userAgent,
+		{    string: navigator.userAgent,
 			subString: "OmniWeb",
 			versionSearch: "OmniWeb/",
 			identity: "OmniWeb"
@@ -83,9 +83,9 @@ function BrowserDetect(){
 			identity: "Mac"
 		},
 		{
-			   string: navigator.userAgent,
-			   subString: "iPhone",
-			   identity: "iPhone/iPod"
+			string: navigator.userAgent,
+			subString: "iPhone",
+			identity: "iPhone/iPod"
 		},
 		{
 			string: navigator.platform,
@@ -101,7 +101,7 @@ function BrowserDetect(){
  *
  * @this {BrowserDetect}
  */
-BrowserDetect.prototype.initialize = function(){
+BrowserDetect.prototype.initialize = function() {
 	this.browser = this.searchString(this.dataBrowser) || "An unknown browser";
 	this.version = this.searchVersion(navigator.userAgent) || this.searchVersion(navigator.appVersion) || "an unknown version";
 	this.OS = this.searchString(this.dataOS) || "an unknown OS";
@@ -114,19 +114,20 @@ BrowserDetect.prototype.initialize = function(){
  * @param {JSON} data The versions (browsers, operating systems) to search for.
  * @return {string} The short string identity of the browser or operating system.
  */
-BrowserDetect.prototype.searchString = function(data){
-	for( var i=0; i<data.length; i++ ){
+BrowserDetect.prototype.searchString = function(data) {
+	for (var i = 0; i < data.length; i++) {
 		var dataString = data[i].string;
 		var dataProp = data[i].prop;
 		this.versionSearchString = data[i].versionSearch || data[i].identity;
-		if( dataString ){
-			if( dataString.indexOf(data[i].subString) != -1 ){
+		if (dataString) {
+			if (dataString.indexOf(data[i].subString) != -1) {
 				return data[i].identity;
 			}
 		}
-		else if( dataProp ){
-			return data[i].identity;
-		}
+		else
+			if (dataProp) {
+				return data[i].identity;
+			}
 	}
 };
 
@@ -137,10 +138,10 @@ BrowserDetect.prototype.searchString = function(data){
  * @param {string} dataString The string representation of the navigator.
  * @return {number} The browser's version or 'undefined' if it cannot be retrieved.
  */
-BrowserDetect.prototype.searchVersion = function(dataString){
+BrowserDetect.prototype.searchVersion = function(dataString) {
 	var index = dataString.indexOf(this.versionSearchString);
-	if( index == -1 ){
+	if (index == -1) {
 		return;
 	}
-	return parseFloat(dataString.substring(index+this.versionSearchString.length+1));
+	return parseFloat(dataString.substring(index + this.versionSearchString.length + 1));
 };

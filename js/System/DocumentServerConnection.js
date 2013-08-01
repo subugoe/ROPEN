@@ -4,7 +4,7 @@
  * @constructor
  * @this {DocumentServerConnection}
  */
-var DocumentServerConnection = new function(){
+var DocumentServerConnection = new function() {
 }
 
 /**
@@ -17,22 +17,22 @@ var DocumentServerConnection = new function(){
  * @param {Object} successCallback A callback function to be called for successfully retrieved data like: function(data).
  * @param {Object} failureCallback A callback function to be called for unsuccessfully retrieved data.
  */
-DocumentServerConnection.getData = function(url, type, async, successCallback, failureCallback){
+DocumentServerConnection.getData = function(url, type, async, successCallback, failureCallback) {
 	$.ajax({
-		url: url,
-		async: async,
-		dataType: type,
-		success: function(data){
-			if( typeof successCallback != "undefined" ){
-				successCallback(data);
-			}
-		},
-		error: function(errorObject){ 
-			if( typeof failureCallback != "undefined" ){
-				failureCallback(errorObject);
-			}
-		}
-	});
+			   url: url,
+			   async: async,
+			   dataType: type,
+			   success: function(data) {
+				   if (typeof successCallback != "undefined") {
+					   successCallback(data);
+				   }
+			   },
+			   error: function(errorObject) {
+				   if (typeof failureCallback != "undefined") {
+					   failureCallback(errorObject);
+				   }
+			   }
+		   });
 };
 
 /**
@@ -41,7 +41,7 @@ DocumentServerConnection.getData = function(url, type, async, successCallback, f
  * @this {DocumentServerConnection}
  * @param {Object} callback A callback function to be called for successfully retrieved data like: function(data).
  */
-DocumentServerConnection.getDocuments = function(callback, async){
+DocumentServerConnection.getDocuments = function(callback, async) {
 	var url = EditionProperties.documentEndpoint;
 	this.getData(url, 'xml', async, callback);
 };
@@ -55,7 +55,7 @@ DocumentServerConnection.getDocuments = function(callback, async){
  * @param {Object} success A callback function to be called for successfully retrieved data like: function(data).
  * @param {Object} failure A callback function to be called for unsuccessfully retrieved data.
  */
-DocumentServerConnection.getDocumentPage = function(document, page, success, failure){
+DocumentServerConnection.getDocumentPage = function(document, page, success, failure) {
 	var url = EditionProperties.pageQuery.replace('DOC_ID', document.title).replace('PAGE_ID', page);
 	this.getData(url, 'html', true, success, failure);
 };
@@ -68,7 +68,7 @@ DocumentServerConnection.getDocumentPage = function(document, page, success, fai
  * @param {Object} success A callback function to be called for successfully retrieved data like: function(data).
  * @param {Object} failure A callback function to be called for unsuccessfully retrieved data.
  */
-DocumentServerConnection.getDocumentOutline = function(document, success, failure){
+DocumentServerConnection.getDocumentOutline = function(document, success, failure) {
 	var url = EditionProperties.outlineQuery.replace('DOC_ID', document.title);
 	this.getData(url, 'html', true, success, failure);
 };
@@ -81,7 +81,7 @@ DocumentServerConnection.getDocumentOutline = function(document, success, failur
  * @param {Object} success A callback function to be called for successfully retrieved data like: function(data).
  * @param {Object} failure A callback function to be called for unsuccessfully retrieved data.
  */
-DocumentServerConnection.getDocumentText = function(document, success, failure){
+DocumentServerConnection.getDocumentText = function(document, success, failure) {
 	var url = EditionProperties.textQuery.replace('DOC_ID', document.title);
 	this.getData(url, 'html', true, success, failure);
 };
@@ -94,7 +94,7 @@ DocumentServerConnection.getDocumentText = function(document, success, failure){
  * @param {Object} success A callback function to be called for successfully retrieved data like: function(data).
  * @param {Object} failure A callback function to be called for unsuccessfully retrieved data.
  */
-DocumentServerConnection.getDocumentTEI = function(document, success, failure){
+DocumentServerConnection.getDocumentTEI = function(document, success, failure) {
 	var url = EditionProperties.teiUri.replace(/DOC_ID/g, document.title);
 	this.getData(url, 'xml', true, success, failure);
 };
@@ -107,7 +107,7 @@ DocumentServerConnection.getDocumentTEI = function(document, success, failure){
  * @param {number} page The dedicated page number. If the page is '0', the KML consists of all places within the document.
  * @param {Object} callback A callback function to be called for successfully retrieved data like: function(data).
  */
-DocumentServerConnection.getDocumentKml = function(document, page, callback){
+DocumentServerConnection.getDocumentKml = function(document, page, callback) {
 	var url = EditionProperties.kmlQuery.replace('DOC_ID', document.title).replace('PAGE_ID', page);
 	this.getData(url, 'xml', true, callback);
 };
@@ -122,7 +122,7 @@ DocumentServerConnection.getDocumentKml = function(document, page, callback){
  * @param {Object} success A callback function to be called for successfully retrieved data like: function(data).
  * @param {Object} failure A callback function to be called for unsuccessfully retrieved data.
  */
-DocumentServerConnection.getDocumentTags = function(document, page, facets, success, failure){
+DocumentServerConnection.getDocumentTags = function(document, page, facets, success, failure) {
 	var url = EditionProperties.tagcloudPageQuery.replace('DOC_ID', document.title).replace('FACET_ID', facets).replace('PAGE_ID', page);
 	this.getData(url, 'xml', true, success, failure);
 };
@@ -136,12 +136,12 @@ DocumentServerConnection.getDocumentTags = function(document, page, facets, succ
  * @param {string} documents If the search should be done on specific documents; if the parameter is empty, the search will be performed on all documents.
  * @param {Object} callback A callback function to be called for successfully retrieved data like: function(data).
  */
-DocumentServerConnection.getSearchResults = function(term, facet, documents, callback){
+DocumentServerConnection.getSearchResults = function(term, facet, documents, callback) {
 	var url = EditionProperties.searchQuery.replace('QUERY_ID', term);
-	if( facet != '' ){
+	if (facet != '') {
 		url += '&facet=' + facet;
 	}
-	if( documents != '' ){
+	if (documents != '') {
 		url += '&document=' + documents;
 	}
 	this.getData(url, 'xml', true, callback);
@@ -153,7 +153,7 @@ DocumentServerConnection.getSearchResults = function(term, facet, documents, cal
  * @this {DocumentServerConnection}
  * @param {Object} callback A callback function to be called for successfully retrieved data like: function(data).
  */
-DocumentServerConnection.getFacets = function(callback){
+DocumentServerConnection.getFacets = function(callback) {
 	var url = EditionProperties.facetsQuery;
 	this.getData(url, 'xml', false, callback);
 };
@@ -166,7 +166,7 @@ DocumentServerConnection.getFacets = function(callback){
  * @param {boolean} async If the ajax request should be done asynchronously or not.
  * @param {Object} callback A callback function to be called for successfully retrieved data like: function(data).
  */
-DocumentServerConnection.getMets = function(title, async, callback){
+DocumentServerConnection.getMets = function(title, async, callback) {
 	var url = EditionProperties.metsUri.replace(/DOC_ID/g, title);
 	this.getData(url, 'xml', async, callback);
 };

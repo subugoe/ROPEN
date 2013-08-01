@@ -1,485 +1,485 @@
 var EditionTooltips = {
-	"openDocument" : {
+	"openDocument": {
 		"en": "Open document in ...",
 		"de": "Öffne Dokument in ..."
 	},
-	"showSpaceDistribution" : {
+	"showSpaceDistribution": {
 		"en": "Map distribution",
 		"de": "Kartenverteilung"
 	},
-	"newFolder" : {
+	"newFolder": {
 		"en": "New folder",
 		"de": "Neue Mappe"
 	},
-	"folder" : {
+	"folder": {
 		"en": "Folder",
 		"de": "Mappe"
 	},
-	"content" : {
+	"content": {
 		"en": "Content",
 		"de": "Inhalt"
 	},
-	"magneticLink" : {
+	"magneticLink": {
 		"en": "Bookmark",
 		"de": "Lesezeichen"
 	},
-	"generate" : {
+	"generate": {
 		"en": "Generate bookmark",
 		"de": "Lesezeichen erstellen"
 	},
-	"generatedMagneticLinks" : {
+	"generatedMagneticLinks": {
 		"en": "Generated bookmark:",
 		"de": "Erstellte Lesezeichen:"
 	},
-	"selectPage" : {
+	"selectPage": {
 		"en": "Select page ...",
 		"de": "Wähle Seite ..."
 	},
-	"selectOption" : {
+	"selectOption": {
 		"en": "Select option ...",
 		"de": "Wähle Option ..."
 	},
-	"reset" : {
+	"reset": {
 		"en": "Reset",
 		"de": "Reset"
 	},
-	"warning" : {
+	"warning": {
 		"en": "Warning",
 		"de": "Warnung"
 	},
-	"page" : {
+	"page": {
 		"en": "Page",
 		"de": "Seite"
 	},
-	"magneticLinkText" : {
+	"magneticLinkText": {
 		"en": "The current settings are represented by the following link",
 		"de": "Die aktuelle Einstellung wird repräsentiert durch den folgenden Link"
 	},
-	"occurences" : {
+	"occurences": {
 		"en": "Occurrences",
 		"de": "Auftreten"
 	},
-	"browser" : {
+	"browser": {
 		"en": "Browser",
 		"de": "Browser"
 	},
-	"minimizeWindow" : {
+	"minimizeWindow": {
 		"en": "Minimize folder",
 		"de": "Minimiere Mappe"
 	},
-	"maximizeWindow" : {
+	"maximizeWindow": {
 		"en": "Restore folder",
 		"de": "Mappe wiederherstellen"
 	},
-	"document" : {
+	"document": {
 		"en": "Document",
 		"de": "Dokument"
 	},
-	"documents" : {
+	"documents": {
 		"en": "Documents",
 		"de": "Dokumente"
 	},
-	"texts" : {
+	"texts": {
 		"en": "Text",
 		"de": "Text"
 	},
-	"search" : {
+	"search": {
 		"en": "Search",
 		"de": "Suche"
 	},
-	"search" : {
+	"search": {
 		"en": "Search",
 		"de": "Suche"
 	},
-	"simpleSearch" : {
+	"simpleSearch": {
 		"en": "Simple search",
 		"de": "Einfache Suche"
 	},
-	"advancedSearch" : {
+	"advancedSearch": {
 		"en": "Advanced search",
 		"de": "Erweiterte Suche"
 	},
-	"proximitySearch" : {
+	"proximitySearch": {
 		"en": "Proximity search",
 		"de": "Nachbarschaftssuche"
 	},
-	"searchResults" : {
+	"searchResults": {
 		"en": "Search results",
 		"de": "Suchergebnisse"
 	},
-	"noResults" : {
+	"noResults": {
 		"en": "No results",
 		"de": "Keine Suchergebnisse für den Suchbegriff "
 	},
-	"facets" : {
+	"facets": {
 		"en": "Facets",
 		"de": "Facetten"
-	},	
-	"removeDoc" : {
+	},
+	"removeDoc": {
 		"en": "Remove document",
 		"de": "Entferne Dokument"
 	},
-	"fullscreenMode" : {
+	"fullscreenMode": {
 		"en": "Fullscreen mode",
 		"de": "Vollbildmodus"
 	},
-	"removeWindow" : {
+	"removeWindow": {
 		"en": "Remove folder",
 		"de": "Entferne Mappe"
 	},
-	"dragWindow" : {
+	"dragWindow": {
 		"en": "Move window",
 		"de": "Verschiebe Fenster"
 	},
-	"downloadTei" : {
+	"downloadTei": {
 		"en": "Download TEI document",
 		"de": "TEI herunterladen"
 	},
-	"expandAll" : {
+	"expandAll": {
 		"en": "Expand all nodes",
 		"de": "Alle Knoten ausklappen"
 	},
-	"collapseAll" : {
+	"collapseAll": {
 		"en": "Collapse all nodes",
 		"de": "Alle Knoten einklappen"
 	},
-	"type" : {
+	"type": {
 		"en": "Text",
 		"de": "Fließtext"
 	},
-	"file" : {
+	"file": {
 		"en": "Pages",
 		"de": "Seiten"
 	},
-	"selectPage" : {
+	"selectPage": {
 		"en": "Select page",
 		"de": "Wähle Seite"
 	},
-	"singlePage" : {
+	"singlePage": {
 		"en": "Only one page",
 		"de": "Nur 1 Seite"
 	},
-	"firstPage" : {
+	"firstPage": {
 		"en": "First page",
 		"de": "Erste Seite"
 	},
-	"previousPage" : {
+	"previousPage": {
 		"en": "Previous page",
 		"de": "Vorige Seite"
 	},
-	"nextPage" : {
+	"nextPage": {
 		"en": "Next page",
 		"de": "Nächste Seite"
 	},
-	"lastPage" : {
+	"lastPage": {
 		"en": "Last page",
 		"de": "Letzte Seite"
 	},
-	"grid" : {
+	"grid": {
 		"en": "Thumbnails",
 		"de": "Thumbnails"
 	},
-	"image" : {
+	"image": {
 		"en": "Images",
 		"de": "Bilder"
 	},
-	"tree" : {
+	"tree": {
 		"en": "TEI",
 		"de": "TEI"
 	},
-	"list-nested" : {
+	"list-nested": {
 		"en": "Outline",
 		"de": "Inhaltsverzeichnis"
 	},
-	"earth" : {
+	"earth": {
 		"en": "Map",
 		"de": "Karte"
 	},
-	"cloud" : {
+	"cloud": {
 		"en": "Tag cloud",
 		"de": "Schlagwortwolke"
 	},
-	"downloadHeader" : {
+	"downloadHeader": {
 		"en": "Download TEI",
 		"de": "TEI herunterladen"
 	},
-	"downloadSave" : {
+	"downloadSave": {
 		"en": "To download the TEI document, simply right click on the document icon below and choose",
 		"de": "Zum Herunterzuladen, klicken Sie mit der rechten Maustaste auf das Dokument und wählen Sie"
 	},
-	"downloadOpen" : {
+	"downloadOpen": {
 		"en": "If you would like to open the file in your browser, just click",
 		"de": "Wenn sie die Datei im Browser öffnen wollen, klicken Sie einfach"
 	},
-	"here" : {
+	"here": {
 		"en": "here",
 		"de": "hier"
 	},
-	"teiFile" : {
+	"teiFile": {
 		"en": "TEI-File",
 		"de": "TEI-Datei"
 	},
-	"ChromeDownload" : {
+	"ChromeDownload": {
 		"en": "Save link as...",
 		"de": "Link speichern unter..."
 	},
-	"SafariDownload" : {
+	"SafariDownload": {
 		"en": "Save Link As...",
 		"de": "Link speichern unter..."
 	},
-	"FirefoxDownload" : {
+	"FirefoxDownload": {
 		"en": "Save Link As...",
 		"de": "Ziel speichern unter..."
 	},
-	"OperaDownload" : {
+	"OperaDownload": {
 		"en": "Save Linked Content As...",
 		"de": "Verlinkten Inhalt speichern als..."
 	},
-	"ExplorerDownload" : {
+	"ExplorerDownload": {
 		"en": "Save Target As...",
 		"de": "Ziel speichern unter..."
 	},
-	"DefaultDownload" : {
+	"DefaultDownload": {
 		"en": "To download the TEI document, simply right click on the document icon below.",
 		"de": "Zum Herunterladen klicken Sie mit der rechten Maustaste auf das Dokument."
 	},
-	"save" : {
+	"save": {
 		"en": "Save",
 		"de": "Speichern"
 	},
-	"open" : {
+	"open": {
 		"en": "Open",
 		"de": "Öffnen"
 	},
-	"hideLineNumbers" : {
+	"hideLineNumbers": {
 		"en": "Hide Line numbers",
 		"de": "Verstecke Zeilennummern"
 	},
-	"showLineNumbers" : {
+	"showLineNumbers": {
 		"en": "Show line numbers",
 		"de": "Zeige Zeilennummern"
 	},
-	"documentStructure" : {
+	"documentStructure": {
 		"en": "Document structure",
 		"de": "Dokumentstruktur"
 	},
-	"entities" : {
+	"entities": {
 		"en": "Entities",
 		"de": "Entitäten"
 	},
-	"gridLayout" : {
+	"gridLayout": {
 		"en": "Automatic layout",
 		"de": "Automatische Ausrichtung"
 	},
-	"enableGridLayout" : {
+	"enableGridLayout": {
 		"en": "Activate automatic layout",
 		"de": "Aktiviere automatische Ausrichtung"
 	},
-	"disableGridLayout" : {
+	"disableGridLayout": {
 		"en": "Deactivate automatic layout",
 		"de": "Deaktiviere automatische Ausrichtung"
 	},
-	"blankPage" : {
+	"blankPage": {
 		"en": "Blank page",
 		"de": "Leerseite"
 	},
-	"allDocuments" : {
+	"allDocuments": {
 		"en": "All documents",
 		"de": "Alle Dokumente"
 	},
-	"selectDocuments" : {
+	"selectDocuments": {
 		"en": "Select documents",
 		"de": "Wähle Dokumente"
 	},
-	"facetsMenu" : {
+	"facetsMenu": {
 		"en": "Search in facets",
 		"de": "Suche in Facetten"
 	},
-	"twin" : {
+	"twin": {
 		"en": "Twin view",
 		"de": "Doppelansicht"
 	},
-	"noFacets" : {
+	"noFacets": {
 		"en": "no facets selected",
 		"de": "keine Facetten ausgewählt"
 	},
-	"dfgViewer" : {
+	"dfgViewer": {
 		"en": "Show document in DFG Viewer",
 		"de": "Zeige Dokument im DFG Viewer"
 	},
-	"okay" : {
+	"okay": {
 		"en": "Ok",
 		"de": "Ok"
 	},
-	"in" : {
+	"in": {
 		"en": "in",
 		"de": "in"
 	},
-	"colorizeEntities" : {
+	"colorizeEntities": {
 		"en": "Colorize entities",
 		"de": "Entitäten einfärben"
 	},
-	"decolorizeEntities" : {
+	"decolorizeEntities": {
 		"en": "Decolorize entities",
 		"de": "Entitäten entfärben"
 	},
-	"openLinkAs" : {
+	"openLinkAs": {
 		"en": "Open link as",
 		"de": "Öffne Link als"
 	},
-	"info" : {
+	"info": {
 		"en": "Info",
 		"de": "Info"
 	},
-	"database" : {
+	"database": {
 		"en": "Database",
 		"de": "Normdaten"
 	},
-	"objectLink" : {
+	"objectLink": {
 		"en": "Link to object",
 		"de": "Link zum Objekt"
 	},
-	"entity" : {
+	"entity": {
 		"en": "Entity",
 		"de": "Eigenschaft"
 	},
-	"near" : {
+	"near": {
 		"en": "near",
 		"de": "nahe"
 	},
-	"notNear" : {
+	"notNear": {
 		"en": "not near",
 		"de": "nicht nahe"
 	},
-	"followedBy" : {
+	"followedBy": {
 		"en": "followed by",
 		"de": "gefolgt von"
 	},
-	"notFollowedBy" : {
+	"notFollowedBy": {
 		"en": "not followed by",
 		"de": "nicht gefolgt von"
 	},
-	"linkActivated" : {
+	"linkActivated": {
 		"en": "Deactivate joint view",
 		"de": "Deaktiviere verknüpfte Sicht"
 	},
-	"linkDeactivated" : {
+	"linkDeactivated": {
 		"en": "Activate joint view",
 		"de": "Aktiviere verknüpfte Sicht"
 	},
-	"errorMessage" : {
+	"errorMessage": {
 		"en": "An error occurred while executing the request!",
 		"de": "Bei der getätigten Anfrage ist ein Fehler aufgetreten!"
 	},
-	"documentTags" : {
+	"documentTags": {
 		"en": "Document tags",
 		"de": "Schlagworte für Dokument"
 	},
-	"tagsByPages" : {
+	"tagsByPages": {
 		"en": "Tags by pages",
 		"de": "Schlagworte nach Seiten"
 	},
-	"documentPlaces" : {
+	"documentPlaces": {
 		"en": "Places by documents",
 		"de": "Orte für Dokument"
 	},
-	"placesByPages" : {
+	"placesByPages": {
 		"en": "Places by pages",
 		"de": "Orte nach Seiten"
 	},
-	"scriptSelection" : {
+	"scriptSelection": {
 		"en": "Manuscript selection",
 		"de": "Informationen zu den Handschriften"
 	},
-	"directSelection" : {
+	"directSelection": {
 		"en": "Direct selection",
 		"de": "Direktauswahl"
 	},
-	"pleaseSelect" : {
+	"pleaseSelect": {
 		"en": "Please select a manuscript by choosing its dedicated signature",
 		"de": "Wählen Sie eine Handschrift"
 	},
-	"pleaseSelectIndex" : {
+	"pleaseSelectIndex": {
 		"en": "Please select an index",
 		"de": "Wählen Sie einen Index"
 	},
-	"selectHandwriting" : {
+	"selectHandwriting": {
 		"en": "Select manuscript ...",
 		"de": "Wähle Handschrift ..."
 	},
-	"handwriting" : {
+	"handwriting": {
 		"en": "Manuscript",
 		"de": "Handschrift"
 	},
-	"indexSelection" : {
+	"indexSelection": {
 		"en": "Index selection",
 		"de": "Index-Auswahl"
 	},
-	"selectIndex" : {
+	"selectIndex": {
 		"en": "Select index ...",
 		"de": "Wähle Index ..."
 	},
-	"loadTable" : {
+	"loadTable": {
 		"en": "Loading table ...",
 		"de": "Lade Tabelle ..."
 	},
-	"loadTagcloud" : {
+	"loadTagcloud": {
 		"en": "Loading tag cloud ...",
 		"de": "Lade Tagcloud ..."
 	},
-	"loadMap" : {
+	"loadMap": {
 		"en": "Loading map ...",
 		"de": "Lade Karte ..."
 	},
-	"selectFacetsAlert" : {
+	"selectFacetsAlert": {
 		"en": "Please select facets by activating the checkboxes above ...",
 		"de": "Bitte wählen sie Facetten aus durch Aktivieren der Checkboxen ..."
 	},
-	"showPage" : {
+	"showPage": {
 		"en": "Show page",
 		"de": "Zeige Seite"
 	},
-	"showPageWindow" : {
+	"showPageWindow": {
 		"en": "Show page in folder",
 		"de": "Zeige Seite in Mappe"
 	},
-	"reference" : {
+	"reference": {
 		"en": "Reference to page",
 		"de": "Referenz auf Seite"
 	},
-	"busyServer" : {
+	"busyServer": {
 		"en": "The server is busy. The request may take some time!",
 		"de": "Der Server ist überlastet. Die Anfrage könnte einige Zeit in Anspruch nehmen!"
 	},
-	"pdf" : {
+	"pdf": {
 		"en": "PDF",
 		"de": "PDF"
 	},
-	"or" : {
+	"or": {
 		"en": "or",
 		"de": "oder"
 	},
-	"bibl" : {
+	"bibl": {
 		"en": "literature",
 		"de": "Literatur"
 	},
-	"noDocumentsSelected" : {
+	"noDocumentsSelected": {
 		"en": "Please select one or more documents to perform the search!",
 		"de": "Bitte selektieren Sie ein oder mehrere Dokumente um die Suche durchzuführen!"
 	},
-	"noFacetsSelected" : {
+	"noFacetsSelected": {
 		"en": "Please select one or more facets to perform the search!",
 		"de": "Bitte selektieren Sie ein oder mehrere Facetten um die Suche durchzuführen!"
 	},
-	"noSearchString" : {
+	"noSearchString": {
 		"en": "Please enter a search string to perform the search!",
 		"de": "Bitte geben Sie einen Suchbegriff ein um die Suche durchzuführen!"
 	},
-	"editionSearchfieldPlaceholder" : {
+	"editionSearchfieldPlaceholder": {
 		"en": "Your search term",
 		"de": "Ihr Suchbegriff"
 	},
-	"closeFolder" : {
+	"closeFolder": {
 		"en": "Close current folder",
 		"de": "Mappe schließen"
 	}

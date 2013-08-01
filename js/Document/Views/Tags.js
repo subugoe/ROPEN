@@ -7,7 +7,7 @@
  * @param {DIV} container The conatiner div for the Tags view.
  * @param {DocumentDialog} parent The parent document dialog.
  */
-Tags = function(document,container,parent){	
+Tags = function(document, container, parent) {
 	this.type = "tags";
 	this.container = container;
 	this.pages = document.pages;
@@ -25,34 +25,37 @@ Tags = function(document,container,parent){
  *
  * @this {Tags}
  */
-Tags.prototype.initialize = function(){
+Tags.prototype.initialize = function() {
 	var context = this;
-	this.tagcloudId = "tagcloud"+EditionGui.getIndependentId();
-	this.buttonPanel = $('<div id="'+this.tagcloudId+'"/>').appendTo(this.container);
+
+	this.tagcloudId = "tagcloud" + EditionGui.getIndependentId();
+	this.buttonPanel = $('<div id="' + this.tagcloudId + '"/>').appendTo(this.container);
 	this.buttonPanel.addClass('buttonPanel');
 	this.contentPanel = $('<div/>').appendTo(this.container);
-	$(this.contentPanel).css('overflow','auto');
-	this.parent.facetSelector.setTriggerFunc(function(facetSelection){
+
+	$(this.contentPanel).css('overflow', 'auto');
+
+	this.parent.facetSelector.setTriggerFunc(function(facetSelection) {
 		context.display(context.parent.page);
 		context.parent.facetsChanged(facetSelection);
 	});
-	this.parent.paginator.setTriggerFunc(function(page){
+	this.parent.paginator.setTriggerFunc(function(page) {
 		context.showPage(page);
 		context.parent.pageChanged(page);
 	});
-	if( EditionProperties.scopeSelection ){
-		var id = 'scope'+EditionGui.getIndependentId();
-		var documentTags = $("<input type='radio' name='"+id+"'>"+Util.getString('documentTags')+"</input>").appendTo(this.buttonPanel);
-		var tagsByPages = $("<input type='radio' name='"+id+"'>"+Util.getString('tagsByPages')+"</input>").appendTo(this.buttonPanel);
-		if( this.documentScope ){
-			$(documentTags).attr('checked',true);
+	if (EditionProperties.scopeSelection) {
+		var id = 'scope' + EditionGui.getIndependentId();
+		var documentTags = $("<input type='radio' name='" + id + "'>" + Util.getString('documentTags') + "</input>").appendTo(this.buttonPanel);
+		var tagsByPages = $("<input type='radio' name='" + id + "'>" + Util.getString('tagsByPages') + "</input>").appendTo(this.buttonPanel);
+		if (this.documentScope) {
+			$(documentTags).attr('checked', true);
 		}
 		else {
-			$(tagsByPages).attr('checked',true);
+			$(tagsByPages).attr('checked', true);
 		}
-		var setScope = function(scope){
-			if( context.documentScope != scope ){
-				if( scope ){
+		var setScope = function(scope) {
+			if (context.documentScope != scope) {
+				if (scope) {
 					context.parent.hidePagination();
 				}
 				else {
@@ -62,13 +65,13 @@ Tags.prototype.initialize = function(){
 				context.display(context.parent.page);
 			}
 		};
-		$(documentTags).click(function(){
+		$(documentTags).click(function() {
 			setScope(true);
 		});
-		$(tagsByPages).click(function(){
+		$(tagsByPages).click(function() {
 			setScope(false);
 		});
-	}	
+	}
 }
 
 /**
@@ -77,24 +80,24 @@ Tags.prototype.initialize = function(){
  * @this {Tags}
  * @param {number} page The tags of the given page will be shown (p = 0 for all tags of the document).
  */
-Tags.prototype.show = function(page){
+Tags.prototype.show = function(page) {
 	var context = this;
 	var facets = this.parent.facetSelector.getFacetString();
-	if( facets == '' ){
+	if (facets == '') {
 		$(Util.getAlertMessage(Util.getString('selectFacetsAlert'))).appendTo(this.contentPanel);
 		return;
 	}
 	this.parent.stopProcessing();
 	var process = this.documentLoader.startProcess();
 	this.parent.startProcessing();
-	var failure = function(errorObject){
-		if( process.active ){
+	var failure = function(errorObject) {
+		if (process.active) {
 			$(Util.getErrorMessage(errorObject.status)).appendTo(context.contentPanel);
 			context.parent.stopProcessing();
 		}
 	}
-	var success = function(xml){
-		if( process.active ){
+	var success = function(xml) {
+		if (process.active) {
 			var tagArray = Util.getTags($(xml).find('tag'));
 			context.tags = tagArray;
 			$(context.contentPanel).jQCloud(tagArray);
@@ -102,7 +105,7 @@ Tags.prototype.show = function(page){
 			context.parent.stopProcessing();
 		}
 	}
-	DocumentServerConnection.getDocumentTags(context.document,page,facets,success,failure);
+	DocumentServerConnection.getDocumentTags(context.document, page, facets, success, failure);
 };
 
 /**
@@ -110,7 +113,7 @@ Tags.prototype.show = function(page){
  *
  * @this {Tags}
  */
-Tags.prototype.showTags = function(){
+Tags.prototype.showTags = function() {
 	$(this.contentPanel).empty();
 	this.show(0);
 };
@@ -121,7 +124,7 @@ Tags.prototype.showTags = function(){
  * @this {Tags}
  * @param {number} page The tags of the given page will be shown.
  */
-Tags.prototype.showPage = function(page){
+Tags.prototype.showPage = function(page) {
 	this.actualPage = page;
 	$(this.contentPanel).empty();
 	this.show(page);
@@ -133,18 +136,19 @@ Tags.prototype.showPage = function(page){
  * @this {Tags}
  * @param {number} page The page to be shown.
  */
-Tags.prototype.display = function(page){
-	if( this.documentScope ){
+Tags.prototype.display = function(page) {
+	if (this.documentScope) {
 		this.showTags();
 	}
-	else if( page ){
-		this.parent.paginator.setPage(page,true);
-		this.showPage(page);
-	}
-	else {
-		this.parent.paginator.setPage(1,true);
-		this.showPage(1);
-	}
+	else
+		if (page) {
+			this.parent.paginator.setPage(page, true);
+			this.showPage(page);
+		}
+		else {
+			this.parent.paginator.setPage(1, true);
+			this.showPage(1);
+		}
 };
 
 /**
@@ -152,10 +156,10 @@ Tags.prototype.display = function(page){
  *
  * @this {Tags}
  */
-Tags.prototype.resize = function(){
-	$(this.contentPanel).css('width','100%');
-	$(this.contentPanel).css('height',($(this.container).height()-$(this.buttonPanel).height())+'px');
-	if( typeof this.tags != 'undefined' ){
+Tags.prototype.resize = function() {
+	$(this.contentPanel).css('width', '100%');
+	$(this.contentPanel).css('height', ($(this.container).height() - $(this.buttonPanel).height()) + 'px');
+	if (typeof this.tags != 'undefined') {
 		$(this.contentPanel).empty();
 		$(this.contentPanel).jQCloud(this.tags);
 		this.linkProcessor.appendTooltips(this.contentPanel);
@@ -169,12 +173,12 @@ Tags.prototype.resize = function(){
  * @this {Tags}
  * @param {JSON} change The information for the view update. It contains a type (e.g. 'pageChange') and a data information (e.g. the new page number in case of a 'pageChange' event)
  */
-Tags.prototype.onChange = function(change){
-	if( change.type == "facetsChange" ){
+Tags.prototype.onChange = function(change) {
+	if (change.type == "facetsChange") {
 		this.context.display(this.parent.page);
 	}
-	if( change.type == "pageChange" ){
-		if( !this.documentScope && this.actualPage != change.data ){
+	if (change.type == "pageChange") {
+		if (!this.documentScope && this.actualPage != change.data) {
 			this.showPage(change.data);
 		}
 	}

@@ -7,7 +7,7 @@
  * @param {DIV} container The conatiner div for the Places view.
  * @param {DocumentDialog} parent The parent document dialog.
  */
-Places = function(document,container,parent){
+Places = function(document, container, parent) {
 	this.type = "map";
 	this.images = document.images;
 	this.pages = document.pages;
@@ -24,27 +24,27 @@ Places = function(document,container,parent){
  *
  * @this {Places}
  */
-Places.prototype.initialize = function(){
+Places.prototype.initialize = function() {
 	var context = this;
-	this.parent.paginator.setTriggerFunc(function(page){
+	this.parent.paginator.setTriggerFunc(function(page) {
 		context.showPage(page);
 		context.parent.pageChanged(page);
 	});
-	if( EditionProperties.scopeSelection ){
+	if (EditionProperties.scopeSelection) {
 		this.buttonPanel = $('<div/>').appendTo(this.container);
 		this.buttonPanel.addClass('buttonPanel');
-		var id = 'scope'+EditionGui.getIndependentId();
-		var documentPlaces = $("<input type='radio' name='"+id+"'>"+Util.getString('documentPlaces')+"</input>").appendTo(this.buttonPanel);
-		var placesByPages = $("<input type='radio' name='"+id+"'>"+Util.getString('placesByPages')+"</input>").appendTo(this.buttonPanel);
-		if( this.documentScope ){
-			$(documentPlaces).attr('checked',true);
+		var id = 'scope' + EditionGui.getIndependentId();
+		var documentPlaces = $("<input type='radio' name='" + id + "'>" + Util.getString('documentPlaces') + "</input>").appendTo(this.buttonPanel);
+		var placesByPages = $("<input type='radio' name='" + id + "'>" + Util.getString('placesByPages') + "</input>").appendTo(this.buttonPanel);
+		if (this.documentScope) {
+			$(documentPlaces).attr('checked', true);
 		}
 		else {
-			$(placesByPages).attr('checked',true);
+			$(placesByPages).attr('checked', true);
 		}
-		var setScope = function(scope){
-			if( context.documentScope != scope ){
-				if( scope ){
+		var setScope = function(scope) {
+			if (context.documentScope != scope) {
+				if (scope) {
 					context.parent.hidePagination();
 				}
 				else {
@@ -55,21 +55,23 @@ Places.prototype.initialize = function(){
 				context.resize();
 			}
 		};
-		$(documentPlaces).click(function(){
+		$(documentPlaces).click(function() {
 			setScope(true);
 		});
-		$(placesByPages).click(function(){
+		$(placesByPages).click(function() {
 			setScope(false);
 		});
 	}
 	this.contentPanel = $('<div/>').appendTo(this.container);
-	$(this.contentPanel).css('z-index',1);
-	$(this.contentPanel).css('overflow','hidden');
-	$(this.contentPanel).css('position','relative');
-	$(this.contentPanel).css('height',$(this.container).height()+'px');
-	$(this.contentPanel).css('width','100%');
+
+	$(this.contentPanel).css('z-index', 1);
+	$(this.contentPanel).css('overflow', 'hidden');
+	$(this.contentPanel).css('position', 'relative');
+	$(this.contentPanel).css('height', $(this.container).height() + 'px');
+	$(this.contentPanel).css('width', '100%');
+
 	this.map = new WidgetWrapper();
-	new MapWidget(this.map,$(this.contentPanel)[0],{
+	new MapWidget(this.map, $(this.contentPanel)[0], {
 		mapWidth: false,
 		mapHeight: false,
 		mapSelection: false,
@@ -87,20 +89,23 @@ Places.prototype.initialize = function(){
  * @this {Places}
  * @param {number} page The places of the given page will be shown (p = 0 for all places of the document).
  */
-Places.prototype.show = function(page){
+Places.prototype.show = function(page) {
 	var context = this;
-	if( !this.document.kmlCache[page] ){
+	if (!this.document.kmlCache[page]) {
 		this.parent.stopProcessing();
+
 		var process = this.documentLoader.startProcess();
+
 		this.parent.startProcessing();
-		var callback = function(kml){
+
+		var callback = function(kml) {
 			context.document.kmlCache[page] = GeoTemConfig.loadKml(kml);
-			if( process.active ){
+			if (process.active) {
 				context.map.display([new Dataset(context.document.kmlCache[page])]);
 				context.parent.stopProcessing();
 			}
 		}
-		DocumentServerConnection.getDocumentKml(this.document,page,callback);
+		DocumentServerConnection.getDocumentKml(this.document, page, callback);
 	}
 	else {
 		this.map.display([new Dataset(this.document.kmlCache[page])]);
@@ -113,11 +118,11 @@ Places.prototype.show = function(page){
  * @this {Places}
  * @param {number} page The places of the given page will be shown.
  */
-Places.prototype.showPage = function(page){
-	if( this.contentPanel.width() == 0 ){
+Places.prototype.showPage = function(page) {
+	if (this.contentPanel.width() == 0) {
 		return;
 	}
-	if( this.actualPage != page ){
+	if (this.actualPage != page) {
 		this.zoom = 0;
 		this.center = undefined;
 		this.actualPage = page;
@@ -130,8 +135,8 @@ Places.prototype.showPage = function(page){
  *
  * @this {Places}
  */
-Places.prototype.showPlaces = function(){
-	if( this.contentPanel.width() == 0 ){
+Places.prototype.showPlaces = function() {
+	if (this.contentPanel.width() == 0) {
 		return;
 	}
 	this.show(0);
@@ -143,18 +148,19 @@ Places.prototype.showPlaces = function(){
  * @this {Places}
  * @param {number} page The page to be shown.
  */
-Places.prototype.display = function(page){
-	if( this.documentScope ){
+Places.prototype.display = function(page) {
+	if (this.documentScope) {
 		this.showPlaces();
 	}
-	else if( page ){
-		this.parent.paginator.setPage(page,true);
-		this.showPage(page);
-	}
-	else {
-		this.parent.paginator.setPage(1,true);
-		this.showPage(1);
-	}
+	else
+		if (page) {
+			this.parent.paginator.setPage(page, true);
+			this.showPage(page);
+		}
+		else {
+			this.parent.paginator.setPage(1, true);
+			this.showPage(1);
+		}
 };
 
 /**
@@ -162,14 +168,14 @@ Places.prototype.display = function(page){
  *
  * @this {Places}
  */
-Places.prototype.resize = function(){
-	if( EditionProperties.scopeSelection ){
-		$(this.contentPanel).css('height',($(this.container).height()-$(this.buttonPanel).height())+'px');
+Places.prototype.resize = function() {
+	if (EditionProperties.scopeSelection) {
+		$(this.contentPanel).css('height', ($(this.container).height() - $(this.buttonPanel).height()) + 'px');
 	}
 	else {
-		$(this.contentPanel).css('height',$(this.container).height()+'px');
+		$(this.contentPanel).css('height', $(this.container).height() + 'px');
 	}
-	$(this.contentPanel).css('width','100%');
+	$(this.contentPanel).css('width', '100%');
 	this.map.widget.gui.resize();
 };
 
@@ -179,9 +185,9 @@ Places.prototype.resize = function(){
  * @this {Places}
  * @param {JSON} change The information for the view update. It contains a type (e.g. 'pageChange') and a data information (e.g. the new page number in case of a 'pageChange' event)
  */
-Places.prototype.onChange = function(change){
-	if( change.type == "pageChange" ){
-		if( this.actualPage != change.data ){
+Places.prototype.onChange = function(change) {
+	if (change.type == "pageChange") {
+		if (this.actualPage != change.data) {
 			this.showPage(change.data);
 		}
 	}

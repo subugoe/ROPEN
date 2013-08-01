@@ -5,7 +5,7 @@
  * @this {OverlayWindow}
  * @param {HTML} div The parent div, the overlay window will be assigned to.
  */
-OverlayWindow = function(div){
+OverlayWindow = function(div) {
 	this.div = div;
 }
 
@@ -15,16 +15,16 @@ OverlayWindow = function(div){
  * @this {OverlayWindow}
  * @param {Object} onclose A trigger function to be called when the user closes/removes the overlay.
  */
-OverlayWindow.prototype.loaderOverlay = function(onclose){
+OverlayWindow.prototype.loaderOverlay = function(onclose) {
 	var content = $("<div/>");
-	content.css('position','absolute');
+	content.css('position', 'absolute');
 	content.append("<div class='loader'/>");
 	this.setOverlay(content);
-	if( typeof onclose != 'undefined' ){
+	if (typeof onclose != 'undefined') {
 		var close = $("<div/>").appendTo(this.overlayWindow.overlay);
 		close.addClass('icon-remove');
 		close.addClass('closeLoader');
-		close.click(function(){
+		close.click(function() {
 			onclose();
 		});
 	}
@@ -36,11 +36,11 @@ OverlayWindow.prototype.loaderOverlay = function(onclose){
  * @this {OverlayWindow}
  * @param {HTML} contentDiv The HTML content to be shown in the overlay.
  */
-OverlayWindow.prototype.contentOverlay = function(contentDiv){
+OverlayWindow.prototype.contentOverlay = function(contentDiv) {
 	var fs = this;
 	var content = $("<div class='blockContent'/>");
 	var closeButton = $("<div class='closeOverlay'/>").appendTo(content);
-	closeButton.click(function(){
+	closeButton.click(function() {
 		fs.removeOverlay();
 	});
 	$(contentDiv).appendTo(content);
@@ -53,9 +53,9 @@ OverlayWindow.prototype.contentOverlay = function(contentDiv){
  * @this {OverlayWindow}
  * @return {JSON} The current width and height of the parent div.
  */
-OverlayWindow.prototype.getBounds = function(){
+OverlayWindow.prototype.getBounds = function() {
 	var w, h;
-	if( this.div == 'body' ){
+	if (this.div == 'body') {
 		w = $(document).width();
 		h = $(document).height();
 	}
@@ -63,11 +63,11 @@ OverlayWindow.prototype.getBounds = function(){
 		w = $(this.div).outerWidth();
 		h = $(this.div).outerHeight();
 	}
-	var paddingX = parseInt($(this.div).css('padding-left'))+parseInt($(this.div).css('padding-right'));
-	var paddingY = parseInt($(this.div).css('padding-top'))+parseInt($(this.div).css('padding-bottom'));
+	var paddingX = parseInt($(this.div).css('padding-left')) + parseInt($(this.div).css('padding-right'));
+	var paddingY = parseInt($(this.div).css('padding-top')) + parseInt($(this.div).css('padding-bottom'));
 	return {
-		width: w-paddingX,
-		height: h-paddingY
+		width: w - paddingX,
+		height: h - paddingY
 	};
 }
 
@@ -77,18 +77,18 @@ OverlayWindow.prototype.getBounds = function(){
  * @this {OverlayWindow}
  * @param {HTML} content The HTML content to be shown in the overlay.
  */
-OverlayWindow.prototype.setOverlay = function(content){
+OverlayWindow.prototype.setOverlay = function(content) {
 	var blockDiv = $("<div/>").appendTo(this.div);
 	blockDiv.addClass("blockDiv");
 	var bounds = this.getBounds();
-	blockDiv.css('width',bounds.width+'px');
-	blockDiv.css('height',bounds.height+'px');
-	blockDiv.css('z-index',10000);
-	blockDiv.css('top',parseInt($(this.div).css('padding-top'))+'px');
+	blockDiv.css('width', bounds.width + 'px');
+	blockDiv.css('height', bounds.height + 'px');
+	blockDiv.css('z-index', 10000);
+	blockDiv.css('top', parseInt($(this.div).css('padding-top')) + 'px');
 	var overlay = $("<div/>").appendTo(blockDiv);
 	overlay.addClass("blockDivOverlay");
-	overlay.css('width',bounds.width+'px');
-	overlay.css('height',bounds.height+'px');
+	overlay.css('width', bounds.width + 'px');
+	overlay.css('height', bounds.height + 'px');
 	$(content).appendTo(blockDiv);
 	this.overlayWindow = {
 		content: content,
@@ -104,13 +104,13 @@ OverlayWindow.prototype.setOverlay = function(content){
  * @this {OverlayWindow}
  * @param {HTML} content The HTML content to be centered.
  */
-OverlayWindow.prototype.centerDiv = function(content){
+OverlayWindow.prototype.centerDiv = function(content) {
 	var bounds = this.getBounds();
 	var border = parseInt($(content).css('borderLeftWidth'));
-	var left = Math.floor(bounds.width/2-content.width()/2) - border;
-	var top = Math.floor(bounds.height/2-content.height()/2) - border;
-	content.css('top', top+'px');
-	content.css('left', left+'px');
+	var left = Math.floor(bounds.width / 2 - content.width() / 2) - border;
+	var top = Math.floor(bounds.height / 2 - content.height() / 2) - border;
+	content.css('top', top + 'px');
+	content.css('left', left + 'px');
 }
 
 /**
@@ -118,24 +118,24 @@ OverlayWindow.prototype.centerDiv = function(content){
  *
  * @this {OverlayWindow}
  */
-OverlayWindow.prototype.removeOverlay = function(){
-	if( typeof this.overlayWindow != 'undefined' ){
+OverlayWindow.prototype.removeOverlay = function() {
+	if (typeof this.overlayWindow != 'undefined') {
 		$(this.overlayWindow.blockDiv).remove();
 		this.overlayWindow = undefined;
 	}
 }
-	
+
 /**
  * Resizes the overlay window.
  *
  * @this {OverlayWindow}
  */
-OverlayWindow.prototype.resize = function(){
-	if( typeof this.overlayWindow != 'undefined' ){
-		this.overlayWindow.blockDiv.css('width',$(this.div).width()+'px');
-		this.overlayWindow.blockDiv.css('height',$(this.div).height()+'px');
-		this.overlayWindow.overlay.css('width',$(this.div).width()+'px');
-		this.overlayWindow.overlay.css('height',$(this.div).height()+'px');
+OverlayWindow.prototype.resize = function() {
+	if (typeof this.overlayWindow != 'undefined') {
+		this.overlayWindow.blockDiv.css('width', $(this.div).width() + 'px');
+		this.overlayWindow.blockDiv.css('height', $(this.div).height() + 'px');
+		this.overlayWindow.overlay.css('width', $(this.div).width() + 'px');
+		this.overlayWindow.overlay.css('height', $(this.div).height() + 'px');
 		this.centerDiv(this.overlayWindow.content);
 	}
 }

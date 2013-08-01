@@ -6,7 +6,7 @@
  * @param {HTML} div The parent DIV to append the pagination panel.
  * @param {number} pages The number of pages (of the document) for the pagination.
  */
-function Pagination(div,pages){
+function Pagination(div, pages) {
 	this.div = div;
 	this.pages = pages;
 	this.page = 0;
@@ -18,31 +18,31 @@ function Pagination(div,pages){
  *
  * @this {Pagination}
  */
-Pagination.prototype.initialize = function(){
-	var pagination = this;	
+Pagination.prototype.initialize = function() {
+	var pagination = this;
 	var previousPageLi = $('<li/>').appendTo(this.div);
 	this.previousPage = $('<a class="icon-chevron-left"><span class="visuallyhidden"/></a>').appendTo(previousPageLi);
 	this.previousPage.title = Util.getString('previousPage');
-	this.previousPage.click(function(){
-		if( pagination.page > 1 ){
-			pagination.setPage(pagination.page-1);
+	this.previousPage.click(function() {
+		if (pagination.page > 1) {
+			pagination.setPage(pagination.page - 1);
 		}
 	});
 	var form = $('<form/>').appendTo(this.div);
-	form.css('display','inline');	
+	form.css('display', 'inline');
 	this.selectPageDropdown = $('<select/>').appendTo(this.div);
-	for( var i=0; i<this.pages; i++ ){
-		$('<option value="'+(i+1)+'">'+(i+1)+'</option>').appendTo(this.selectPageDropdown);
+	for (var i = 0; i < this.pages; i++) {
+		$('<option value="' + (i + 1) + '">' + (i + 1) + '</option>').appendTo(this.selectPageDropdown);
 	}
-	$(this.selectPageDropdown).change(function(evt){
+	$(this.selectPageDropdown).change(function(evt) {
 		pagination.page = parseInt(evt.currentTarget.value);
 		pagination.update();
 	});
 	var nextPageLi = $('<li/>').appendTo(this.div);
 	this.nextPage = $('<a class="icon-chevron-right"><span class="visuallyhidden"/></a>').appendTo(nextPageLi);
 	this.nextPage.title = Util.getString('nextPage');
-	this.nextPage.click(function(){
-		if( pagination.page < pagination.pages ){
+	this.nextPage.click(function() {
+		if (pagination.page < pagination.pages) {
 			pagination.page = parseInt(pagination.page + 1);
 			pagination.setPage(pagination.page);
 		}
@@ -56,13 +56,13 @@ Pagination.prototype.initialize = function(){
  * @param {number} page The new page for the pagination.
  * @param {boolean} avoidTrigger If this value is true, the trigger function will not be called (required to avoid infinite loops when views are linked).
  */
-Pagination.prototype.setPage = function(page,avoidTrigger){
-	var pagination = this;	
+Pagination.prototype.setPage = function(page, avoidTrigger) {
+	var pagination = this;
 	this.page = page;
-	$('select option:selected',this.selectPageDropdown).removeAttr('selected');
-	$("option",this.selectPageDropdown).each(function(){
-		if( pagination.page == parseInt($(this).html()) ){
-			$(this).attr('selected','selected');
+	$('select option:selected', this.selectPageDropdown).removeAttr('selected');
+	$("option", this.selectPageDropdown).each(function() {
+		if (pagination.page == parseInt($(this).html())) {
+			$(this).attr('selected', 'selected');
 		}
 	});
 	this.update(avoidTrigger);
@@ -74,7 +74,7 @@ Pagination.prototype.setPage = function(page,avoidTrigger){
  * @this {Pagination}
  * @param {Object} triggerFunc A trigger function to be called when a the user changes the page.
  */
-Pagination.prototype.setTriggerFunc = function(triggerFunc){
+Pagination.prototype.setTriggerFunc = function(triggerFunc) {
 	this.triggerFunc = triggerFunc;
 };
 
@@ -84,20 +84,20 @@ Pagination.prototype.setTriggerFunc = function(triggerFunc){
  * @this {Pagination}
  * @param {boolean} avoidTrigger If this value is true, the trigger function will not be called.
  */
-Pagination.prototype.update = function(avoidTrigger){
-	if( this.page == 1 ){
+Pagination.prototype.update = function(avoidTrigger) {
+	if (this.page == 1) {
 		$(this.previousPage).addClass('disabled');
 	}
 	else {
 		$(this.previousPage).removeClass('disabled');
 	}
-	if( this.page == this.pages ){
+	if (this.page == this.pages) {
 		$(this.nextPage).addClass('disabled');
 	}
 	else {
 		$(this.nextPage).removeClass('disabled');
 	}
-	if( !avoidTrigger ){
+	if (!avoidTrigger) {
 		this.triggerFunc(this.page);
 	}
 };

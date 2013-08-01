@@ -4,23 +4,25 @@
  * @constructor
  * @this {Tooltip}
  */
-var Tooltip = new function(){
+var Tooltip = new function() {
 	this.activeTooltips = [];
-	if( EditionProperties.tooltipMode == 'hover' ){
+	if (EditionProperties.tooltipMode == 'hover') {
 		//remove all inactive tooltips
-		$(window).mousemove(function(e){
+		$(window).mousemove(function(e) {
 			Tooltip.checkActivity();
-	       	});
+		});
 		//remove tooltips when mouse exits window/document
-		function windowExitEvent(object,oEvent,fnctn){
-			if(object.addEventListener) object.addEventListener(oEvent,fnctn,false);
-			else if(object.attachEvent) object.attachEvent("on" + oEvent, fnctn);
+		function windowExitEvent(object, oEvent, fnctn) {
+			if (object.addEventListener) object.addEventListener(oEvent, fnctn, false);
+			else
+				if (object.attachEvent) object.attachEvent("on" + oEvent, fnctn);
 		}
-		windowExitEvent(window,"load",function(e){
-			windowExitEvent(document,"mouseout",function(e){
+
+		windowExitEvent(window, "load", function(e) {
+			windowExitEvent(document, "mouseout", function(e) {
 				e = e ? e : window.event;
 				var from = e.relatedTarget || e.toElement;
-				if(!from || from.nodeName == "HTML"){
+				if (!from || from.nodeName == "HTML") {
 					Tooltip.removeAllTooltips();
 				}
 			});
@@ -35,9 +37,9 @@ var Tooltip = new function(){
  * @param {HTML} parent The parent of the tooltip, usually a link or a span tag.
  * @return {boolean} TRue, if there is already a tooltip for the given parent.
  */
-Tooltip.isActive = function(parent){
-	for( var i in this.activeTooltips ){
-		if( this.activeTooltips[i].parent == parent ){
+Tooltip.isActive = function(parent) {
+	for (var i in this.activeTooltips) {
+		if (this.activeTooltips[i].parent == parent) {
 			return true;
 		}
 	}
@@ -49,9 +51,9 @@ Tooltip.isActive = function(parent){
  *
  * @this {Tooltip}
  */
-Tooltip.removeAllTooltips = function(){
-	for( var i=this.activeTooltips.length; i>0; i-- ){
-		$(this.activeTooltips[i-1].tooltip).remove();
+Tooltip.removeAllTooltips = function() {
+	for (var i = this.activeTooltips.length; i > 0; i--) {
+		$(this.activeTooltips[i - 1].tooltip).remove();
 		this.activeTooltips.pop();
 	}
 };
@@ -61,12 +63,12 @@ Tooltip.removeAllTooltips = function(){
  *
  * @this {Tooltip}
  */
-Tooltip.checkActivity = function(){
+Tooltip.checkActivity = function() {
 	var check = true;
-	while( check ){
-		if( this.activeTooltips.length > 0 ){
+	while (check) {
+		if (this.activeTooltips.length > 0) {
 			var activeTooltip = this.activeTooltips[ this.activeTooltips.length - 1 ];
-			if( !activeTooltip.mouseOverParent && !activeTooltip.mouseOverTooltip ){
+			if (!activeTooltip.mouseOverParent && !activeTooltip.mouseOverTooltip) {
 				$(activeTooltip.tooltip).remove();
 				this.activeTooltips.pop();
 			}
@@ -88,17 +90,17 @@ Tooltip.checkActivity = function(){
  * @param {HTML} content The content to be shown in the tooltip.
  * @param {Object} trigger The trigger function to be called when the tooltip was created.
  */
-Tooltip.setTooltip = function(parent,content,trigger){
+Tooltip.setTooltip = function(parent, content, trigger) {
 	var tt = this;
-	if( EditionProperties.tooltipMode == 'hover' ){
-		$(parent).mouseenter(function(e){
-			if( tt.isActive(parent) ){
-				return;	
+	if (EditionProperties.tooltipMode == 'hover') {
+		$(parent).mouseenter(function(e) {
+			if (tt.isActive(parent)) {
+				return;
 			}
 			tt.checkActivity();
-			if ( typeof content != 'undefined' ){
+			if (typeof content != 'undefined') {
 				var tooltip = $("<div class='info info-tooltip'/>").appendTo(EditionGui.containerDiv);
-				$(tooltip).css('z-index','99999');
+				$(tooltip).css('z-index', '99999');
 				$(content).appendTo(tooltip);
 				var activeTooltip = {
 					tooltip: tooltip,
@@ -107,52 +109,53 @@ Tooltip.setTooltip = function(parent,content,trigger){
 					mouseOverTooltip: false
 				};
 				tt.activeTooltips.push(activeTooltip);
-				tooltip.css("top",(e.pageY - tooltip.height() - $(EditionGui.containerDiv).offset().top) + "px");
-				tooltip.css("left",(e.pageX) + "px");
+				tooltip.css("top", (e.pageY - tooltip.height() - $(EditionGui.containerDiv).offset().top) + "px");
+				tooltip.css("left", (e.pageX) + "px");
 				tooltip.fadeIn("fast");
-	  			$(tooltip).hover(function(e){
-	      				activeTooltip.mouseOverTooltip = true;
-	  			},function(){	
-	      				activeTooltip.mouseOverTooltip = false;
-  				});
-	  			$(parent).hover(function(e){
-	      				activeTooltip.mouseOverParent = true;
-	  			},function(){	
-	      				activeTooltip.mouseOverParent = false;
-  				});
-				if( trigger ){
+				$(tooltip).hover(function(e) {
+					activeTooltip.mouseOverTooltip = true;
+				}, function() {
+					activeTooltip.mouseOverTooltip = false;
+				});
+				$(parent).hover(function(e) {
+					activeTooltip.mouseOverParent = true;
+				}, function() {
+					activeTooltip.mouseOverParent = false;
+				});
+				if (trigger) {
 					trigger(tooltip);
 				}
 			}
 		});
 	}
-	else if( EditionProperties.tooltipMode == 'click' ){
-		$(parent).mouseenter(function(e){
-			if ( typeof content != 'undefined' && content != '' ){			
-				var tooltip = $("<div class='info info-tooltip'/>").appendTo(EditionGui.containerDiv);
-				$(tooltip).css('z-index','99999');
-				$(content).appendTo(tooltip);
-				var clicked = false;
-				tooltip.css("top",($(parent).offset().top + $(parent).height()) + "px");
-				tooltip.css("left",($(parent).offset().left) + "px");
-				tooltip.fadeIn("fast");
-				$(parent).mouseleave(function(e){
-					if(!clicked){
-						$(tooltip).remove();
-					}
-				});
-				$(parent).click(function(e){
-					clicked = true;
-					$(tooltip).draggable();
-					var close = $('<div class="closeTooltip"/>').appendTo(tooltip);
-					close.click(function(e){
-						$(tooltip).remove();
+	else
+		if (EditionProperties.tooltipMode == 'click') {
+			$(parent).mouseenter(function(e) {
+				if (typeof content != 'undefined' && content != '') {
+					var tooltip = $("<div class='info info-tooltip'/>").appendTo(EditionGui.containerDiv);
+					$(tooltip).css('z-index', '99999');
+					$(content).appendTo(tooltip);
+					var clicked = false;
+					tooltip.css("top", ($(parent).offset().top + $(parent).height()) + "px");
+					tooltip.css("left", ($(parent).offset().left) + "px");
+					tooltip.fadeIn("fast");
+					$(parent).mouseleave(function(e) {
+						if (!clicked) {
+							$(tooltip).remove();
+						}
 					});
-				});
-				if( trigger ){
-					trigger(tooltip);
+					$(parent).click(function(e) {
+						clicked = true;
+						$(tooltip).draggable();
+						var close = $('<div class="closeTooltip"/>').appendTo(tooltip);
+						close.click(function(e) {
+							$(tooltip).remove();
+						});
+					});
+					if (trigger) {
+						trigger(tooltip);
+					}
 				}
-			}
-		});
-	}
+			});
+		}
 };
