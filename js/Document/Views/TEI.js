@@ -24,7 +24,7 @@ TEI.prototype.initialize = function(){
 	var context = this;
 	$(this.container).css('position','relative');
 	this.teiDownload = $("<div/>");
-	this.teiDownload.addClass("teiDownload");
+	this.teiDownload.addClass("icon-download");
 	this.teiDownload.attr( "title", Util.getString('downloadTei') );
 	this.teiDownload.click(function(){
 		context.parent.overlay.contentOverlay(context.teiDownloadDialog());
