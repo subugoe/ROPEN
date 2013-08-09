@@ -100,7 +100,11 @@ Text.prototype.display = function(page, id) {
 		}
 		if (typeof id != 'undefined') {
 			var node = $(context.contentPanel).find("a[name='" + id + "']")[0];
-			$(context.contentPanel).scrollTop($(node).offset().top - $(context.container).offset().top + $(context.contentPanel).scrollTop());
+			var nodeOffset = 0;
+			if (node) {
+				nodeOffset = $(node).offset().top;
+			}
+			$(context.contentPanel).scrollTop(nodeOffset - $(context.container).offset().top + $(context.contentPanel).scrollTop());
 		}
 		else
 			if (context.parent.page > 0) {
