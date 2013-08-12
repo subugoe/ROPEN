@@ -530,7 +530,7 @@ you can use the generic selector below, but it's slower:
   cursor: pointer;
 }
 .edition .hits .searchresult {
-  height: 200px;
+  height: 146px;
   overflow: hidden;
 }
 .edition .hits .searchresult p {
