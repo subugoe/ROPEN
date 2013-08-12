@@ -52,14 +52,14 @@
 			}
 			.doc-name {
 				&:hover {
-					text-decoration: underline;
+					text-decoration: none;
 					cursor: pointer;
 				}
 			}
 		}
 		.searchresult {
 			height: 200px;
-			overflow-y: hidden;
+			overflow: hidden;
 			p {
 				font-size: 80%;
 			}
@@ -421,10 +421,9 @@
 	list-style-type: none;
 	margin: 8px 0;
 	padding: 10px 0;
-}
-
-.edition .search .main .hits li:hover {
-	background: #fafafa;
+	&:hover {
+		border-bottom: 1px solid $hoverColor;
+	}
 }
 
 .edition .search .main .hits .hits-a {

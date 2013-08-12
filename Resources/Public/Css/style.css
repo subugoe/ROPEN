@@ -526,12 +526,12 @@ you can use the generic selector below, but it's slower:
   text-decoration: none !important;
 }
 .edition .hits a.result-title .doc-name:hover {
-  text-decoration: underline;
+  text-decoration: none;
   cursor: pointer;
 }
 .edition .hits .searchresult {
   height: 200px;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 .edition .hits .searchresult p {
   font-size: 80%;
@@ -882,9 +882,8 @@ you can use the generic selector below, but it's slower:
   margin: 8px 0;
   padding: 10px 0;
 }
-
 .edition .search .main .hits li:hover {
-  background: #fafafa;
+  border-bottom: 1px solid #900000;
 }
 
 .edition .search .main .hits .hits-a {
