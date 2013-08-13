@@ -60,6 +60,10 @@
 		.searchresult {
 			height: 146px;
 			overflow: hidden;
+			border-bottom: 1px solid #dedede;
+			&:last-child {
+				border-bottom: 0;
+			}
 			p {
 				font-size: 80%;
 			}

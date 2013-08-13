@@ -532,6 +532,10 @@ you can use the generic selector below, but it's slower:
 .edition .hits .searchresult {
   height: 146px;
   overflow: hidden;
+  border-bottom: 1px solid #dedede;
+}
+.edition .hits .searchresult:last-child {
+  border-bottom: 0;
 }
 .edition .hits .searchresult p {
   font-size: 80%;
