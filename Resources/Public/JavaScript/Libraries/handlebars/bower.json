@@ -1,9 +1,9 @@
 {
-  "name": "handlebars.js",
+  "name": "handlebars",
   "version": "1.0.0",
-  "main": "dist/handlebars.js",
-  "ignore": [
-    "node_modules",
-    "components"
-  ]
+  "main": [
+    "handlebars.js",
+    "handlebars.runtime.js"
+  ],
+  "dependencies": {}
 }

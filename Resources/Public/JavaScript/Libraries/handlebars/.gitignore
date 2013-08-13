@@ -1,9 +1,2 @@
 vendor
-.rvmrc
-.DS_Store
-lib/handlebars/compiler/parser.js
-dist
-node_modules
-*.sublime-project
-*.sublime-workspace
-npm-debug.log
+composer.lock
