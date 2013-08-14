@@ -21,7 +21,7 @@
 	<script src="howto.js" type="text/javascript"></script>
 
 	<!-- Automatic TOC generator -->
-	<script src="jquery.planize.js" type="text/javascript"></script>
+	<script src="./jquery.planize.js" type="text/javascript"></script>
 
 	<!-- PrettyPrint (triggered in onload event) -->
 	<link href="prettify.css" rel="stylesheet">
@@ -54,8 +54,8 @@
 <h1>Dynatree documentation</h1>
 
 <div class="hint">
-	This document describes dynatree version: <strong>$Version: 1.1.1$</strong>.<br>
-	Document revision: $Revision: 481, 2011-03-02 07:25:35$.<br>
+	This document describes dynatree version: <strong>$Version: 1.2.4$</strong>.<br>
+	Document revision: $Revision: 636, 2013-01-26 08:26:52$.<br>
 	A current version may be found at the project site
 	<a href="http://wwwendt.de/tech/dynatree/index.html">http://wwwendt.de/tech/dynatree/index.html</a>.
 </div>
@@ -81,10 +81,10 @@
 </ul>
 
 <p class="info">
-	This document describes <strong>release 1.x</strong>.<br>
-	If you are updating from version 0.5 please read the
-	<a href="http://code.google.com/p/dynatree/wiki/UpdateToVersion10">migration hints</a>
-	first.
+	Dynatree runs best, when the HTML document is rendered in a strict mode like<br>
+	<code>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"></code>.
+	<br>
+	Avoid the <a href="http://en.wikipedia.org/wiki/Quirks_mode">quirks mode</a>.
 </p>
 
 <!-- jquery.planize will generate a TOC here: -->
@@ -127,7 +127,7 @@
 &lt;head>
 	&lt;!-- Include the required JavaScript libraries: -->
 	&lt;script src='jquery/jquery.js' type="text/javascript">&lt;/script>
-	&lt;script src='jquery/jquery.ui.core.js' type="text/javascript">&lt;/script>
+	&lt;script src='jquery/jquery-ui.custom.js' type="text/javascript">&lt;/script>
 	&lt;script src='jquery/jquery.cookie.js' type="text/javascript">&lt;/script>
 
 	&lt;link rel='stylesheet' type='text/css' href='skin/ui.dynatree.css'>
@@ -254,10 +254,12 @@ $("#tree").dynatree({
 	onActivate: null, // Callback(dtnode) when a node is activated.
 	onDeactivate: null, // Callback(dtnode) when a node is deactivated.
 	onSelect: null, // Callback(flag, dtnode) when a node is (de)selected.
-	onExpand: null, // Callback(dtnode) when a node is expanded/collapsed.
+	onExpand: null, // Callback(flag, dtnode) when a node is expanded/collapsed.
 	onLazyRead: null, // Callback(dtnode) when a lazy node is expanded for the first time.
 	onCustomRender: null, // Callback(dtnode) before a node is rendered. Return a HTML string to override.
+	onCreate: null, // Callback(dtnode, nodeSpan) after a node was rendered for the first time.
 	onRender: null, // Callback(dtnode, nodeSpan) after a node was rendered.
+	postProcess: null, // Callback(data, dataType) before an Ajax result is passed to dynatree.
 
 	// Drag'n'drop support
 	dnd: {
@@ -274,6 +276,7 @@ $("#tree").dynatree({
 	},
 	ajaxDefaults: { // Used by initAjax option
 		cache: false, // false: Append random '_' argument to the request url to prevent caching.
+		timeout: 0, // >0: Make sure we get an ajax error for invalid URLs
 		dataType: "json" // Expect json format and pass json object to callbacks.
 	},
 	strings: {
@@ -413,6 +416,7 @@ children: [
 	isFolder: false, // Use a folder icon. Also the node is expandable but not selectable.
 	isLazy: false, // Call onLazyRead(), when the node is expanded for the first time to allow for delayed creation of children.
 	tooltip: null, // Show this popup text.
+	href: null, // Added to the generated &lt;a> tag.
 	icon: null, // Use a custom image (filename relative to tree.options.imagePath). 'null' for default icon, 'false' for no icon.
 	addClass: null, // Class name added to the node's span tag.
 	noLink: false, // Use &lt;span> instead of &lt;a> tag for this node
@@ -480,6 +484,16 @@ onActivate: function(node) {
 		style.)<br>
 		See also <code>unselectable</code>.
 	</dd>
+	<dt>data.href
+	<dd>
+		Contains the link URL, if the tree was initialized from a &lt;ul> tag:
+<pre class="prettyprint">&lt;div id="tree">&lt;ul>
+	&lt;li class="expanded folder">Search engines
+	&lt;ul>
+		&lt;li>&lt;a href="http://www.google.com" target="_self">Google&lt;/a>
+		&lt;li>&lt;a href="http://www.bing.com">Bing&lt;/a>
+</pre>
+	</dd>
 	<dt>data.icon
 	<dd>
 		Optional name of an image file relative to the image directory. <br>
@@ -508,6 +522,10 @@ onActivate: function(node) {
 	<dt>data.select
 	<dd>
 		If set to true, the node will be initially selected.
+	</dd>
+	<dt>data.target
+	<dd>
+		See data.href.
 	</dd>
 	<dt>data.title
 	<dd>
@@ -616,7 +634,12 @@ $("#tree").dynatree({
 </p>
 <p>
 	All other node options are specified in the <code>data</code> attribute of a &lt;li> element.
+	For example
 </p>
+<pre class="prettyprint">
+&lt;li data="url: 'http://jquery.com'">jQuery home
+&lt;li data="url: 'http://example.com', addClass: 'customClass1'">Example page
+</pre>
 <p class="info">
 	Note that the <code>data</code> attribute is not valid in <code>&lt;li></code> elements in
 	some doctypes (HTML 4.01 transitional and Strict and XHTML 1.0 Strict).
@@ -629,6 +652,13 @@ $("#tree").dynatree({
 	Nested &lt;ul> elements are used to build a hierarchical tree structure.<br>
 	After the &lt;ul> element was parsed, it is removed from the DOM tree.
 </p>
+<p>
+	Note that &lt;a> elements are recognized:<br>
+	<code>&lt;li>&lt;a href='URL' target='TARGET'>TITLE&lt;/a></code> will result in<br>
+	node.data.title = TITLE<br>
+	node.data.href = URL<br>
+	node.data.target = TARGET
+</p>
 
 <div class="codesample">
 	<a href="sample-ul.html">Try this example...</a>
@@ -636,7 +666,7 @@ $("#tree").dynatree({
 &lt;head>
 	&lt;!-- Include the required JavaScript libraries: -->
 	&lt;script src='jquery/jquery.js' type="text/javascript">&lt;/script>
-	&lt;script src='jquery/jquery.ui.core.js' type="text/javascript">&lt;/script>
+	&lt;script src='jquery/jquery-ui.custom.js' type="text/javascript">&lt;/script>
 
 	&lt;link rel='stylesheet' type='text/css' href='skin/ui.dynatree.css' >
 	&lt;script src='jquery.dynatree.js' type="text/javascript">&lt;/script>
@@ -738,55 +768,53 @@ onActivate: function(node) {
 
 <h3><code>DynaTree</code> callbacks</h3>
 
-The <code>this</code> context is set to the tree object.
+The <code>this</code> context is set to the tree object.<br>
+Use <code>tree.isUserEvent()</code>, <code>tree.isInitializing()</code>,
+and <code>tree.isReloading()</code> to determine who generated this event.
 
 <dl class="optionList">
-	<dt>opts.onQueryActivate(flag, node)
-	<dd>
-	Called before a node is (de)activated. Return <code>false</code> to prevent
-	this.
-	</dd>
-
-	<dt>opts.onQuerySelect(flag, node)
-	<dd>
-	Called before a node is (de)selected. Return <code>false</code> to prevent
-	this.
-	</dd>
-
-	<dt>opts.onQueryExpand(flag, node)
-	<dd>
-	Called before a node is expanded/collapsed. Return <code>false</code> to prevent
-	this.
-	</dd>
-
-	<dt>opts.onPostInit(isReloading, isError)
-	<dd>
-	Called when the tree was (re)loaded.
-	</dd>
-
 	<dt>opts.onActivate(node)
 	<dd>
 	Called when a node was activated.
+	<pre class="prettyprint">onActivate: function(node) {
+	if(node.tree.isUserEvent()){
+		[...] // Do something after user activated the node (using mouse or keyboard)
+	}
+}</pre>
 	</dd>
 
-	<dt>opts.onDeactivate(node)
+	<dt>opts.onBlur(node)
 	<dd>
-	Called when a node was deactivated.
+	Called when a node lost the focus.
 	</dd>
 
-	<dt>opts.onSelect(flag, node)
+	<dt>opts.onClick(node, event)
 	<dd>
-	Called when a node was (de)selected.
+	Called when a node was clicked.<br>
+	Use <code>node.getEventTargetType(event)</code> to check which area was clicked.<br>
+	Return <code>false</code> to prevent default processing
+	(setting focus, activate the node, expand folders, etc.).
+	<pre class="prettyprint">onClick: function(node, event) {
+	if(node.getEventTargetType(event) == "title"){
+		[...] // Handle the click event
+		return false;// Prevent default processing
+	}
+}</pre>
 	</dd>
 
-	<dt>opts.onExpand(flag, node)
+	<dt>opts.onCreate(node, nodeSpan)
 	<dd>
-	Called when a node was expanded/collapsed.
-	</dd>
-
-	<dt>opts.onLazyRead(node)
-	<dd>
-	Called when a lazy node is expanded for the first time.
+		Called after a node's HTML tag was created, i.e. when a node becomes
+		visible for the first time.<br>
+		This callback may be used to bind events or widgets for nodes that are
+		created lazily or programatically.<br>
+		<pre class="prettyprint">onCreate: function(node, nodeSpan) {
+	$(span).click(function(e){
+		alert('clicked ' + node);
+	});
+}</pre>
+	(Note that the use of jQuery live events may often be a more efficient solution.)<br>
+	See also <code>opts.onRender</code>.
 	</dd>
 
 	<dt>opts.onCustomRender(node)
@@ -800,24 +828,90 @@ The <code>this</code> context is set to the tree object.
 }</pre>
 	</dd>
 
+	<dt>opts.onDblClick(node, event)
+	<dd>
+	Called when a node was double clicked.<br>
+	Use <code>node.getEventTargetType(event)</code> to check which area was clicked.<br>
+	Return <code>false</code> to prevent default processing (currently none).
+	</dd>
+
+	<dt>opts.onDeactivate(node)
+	<dd>
+	Called when a node was deactivated.
+	</dd>
+
+	<dt>opts.onExpand(flag, node)
+	<dd>
+	Called when a node was expanded/collapsed.
+	</dd>
+
+	<dt>opts.onFocus(node)
+	<dd>
+	Called when a node receives the focus.
+	</dd>
+
+	<dt>opts.onKeydown(node, event)
+	<dd>
+	Called on keydown events.<br>
+	Return <code>false</code> to prevent default processing
+	(generate keyboard navigation, focus, expand, activate, etc.).
+	</dd>
+
+	<dt>opts.onKeypress(node, event)
+	<dd>
+	Called on keypress events.<br>
+	Return <code>false</code> to prevent default processing (currently none).
+	</dd>
+
+	<dt>opts.onLazyRead(node)
+	<dd>
+	Called when a lazy node is expanded for the first time.
+	</dd>
+
+	<dt>opts.onPostInit(isReloading, isError [, XMLHttpRequest, textStatus, errorThrown])
+	<dd>
+	Called when the tree was (re)loaded.<br>
+	In case of an error, <code>isError</code> will be <code>true</code> and
+	addition info is passed: XMLHttpRequest, textStatus, errorThrown.
+	</dd>
+
+	<dt>opts.onQueryActivate(flag, node)
+	<dd>
+	Called before a node is (de)activated. Return <code>false</code> to prevent
+	this.
+	</dd>
+
+	<dt>opts.onQueryExpand(flag, node)
+	<dd>
+	Called before a node is expanded/collapsed. Return <code>false</code> to prevent
+	this.
+	</dd>
+
+	<dt>opts.onQuerySelect(flag, node)
+	<dd>
+	Called before a node is (de)selected. Return <code>false</code> to prevent
+	this.
+	</dd>
+
 	<dt>opts.onRender(node, nodeSpan)
 	<dd>
-		Called after a node's HTML tag was created. This happens when a node
-		becomes visible for the first time.<br>
-		This callback may be used to modify the HTML markup, or bind events.
+		Called after every time a node's HTML tag was created or changed.<br>
+		This callback may be used to modify the HTML markup.
 		<pre class="prettyprint">onRender: function(node, nodeSpan) {
 	$(nodeSpan).find("a.dynatree-title").css("color", "red");
 }</pre>
+	See also <code>opts.onCreate</code>.
+	</dd>
+
+	<dt>opts.onSelect(flag, node)
+	<dd>
+	Called when a node was (de)selected.
 	</dd>
 
 	<dt>opts.dnd.onDragStart(sourceNode)
 	<dd>
 	This function <i>must</i> be defined to enable dragging for the tree.
 	Return <code>false</code> to cancel dragging of node.
-	</dd>
-
-	<dt>opts.dnd.onDragStop(sourceNode)
-	<dd>
 	</dd>
 
 	<dt>opts.dnd.onDragEnter(targetNode, sourceNode)
@@ -829,12 +923,16 @@ The <code>this</code> context is set to the tree object.
 	<dd>
 	</dd>
 
+	<dt>opts.dnd.onDragLeave(targetNode, sourceNode)
+	<dd>
+	</dd>
+
 	<dt>opts.dnd.onDrop(targetNode, sourceNode, hitMode)
 	<dd>
 	This function <i>must</i> be defined to enable dropping of items on the tree.
 	</dd>
 
-	<dt>opts.dnd.onDragLeave(targetNode, sourceNode)
+	<dt>opts.dnd.onDragStop(sourceNode)
 	<dd>
 	</dd>
 
@@ -1073,7 +1171,7 @@ return [ res ]
 <p>
 	See <a href="dynatree_server.py">dynatree_server.py</a> for a sample
 	implementation of a web server that handles this (~150 lines of Python code).<br>
-	When this server is running, you can try this <a href="sample-lazy-persist.html">live example</a>
+	When this server is running, you can try this <a href="sample-pyserver.html">live example</a>
 	of a lazy tree.
 </p>
 
@@ -1177,7 +1275,7 @@ $("#tree").dynatree({
 	onPostInit: function(isReloading, isError) {
 		// 'this' is the current tree
 		// isReloading is true, if status was read from existing cookies
-		// isError is only used in Ajay mode
+		// isError is only used in Ajax mode
 		// Fire an onActivate() event for the currently active node
 		this.reactivate();
 	},
@@ -1209,7 +1307,7 @@ information to the web service.
 </p><p>
 	See <a href="dynatree_server.py">dynatree_server.py</a> for a sample
 	implementation of a web server that handles this (~150 lines of Python code).<br>
-	When this server is running, you can try this <a href="sample-lazy-persist.html">live example</a>
+	When this server is running, you can try this <a href="sample-pyserver.html">live example</a>
 	of a lazy tree.
 </p>
 
@@ -1228,7 +1326,7 @@ $("#tree").dynatree({
 	onPostInit: function(isReloading, isError) {
 		// In lazy mode, this will be called *after* the initAjax request returned.
 		// 'this' is the current tree
-		// isReloading is set, if status wss read from existing cookies
+		// isReloading is set, if status was read from existing cookies
 		// isError is set, if Ajax failed
 		// Fire an onActivate() event for the currently active node
 		this.reactivate();
@@ -1281,8 +1379,35 @@ $("#tree").dynatree({
 	[&#8230;]
 });
 </pre>
+
 <p>
-	the following methods are directly available from the plugin:
+	The following methods are globally available from the ui.dynatree namespace:
+</p>
+<dl class="optionList">
+	<dt>$.ui.dynatree.getNode(el)
+	<dd>
+		Return a DynaTreeNode object for a given DOM element.<br>
+		`el` may be a DOM element or a jQuery object.
+		Example: <pre class="prettyprint">$("#tree a").hover(function(){
+		var node = $.ui.dynatree.getNode(this);
+		logMsg("Hover in %s", node);
+	}, function(){
+		[...]
+	});</pre>
+	</dd>
+	<dt>$.ui.dynatree.getPersistData(cookieId, cookieOpts)
+	<dd>
+		Return cookie persistence info as dictionary.
+	</dd>
+	<dt>$.ui.dynatree.version
+	<dd>
+		Release version number.
+	</dd>
+</dl>
+
+
+<p>
+	The following methods are directly available from the plugin:
 </p>
 <dl class="optionList">
 	<dt>$("#tree").dynatree("disable")
@@ -1367,7 +1492,7 @@ tree.enableUpdate(prevMode);</pre>
 	<dd>
 		Return cookie persistence info as dictionary.<br>
 		There is also a global function available:
-		<code>getDynaTreePersistData(cookieId, cookieOpts)</code>.
+		<code>$.ui.dynatree.getPersistData(cookieId, cookieOpts)</code>.
 	</dd>
 	<dt>tree.getRoot()
 	<dd>
@@ -1386,22 +1511,24 @@ tree.enableUpdate(prevMode);</pre>
 	</dd>
 	<dt>tree.isInitializing()
 	<dd>
-		Return true, if the tree is in the init phase.<br>
+		Return <code>true</code>, if the tree is in the init phase.<br>
 		Use this function in an event handler, to check if the event was fired
 		during a page reload, when the cookie persistence is applied.
 	</dd>
 	<dt>tree.isReloading()
 	<dd>
-		Return true, if the tree is in the init phase and persistence is on,
+		Return <code>true</code>, if the tree is in the init phase and persistence is on,
 		and the current status was read from existing cookies.<br>
 		Use this function in an event handler, to check if the event was fired
 		during a page reload, when the cookie persistence is applied.
 	</dd>
 	<dt>tree.isUserEvent()
 	<dd>
-		Return true, if the tree is processing a user event.<br>
+		Return <code>true</code>, if the tree is processing a user event.<br>
 		Use this function in an event handler, to check if the event was fired
-		in response to a mouse click or key stroke.
+		in response to a mouse click or key stroke.<br>
+		Otherwise, the the event was generated by an API call or during
+		initialization.
 	</dd>
 	<dt>tree.loadKeyPath(keyPath, callback)
 	<dd>
@@ -1419,6 +1546,9 @@ tree.enableUpdate(prevMode);</pre>
 		// If we call activate() or makeVisible() here, then the
 		// whole branch will be exoanded now
 		node.activate();
+	}else if(status == "notfound") {
+		var seg = arguments[2],
+			isEndNode = arguments[3];
 	}
 });</pre>
 	</dd>
@@ -1532,7 +1662,7 @@ node.addChild({title: "New Node", key: "3333"});
 	</dd>
 	<dt>node.countChildren()</dt>
 	<dd>
-		Return the number of child nodes.
+		Return the number of descendant nodes, i.e. direct and indirect children.
 	</dd>
 	<dt>node.deactivate()</dt>
 	<dd>
@@ -1547,10 +1677,16 @@ node.addChild({title: "New Node", key: "3333"});
 		Set focus to this node. Parent nodes are expanded, if this is necessary
 		to make it visible.
 	</dd>
+	<dt>node.getChildren()
+	<dd>
+		Return list of child nodes or <code>null</code>.<br>
+		For lazy nodes that have not yet been loaded, <code>undefined</code> is
+		is returned.
+	</dd>
 	<dt>node.getEventTargetType(event)</dt>
 	<dd>
 		Return the part of a node, that a click event occurred on.<br>
-		Possible values: 'prefix' 'expander', 'checkbox', 'title'.<br>
+		Possible values: 'prefix' 'expander', 'checkbox', 'icon', 'title'.<br>
 		<code>null</code> is returned else.<br>
 		Note: there is no check, if the event was fired on <strong>this</strong> node.
 	</dd>
@@ -1559,15 +1695,24 @@ node.addChild({title: "New Node", key: "3333"});
 		Return the depth (i.e. number of parent nodes).<br>
 		0 is returned for the root node.
 	</dd>
-	<dt>node.getChildren()
+	<dt>node.getNextSibling()
 	<dd>
-		Return list of child nodes or <code>null</code>.
+		Return the successor node or <code>null</code>.
+	</dd>
+	<dt>node.getParent()
+	<dd>
+		Return the parent node or <code>null</code>.
+	</dd>
+	<dt>node.getPrevSibling()
+	<dd>
+		Return the predecessor node or <code>null</code>.
 	</dd>
 	<dt>node.hasChildren()
 	<dd>
-		Return <code>true</code>, if node has child nodes.<br>
-		For lazy nodes that have not yet been loaded, <code>undefined</code> is
-		is returned.<br>
+		Return <code>true</code> if node has child nodes.<br>
+		Return <code>false</code> if node is a leaf, i.e. has no child nodes.<br>
+		Return <code>undefined</code> if this is a lazy node, that was not yet
+		successfully loaded.<br>
 		A test for 'node is surely empty' would be coded like
 		<pre class="prettyprint">if(node.hasChildren() === false) ...</pre>
 	</dd>
@@ -1575,10 +1720,6 @@ node.addChild({title: "New Node", key: "3333"});
 	<dd>
 		Return true, if this node is activated. Only one tree node may be active
 		at any time.
-	</dd>
-	<dt>node.isFocused()
-	<dd>
-		Return true, if this node is has the focus.
 	</dd>
 	<dt>node.isChildOf(otherNode)
 	<dd>
@@ -1590,13 +1731,29 @@ node.addChild({title: "New Node", key: "3333"});
 		Return true, if this node is a descendent (direct or indirect child) of
 		<code>otherNode</code>.
 	</dd>
+	<dt>node.isExpanded()
+	<dd>
+		Return true, if the node is expanded.
+	</dd>
 	<dt>node.isFirstSibling()
 	<dd>
 		Return true, if this node is the first of all children of the current parent.
 	</dd>
+	<dt>node.isFocused()
+	<dd>
+		Return true, if this node is has the focus.
+	</dd>
 	<dt>node.isLastSibling()
 	<dd>
 		Return true, if this node is the last of all children of the current parent.
+	</dd>
+	<dt>node.isLazy()
+	<dd>
+		Return true, if the node is lazy (loaded or not).
+	</dd>
+	<dt>node.isLoading()
+	<dd>
+		Return true, if the node is lazy and currently loading (i.e. an Ajax request is active).
 	</dd>
 	<dt>node.isSelected()
 	<dd>
@@ -1764,7 +1921,7 @@ $("#tree").dynatree("getTree").selectKey("1234");
 // or another way:
 $("#tree").dynatree("getTree").getNodeByKey("1234").select();
 // .. or yet another way (if 'generateIds' option was enabled):
-$("#dynatree-id-1234").attr("dtnode").select();
+$("#dynatree-id-1234").prop("dtnode").select();
 
 </pre>
 
@@ -1773,22 +1930,20 @@ $("#dynatree-id-1234").attr("dtnode").select();
 
 <pre class="prettyprint">
 var node = $("#tree").dynatree("getActiveNode");
-if( node )
+if( node ){
 	alert("Currently active: " + node.data.title);
+}
 </pre>
 
 
-<h4>Example: Retrieve a node using a jQuery selector</h4>
+<h4>Example: Retrieve a node using for a DOM element or jQuery object</h4>
 
 <pre class="prettyprint">
 $(".dynatree-partsel").each(function(){
-	var node = $(this).parents("[dtnode]").attr("dtnode");
+	var node = $.ui.dynatree.getNode(this);
 	[...]
 });
 </pre>
-<p>
-	Note: The selector must evaluate to the node's &lt;span> tag.
-</p>
 
 
 <h4>Example: Rename the active node</h4>
@@ -1822,10 +1977,10 @@ var childNode = node.addChild({
 <pre class="prettyprint">
 // Bind hover events to the tree's &lt;a> tags:
 $("#tree a").hover(function(){
-		var node = $(this).parents("[dtnode]").attr("dtnode");
+		var node = $.ui.dynatree.getNode(this);
 		logMsg("Hover in %s", node);
 	}, function(){
-		var node = $(this).parents("[dtnode]").attr("dtnode");
+		var node = $.ui.dynatree.getNode(this);
 		logMsg("Hover out %s", node);
 	});
 </pre>
@@ -1846,6 +2001,31 @@ $("#tree").dynatree("getRoot").visit(function(node){
 // Get a JavaScript object copy of the tree
 var dict = $("#tree").dynatree("getTree").toDict();
 // ... then use Ajax to send this to your server...
+</pre>
+
+
+<h4>Example: activate a node depending on URL</h4>
+
+This sample shows how to parse the page URL and activate a node accordingly:
+<code>http://server/_test-194.html?activate=_11</code>
+
+<pre class="prettyprint">
+// Add a helper function to parse the URL
+function getURLParameter(name) {
+	return unescape(
+		(RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
+	);
+}
+// Evaluate the URL after the tree was loaded
+$(function(){
+	$("#tree").dynatree({
+		[...]
+		onPostInit: function(isReloading, isError) {
+			var key = getURLParameter("activate");
+			if( key ) {
+				this.activateKey(key);
+			}
+		},
 </pre>
 
 
@@ -1958,6 +2138,7 @@ $("#tree").dynatree({
 </p>
 <ul>
 	<li>A <a href="http://groups.google.com/group/dynatree">discussion forum</a> is in place to ask questions or discuss features.
+	<li>Check <a href="http://stackoverflow.com/tags/dynatree">Stack Overflow</a> for existing questions.
 	<li>Use the <a href="http://code.google.com/p/dynatree/issues/list">Issue Tracker</a> to get a list of known bugs, or vote for a feature.<br>
 		Please make sure you searched the group and issue tracker, before adding a new request.
 	<li>If you like:
