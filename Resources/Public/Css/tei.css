@@ -2,7 +2,7 @@
 * css for the display of tei specific classes 
 */
 .exist\:match {
-  color: red;
+  color: #900000;
 }
 
 .tei\:expan {
