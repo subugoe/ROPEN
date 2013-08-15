@@ -523,17 +523,11 @@ Browser.prototype.addCategory = function(doc, results) {
 				$('div').remove('.searchresult-thumbnail-link');
 			}
 		)
-		var thumbDiv = $("<div class='dummyThumbSmall'/>").appendTo(thumb);
+		var thumbDiv = $("<img class='thumbnail lazy fat-border' src='ropen/Resources/Public/Images/dummySmall.png' data-original='" + doc.imagePath + "80/" + doc.images[result.page - 1] + "'/>").appendTo(thumb);
 
 		$(thumbDiv).css('margin-bottom', '20px');
 
-		var thumbnail = $("<div class='loadme'/>").appendTo(thumbDiv);
-
-		thumbnail.css('height', thumbDiv.height() + 'px');
-		thumbnail.css('width', thumbDiv.width() + 'px');
-		thumbnail.attr("innerHTML", "<!--<img class='thumbnail fat-border' src='" + doc.imagePath + "80/" + doc.images[result.page - 1] + "'/>-->");
-
-		thumbDiv.click(function(evt) {
+			thumbDiv.click(function(evt) {
 			EditionGui.openDocument(evt, doc, result.page, "images");
 		});
 		var textDiv = $('<div class="result-text"/>').appendTo(searchResult);
@@ -556,6 +550,6 @@ Browser.prototype.addCategory = function(doc, results) {
 				$(searchContent[i]).addClass('visuallyhidden');
 			}
 		}
-		$('div.loadme', this.searchResults).lazyLoad(searchTab, imageLoad, 1000);
+		$("img.lazy").lazyload();
 	});
 };

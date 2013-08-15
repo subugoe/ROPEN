@@ -32,13 +32,13 @@ Thumbnails.prototype.display = function() {
 	$.each(this.images, function(i, image) {
 		var thumbDiv = $("<div/>").appendTo(doc.container);
 		thumbDiv.addClass("dummyThumb");
-		var thumbnail = $("<div class='loadme'/>").appendTo(thumbDiv);
+		var thumbnail = $("<img class='thumbnail loadme lazy' src='ropen/Resources/Public/Images/dummy.png' data-original='" + doc.path + "120/" + image + "'/>").appendTo(thumbDiv);
 		thumbnail.css('height', thumbDiv.height() + 'px');
 		thumbnail.css('width', thumbDiv.width() + 'px');
-		thumbnail.attr("innerHTML", "<!--<img class='thumbnail' src='" + doc.path + "120/" + image + "'/>-->");
 		appendClickFunction(thumbDiv, i + 1);
 	});
-	$('div.loadme').lazyLoad(this.container, imageLoad, 1000);
+
+	$("img.lazy").lazyload();
 };
 
 /**
@@ -47,5 +47,5 @@ Thumbnails.prototype.display = function() {
  * @this {Thumbnails}
  */
 Thumbnails.prototype.resize = function() {
-	$('div.loadme').trigger('scroll');
+	$('img.loadme').trigger('scroll');
 };
