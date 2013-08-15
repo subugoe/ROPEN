@@ -512,6 +512,17 @@ Browser.prototype.addCategory = function(doc, results) {
 		$(searchResult).addClass('visuallyhidden');
 
 		var thumb = $("<div class='searchresult-thumbnail'/>").appendTo(searchResult);
+
+		// add class to hover
+		$('.searchresult-thumbnail').hover(
+			function() {
+				$('div').remove('.searchresult-thumbnail-link');
+				$(this).append('<div class="searchresult-thumbnail-link" />');
+			},
+			function() {
+				$('div').remove('.searchresult-thumbnail-link');
+			}
+		)
 		var thumbDiv = $("<div class='dummyThumbSmall'/>").appendTo(thumb);
 
 		$(thumbDiv).css('margin-bottom', '20px');

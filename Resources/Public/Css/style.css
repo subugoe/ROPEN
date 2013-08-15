@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* =============================================================================
    HTML5 Boilerplate CSS: h5bp.com/css
    ========================================================================== */
@@ -544,6 +545,26 @@ you can use the generic selector below, but it's slower:
   display: inline-block;
   float: left;
   width: 35%;
+}
+.edition .hits .searchresult .searchresult-thumbnail-link {
+  width: 50px;
+  height: 75px;
+  border-bottom-right-radius: 50px;
+  border-top-right-radius: 50px;
+  background-color: #000;
+  opacity: .5;
+  position: relative;
+  margin-top: -110px;
+  margin-left: 37px;
+}
+.edition .hits .searchresult .searchresult-thumbnail-link:before {
+  content: "";
+  color: white;
+  font-family: ropen;
+  position: absolute;
+  top: 28%;
+  left: 23%;
+  font-size: 150%;
 }
 .edition .hits .searchresult .result-text {
   margin-left: 35%;

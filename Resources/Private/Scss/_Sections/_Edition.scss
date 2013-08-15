@@ -72,6 +72,26 @@
 				float: left;
 				width: 35%;
 			}
+			.searchresult-thumbnail-link {
+				width: 50px;
+				height: 75px;
+				border-bottom-right-radius: 50px;
+				border-top-right-radius: 50px;
+				background-color: #000;
+				opacity: .5;
+				position: relative;
+				margin-top: -110px;
+				margin-left: 37px;
+				&:before {
+					content: "";
+					color: white;
+					font-family: ropen;
+					position: absolute;
+					top: 28%;
+					left: 23%;
+					font-size: 150%;
+				}
+			}
 			.result-text {
 				margin-left: 35%;
 				width: 54%;
