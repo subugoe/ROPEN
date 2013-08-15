@@ -2,56 +2,6 @@
   border: 2px dotted darkkhaki;
 }
 
-.browser-fullscreen {
-  background: url(../Images/edition-fullscreen.png);
-  width: 26px;
-  height: 26px;
-  cursor: pointer;
-  margin-right: 0 !important;
-}
-
-.browser-fullscreen:hover {
-  background: url(../Images/edition-fullscreen-hover.png);
-}
-
-.browser-help {
-  background: url(../Images/edition-help-mark.png);
-  width: 26px;
-  height: 26px;
-  cursor: pointer;
-}
-
-.browser-help:hover {
-  background: url(../Images/edition-help-mark-hover.png);
-}
-
-.browser-fullscreen-off {
-  background: url(../Images/edition-fullscreen-off.png);
-  width: 26px;
-  height: 26px;
-  cursor: pointer;
-}
-
-.browser-fullscreen-off:hover {
-  background: url(../Images/edition-fullscreen-off-hover.png);
-}
-
-.intern_link {
-  display: inline-block;
-  background: url(../Images/intern_link.png);
-  width: 10px;
-  height: 10px;
-  margin: 0px 5px;
-}
-
-.extern_link {
-  display: inline-block;
-  background: url(../Images/extern_link.png);
-  width: 10px;
-  height: 10px;
-  margin: 0px 5px;
-}
-
 .data_link a {
   color: #0c6dff;
 }
