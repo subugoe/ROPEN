@@ -548,13 +548,11 @@ you can use the generic selector below, but it's slower:
 }
 .edition .hits .searchresult .searchresult-thumbnail-link {
   width: 50px;
-  height: 75px;
-  border-bottom-right-radius: 50px;
-  border-top-right-radius: 50px;
+  height: 50px;
   background-color: #000;
   opacity: .6;
   position: relative;
-  margin-top: 10px;
+  margin-top: 70px;
   margin-left: 50px;
 }
 .edition .hits .searchresult .searchresult-thumbnail-link:before {
@@ -562,11 +560,32 @@ you can use the generic selector below, but it's slower:
   color: white;
   font-family: ropen;
   position: absolute;
-  top: 28%;
-  left: 23%;
+  top: 18%;
+  left: 26%;
   font-size: 150%;
 }
 .edition .hits .searchresult .searchresult-thumbnail-link:hover {
+  cursor: pointer;
+}
+.edition .hits .searchresult .searchresult-text-link {
+  width: 50px;
+  height: 50px;
+  background-color: #000;
+  opacity: .6;
+  position: absolute;
+  margin-top: -90px;
+  margin-left: 110px;
+}
+.edition .hits .searchresult .searchresult-text-link:before {
+  content: "\f016";
+  color: white;
+  font-family: ropen;
+  position: absolute;
+  top: 21%;
+  left: 31%;
+  font-size: 150%;
+}
+.edition .hits .searchresult .searchresult-text-link:hover {
   cursor: pointer;
 }
 .edition .hits .searchresult .result-text {

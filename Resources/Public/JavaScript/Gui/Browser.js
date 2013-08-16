@@ -531,9 +531,19 @@ Browser.prototype.addCategory = function(doc, results) {
 
 		var textDiv = $('<div class="result-text"/>').appendTo(searchResult);
 		$(textDiv).html(result.text);
-		$(textDiv).click(function(evt) {
-			EditionGui.openDocument(evt, doc, result.page, "pages");
-		});
+				// add class to hover
+		$(textDiv).hover(
+			function() {
+				$('div').remove('.searchresult-text-link');
+				$(this).append('<div class="searchresult-text-link" />').click(function(evt) {
+							EditionGui.openDocument(evt, doc, result.page, "pages");
+						});;
+			},
+			function() {
+				$(this).remove('.searchresult-text-link');
+			}
+		)
+
 	});
 
 	$(searchLink).click(function() {
