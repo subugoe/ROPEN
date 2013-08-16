@@ -514,22 +514,21 @@ Browser.prototype.addCategory = function(doc, results) {
 		var thumb = $("<div class='searchresult-thumbnail'/>").appendTo(searchResult);
 
 		// add class to hover
-		$('.searchresult-thumbnail').hover(
+		$(thumb).hover(
 			function() {
 				$('div').remove('.searchresult-thumbnail-link');
-				$(this).append('<div class="searchresult-thumbnail-link" />');
+				$(this).append('<div class="searchresult-thumbnail-link" />').click(function(evt) {
+							EditionGui.openDocument(evt, doc, result.page, "images");
+						});;
 			},
 			function() {
-				$('div').remove('.searchresult-thumbnail-link');
+				$(this).remove('.searchresult-thumbnail-link');
 			}
 		)
 		var thumbDiv = $("<img class='thumbnail lazy fat-border' src='ropen/Resources/Public/Images/dummySmall.png' data-original='" + doc.imagePath + "80/" + doc.images[result.page - 1] + "'/>").appendTo(thumb);
 
 		$(thumbDiv).css('margin-bottom', '20px');
 
-			thumbDiv.click(function(evt) {
-			EditionGui.openDocument(evt, doc, result.page, "images");
-		});
 		var textDiv = $('<div class="result-text"/>').appendTo(searchResult);
 		$(textDiv).html(result.text);
 		$(textDiv).click(function(evt) {

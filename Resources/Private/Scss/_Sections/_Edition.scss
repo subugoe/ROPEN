@@ -78,10 +78,10 @@
 				border-bottom-right-radius: 50px;
 				border-top-right-radius: 50px;
 				background-color: #000;
-				opacity: .5;
+				opacity: .6;
 				position: relative;
-				margin-top: -110px;
-				margin-left: 37px;
+				margin-top: 10px;
+				margin-left: 50px;
 				&:before {
 					content: "";
 					color: white;
@@ -90,6 +90,9 @@
 					top: 28%;
 					left: 23%;
 					font-size: 150%;
+				}
+				&:hover {
+					cursor: pointer;
 				}
 			}
 			.result-text {
