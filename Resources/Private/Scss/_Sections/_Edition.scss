@@ -99,8 +99,8 @@
 				background-color: #000;
 				opacity: .6;
 				position: absolute;
-				margin-top: -90px;
-				margin-left: 110px;
+				right: 0;
+				top: 50px;
 				&:before {
 					content: "\f016";
 					color: white;
@@ -115,6 +115,8 @@
 				}
 			}
 			.result-text {
+				position: relative;
+				height: 100%;
 				margin-left: 35%;
 				width: 54%;
 				margin-top: -0.8em;

@@ -447,17 +447,6 @@ Browser.prototype.addDocument = function(doc) {
 						EditionGui.openDocument(evt, doc, undefined, 'text', position);
 					}
 				});
-				/*
-				 $(node).draggable({
-				 opacity: 0.7,
-				 helper: "clone",
-				 start: function( event, ui ) {
-				 var dragthing = $('.ui-draggable-dragging')[0];
-				 $(dragthing).appendTo($('#editionContainer')[0]);
-				 console.info($(node).position(),$(node).offset());
-				 }
-				 });
-				 */
 			}
 			var newLinks = $('.head-anchor', root);
 			for (var i = 0; i < newLinks.length; i++) {
@@ -522,7 +511,7 @@ Browser.prototype.addCategory = function(doc, results) {
 						});;
 			},
 			function() {
-				$(this).remove('.searchresult-thumbnail-link');
+				$('div').remove('.searchresult-thumbnail-link');
 			}
 		)
 		var thumbDiv = $("<img class='thumbnail lazy fat-border' src='ropen/Resources/Public/Images/dummySmall.png' data-original='" + doc.imagePath + "80/" + doc.images[result.page - 1] + "'/>").appendTo(thumb);
@@ -540,7 +529,7 @@ Browser.prototype.addCategory = function(doc, results) {
 						});;
 			},
 			function() {
-				$(this).remove('.searchresult-text-link');
+				$('div').remove('.searchresult-text-link');
 			}
 		)
 

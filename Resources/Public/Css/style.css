@@ -573,8 +573,8 @@ you can use the generic selector below, but it's slower:
   background-color: #000;
   opacity: .6;
   position: absolute;
-  margin-top: -90px;
-  margin-left: 110px;
+  right: 0;
+  top: 50px;
 }
 .edition .hits .searchresult .searchresult-text-link:before {
   content: "\f016";
@@ -589,6 +589,8 @@ you can use the generic selector below, but it's slower:
   cursor: pointer;
 }
 .edition .hits .searchresult .result-text {
+  position: relative;
+  height: 100%;
   margin-left: 35%;
   width: 54%;
   margin-top: -0.8em;
