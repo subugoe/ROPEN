@@ -6,6 +6,8 @@ $image-path: '../Images/';
 $flashMessageColor: rgba(240, 240, 93, 0.28);
 $hoverColor: #900000;
 
+$font: "Droid Sans", sans-serif;
+
 @mixin iconFont($content) {
 	speak: none;
 	font-style: normal;

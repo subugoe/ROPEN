@@ -267,21 +267,76 @@
 	box-shadow: 0px 2px 2px #999999;
 	border: 0px solid #999999;
 	background: #ababab;
-	background: -moz-radial-gradient(center, ellipse cover, #ababab 0%, #c8c8c8 100%);
-	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #ababab), color-stop(100%, #c8c8c8));
-	background: -webkit-radial-gradient(center, ellipse cover, #ababab 0%, #c8c8c8 100%);
-	background: -o-radial-gradient(center, ellipse cover, #ababab 0%, #c8c8c8 100%);
-	background: -ms-radial-gradient(center, ellipse cover, #ababab 0%, #c8c8c8 100%);
-	background: radial-gradient(ellipse at center, #ababab 0%, #c8c8c8 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ababab', endColorstr='#c8c8c8', GradientType=1);
-}
-
-.edition .search .resize {
-	float: right;
-	background-image: url("../Images/edition-search-resize.png");
-	background-repeat: no-repeat;
-	padding: 0;
-	margin: 5px 5px 0 0;
+	.resize {
+		float: right;
+		background-image: url("../Images/edition-search-resize.png");
+		background-repeat: no-repeat;
+		padding: 0;
+		margin: 5px 5px 0 0;
+	}
+	.main {
+		background-color: #f0f0f0;
+		padding: 10px 4px;
+		margin: 10px 10px 0 10px;
+		border: 1px solid #9e9e9e;
+		form {
+			height: 50px;
+			text-align: center;
+			width: 95%;
+			div {
+				padding: 5px 20px 0 5px;
+			}
+		}
+		hr {
+			width: 97%;
+			margin: 0 5px 0 5px;
+		}
+		.checkboxes {
+			li {
+				margin: 0 0 6px 0;
+			}
+		}
+		.check {
+			background-image: url("../Images/edition-search-filter-boxempty.png");
+			background-repeat: no-repeat;
+			background-position: left center;
+			padding: 0 0 0 15px;
+		}
+		.checked {
+			background-image: url("../Images/edition-search-filter-boxchecked.png");
+			background-repeat: no-repeat;
+			background-position: left top;
+			padding: 0 0 0 15px;
+		}
+		.filter-box {
+			text-align: center;
+			padding: 0;
+		}
+		.col {
+			float: left;
+			padding: 0 0 0 15px;
+			margin: 0 0 0 0px;
+		}
+		.filter {
+			text-align: left;
+			margin: 0 0 10px 0;
+			border: 1px solid #9d9d9d;
+			background-color: white;
+			font-size: 9pt;
+			div {
+				background: #f2f2f2;
+				padding: 4px 12px;
+				border-bottom: 1px solid #9d9d9d;
+			}
+			ul {
+				padding: 4px 12px;
+				margin: 0;
+				li {
+					list-style-type: none;
+				}
+			}
+		}
+	}
 }
 
 .edition .search .advancedSearch {
@@ -289,27 +344,26 @@
 	margin: 0 0 0 5px;
 	.advancedSearchLabel {
 		font-size: 80%;
+		font-family: ropen, $font;
 	}
-}
-
-.edition .search .advancedSearch span:first-child {
-	cursor: pointer;
-}
-
-.edition .search .advancedSearch input[type="checkbox"], .edition .search .advancedSearch input[type="radio"] {
-	margin: 5px;
-}
-
-.edition .search .advancedSearch ul {
-	margin: 0;
-	padding: 0;
-}
-
-.edition .search .advancedSearch li {
-	list-style-type: none;
-	font-size: 85%;
-	text-align: left;
-	margin-left: 22px;
+	span {
+		&:first-child {
+			cursor: pointer;
+		}
+	}
+	input[type="checkbox"], input[type="radio"] {
+		margin: 5px;
+	}
+	ul {
+		margin: 0;
+		padding: 0;
+	}
+	li {
+		list-style-type: none;
+		font-size: 85%;
+		text-align: left;
+		margin-left: 22px;
+	}
 }
 
 .search-scope-search, .search-scope-documents {
@@ -317,83 +371,6 @@
 	&:selected {
 		background: none!important;
 	}
-}
-
-.edition .search .main {
-	background-color: #f0f0f0;
-	padding: 10px 4px;
-	margin: 10px 10px 0 10px;
-	border: 1px solid #9e9e9e;
-	box-shadow: inset 0px 0px 1px 0px #666666;
-}
-
-.edition .search .main form {
-	height: 50px;
-	text-align: center;
-	width: 95%;
-}
-
-.edition .search .main form div {
-	padding: 5px 20px 0 5px;
-}
-
-.edition .search .main hr {
-	width: 97%;
-	margin: 0 5px 0 5px;
-	box-shadow: 0 1px 0px 0.5px white;
-}
-
-.edition .search .main .checkboxes li {
-	margin: 0 0 6px 0;
-}
-
-.edition .search .main .check {
-	background-image: url("../Images/edition-search-filter-boxempty.png");
-	background-repeat: no-repeat;
-	background-position: left center;
-	padding: 0 0 0 15px;
-}
-
-.edition .search .main .checked {
-	background-image: url("../Images/edition-search-filter-boxchecked.png");
-	background-repeat: no-repeat;
-	background-position: left top;
-	padding: 0 0 0 15px;
-}
-
-.edition .search .main .filter-box {
-	text-align: center;
-	padding: 0;
-}
-
-.edition .search .main .col {
-	float: left;
-	padding: 0 0 0 15px;
-	margin: 0 0 0 0px;
-}
-
-.edition .search .main .filter {
-	text-align: left;
-	margin: 0 0 10px 0;
-	border: 1px solid #9d9d9d;
-	background-color: white;
-	font-size: 9pt;
-}
-
-.edition .search .main .filter div {
-	background: #f2f2f2;
-	padding: 4px 12px;
-	border-bottom: 1px solid #9d9d9d;
-	box-shadow: inset 0 0 5px 1px lightgrey;
-}
-
-.edition .search .main .filter ul {
-	padding: 4px 12px;
-	margin: 0;
-}
-
-.edition .search .main .filter ul li {
-	list-style-type: none;
 }
 
 .edition .search .main ul.hits {
@@ -593,11 +570,10 @@
 			border-right: none;
 		}
 	}
-}
-
-.edition .window .inner .pagination a {
-	width: 25px;
-	cursor: pointer;
+	a {
+		width: 25px;
+		cursor: pointer;
+	}
 }
 
 .edition .window .inner li .tools-dfg, .edition .window .inner li .tools-pdf {
