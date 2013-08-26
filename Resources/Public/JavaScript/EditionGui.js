@@ -760,9 +760,13 @@ EditionGui.addControls = function() {
 			if ($('.icon-fullscreen').hasClass('icon-contract')) {
 				$('#editionContainer').fullScreen(false);
 				$('.icon-fullscreen').removeClass('icon-contract');
+
 			} else {
 				$('#editionContainer').fullScreen(true);
 				$('.icon-fullscreen').addClass('icon-contract');
+				$('.icon-question').click(function() {
+					$('#editionContainer').fullScreen(false);
+				})
 			}
 		});
 	}
