@@ -28,7 +28,7 @@ you can use the generic selector below, but it's slower:
 [class*="icon-"] {
 */
 .icon-chevron-down, .icon-chevron-up, .icon-chevron-right, .icon-chevron-left, .icon-search, .icon-fullscreen, .icon-contract, .icon-th, .icon-question, .icon-remove, .icon-contract-2, .icon-spin, .icon-sort-up, .icon-sort-down, .icon-sort, .icon-books, .icon-book, .icon-link, .icon-bookmark, .icon-minus, .icon-warning-sign, .icon-file, .icon-lock, .icon-unlocked, .icon-first, .icon-last, .icon-wrench, .icon-earth, .icon-cloud, .icon-tree, .icon-image, .icon-list-nested, .icon-type, .icon-grid, .icon-download, .icon-numbered-list {
-	font-family: 'ropen';
+	font-family: ropen, $font;
 	speak: none;
 	font-style: normal;
 	font-weight: normal;
