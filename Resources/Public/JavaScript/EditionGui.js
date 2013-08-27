@@ -14,18 +14,6 @@ var EditionGui = new function() {
 	this.initialized = false;
 
 	/**
-	 * stops loading process of actual window tab
-	 */
-	/*
-	 $(document).keypress(function(e){
-	 if( e.keyCode == 27 ){
-	 e.preventDefault();
-	 EditionGui.activeWindow.stopProcessing();
-	 }
-	 });
-	 */
-
-	/**
 	 * automatic grid layout, if user resizes browser
 	 */
 	$(window).resize(function() {
@@ -34,7 +22,7 @@ var EditionGui = new function() {
 			EditionGui.gridLayout();
 		}
 	});
-}
+};
 
 /**
  * Initializes a certain number of empty folders.
@@ -49,7 +37,9 @@ EditionGui.initializeFolders = function(number) {
 };
 
 /**
- * Get the current highest z-index inside the main window. Required the rise the z-index of a folders, the user clicks on, which is overlapped by another folder. Furthermore, the z-index for dialogs (add folder, magnetic link) is retrieved from this method.
+ * Get the current highest z-index inside the main window. Required the rise the z-index of a folders, the user clicks
+ * on, which is overlapped by another folder. Furthermore, the z-index for dialogs (add folder, magnetic link) is
+ * retrieved from this method.
  *
  * @this {EditionGui}
  * @return {number} The current highest z-index.
@@ -95,7 +85,8 @@ EditionGui.addFolder = function() {
 };
 
 /**
- * Initialization of the main window. Either an empty setting is created (browser + folders) or a magnetic link will be utilized. Furthermore, the loading of facets and documents is triggered here.
+ * Initialization of the main window. Either an empty setting is created (browser + folders) or a magnetic link will be
+ * utilized. Furthermore, the loading of facets and documents is triggered here.
  *
  * @this {EditionGui}
  */
@@ -169,7 +160,8 @@ EditionGui.initialize = function() {
 };
 
 /**
- * If an initial gui layout is defined in the Edition Properties, the values (position,size) are attached here to the initialized windows.
+ * If an initial gui layout is defined in the Edition Properties, the values (position,size) are attached here to the
+ * initialized windows.
  *
  * @this {EditionGui}
  */
@@ -212,7 +204,8 @@ EditionGui.initialLayout = function() {
 };
 
 /**
- * Checks the height of the main containers windows to re-assign a new height to the main container div; required when windows are dragged over the main containers div boundaries.
+ * Checks the height of the main containers windows to re-assign a new height to the main container div; required when
+ * windows are dragged over the main containers div boundaries.
  *
  * @this {EditionGui}
  */
@@ -252,7 +245,8 @@ EditionGui.checkBounds = function() {
 };
 
 /**
- * Creates a dialog window. (e.g. open document dialog) with a given headline, content, position and a an onclose functionality.
+ * Creates a dialog window. (e.g. open document dialog) with a given headline, content, position and a an onclose
+ * functionality.
  *
  * @this {EditionGui}
  * @param {string} headline The headline of the dialog (e.g. 'Add folder').
@@ -344,7 +338,8 @@ EditionGui.removeFolder = function(folder) {
 };
 
 /**
- * Positions and resizes browser and folders to match a grid layout like: || || || ||. Triggered when 'Automatic Grid Layout' buttons was pressed or the internet browser was resized.
+ * Positions and resizes browser and folders to match a grid layout like: || || || ||. Triggered when 'Automatic Grid
+ * Layout' buttons was pressed or the internet browser was resized.
  *
  * @this {EditionGui}
  */
@@ -427,7 +422,8 @@ EditionGui.gridLayout = function() {
 };
 
 /**
- * Opens a document with a given page, document type, fulltext position and/or activated facet. All of the 4 attributes are optional.
+ * Opens a document with a given page, document type, fulltext position and/or activated facet. All of the 4 attributes
+ * are optional.
  *
  * @this {EditionGui}
  * @param {Object} event A mouseevent which is used to relatively position the created dialog window.
@@ -493,7 +489,10 @@ EditionGui.openDocument = function(evt, document, page, type, position, entity) 
 };
 
 /**
- * Computes a string, which represents the actual state of the main window. The string is used to generate a magnetic link. Currently part of the string representation are folders with all opened documents and the index of the selected tab, and for each opened document, the shown document type, the page, selected facets and its current "linked-status".
+ * Computes a string, which represents the actual state of the main window. The string is used to generate a magnetic
+ * link. Currently part of the string representation are folders with all opened documents and the index of the
+ * selected tab, and for each opened document, the shown document type, the page, selected facets and its current
+ * "linked-status".
  *
  * @this {EditionGui}
  * @return {string} A string representation of the current state.
@@ -552,7 +551,8 @@ EditionGui.getParams = function() {
 };
 
 /**
- * The method is used to utilize magnetic links. It extracts the information of the given magnetic-link-string and inizializes the main window dependent on the extracted parameters.
+ * The method is used to utilize magnetic links. It extracts the information of the given magnetic-link-string and
+ * inizializes the main window dependent on the extracted parameters.
  *
  * @this {EditionGui}
  */
@@ -594,7 +594,8 @@ EditionGui.setParams = function(params) {
 };
 
 /**
- * This method adds the following controls to the main container window, if their corresponding parameters are set to 'true' in the configuration:
+ * This method adds the following controls to the main container window, if their corresponding parameters are set to
+ * 'true' in the configuration:
  * (1) add new folders (addable = true)
  * (2) generate magnetic links (magneticLink = true)
  * (3) automatic grid layout of the windows (gridLayout = true)
