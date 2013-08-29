@@ -482,5 +482,9 @@ var EditionTooltips = {
 	"closeFolder": {
 		"en": "Close current folder",
 		"de": "Mappe schließen"
+	},
+	"help": {
+		"en": "Help",
+		"de": "Hilfe"
 	}
 };

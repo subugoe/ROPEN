@@ -747,8 +747,8 @@ EditionGui.addControls = function() {
 		}
 	}
 	if (EditionProperties.fullscreen) {
-		var fsButton = $('<a class="icon-fullscreen"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(gridDiv);
-		var helpButton = $('<a class="icon-question" href="#?page=#help_page"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(gridDiv);
+		var fsButton = $('<a class="icon-fullscreen" title="' + Util.getString('fullscreenMode')+ '"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(gridDiv);
+		var helpButton = $('<a class="icon-question" href="#?page=#help_page" title="' + Util.getString('help')+ '"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(gridDiv);
 
 		// add event listener for fullscreen toggle
 		var browsersEventNames = ['mozfullscreenchange', 'webkitfullscreenchange'];
