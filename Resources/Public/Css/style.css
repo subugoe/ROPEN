@@ -596,6 +596,9 @@ you can use the generic selector below, but it's slower:
   margin-top: -0.8em;
   padding-left: 0.5em;
 }
+.edition .hits .searchresult .result-text p {
+  cursor: pointer;
+}
 .edition .hits .searchresult .result-text .tei\:p {
   cursor: pointer;
 }
