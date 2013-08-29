@@ -1059,9 +1059,6 @@ you can use the generic selector below, but it's slower:
   margin: 0 4px 0 0;
   width: 25px;
 }
-.edition .window .inner .toolstop li a {
-  background-repeat: no-repeat;
-}
 .edition .window .inner .toolstop ul {
   padding: 0;
 }
@@ -1083,6 +1080,14 @@ you can use the generic selector below, but it's slower:
 }
 .edition .window .inner .toolstop ul li form {
   padding: 0 5px 0 0;
+}
+.edition .window .inner .toolstop ul li a {
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.edition .window .inner .toolstop ul li a:hover {
+  text-decoration: none !important;
+  color: #900000 !important;
 }
 .edition .window .inner .toolstop ul .icon-unlocked, .edition .window .inner .toolstop ul .icon-lock {
   border: 1px solid #dedede;

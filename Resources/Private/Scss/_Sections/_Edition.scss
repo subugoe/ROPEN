@@ -603,9 +603,6 @@
 		margin: 0 4px 0 0;
 		width: 25px;
 	}
-	li a {
-		background-repeat: no-repeat;
-	}
 	ul {
 		padding: 0;
 		li {
@@ -625,6 +622,14 @@
 			}
 			form {
 				padding: 0 5px 0 0;
+			}
+			a {
+				background-repeat: no-repeat;
+				cursor: pointer;
+				&:hover {
+					text-decoration: none!important;
+					color: $hoverColor!important;
+				}
 			}
 		}
 		.icon-unlocked, .icon-lock {

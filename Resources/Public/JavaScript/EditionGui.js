@@ -267,6 +267,7 @@ EditionGui.createDialog = function(headline, content, event, sx, sy, onclose) {
 		}
 	}
 	var zIndex = this.getZIndex();
+
 	$(dialog).css('z-index', zIndex);
 	$(dialog).mousedown(function() {
 		if (gui.zIndex != zIndex) {
@@ -274,11 +275,14 @@ EditionGui.createDialog = function(headline, content, event, sx, sy, onclose) {
 			$(dialog).css('z-index', zIndex);
 		}
 	});
+
 	$('<div class="text">' + headline + '</div>').appendTo(dialog);
 	var ul = $('<ul class="dialog-tools"/>').appendTo(dialog);
 	var close = $('<li><a class="icon-remove"/><span class="visuallyhidden"></span></a></li>').appendTo(ul);
+
 	$(close).css('display', 'inherit');
 	$(close).click(closeDialog);
+
 	$(content).appendTo(dialog);
 	$('#' + id).draggable({handles: 'e'});
 	if (sx < 0) {
