@@ -153,7 +153,7 @@ DocumentDialog.prototype.initDocTypeSelector = function() {
 		if (i === 0) {
 			button = $('<a class="icon-' + id['icon'] + '"><span class="visuallyhidden"></span></a>').appendTo(li);
 		}
-		button.attr('title', Util.getString(id['icon']));
+		li.attr('title', Util.getString(id['icon']));
 		button.parent('li').click(function() {
 			dialog.setDocType(id['type']);
 		});
