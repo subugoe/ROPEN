@@ -7,8 +7,10 @@
 .doctype-pages {
 	.tei\:fw {
 		display: block;
-		text-decoration: underline;
-		margin: 10px 0;
+		border-bottom: 1px solid #999;
+		padding: 10px 0;
+		width: 80%;
+		margin-bottom: 10px;
 	}
 	.tei\:pb {
 		display: none;
