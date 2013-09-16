@@ -1,0 +1,16 @@
+.doctype-text {
+	.tei\:fw {
+		display: none;
+	}
+}
+
+.doctype-pages {
+	.tei\:fw {
+		display: block;
+		text-decoration: underline;
+		margin: 10px 0;
+	}
+	.tei\:pb {
+		display: none;
+	}
+}

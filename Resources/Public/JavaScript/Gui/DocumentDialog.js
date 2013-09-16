@@ -394,6 +394,10 @@ DocumentDialog.prototype.setDocType = function(type, id) {
 		else {
 			this.doctype.display(id);
 		}
+
+	this.docContainerDiv.removeClass(function (index, css) {
+	    return (css.match (/doctype-\S+/g) || []).join(' ');
+	}).addClass('doctype-' + this.doctype.type);
 };
 
 /**

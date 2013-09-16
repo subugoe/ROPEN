@@ -1615,6 +1615,18 @@ span.dynatree-drop-target.dynatree-drop-accept a {
   background: #D3D3D3;
 }
 
+.tei\:pb {
+  display: block;
+  height: 10px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  padding: 0;
+  color: white;
+  border-bottom: 1px solid #ccc;
+  background: white;
+  width: 98%;
+}
+
 .tei\:unclear {
   border-bottom: 1px dotted black;
 }
@@ -1679,6 +1691,19 @@ span.dynatree-drop-target.dynatree-drop-accept a {
 
 .head-anchor {
   cursor: pointer;
+}
+
+.doctype-text .tei\:fw {
+  display: none;
+}
+
+.doctype-pages .tei\:fw {
+  display: block;
+  text-decoration: underline;
+  margin: 10px 0;
+}
+.doctype-pages .tei\:pb {
+  display: none;
 }
 
 .button-alpha {
