@@ -9,6 +9,23 @@
 			padding: 20px 10px;
 			margin: 30px 5px 5px 5px;
 			text-align: center;
+			a {
+				display: inline;
+				border: 1px solid white;
+				border-bottom: 1px solid #dedede;
+				background-color: #efefef;
+				padding: 5px 20px;
+				margin: 5px;
+				background: #ffffff;
+				cursor: pointer;
+				&:hover {
+					text-decoration: none !important;
+					border-bottom: 1px solid $hoverColor;
+				}
+				.selected {
+					background-color: #e0dccc;
+				}
+			}
 		}
 		.dialog-tools {
 			float: right;
@@ -19,6 +36,19 @@
 				margin: 0 4px 0 0;
 				width: 25px;
 			}
+			li {
+				display: inline;
+				list-style-type: none;
+				padding: 0;
+				margin: 0;
+				a {
+					background-repeat: no-repeat;
+				}
+			}
+		}
+		.text {
+			float: left;
+			padding: 4px 0 0 6px;
 		}
 	}
 }

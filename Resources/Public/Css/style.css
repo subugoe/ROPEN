@@ -602,7 +602,6 @@ you can use the generic selector below, but it's slower:
 .edition .hits .searchresult .result-text .tei\:p {
   cursor: pointer;
 }
-
 .edition .info {
   z-index: 99999;
   position: absolute;
@@ -610,45 +609,27 @@ you can use the generic selector below, but it's slower:
   border: 1px solid #a6a5a2;
   box-shadow: 0px 2px 2px #999999;
 }
-
 .edition .info p {
   padding: 0;
   margin: 10px;
 }
-
 .edition .info p:first-child {
   padding: 0 0 5px 0;
   font-size: 90%;
 }
-
 .edition .info p:nth-child(2) {
   border-top: 1px solid #313131;
   font-size: 75%;
   padding: 5px 0 0 0;
 }
-
 .edition .info .place {
   color: #004BCA;
 }
-
 .edition .info-tooltip {
   padding: 0px !important;
 }
-
 .edition .info-tooltip hr {
   background: black;
-}
-
-.edition .info-tooltip p {
-  padding: 2px 5px !important;
-  margin: 0 !important;
-}
-
-.edition .info-tooltip p:nth-child(2) {
-  border-top: 1px solid #dedede !important;
-}
-
-.edition .info-tooltip hr {
   -moz-border-bottom-colors: none;
   -moz-border-left-colors: none;
   -moz-border-right-colors: none;
@@ -663,58 +644,13 @@ you can use the generic selector below, but it's slower:
   margin: 0;
   padding: 0;
 }
-
-.edition .dialog .text {
-  float: left;
-  padding: 4px 0 0 6px;
+.edition .info-tooltip p {
+  padding: 2px 5px !important;
+  margin: 0 !important;
 }
-
-.edition .dialog .dialog-tools li a {
-  background-repeat: no-repeat;
+.edition .info-tooltip:nth-child(2) {
+  border-top: 1px solid #dedede !important;
 }
-
-.edition .dialog .dialog-tools li {
-  display: inline;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.edition .dialog .inner a {
-  display: inline;
-  border: 1px solid white;
-  border-bottom: 1px solid #dedede;
-  background-color: #efefef;
-  padding: 5px 20px;
-  margin: 5px;
-  background: #ffffff;
-  cursor: pointer;
-}
-
-.edition .dialog .inner a:hover {
-  text-decoration: none !important;
-  border-bottom: 1px solid #900000;
-}
-
-.edition .dialog .inner a .selected {
-  background-color: #e0dccc;
-}
-
-.edition .edition-tools {
-  position: absolute;
-  left: 60px;
-}
-.edition .edition-tools a {
-  border: 1px solid #ddd;
-  padding: 4px 0 4px 4px;
-  margin-right: 10px;
-}
-.edition .edition-tools a:hover {
-  color: #900000 !important;
-  text-decoration: none !important;
-  cursor: pointer;
-}
-
 .edition .gridselector {
   top: 15px;
   position: absolute;
@@ -733,6 +669,21 @@ you can use the generic selector below, but it's slower:
   cursor: pointer;
   color: #900000 !important;
   text-decoration: none !important;
+}
+
+.edition .edition-tools {
+  position: absolute;
+  left: 60px;
+}
+.edition .edition-tools a {
+  border: 1px solid #ddd;
+  padding: 4px 0 4px 4px;
+  margin-right: 10px;
+}
+.edition .edition-tools a:hover {
+  color: #900000 !important;
+  text-decoration: none !important;
+  cursor: pointer;
 }
 
 .edition .search {
@@ -848,12 +799,6 @@ you can use the generic selector below, but it's slower:
   margin: 0 4px;
 }
 
-.edition .search .main .hits .selected a {
-  background-image: url("../Images/edition-search-hits-arrowclose.png");
-  background-repeat: no-repeat;
-  background-position: left center;
-}
-
 .edition .search .hits .even {
   background: #fdfcfd;
 }
@@ -909,13 +854,6 @@ you can use the generic selector below, but it's slower:
 }
 .edition .search .main .hits li:hover {
   border-bottom: 1px solid #900000;
-}
-
-.edition .search .main .hits .hits-a {
-  background-image: url("../Images/edition-search-hits-arrowopen.png");
-  background-repeat: no-repeat;
-  background-position-y: 20px;
-  padding: 0 25px;
 }
 
 .edition .window {
@@ -984,23 +922,18 @@ you can use the generic selector below, but it's slower:
   margin: 0;
   font-size: 10pt;
 }
-
 .edition .window .inner .windowcontent .textmarker {
   cursor: pointer;
 }
-
 .edition .window .inner .windowcontent .textmarker-style1 {
   color: #ff0013;
 }
-
 .edition .window .inner .windowcontent .textmarker-style2 {
   color: #224eca;
 }
-
 .edition .window .inner .windowcontent .textmarker-style3 {
   color: #d40063;
 }
-
 .edition .window .inner .pagination {
   font-size: 12pt;
   margin: 0;
@@ -1044,14 +977,6 @@ you can use the generic selector below, but it's slower:
 .edition .window .inner li .tools-dfg:hover, .edition .window .inner li .tools-pdf:hover {
   text-decoration: none !important;
   color: #900000 !important;
-}
-
-.edition .window .inner li .tools-paginationforward-disabled {
-  background-image: url("../Images/edition-window-pagination-forward.png");
-}
-
-.edition .window .inner li .tools-paginationbackward-disabled {
-  background-image: url("../Images/edition-window-pagination-backward.png");
 }
 
 .edition .window .inner .toolstop a {
@@ -1130,23 +1055,20 @@ you can use the generic selector below, but it's slower:
   width: 100%;
   text-align: center;
 }
-
 .edition .window .inner .tools a {
   padding: 0 22px 0 0;
   margin: 0 4px 0 0;
   width: 25px;
   cursor: pointer;
 }
-
-.edition .window .inner .tools li a {
-  background-repeat: no-repeat;
-}
-
 .edition .window .inner .tools li {
   display: inline;
   list-style-type: none;
   padding: 0;
   margin: 0;
+}
+.edition .window .inner .tools li a {
+  background-repeat: no-repeat;
 }
 
 #manuscripts_page #scriptContainer h3 {
@@ -1243,6 +1165,23 @@ you can use the generic selector below, but it's slower:
   margin: 30px 5px 5px 5px;
   text-align: center;
 }
+.edition .dialog .inner a {
+  display: inline;
+  border: 1px solid white;
+  border-bottom: 1px solid #dedede;
+  background-color: #efefef;
+  padding: 5px 20px;
+  margin: 5px;
+  background: #ffffff;
+  cursor: pointer;
+}
+.edition .dialog .inner a:hover {
+  text-decoration: none !important;
+  border-bottom: 1px solid #900000;
+}
+.edition .dialog .inner a .selected {
+  background-color: #e0dccc;
+}
 .edition .dialog .dialog-tools {
   float: right;
   padding: 4px 0 0 0;
@@ -1252,6 +1191,19 @@ you can use the generic selector below, but it's slower:
   padding: 0 0px 0 0;
   margin: 0 4px 0 0;
   width: 25px;
+}
+.edition .dialog .dialog-tools li {
+  display: inline;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.edition .dialog .dialog-tools li a {
+  background-repeat: no-repeat;
+}
+.edition .dialog .text {
+  float: left;
+  padding: 4px 0 0 6px;
 }
 
 ul.dynatree-container {
