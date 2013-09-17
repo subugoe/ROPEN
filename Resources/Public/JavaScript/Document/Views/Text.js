@@ -65,7 +65,7 @@ Text.prototype.display = function(page, id) {
 		$(text).appendTo(context.contentPanel);
 		context.linkProcessor.appendTooltips($(context.contentPanel), context.parent);
 		context.linkProcessor.colorizeLinks($(context.contentPanel), context.parent.facetSelection);
-		context.pageHooks = $("hr[class='tei:pb']", context.contentPanel);
+		context.pageHooks = $("[class='tei:pb']", context.contentPanel);
 		context.avoidScroll = false;
 		$(context.contentPanel).scroll(function() {
 			if (context.avoidScroll) {

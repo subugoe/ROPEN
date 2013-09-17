@@ -1629,15 +1629,11 @@ span.dynatree-drop-target.dynatree-drop-accept a {
 }
 
 .tei\:pb {
-  display: block;
-  height: 10px;
+  display: inline;
   border: 0;
-  border-top: 1px solid #ccc;
-  padding: 0;
-  color: white;
-  border-bottom: 1px solid #ccc;
-  background: white;
-  width: 98%;
+}
+.tei\:pb:before {
+  content: "⤷";
 }
 
 .tei\:unclear {
