@@ -598,6 +598,99 @@ EditionGui.setParams = function(params) {
 };
 
 /**
+ *
+ * @param gui
+ * @param linkList
+ */
+EditionGui.generateMagneticLink = function(gui, linkList) {
+	var params = gui.getParams();
+	var linkString = location.protocol + '//' + location.host + '' + location.pathname + '#?params=' + params;
+	jsonlib.fetch({
+					  url: EditionProperties.urlShortenerRequest,
+					  header: 'Content-Type: application/json',
+					  data: JSON.stringify({longUrl: linkString})
+				  }, function(response) {
+		var result = null;
+		try {
+			result = JSON.parse(response.content).id;
+			if (typeof result != 'string') result = null;
+			if (result != null) {
+				gui.magneticLinks.push(result);
+				EditionGui.updateLinks(gui, linkList);
+			}
+		} catch (e) {
+			gui.magneticLinks.push(linkString);
+			EditionGui.updateLinks(gui, linkList);
+		}
+	});
+}
+
+/**
+ *
+ * @param gui
+ * @param linkList
+ */
+EditionGui.updateLinks = function(gui, linkList) {
+	$(linkList).empty();
+	if (gui.magneticLinks.length > 0) {
+		$("<p><hr/></p>").appendTo(linkList);
+		var p = $("<p/>").appendTo(linkList);
+
+		$("<div>" + Util.getString('generatedMagneticLinks') + "</div>").appendTo(p);
+
+		for (var i = 0; i < gui.magneticLinks.length; i++) {
+			var ml = gui.magneticLinks[i];
+			var linkDiv = $("<div/>").appendTo(p);
+			var link;
+			if (ml.indexOf('goo.gl') == -1) {
+				link = $('<a target=_blank href="' + gui.magneticLinks[i] + '">' + Util.getString('magneticLink') + '</a>').appendTo(linkDiv);
+			}
+			else {
+				link = $('<a target=_blank href="' + gui.magneticLinks[i] + '">' + gui.magneticLinks[i] + '</a>').appendTo(linkDiv);
+			}
+			$(link).css('border', 'none');
+			$(link).css('box-shadow', 'none');
+			$(link).css('background-color', 'white');
+		}
+	}
+}
+
+/**
+ * Adds magnetic link controls to the gui
+ *
+ * @param gui
+ * @param controls
+ */
+EditionGui.addMagneticLink = function(gui, controls) {
+	var linkList = $("<div/>");
+
+	var magneticLink = $('<a class="icon-bookmark"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(controls);
+	$(magneticLink).attr('title', Util.getString('magneticLink'));
+	magneticLink.click(function(evt) {
+		$(magneticLink).addClass('button-magneticlink-active');
+		var content = $("<div class='inner'/>");
+		$(content).css("text-align", "center");
+		var p = $("<p/>").appendTo(content);
+		var generateButton = $('<a>' + Util.getString('generate') + '</a>').appendTo(p);
+		generateButton.click(function() {
+			EditionGui.generateMagneticLink(gui, linkList);
+		});
+		$(linkList).appendTo(p);
+		var onclose = function() {
+			$(magneticLink).removeClass('button-magneticlink-active');
+		}
+		gui.createDialog(
+				Util.getString('magneticLink'),
+				content,
+				evt,
+				20,
+				20,
+				onclose
+		);
+	});
+}
+
+/**
  * This method adds the following controls to the main container window, if their corresponding parameters are set to
  * 'true' in the configuration:
  * (1) add new folders (addable = true)
@@ -629,77 +722,7 @@ EditionGui.addControls = function() {
 		});
 	}
 	if (EditionProperties.magneticLink) {
-		var linkList = $("<div/>");
-		var updateLinks = function() {
-			$(linkList).empty();
-			if (gui.magneticLinks.length > 0) {
-				$("<p><hr/></p>").appendTo(linkList);
-				var p = $("<p/>").appendTo(linkList);
-
-				$("<div>" + Util.getString('generatedMagneticLinks') + "</div>").appendTo(p);
-
-				for (var i = 0; i < gui.magneticLinks.length; i++) {
-					var ml = gui.magneticLinks[i];
-					var linkDiv = $("<div/>").appendTo(p);
-					var link;
-					if (ml.indexOf('goo.gl') == -1) {
-						link = $('<a target=_blank href="' + gui.magneticLinks[i] + '">' + Util.getString('magneticLink') + '</a>').appendTo(linkDiv);
-					}
-					else {
-						link = $('<a target=_blank href="' + gui.magneticLinks[i] + '">' + gui.magneticLinks[i] + '</a>').appendTo(linkDiv);
-					}
-					$(link).css('border', 'none');
-					$(link).css('box-shadow', 'none');
-					$(link).css('background-color', 'white');
-				}
-			}
-		}
-		var generateMagneticLink = function() {
-			var params = gui.getParams();
-			var linkString = location.protocol + '//' + location.host + '' + location.pathname + '#?params=' + params;
-			jsonlib.fetch({
-							  url: EditionProperties.urlShortenerRequest,
-							  header: 'Content-Type: application/json',
-							  data: JSON.stringify({longUrl: linkString})
-						  }, function(response) {
-				var result = null;
-				try {
-					result = JSON.parse(response.content).id;
-					if (typeof result != 'string') result = null;
-					if (result != null) {
-						gui.magneticLinks.push(result);
-						updateLinks();
-					}
-				} catch (e) {
-					gui.magneticLinks.push(linkString);
-					updateLinks();
-				}
-			});
-		}
-		var magneticLink = $('<a class="icon-bookmark"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(controls);
-		$(magneticLink).attr('title', Util.getString('magneticLink'));
-		magneticLink.click(function(evt) {
-			$(magneticLink).addClass('button-magneticlink-active');
-			var content = $("<div class='inner'/>");
-			$(content).css("text-align", "center");
-			var p = $("<p/>").appendTo(content);
-			var generateButton = $('<a>' + Util.getString('generate') + '</a>').appendTo(p);
-			generateButton.click(function() {
-				generateMagneticLink();
-			});
-			$(linkList).appendTo(p);
-			var onclose = function() {
-				$(magneticLink).removeClass('button-magneticlink-active');
-			}
-			gui.createDialog(
-					Util.getString('magneticLink'),
-					content,
-					evt,
-					20,
-					20,
-					onclose
-			);
-		});
+		EditionGui.addMagneticLink(gui, controls);
 	}
 	var gridDiv = $('<div class="gridselector"/>').appendTo(this.containerDiv);
 	if (EditionProperties.gridLayout && ( EditionProperties.resizable || EditionProperties.draggable)) {
@@ -747,8 +770,8 @@ EditionGui.addControls = function() {
 		}
 	}
 	if (EditionProperties.fullscreen) {
-		var fsButton = $('<a class="icon-fullscreen" title="' + Util.getString('fullscreenMode')+ '"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(gridDiv);
-		var helpButton = $('<a class="icon-question" href="#?page=#help_page" title="' + Util.getString('help')+ '"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(gridDiv);
+		var fsButton = $('<a class="icon-fullscreen" title="' + Util.getString('fullscreenMode') + '"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(gridDiv);
+		var helpButton = $('<a class="icon-question" href="#?page=#help_page" title="' + Util.getString('help') + '"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(gridDiv);
 
 		// add event listener for fullscreen toggle
 		var browsersEventNames = ['mozfullscreenchange', 'webkitfullscreenchange'];
