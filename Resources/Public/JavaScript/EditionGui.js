@@ -569,17 +569,17 @@ EditionGui.setParams = function(params) {
 		for (var j = 1; j < folderParams.length; j++) {
 			var documentParams = folderParams[j].split(',');
 			var document = Util.loadDocumentSync(documentParams[0], documentParams[1]);
-			var type = Util.getTypeById(documentParams[1]);
+			var type = Util.getTypeById(documentParams[2]).type;
 			this.folders[i].addTab({
 									   document: document,
-									   page: parseInt(documentParams[2]),
+									   page: parseInt(documentParams[3]),
 									   type: type
 								   });
-			if (documentParams[3] == '1') {
+			if (documentParams[4] == '1') {
 				this.folders[i].dialog().linkDialog();
 			}
 			var facets = [];
-			var facetString = documentParams[4];
+			var facetString = documentParams[5];
 			for (var k = 0; k < facetString.length; k++) {
 				if (facetString[k] == 0) {
 					facets.push(false);

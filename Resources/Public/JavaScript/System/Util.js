@@ -69,7 +69,7 @@ var Util = new function() {
  */
 Util.getIdByType = function(type) {
 	for (var i = 0; i < this.docTypes.length; i++) {
-		if (this.docTypes[i] == type) {
+		if (this.docTypes[i].type == type) {
 			return i;
 		}
 	}
