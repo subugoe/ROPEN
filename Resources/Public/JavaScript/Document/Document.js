@@ -9,12 +9,13 @@
  * @param {string} preview URI to a preview image; currently unused.
  * @param {number} pages The number of pages of the document.
  */
-Document = function(title, name, nameShort, preview, pages){
+Document = function(title, name, nameShort, preview, pages, isFullText){
 	this.title = title;
 	this.name = name;
 	this.nameShort = nameShort;
 	this.preview = preview;
 	this.pages = pages;
+	this.isFullText = isFullText;
 
 	// cache variables to avoid multiple server requests
 	this.fullText;
