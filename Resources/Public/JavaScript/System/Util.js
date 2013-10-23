@@ -161,16 +161,23 @@ Util.loadDocuments = function(trigger) {
 			DocumentServerConnection.getMets(document.title, true, metsCallback);
 		}
 		for (var i = 0; i < docs.length; i++) {
-			var document = new Document(
-					$(docs[i]).find('id').text(),
-					$(docs[i]).find('title').text(),
-					$(docs[i]).find('titleShort').text(),
-					$(docs[i]).find('preview').text(),
-					$(docs[i]).find('pageCount').text()
-			);
-			loadMets(document);
+
+			var fullText = function() {
+				return $(docs[i]).find('fulltext');
+			}
+
+			if (fullText()) {
+				var document = new Document(
+						$(docs[i]).find('id').text(),
+						$(docs[i]).find('title').text(),
+						$(docs[i]).find('titleShort').text(),
+						$(docs[i]).find('preview').text(),
+						$(docs[i]).find('pageCount').text(),
+						fullText()
+				);
+				loadMets(document);
+			}
 		}
-		;
 	}
 	DocumentServerConnection.getDocuments(callback);
 };
