@@ -145,11 +145,11 @@ var EditionTooltips = {
 	},
 	"type": {
 		"en": "Text",
-		"de": "Fließtext"
+		"de": "Transkription im Fließtext"
 	},
 	"file": {
 		"en": "Pages",
-		"de": "Seiten"
+		"de": "Transkription seitenweise"
 	},
 	"selectPage": {
 		"en": "Select page",
@@ -181,7 +181,7 @@ var EditionTooltips = {
 	},
 	"image": {
 		"en": "Images",
-		"de": "Bilder"
+		"de": "Faksimile"
 	},
 	"tree": {
 		"en": "TEI",
@@ -197,7 +197,7 @@ var EditionTooltips = {
 	},
 	"cloud": {
 		"en": "Tag cloud",
-		"de": "Schlagwortwolke"
+		"de": "Wortwolke"
 	},
 	"downloadHeader": {
 		"en": "Download TEI",
