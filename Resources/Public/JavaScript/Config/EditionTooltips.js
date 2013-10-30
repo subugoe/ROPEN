@@ -415,6 +415,10 @@ var EditionTooltips = {
 		"en": "Index selection",
 		"de": "Index der ausgezeichneten Personen, Orte, Werke und Literatur"
 	},
+	"indexIntro": {
+		"en" : "",
+		"de": "Hier erhalten Sie eine Tabellenansicht der ausgezeichneten Personen, Orte, Werke und Literatur. Sie können die Tabelle sortieren und nach bestimmten Begriffen suchen. Klicken Sie auf eine Seitenzahl, gelangen Sie an die entsprechende Stelle in der Edition."
+	},
 	"selectIndex": {
 		"en": "Select index ...",
 		"de": "Wähle Index ..."
