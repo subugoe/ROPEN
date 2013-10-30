@@ -413,7 +413,7 @@ var EditionTooltips = {
 	},
 	"indexSelection": {
 		"en": "Index selection",
-		"de": "Index-Auswahl"
+		"de": "Index der ausgezeichneten Personen, Orte, Werke und Literatur"
 	},
 	"selectIndex": {
 		"en": "Select index ...",
