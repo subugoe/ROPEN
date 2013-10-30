@@ -530,7 +530,7 @@ noscript p {
 }
 
 .icon-search:before {
-  content: "\e000";
+  content: "\e024";
 }
 
 .icon-fullscreen:before {
@@ -538,7 +538,7 @@ noscript p {
 }
 
 .icon-contract:before {
-  content: "\e001";
+  content: "\e025";
 }
 
 .icon-th:before {
@@ -554,11 +554,11 @@ noscript p {
 }
 
 .icon-contract-2:before {
-  content: "\e002";
+  content: "\e026";
 }
 
 .icon-spin:before {
-  content: "\e003";
+  content: "\e027";
 }
 
 .icon-sort-up:before {
@@ -574,19 +574,19 @@ noscript p {
 }
 
 .icon-books:before {
-  content: "\e004";
+  content: "\e028";
 }
 
 .icon-book:before {
-  content: "\e005";
+  content: "\e029";
 }
 
 .icon-link:before {
-  content: "\e006";
+  content: "\e02a";
 }
 
 .icon-bookmark:before {
-  content: "\e007";
+  content: "\e02b";
 }
 
 .icon-minus:before {
@@ -602,59 +602,59 @@ noscript p {
 }
 
 .icon-lock:before {
-  content: "\e008";
+  content: "\e02c";
 }
 
 .icon-unlocked:before {
-  content: "\e009";
+  content: "\e02d";
 }
 
 .icon-first:before {
-  content: "\e00a";
+  content: "\e02e";
 }
 
 .icon-last:before {
-  content: "\e00b";
+  content: "\e02f";
 }
 
 .icon-wrench:before {
-  content: "\e00c";
+  content: "\e030";
 }
 
 .icon-earth:before {
-  content: "\e00d";
+  content: "\e031";
 }
 
 .icon-cloud:before {
-  content: "\e00e";
+  content: "\e032";
 }
 
 .icon-tree:before {
-  content: "\e00f";
+  content: "\e033";
 }
 
 .icon-image:before {
-  content: "\e010";
+  content: "\e034";
 }
 
 .icon-list-nested:before {
-  content: "\e011";
+  content: "\e035";
 }
 
 .icon-type:before {
-  content: "\e012";
+  content: "\e036";
 }
 
 .icon-grid:before {
-  content: "\e013";
+  content: "\e037";
 }
 
 .icon-download:before {
-  content: "\e014";
+  content: "\e038";
 }
 
 .icon-numbered-list:before {
-  content: "\e015";
+  content: "\e039";
 }
 
 #editionContainer {
