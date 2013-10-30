@@ -536,7 +536,9 @@ EditionGui.getParams = function() {
 				facetString += '0';
 			}
 		}
+
 		items.push(facetString);
+		localStorage.setItem('facets', JSON.stringify(items));
 		return getDelimitedString(',', items);
 	};
 	var getFolderString = function(folder) {
@@ -545,6 +547,7 @@ EditionGui.getParams = function() {
 		for (var i = 0; i < folder.documentDialogs.length; i++) {
 			strings.push(getDocumentString(folder.documentDialogs[i]));
 		}
+		localStorage.setItem('folders', JSON.stringify(strings));
 		return getDelimitedString(';', strings);
 	};
 	var strings = [];
@@ -604,6 +607,7 @@ EditionGui.setParams = function(params) {
  */
 EditionGui.generateMagneticLink = function(gui, linkList) {
 	var params = gui.getParams();
+	console.log(params);
 	var linkString = location.protocol + '//' + location.host + '' + location.pathname + '#?params=' + params;
 	jsonlib.fetch({
 					  url: EditionProperties.urlShortenerRequest,

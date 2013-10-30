@@ -462,7 +462,8 @@ Browser.prototype.addDocument = function(doc) {
 			else {
 				$(root).dynatree({
 									 children: outlineTree,
-									 onRender: setLinks
+									 onRender: setLinks,
+									 debugLevel: 0
 								 });
 				setLinks();
 			}
