@@ -607,7 +607,6 @@ EditionGui.setParams = function(params) {
  */
 EditionGui.generateMagneticLink = function(gui, linkList) {
 	var params = gui.getParams();
-	console.log(params);
 	var linkString = location.protocol + '//' + location.host + '' + location.pathname + '#?params=' + params;
 	jsonlib.fetch({
 					  url: EditionProperties.urlShortenerRequest,
