@@ -114,7 +114,7 @@ var EditionProperties = {
 		documentEndpoint: 	'/exist/rest/db/archaeo18/queries/listDocs.xquery',
 		textQuery: 		'/exist/rest/db/archaeo18/queries/getText.xq?mode=raw&format=xhtml&doc=DOC_ID&page=0',
 		pageQuery: 		'/exist/rest/db/archaeo18/queries/getText.xq?mode=raw&format=xhtml&doc=DOC_ID&page=PAGE_ID',
-		outlineQuery: 		'/exist/rest/db/archaeo18/queries/getText.xq?mode=structure&format=xhtml&doc=DOC_ID',
+		outlineQuery: 		"content/app/structure/DOC_ID.html",
 		searchQuery: 		'/exist/rest/db/archaeo18/queries/search.xq?query=QUERY_ID&mode=xhtml',
 		facetsQuery: 		'/exist/rest/db/archaeo18/queries/getFacets.xq',
 		metadataQuery: 		'/exist/rest/db/archaeo18/queries/getText.xq?mode=header&format=xhtml&doc=DOC_ID',
