@@ -227,7 +227,7 @@ var EditionProperties = {
 	/**
 	 URL to retrieve the outline of a document
 	 */
-	outlineQuery: '/exist/rest/db/archaeo18/queries/getText.xq?mode=structure&format=xhtml&doc=DOC_ID',
+	outlineQuery: "content/app/structure/DOC_ID.html",
 
 	/**
 	 URL to retrieve perform a search
@@ -290,8 +290,7 @@ var EditionProperties = {
 	/**
 	 if search window should be shown on startup (true) or not (documents)
 	 */
-	browserSearch: true
-
+	"browserSearch": false
 }
 
 /**
