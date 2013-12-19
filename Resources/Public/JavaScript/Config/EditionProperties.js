@@ -290,7 +290,10 @@ var EditionProperties = {
 	/**
 	 if search window should be shown on startup (true) or not (documents)
 	 */
-	"browserSearch": false
+	"browserSearch": false,
+
+	browserOrdering: "documents, search"
+
 }
 
 /**

@@ -20,41 +20,51 @@ Browser.prototype.initialize = function() {
 			browser.searchTypes.css('display', 'block');
 			browser.documents.css('display', 'none');
 			browser.searchTab.addClass('selected');
-			browser.documentTab.removeClass('selected');
+			browser.documentsTab.removeClass('selected');
 		}
 		else {
 			browser.searchTypes.css('display', 'none');
 			browser.documents.css('display', 'block');
 			browser.searchTab.removeClass('selected');
-			browser.documentTab.addClass('selected');
+			browser.documentsTab.addClass('selected');
 		}
 	}
 
 	this.header = $("<ul class='scope-selector'/>").appendTo(this.content);
-	this.searchTab = $("<li><a class='link-scope-search'>" + Util.getString('search') + "</a></li>").appendTo(this.header);
-	this.documentTab = $("<li><a class='link-scope-documents'>" + Util.getString('documents') + "</a></li>").appendTo(this.header);
+
+	// which shall be shown first
+	var alignTabs = function() {
+		var sorter = EditionProperties.browserOrdering.split(', ');
+		for (var i = 0; i < sorter.length; i++) {
+			console.log(sorter[i] + 'Tab')
+			browser[sorter[i] + 'Tab'] = $("<li><a class='link-scope-" +  sorter[i] + "' + >" + Util.getString(sorter[i]) + "</a></li>")
+					.appendTo(browser.header);
+		}
+	}
+
+	alignTabs();
 
 	this.searchTab.click(function() {
 		show(true);
 	});
 
-	this.documentTab.click(function() {
+	this.documentsTab.click(function() {
 		show(false);
 	});
 
 	var wa1 = $(this.searchTab).width();
-	var wa2 = $(this.documentTab).width();
+	var wa2 = $(this.documentsTab).width();
 	var w1 = parseInt($(this.searchTab).css("padding-left")) * 2 + $(this.searchTab).width();
-	var w2 = parseInt($(this.documentTab).css("padding-left")) * 2 + $(this.documentTab).width();
+	var w2 = parseInt($(this.documentsTab).css("padding-left")) * 2 + $(this.documentsTab).width();
 	var w = w1 + w2;
 
 	$(this.searchTab).css('padding-left', ((w / 2 - wa1) / 2) + 'px');
 	$(this.searchTab).css('padding-right', ((w / 2 - wa1) / 2) + 'px');
 	$(this.searchTab).addClass('search-scope-search');
 
-	$(this.documentTab).css('padding-left', ((w / 2 - wa2) / 2) + 'px');
-	$(this.documentTab).css('padding-right', (( w / 2 - wa2) / 2) + 'px');
-	$(this.documentTab).addClass('search-scope-documents');
+	$(this.documentsTab).css('padding-left', ((w / 2 - wa2) / 2) + 'px');
+	$(this.documentsTab).css('padding-right', (( w / 2 - wa2) / 2) + 'px');
+	$(this.documentsTab).addClass('search-scope-documents');
 
 	this.main = $("<div class='main'/>").appendTo(this.content);
 	this.main.css('overflow-x', 'hidden');
