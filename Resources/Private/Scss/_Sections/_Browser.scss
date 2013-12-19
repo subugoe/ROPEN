@@ -14,9 +14,6 @@
 				border-right: 1px solid #dedede;
 				display: inline-block;
 				text-align: center;
-				&.search-scope-documents {
-					border-right: none!important;
-				}
 				&:hover {
 					background-color: white;
 					border-bottom: 1px solid $hoverColor;

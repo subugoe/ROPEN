@@ -1271,9 +1271,6 @@ noscript p {
   display: inline-block;
   text-align: center;
 }
-.edition ul.scope-selector li.search-scope-documents {
-  border-right: none !important;
-}
 .edition ul.scope-selector li:hover {
   background-color: white;
   border-bottom: 1px solid #900000;

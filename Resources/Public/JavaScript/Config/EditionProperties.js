@@ -292,6 +292,9 @@ var EditionProperties = {
 	 */
 	"browserSearch": false,
 
+	/**
+	 * Ordering of tabs in the browser
+	 */
 	browserOrdering: "documents, search"
 
 }
