@@ -34,10 +34,13 @@ Browser.prototype.initialize = function() {
 
 	// which shall be shown first
 	var alignTabs = function() {
-		var sorter = EditionProperties.browserOrdering.split(', ');
+		if (!EditionProperties.browserOrdering) {
+			EditionProperties.browserOrdering = 'documents, search';
+		}
+		var sorter = EditionProperties.browserOrdering.split(',');
 		for (var i = 0; i < sorter.length; i++) {
-			console.log(sorter[i] + 'Tab')
-			browser[sorter[i] + 'Tab'] = $("<li><a class='link-scope-" +  sorter[i] + "' + >" + Util.getString(sorter[i]) + "</a></li>")
+			var element = $.trim(sorter[i]);
+			browser[element + 'Tab'] = $("<li><a class='link-scope-" +  element + "' + >" + Util.getString(element) + "</a></li>")
 					.appendTo(browser.header);
 		}
 	}
