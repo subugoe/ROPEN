@@ -133,6 +133,16 @@ var EditionProperties = {
 	},
 
 	// if search window should be shown on startup (true) or not (documents)
-	browserSearch: true
+	browserSearch: true,
+
+	/**
+	 * Ordering of tabs in the browser
+	 */
+	browserOrdering: "documents, search",
+
+	/**
+	 * define if a document in page and image view shall be shown to thou on start
+	 */
+	openDocumentsOnStart: true
 
 }
