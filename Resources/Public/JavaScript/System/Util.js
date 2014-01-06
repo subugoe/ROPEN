@@ -11,14 +11,15 @@ var Util = new function() {
 	this.facets = [];
 	/* array of strings for all possible document views */
 	// this.docTypes = ['outline', 'text', 'pages', 'thumbnails', 'images', 'tei', 'map', 'tags'];
+	// change this to make the gui look other wise
 	this.docTypes = [
-		{
-			type: 'outline',
-			icon: 'list-nested'
-		},
 		{
 			type: 'text',
 			icon: 'type'
+		},
+		{
+			type: 'outline',
+			icon: 'list-nested'
 		},
 		{
 			type: 'pages',
@@ -191,11 +192,8 @@ Util.loadDocuments = function(trigger) {
  */
 Util.loadDocumentSync = function(title, nameShort) {
 	var pageCount;
-	var pagesCallback = function(xml) {
-		pageCount = $(xml).find('count').text();
-	}
-	//DocumentServerConnection.getPageCount(title,false,pagesCallback);
-	var document = new Document(title, '', nameShort, '', pageCount)
+
+	var document = new Document(title, '', nameShort, '');
 	var imagePath, images = [];
 	var metsCallback = function(xml) {
 		$(xml).find('[nodeName="METS:mets"]').find('[nodeName="METS:fileSec"]').find('[nodeName="METS:fileGrp"]').first().find('[nodeName="METS:file"]').each(function() {
@@ -207,6 +205,9 @@ Util.loadDocumentSync = function(title, nameShort) {
 				imagePath = dummy.substring(0, dummy.lastIndexOf("/") + 1);
 			}
 		})
+		pageCount = $(xml).find('body').find('div').last().find('pb').last().attr('n')
+		console.log($(xml));
+		document.pages = pageCount;
 		document.imagePath = imagePath;
 		document.images = images;
 	};

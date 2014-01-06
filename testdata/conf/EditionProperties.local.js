@@ -147,6 +147,6 @@ var EditionProperties = {
 	/**
 	 * define if a document in page and image view shall be shown to thou on start
 	 */
-	openDocumentsOnStart: true
+	openDocumentsOnStart: false
 
 }

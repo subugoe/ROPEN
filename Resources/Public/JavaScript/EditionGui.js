@@ -137,7 +137,7 @@ EditionGui.initialize = function() {
 			else {
 				setTimeout(function() {
 					loadDocs();
-				}, 100);
+				}, 10);
 			}
 		}
 		loadDocs();
@@ -147,16 +147,15 @@ EditionGui.initialize = function() {
 	this.minWidth = $(window).width();
 	if (window.location.href.indexOf('?params') != -1) {
 		this.setParams(window.location.href.slice(window.location.href.indexOf('?params=') + 8));
-	}
-	else
+	} else {
 		if (EditionProperties.guiConfig) {
 			this.initializeFolders(EditionProperties.guiConfig.windows.length);
 			this.initialLayout();
-		}
-		else {
+		} else {
 			this.initializeFolders(EditionProperties.folders);
 			this.gridLayout();
 		}
+	}
 };
 
 /**
@@ -436,8 +435,10 @@ EditionGui.gridLayout = function() {
  * @param {string} type The document type to be shown initially (e.g. 'pages').
  * @param {string} position A position to scroll to, when the selected document type is 'text' (used to navigate from the outline to the chapters in the fulltext).
  * @param {string} entity An entity, which should be initially colored (e.g. 'placeName').
+ * @param {number} folderNumber number to be opened
  */
-EditionGui.openDocument = function(evt, document, page, type, position, entity) {
+EditionGui.openDocument = function(evt, document, page, type, position, entity, folderNumber) {
+
 	var gui = this;
 	var candidates = [];
 	var doc = {
@@ -465,32 +466,68 @@ EditionGui.openDocument = function(evt, document, page, type, position, entity) 
 			}
 		}
 	}
-	if (candidates.length == 0) {
-		openNewWindow();
-	}
-	else {
-		var close;
-		var inner = $('<div class="inner"/>');
-		$.each(candidates, function(index, folder) {
-			var openButton = $('<a>' + folder.getName() + '</a>').appendTo(inner);
-			openButton.click(function() {
-				folder.addTab(doc);
-				close();
+
+	// open default view
+	if (folderNumber >= 0) {
+		EditionGui.openDefaultView(candidates[folderNumber], doc)
+	} else {
+		if (candidates.length == 0) {
+			openNewWindow();
+		} else {
+			var close;
+			var inner = $('<div class="inner"/>');
+			$.each(candidates, function(index, folder) {
+				var openButton = $('<a>' + folder.getName() + '</a>').appendTo(inner);
+				openButton.click(function() {
+					folder.addTab(doc);
+					close();
+				});
 			});
-		});
-		if (EditionGui.folders.length < EditionProperties.maxWindows) {
-			var openNewButton = $('<a>' + Util.getString('newFolder') + '</a>').appendTo(inner);
-			openNewButton.click(function() {
-				openNewWindow();
-				close();
-			});
-		}
-		var dialog = this.createDialog(Util.getString('openDocument'), inner, evt, 20, -20);
-		close = function() {
-			$(dialog).remove();
+			if (EditionGui.folders.length < EditionProperties.maxWindows) {
+				var openNewButton = $('<a>' + Util.getString('newFolder') + '</a>').appendTo(inner);
+				openNewButton.click(function() {
+					openNewWindow();
+					close();
+				});
+			}
+			var dialog = this.createDialog(Util.getString('openDocument'), inner, evt, 20, -20);
+			close = function() {
+				$(dialog).remove();
+			}
 		}
 	}
 };
+
+/**
+ * Tests if there is already an active and opened default vew
+ * @returns {boolean}
+ */
+var isDefaultViewActive = function() {
+	if (sessionStorage.getItem('defaultView') == 2) {
+		return true;
+	}
+	return false;
+}
+
+/**
+ * Adds a marker that a default view is active
+ */
+var setActiveDefaultView = function(folder) {
+	sessionStorage.setItem('defaultView', folder.index);
+}
+
+/**
+ * Opens a default view, i.e. a page and an image view
+ * @param folder
+ * @param document
+ */
+EditionGui.openDefaultView = function(folder, document) {
+	if (isDefaultViewActive() === false) {
+		folder.addTab(document);
+		$('.frame .icon-unlocked').click();
+		setActiveDefaultView(folder);
+	}
+}
 
 /**
  * Computes a string, which represents the actual state of the main window. The string is used to generate a magnetic
