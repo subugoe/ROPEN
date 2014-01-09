@@ -206,7 +206,6 @@ Util.loadDocumentSync = function(title, nameShort) {
 			}
 		})
 		pageCount = $(xml).find('body').find('div').last().find('pb').last().attr('n')
-		console.log($(xml));
 		document.pages = pageCount;
 		document.imagePath = imagePath;
 		document.images = images;
