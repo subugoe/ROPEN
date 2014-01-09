@@ -490,7 +490,7 @@ Browser.prototype.addDocument = function(doc) {
  * Adds results for a document with hits for a performed search to the results list.
  *
  * @this {Browser}
- * @param {Document} doc The document with hitsto add to the documents list.
+ * @param {Document} doc The document with hits to add to the documents list.
  * @param {Document} results The results within the given document.
  */
 Browser.prototype.addCategory = function(doc, results) {

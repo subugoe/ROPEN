@@ -137,7 +137,7 @@ Util.loadDocuments = function(trigger) {
 	var gui = this;
 	var callback = function(xml) {
 		var docs = $(xml).find('doc');
-		var loadMets = function(document) {
+		var loadMets = function(doc) {
 			var imagePath, images = [];
 			var metsCallback = function(xml) {
 				$(xml).find('[nodeName="METS:mets"]').find('[nodeName="METS:fileSec"]').find('[nodeName="METS:fileGrp"]').first().find('[nodeName="METS:file"]').each(function() {
@@ -149,17 +149,17 @@ Util.loadDocuments = function(trigger) {
 						imagePath = dummy.substring(0, dummy.lastIndexOf("/") + 1);
 					}
 				})
-				document.imagePath = imagePath;
-				document.images = images;
+				doc.imagePath = imagePath;
+				doc.images = images;
 				Util.documents.push(document);
 				if (Util.documents.length == docs.length) {
 					Util.docsLoaded = 1;
 				}
 				if (typeof trigger != 'undefined') {
-					trigger(document);
+					trigger(doc);
 				}
 			};
-			DocumentServerConnection.getMets(document.title, true, metsCallback);
+			DocumentServerConnection.getMets(doc.title, true, metsCallback);
 		}
 		for (var i = 0; i < docs.length; i++) {
 

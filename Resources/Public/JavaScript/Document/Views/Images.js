@@ -3,15 +3,15 @@
  *
  * @constructor
  * @this {Images}
- * @param {Document} document The document to be shown in the Images view.
+ * @param {Document} doc The document to be shown in the Images view.
  * @param {DIV} container The conatiner div for the Images view.
  * @param {DocumentDialog} parent The parent document dialog.
  */
-Images = function(document, container, parent) {
+Images = function(doc, container, parent) {
 	this.type = "images";
-	this.path = document.imagePath;
-	this.images = document.images;
-	this.pages = document.pages;
+	this.path = doc.imagePath;
+	this.images = doc.images;
+	this.pages = doc.pages;
 	this.container = container;
 	this.parent = parent;
 	this.documentLoader = new DocumentLoader();
