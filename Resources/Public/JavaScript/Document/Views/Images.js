@@ -52,6 +52,14 @@ Images.prototype.showPage = function(page) {
 
 	this.container.empty();
 
+	var loadImages = function() {
+		this.path = doc.path;
+	}
+
+	if (!this.images) {
+		loadImages();
+	}
+
 	var width = this.container.width() - 4;
 	var height = this.container.height() - 4;
 	var url = this.path + "1200/" + this.images[page - 1];

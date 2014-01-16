@@ -519,11 +519,11 @@ var setActiveDefaultView = function(folder) {
 /**
  * Opens a default view, i.e. a page and an image view
  * @param folder
- * @param document
+ * @param doc
  */
-EditionGui.openDefaultView = function(folder, document) {
+EditionGui.openDefaultView = function(folder, doc) {
 	if (isDefaultViewActive() === false) {
-		folder.addTab(document);
+		folder.addTab(doc);
 		$('.frame .icon-unlocked').click();
 		setActiveDefaultView(folder);
 	}

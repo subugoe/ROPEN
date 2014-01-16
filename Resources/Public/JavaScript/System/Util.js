@@ -168,7 +168,7 @@ Util.loadDocuments = function(trigger) {
 			}
 
 			if (fullText()) {
-				var document = new Document(
+				var docu = new Document(
 						$(docs[i]).find('id').text(),
 						$(docs[i]).find('title').text(),
 						$(docs[i]).find('titleShort').text(),
@@ -176,7 +176,7 @@ Util.loadDocuments = function(trigger) {
 						$(docs[i]).find('pageCount').text(),
 						fullText()
 				);
-				loadMets(document);
+				loadMets(docu);
 			}
 		}
 	}
@@ -422,4 +422,14 @@ var imageLoad = function(response, image, div) {
 		image.css('left', left + 'px');
 		image.parent().css("background-image", "none");
 	}
+}
+
+/**
+ *
+ * @param dummy2
+ * @returns {string}
+ */
+Util.getImagePath = function(defaultPath) {
+	var dummy = defaultPath.substring(0, defaultPath.lastIndexOf("/"));
+	return	imagePath = dummy.substring(0, dummy.lastIndexOf("/") + 1);
 }
