@@ -3,13 +3,13 @@
  *
  * @constructor
  * @this {Outline}
- * @param {Document} document The document to be shown in the Outline view.
+ * @param {Document} doc The document to be shown in the Outline view.
  * @param {DIV} container The conatiner div for the Outline view.
  * @param {DocumentDialog} parent The parent document dialog.
  */
-Outline = function(document, container, parent) {
+Outline = function(doc, container, parent) {
 	this.type = "outline";
-	this.document = document;
+	this.document = doc;
 	this.container = container;
 	this.parent = parent;
 	this.documentLoader = new DocumentLoader();

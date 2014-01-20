@@ -199,9 +199,9 @@ Browser.prototype.prepareAdvancedSearch = function() {
 	var docsHeight;
 	var documentSelection = [];
 
-	var addDocument = function(document, index) {
+	var addDocument = function(doc, index) {
 		var entry = $("<li/>").appendTo(documentList);
-		var checkbox = $("<input type='checkbox' id='advanced-document-" + index + "' /><label for='advanced-document-" + index + "'>" + document.name + "</label>").appendTo(entry);
+		var checkbox = $("<input type='checkbox' id='advanced-document-" + index + "' /><label for='advanced-document-" + index + "'>" + doc.name + "</label>").appendTo(entry);
 		documentSelection.push(false);
 		checkbox.click(function() {
 			documentSelection[index] = !documentSelection[index];
@@ -209,8 +209,8 @@ Browser.prototype.prepareAdvancedSearch = function() {
 	}
 
 	var loadDocs = function() {
-		$.each(Util.documents, function(i, document) {
-			addDocument(document, i);
+		$(Util.documents).each(function(i, doc) {
+			addDocument(doc, i);
 		});
 		docsHeight = $(documents).height();
 		$(documents).css('height', '0px');

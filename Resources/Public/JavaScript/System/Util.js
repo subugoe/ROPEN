@@ -151,7 +151,7 @@ Util.loadDocuments = function(trigger) {
 				})
 				doc.imagePath = imagePath;
 				doc.images = images;
-				Util.documents.push(document);
+				Util.documents.push(doc);
 				if (Util.documents.length == docs.length) {
 					Util.docsLoaded = 1;
 				}
