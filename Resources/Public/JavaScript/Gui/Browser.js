@@ -5,7 +5,7 @@
  * @this {Browser}
  */
 Browser = function() {
-}
+};
 
 /**
  * Initializes the Browsers GUI and interaction.
@@ -13,6 +13,7 @@ Browser = function() {
  * @this {Browser}
  */
 Browser.prototype.initialize = function() {
+	"use strict";
 	var browser = this;
 
 	var show = function(showSearch) {
@@ -77,13 +78,13 @@ Browser.prototype.initialize = function() {
 	var selectedSearchType = 'simple';
 
 	var toggleSearch = function(searchType) {
-		if (selectedSearchType == searchType) {
+		if (selectedSearchType === searchType) {
 			$('.advancedSearchLabel').removeClass('icon-chevron-down').addClass('icon-chevron-right');
 			browser.advancedSearch.css('display', 'none');
 			selectedSearchType = 'simple';
 		}
 		else
-			if (searchType == 'advanced') {
+			if (searchType === 'advanced') {
 				$('.advancedSearchLabel').removeClass('icon-chevron-right').addClass('icon-chevron-down');
 				browser.advancedSearch.css('display', 'block');
 				selectedSearchType = searchType;
@@ -98,13 +99,13 @@ Browser.prototype.initialize = function() {
 	var searchButton = $("<button type='submit' class='icon-search edition-submitbutton' value='Submit' />").appendTo(simpleSearch);
 
 	var search = function(evt) {
-		if (browser.searchField.val() != '') {
+		if (browser.searchField.val() !== '') {
 			browser.clearSearch();
-			if (selectedSearchType == 'simple') {
+			if (selectedSearchType === 'simple') {
 				browser.search('');
 			}
 			else
-				if (selectedSearchType == 'advanced') {
+				if (selectedSearchType === 'advanced') {
 					browser.doAdvancedSearch(evt);
 				}
 		}
@@ -131,7 +132,7 @@ Browser.prototype.initialize = function() {
 
 	this.prepareAdvancedSearch();
 	this.documents = $('<div/>').appendTo(this.main);
-	this.documents.css('overflow', 'auto')
+	this.documents.css('overflow', 'auto');
 	this.searchResults = $('<ul class="hits"/>').appendTo(this.searchTypes);
 
 	show(EditionProperties.browserSearch);
@@ -147,6 +148,7 @@ Browser.prototype.initialize = function() {
  * @this {Browser}
  */
 Browser.prototype.clearSearch = function() {
+	"use strict";
 	$(this.searchResults).empty();
 	this.searchTabs = [];
 	this.searchContents = [];
@@ -159,6 +161,7 @@ Browser.prototype.clearSearch = function() {
  * @param {Object} onclose A trigger function to be called when the user closes/removes the overlay.
  */
 Browser.prototype.startProcessing = function(onclose) {
+	"use strict";
 	this.overlay.loaderOverlay(onclose);
 };
 
@@ -168,6 +171,7 @@ Browser.prototype.startProcessing = function(onclose) {
  * @this {Browser}
  */
 Browser.prototype.stopProcessing = function() {
+	"use strict";
 	this.overlay.removeOverlay();
 };
 
@@ -177,6 +181,7 @@ Browser.prototype.stopProcessing = function() {
  * @this {Browser}
  */
 Browser.prototype.prepareAdvancedSearch = function() {
+	"use strict";
 	var browser = this;
 
 	this.advancedSearch = $("<div/>").appendTo(this.as);
@@ -206,7 +211,7 @@ Browser.prototype.prepareAdvancedSearch = function() {
 		checkbox.click(function() {
 			documentSelection[index] = !documentSelection[index];
 		});
-	}
+	};
 
 	var loadDocs = function() {
 		$(Util.documents).each(function(i, doc) {
@@ -215,26 +220,26 @@ Browser.prototype.prepareAdvancedSearch = function() {
 		docsHeight = $(documents).height();
 		$(documents).css('height', '0px');
 		$(documents).css('display', 'block');
-	}
+	};
 
 	var checkDocumentVisibility = function() {
 		if ($(selectDocuments).attr('checked') && !docsSelected) {
-			if (documentSelection.length == 0) {
+			if (documentSelection.length === 0) {
 				loadDocs();
 			}
 			$(documents).animate({
-									 height: "+=" + docsHeight
-								 });
+									height: "+=" + docsHeight
+								});
 			docsSelected = true;
 		}
 		else
 			if (!$(selectDocuments).attr('checked') && docsSelected) {
 				$(documents).animate({
-										 height: "-=" + docsHeight
-									 });
+										height: "-=" + docsHeight
+									});
 				docsSelected = false;
 			}
-	}
+	};
 	$(allDocuments).click(checkDocumentVisibility);
 	$(selectDocuments).click(checkDocumentVisibility);
 
@@ -273,7 +278,7 @@ Browser.prototype.prepareAdvancedSearch = function() {
 		checkbox.click(function() {
 			facetSelection[index] = !facetSelection[index];
 		});
-	}
+	};
 
 	var loadFacets = function() {
 		$.each(Util.facets, function(i, facet) {
@@ -287,26 +292,26 @@ Browser.prototype.prepareAdvancedSearch = function() {
 		facetsHeight = $(facets).height();
 		$(facets).css('height', '0px');
 		$(facets).css('display', 'block');
-	}
+	};
 
 	var checkFacetVisibility = function() {
 		if ($(inFacets).attr('checked') && !facetsSelected) {
-			if (facetSelection.length == 0) {
+			if (facetSelection.length === 0) {
 				loadFacets();
 			}
 			$(facets).animate({
-								  height: "+=" + facetsHeight
-							  });
+								height: "+=" + facetsHeight
+							});
 			facetsSelected = true;
 		}
 		else
 			if (!$(inFacets).attr('checked') && facetsSelected) {
 				$(facets).animate({
-									  height: "-=" + facetsHeight
-								  });
+									height: "-=" + facetsHeight
+								});
 				facetsSelected = false;
 			}
-	}
+	};
 
 	$(inTexts).click(checkFacetVisibility);
 	$(inFacets).click(checkFacetVisibility);
@@ -316,13 +321,13 @@ Browser.prototype.prepareAdvancedSearch = function() {
 		if ($(inFacets).attr('checked')) {
 			for (var i in Util.facets) {
 				if (facetSelection[i]) {
-					if (facet != '') {
+					if (facet !== '') {
 						facet += ',';
 					}
 					facet += Util.facets[i].facet.substring(Util.facets[i].facet.indexOf(':') + 1);
 				}
 			}
-			if (facet == '') {
+			if (facet === '') {
 				var content = $("<div class='inner'/>");
 				Util.getAlertMessage(Util.getString('noFacetsSelected')).appendTo(content);
 				EditionGui.createDialog(Util.getString('warning'), content, evt, 20, 20);
@@ -333,13 +338,13 @@ Browser.prototype.prepareAdvancedSearch = function() {
 		if ($(selectDocuments).attr('checked')) {
 			for (var i in Util.documents) {
 				if (documentSelection[i]) {
-					if (documents != '') {
+					if (documents !== '') {
 						documents += ',';
 					}
 					documents += Util.documents[i].title;
 				}
 			}
-			if (documents == '') {
+			if (documents === '') {
 				var content = $("<div class='inner'/>");
 				Util.getAlertMessage(Util.getString('noDocumentsSelected')).appendTo(content);
 				EditionGui.createDialog(Util.getString('warning'), content, evt, 20, 20);
@@ -359,12 +364,13 @@ Browser.prototype.prepareAdvancedSearch = function() {
  * @param {string} facet A facets string to perform the search on selected facets instead of whole document texts.
  */
 Browser.prototype.search = function(facet, documents) {
+	"use strict";
 	var browser = this;
 	var cancel = false;
 	var onclose = function() {
 		cancel = true;
 		browser.stopProcessing();
-	}
+	};
 	this.startProcessing(onclose);
 	var callback = function(xml) {
 		if (!cancel) {
@@ -372,7 +378,7 @@ Browser.prototype.search = function(facet, documents) {
 			$(xml).find('result').each(function() {
 				var page = parseInt($(this).find('page').text());
 
-				if (page == '') {
+				if (page === '') {
 					page = 1;
 				}
 
@@ -383,9 +389,9 @@ Browser.prototype.search = function(facet, documents) {
 					results[doc] = [];
 				}
 				results[doc].push({
-									  page: page,
-									  text: text
-								  });
+									page: page,
+									text: text
+								});
 				// update length of array
 				results.length++;
 			});
@@ -401,7 +407,7 @@ Browser.prototype.search = function(facet, documents) {
 			}
 			browser.stopProcessing();
 		}
-	}
+	};
 	DocumentServerConnection.getSearchResults(this.searchField.val(), facet, documents, callback);
 };
 
@@ -411,6 +417,7 @@ Browser.prototype.search = function(facet, documents) {
  * @this {Browser}
  */
 Browser.prototype.resizeContent = function() {
+	"use strict";
 	var height = $(this.content).height();
 	var diff1 = parseInt($(this.header).css("padding-bottom")) + parseInt($(this.header).css("padding-top"));
 
@@ -434,6 +441,7 @@ Browser.prototype.resizeContent = function() {
  * @param {Document} doc The document to add to the documents list.
  */
 Browser.prototype.addDocument = function(doc) {
+	"use strict";
 	var browser = this;
 
 	var callback = function(outline) {
@@ -453,36 +461,36 @@ Browser.prototype.addDocument = function(doc) {
 				var position = $(newLinks[i]).attr("name");
 				$(node).unbind('click');
 				$(node).click(function(evt) {
-					if (position == '') {
+					if (position === '') {
 						EditionGui.openDocument(evt, doc);
 					}
 					else {
 						EditionGui.openDocument(evt, doc, undefined, 'text', position);
 					}
 				});
-			}
+			};
 			var newLinks = $('.head-anchor', root);
 			for (var i = 0; i < newLinks.length; i++) {
 				setEvents(newLinks[i]);
 			}
-		}
+		};
 		var calcTree = function() {
 			if (typeof $(root).dynatree === 'undefined') {
 				setTimeout(function() {
-					calcTree()
+					calcTree();
 				}, 100);
 			}
 			else {
 				$(root).dynatree({
-									 children: outlineTree,
-									 onRender: setLinks,
-									 debugLevel: 0
-								 });
+									children: outlineTree,
+									onRender: setLinks,
+									debugLevel: 0
+								});
 				setLinks();
 			}
-		}
+		};
 		calcTree();
-	}
+	};
 	DocumentServerConnection.getDocumentOutline(doc, callback);
 };
 
@@ -494,13 +502,14 @@ Browser.prototype.addDocument = function(doc) {
  * @param {Document} results The results within the given document.
  */
 Browser.prototype.addCategory = function(doc, results) {
+	"use strict";
 	var browser = this;
 	var searchTab = $('<li/>').appendTo(this.searchResults);
 	var searchLink = $('<a class="result-title">'
-							   + '<span class="icon-chevron-right">&nbsp;</span>'
-							   + '<span class="doc-name">' + doc.name + '</span>'
-							   + '<span class="results-counter">' + results.length + ' ' + Util.getString('searchResults') + '</span>'
-							   + '</a>')
+							 + '<span class="icon-chevron-right">&nbsp;</span>'
+							 + '<span class="doc-name">' + doc.name + '</span>'
+							 + '<span class="results-counter">' + results.length + ' ' + Util.getString('searchResults') + '</span>'
+							 + '</a>')
 			.appendTo(searchTab);
 	var searchContent = [];
 	var visible = false;
@@ -522,12 +531,12 @@ Browser.prototype.addCategory = function(doc, results) {
 				$('div').remove('.searchresult-thumbnail-link');
 				$(this).append('<div class="searchresult-thumbnail-link" />').click(function(evt) {
 							EditionGui.openDocument(evt, doc, result.page, "images");
-						});;
+						});
 			},
 			function() {
 				$('div').remove('.searchresult-thumbnail-link');
 			}
-		)
+		);
 		var thumbDiv = $("<img class='thumbnail lazy fat-border' src='ropen/Resources/Public/Images/dummySmall.png' data-original='" + doc.imagePath + "80/" + doc.images[result.page - 1] + "'/>").appendTo(thumb);
 
 		$(thumbDiv).css('margin-bottom', '20px');
@@ -540,12 +549,12 @@ Browser.prototype.addCategory = function(doc, results) {
 				$('div').remove('.searchresult-text-link');
 				$(this).append('<div class="searchresult-text-link" />').click(function(evt) {
 							EditionGui.openDocument(evt, doc, result.page, "pages");
-						});;
+						});
 			},
 			function() {
 				$('div').remove('.searchresult-text-link');
 			}
-		)
+		);
 
 	});
 

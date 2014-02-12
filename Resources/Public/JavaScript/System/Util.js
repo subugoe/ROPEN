@@ -152,10 +152,10 @@ Util.loadDocuments = function(trigger) {
 				doc.imagePath = imagePath;
 				doc.images = images;
 				Util.documents.push(doc);
-				if (Util.documents.length == docs.length) {
+				if (Util.documents.length === docs.length) {
 					Util.docsLoaded = 1;
 				}
-				if (typeof trigger != 'undefined') {
+				if (typeof trigger !== 'undefined') {
 					trigger(doc);
 				}
 			};
@@ -176,10 +176,12 @@ Util.loadDocuments = function(trigger) {
 						$(docs[i]).find('pageCount').text(),
 						fullText()
 				);
+
 				loadMets(docu);
+
 			}
 		}
-	}
+	};
 	DocumentServerConnection.getDocuments(callback);
 };
 
@@ -222,6 +224,7 @@ Util.loadDocumentSync = function(title, nameShort) {
  * @return {Document} The document with the given title.
  */
 Util.getDoc = function(title) {
+	"use strict";
 	for (var i in Util.documents) {
 		if (Util.documents[i].title == title) {
 			return Util.documents[i];
@@ -238,6 +241,7 @@ Util.getDoc = function(title) {
  * @param {Object} trigger A trigger function to be called when the facets have been loaded.
  */
 Util.loadFacets = function(trigger) {
+	"use strict";
 	var i = 0;
 	var callback = function(xml) {
 		$(xml).find('[nodeName="tei:tei"]').children().each(function() {
@@ -263,12 +267,12 @@ Util.loadFacets = function(trigger) {
 				color: color
 			};
 			Util.facets.push(facet);
-			if (typeof trigger != 'undefined' && render) {
+			if (typeof trigger !== 'undefined' && render) {
 				trigger(facet);
 			}
 		});
 		Util.facetsLoaded = true;
-	}
+	};
 	DocumentServerConnection.getFacets(callback);
 };
 
@@ -280,8 +284,9 @@ Util.loadFacets = function(trigger) {
  * @return {string} The label of the facet in the browsers language.
  */
 Util.getFacetLabel = function(facet) {
+	"use strict";
 	for (var i in facet.labels) {
-		if (facet.labels[i].language == Util.language) {
+		if (facet.labels[i].language === Util.language) {
 			return facet.labels[i].label;
 		}
 	}
@@ -295,8 +300,9 @@ Util.getFacetLabel = function(facet) {
  * @return {JSON} The JSON data of the corresponding facet.
  */
 Util.getFacet = function(id) {
+	"use strict";
 	for (var i in Util.facets) {
-		if (Util.facets[i].facet == id) {
+		if (Util.facets[i].facet === id) {
 			return Util.facets[i];
 		}
 	}
@@ -310,10 +316,11 @@ Util.getFacet = function(id) {
  * @return {Array} A specific number of most frequent tags.
  */
 Util.getTags = function(tags) {
+	"use strict";
 	var tagArray = [];
 	for (var i = 0; i < tags.length; i++) {
 		var text = $(tags[i]).find('tag').text();
-		if (text == "") {
+		if (text === "") {
 			continue;
 		}
 		var weight = $(tags[i]).find('count').text();
@@ -322,9 +329,9 @@ Util.getTags = function(tags) {
 		var tooltip = weight + " " + Util.getString('occurences');
 		var link = '<a title="' + tooltip + '" class="tagcloudTag ' + facet.facet + '" href="' + url + '" style="color:' + facet.color + ';" target="_blank">' + text + '</a>';
 		tagArray.push({
-						  text: link,
-						  weight: weight
-					  });
+						text: link,
+						weight: weight
+					});
 		if (EditionProperties.maxTags && EditionProperties.maxTags == tagArray.length) {
 			break;
 		}
@@ -340,6 +347,7 @@ Util.getTags = function(tags) {
  * @return {HTML} The error message content DIV.
  */
 Util.getErrorMessage = function(errorType) {
+	"use strict";
 	var errorDiv = $("<div/>");
 	$("<div class='errorMessage'>" + Util.getString('errorMessage') + ' (' + errorType + ')' + "</div>").appendTo(errorDiv);
 	return errorDiv;
@@ -353,6 +361,7 @@ Util.getErrorMessage = function(errorType) {
  * @return {HTML} The alert message content DIV.
  */
 Util.getAlertMessage = function(message) {
+	"use strict";
 	var alertDiv = $("<div/>");
 	$("<div class='alertMessage'>" + message + "</div>").appendTo(alertDiv);
 	return alertDiv;
@@ -366,10 +375,11 @@ Util.getAlertMessage = function(message) {
  * @return {string} The transformed hex code.
  */
 Util.asciiToHex = function(text) {
+	"use strict";
 	var ascii = new Array("!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "/", ":", ";", "=", "?", "@", "[", "]", " ");
 	var hex = new Array("%21", "%23", "%24", "!$#", "%26", "%27", "%28", "%29", "%2a", "%2b", "%2c", "%2f", "%3a", "%3b", "%3d", "%3f", "%40", "%5b", "%5d", "%20");
 	for (var i = 0; i < ascii.length; i++) {
-		while (text.indexOf(ascii[i]) != -1) {
+		while (text.indexOf(ascii[i]) !== -1) {
 			text = text.replace(ascii[i], hex[i]);
 		}
 	}
@@ -385,10 +395,11 @@ Util.asciiToHex = function(text) {
  * @return {string} The transformed hex code.
  */
 Util.getMousePosition = function(event) {
+	"use strict";
 	if (!event) {
 		event = window.event;
 	}
-	var body = (window.document.compatMode && window.document.compatMode == "CSS1Compat") ? window.document.documentElement : window.document.body;
+	var body = (window.document.compatMode && window.document.compatMode === "CSS1Compat") ? window.document.documentElement : window.document.body;
 	return {
 		top: event.pageY ? event.pageY : event.clientY,
 		left: event.pageX ? event.pageX : event.clientX
@@ -404,6 +415,7 @@ Util.getMousePosition = function(event) {
  * @param {HTML} div The parent DIV which contains the image.
  */
 var imageLoad = function(response, image, div) {
+	"use strict";
 	var width = div.width(), height = div.height();
 	var w = response.naturalWidth || response.width, h = response.naturalHeight || response.height;
 	if (typeof w != "undefined" && w > 0) {
@@ -430,6 +442,7 @@ var imageLoad = function(response, image, div) {
  * @returns {string}
  */
 Util.getImagePath = function(defaultPath) {
+	"use strict";
 	var dummy = defaultPath.substring(0, defaultPath.lastIndexOf("/"));
-	return	imagePath = dummy.substring(0, dummy.lastIndexOf("/") + 1);
+	return dummy.substring(0, dummy.lastIndexOf("/") + 1);
 }
