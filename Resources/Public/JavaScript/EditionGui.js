@@ -5,6 +5,7 @@
  * @this {EditionGui}
  */
 var EditionGui = new function() {
+	"use strict";
 	this.folders = [];
 	this.windowIndex = 0;
 	this.independentId = 0;
@@ -22,7 +23,7 @@ var EditionGui = new function() {
 			EditionGui.gridLayout();
 		}
 	});
-};
+}();
 
 /**
  * Initializes a certain number of empty folders.
@@ -31,6 +32,7 @@ var EditionGui = new function() {
  * @param {number} number The number of folders to create.
  */
 EditionGui.initializeFolders = function(number) {
+	"use strict";
 	for (var i = 0; i < number; i++) {
 		this.addFolder();
 	}
@@ -45,6 +47,7 @@ EditionGui.initializeFolders = function(number) {
  * @return {number} The current highest z-index.
  */
 EditionGui.getZIndex = function() {
+	"use strict";
 	return ++this.zIndex;
 };
 
@@ -54,21 +57,22 @@ EditionGui.getZIndex = function() {
  * @this {EditionGui}
  */
 EditionGui.addFolder = function() {
+	"use strict";
 	var folder = $('<div/>').appendTo(this.containerDiv);
 	$.extend(folder, new FrameWindow());
 	folder.initialize({
-						  draggable: EditionProperties.draggable,
-						  resizable: EditionProperties.resizable,
-						  concealable: EditionProperties.concealable,
-						  removable: EditionProperties.removable,
-						  triggerResize: function() {
-							  folder.resizeContent();
-						  },
-						  triggerRemove: function() {
-							  EditionGui.removeFolder(folder);
-						  },
-						  class: 'window'
-					  });
+						draggable: EditionProperties.draggable,
+						resizable: EditionProperties.resizable,
+						concealable: EditionProperties.concealable,
+						removable: EditionProperties.removable,
+						triggerResize: function() {
+							folder.resizeContent();
+						},
+						triggerRemove: function() {
+							EditionGui.removeFolder(folder);
+						},
+						class: 'window'
+					});
 	$.extend(folder, new Folder(++this.windowIndex));
 	folder.initialize();
 	this.folders.push(folder);
@@ -91,16 +95,17 @@ EditionGui.addFolder = function() {
  * @this {EditionGui}
  */
 EditionGui.initialize = function() {
+	"use strict";
 	this.initialized = true;
 	var gui = this;
 	this.containerDiv = $('#editionContainer');
 	this.containerDiv.css('height', (EditionProperties.windowHeight + 2 * EditionProperties.margin) + 'px');
 	GeoTemConfig.applySettings({
-								   language: EditionGui.language,
-								   allowFilter: false,
-								   highlightEvents: false,
-								   selectionEvents: false
-							   });
+								language: EditionGui.language,
+								allowFilter: false,
+								highlightEvents: false,
+								selectionEvents: false
+							});
 	if (!Util.facetsLoaded) {
 		Util.loadFacets();
 	}
@@ -122,14 +127,14 @@ EditionGui.initialize = function() {
 	this.browser.resize();
 	this.browser.resizeContent();
 	this.browser.setFixed(this.automaticGridLayout);
-	if (Util.docsLoaded == -1) {
+	if (Util.docsLoaded === -1) {
 		Util.loadDocuments(function(doc) {
 			gui.browser.addDocument(doc);
 		});
 	}
 	else {
 		var loadDocs = function() {
-			if (Util.docsLoaded == 1) {
+			if (Util.docsLoaded === 1) {
 				for (var i = 0; i < Util.documents.length; i++) {
 					gui.browser.addDocument(Util.documents[i]);
 				}
@@ -139,13 +144,13 @@ EditionGui.initialize = function() {
 					loadDocs();
 				}, 10);
 			}
-		}
+		};
 		loadDocs();
 	}
 	this.addControls();
 	this.minHeight = $(this.containerDiv).height();
 	this.minWidth = $(window).width();
-	if (window.location.href.indexOf('?params') != -1) {
+	if (window.location.href.indexOf('?params') !== -1) {
 		this.setParams(window.location.href.slice(window.location.href.indexOf('?params=') + 8));
 	} else {
 		if (EditionProperties.guiConfig) {
@@ -165,6 +170,7 @@ EditionGui.initialize = function() {
  * @this {EditionGui}
  */
 EditionGui.initialLayout = function() {
+	"use strict";
 	var conf = EditionProperties.guiConfig;
 	this.browser.position(conf.browser.left, conf.browser.top);
 	this.browser.setSize(conf.browser.width, conf.browser.height);
@@ -196,8 +202,8 @@ EditionGui.initialLayout = function() {
 	var shiftX = Math.round(($(document).width() - xmax + xmin) / 2);
 	var shiftY = Math.round(($(document).height() - ymax + ymin) / 2);
 	this.browser.position(this.browser.offset().left + shiftX, this.browser.offset().top + shiftY);
-	for (var i = 0; i < min; i++) {
-		var folder = this.folders[i];
+	for (var j = 0; j < min; j++) {
+		var folder = this.folders[j];
 		folder.position(folder.offset().left + shiftX, folder.offset().top + shiftY);
 	}
 };
@@ -209,24 +215,25 @@ EditionGui.initialLayout = function() {
  * @this {EditionGui}
  */
 EditionGui.checkBounds = function() {
+	"use strict";
 	var highest, farthest;
 	for (var i = 0; i < this.folders.length; i++) {
 		var folder = this.folders[i];
 		var yMax = $(folder).height() + $(folder).position().top;
-		if (typeof highest == 'undefined' || yMax > highest) {
+		if (typeof highest === 'undefined' || yMax > highest) {
 			highest = yMax;
 		}
 		var xMax = $(folder).width() + $(folder).position().left;
-		if (typeof farthest == 'undefined' || xMax > farthest) {
+		if (typeof farthest === 'undefined' || xMax > farthest) {
 			farthest = xMax;
 		}
 	}
 	var yMaxBrowser = $(this.browser).height() + $(this.browser).position().top;
 	var xMaxBrowser = $(this.browser).width() + $(this.browser).position().left;
-	if (typeof highest == 'undefined' || yMaxBrowser > highest) {
+	if (typeof highest === 'undefined' || yMaxBrowser > highest) {
 		highest = yMaxBrowser;
 	}
-	if (typeof farthest == 'undefined' || xMaxBrowser > farthest) {
+	if (typeof farthest === 'undefined' || xMaxBrowser > farthest) {
 		farthest = xMaxBrowser;
 	}
 	if (highest < this.minHeight - EditionProperties.margin) {
@@ -235,10 +242,10 @@ EditionGui.checkBounds = function() {
 	if (farthest < this.minWidth - EditionProperties.margin) {
 		farthest = this.minWidth - EditionProperties.margin;
 	}
-	if ($(EditionGui.containerDiv).height() != highest + EditionProperties.margin) {
+	if ($(EditionGui.containerDiv).height() !== highest + EditionProperties.margin) {
 		$(EditionGui.containerDiv).css('height', (EditionProperties.margin + highest) + 'px');
 	}
-	if ($(EditionGui.containerDiv).width() != farthest + EditionProperties.margin) {
+	if ($(EditionGui.containerDiv).width() !== farthest + EditionProperties.margin) {
 		$(EditionGui.containerDiv).css('width', (EditionProperties.margin + farthest) + 'px');
 	}
 };
@@ -256,20 +263,21 @@ EditionGui.checkBounds = function() {
  * @param {Object} onclose A trigger function to be called, when the dialog gets closed.
  */
 EditionGui.createDialog = function(headline, content, event, sx, sy, onclose) {
+	"use strict";
 	var gui = this;
 	var id = "dialog" + this.getIndependentId();
 	var dialog = $('<div id="' + id + '" class="dialog"/>').appendTo(this.containerDiv);
 	var closeDialog = function() {
 		$(dialog).remove();
-		if (typeof onclose != 'undefined') {
+		if (typeof onclose !== 'undefined') {
 			onclose();
 		}
-	}
+	};
 	var zIndex = this.getZIndex();
 
 	$(dialog).css('z-index', zIndex);
 	$(dialog).mousedown(function() {
-		if (gui.zIndex != zIndex) {
+		if (gui.zIndex !== zIndex) {
 			zIndex = gui.getZIndex();
 			$(dialog).css('z-index', zIndex);
 		}
@@ -308,6 +316,7 @@ EditionGui.createDialog = function(headline, content, event, sx, sy, onclose) {
  * @this {EditionGui}
  */
 EditionGui.updateNames = function() {
+	"use strict";
 	$.each(this.folders, function(i, folder) {
 		folder.updateName(i + 1);
 	});
@@ -320,6 +329,7 @@ EditionGui.updateNames = function() {
  * @return {number} The independent ID.
  */
 EditionGui.getIndependentId = function() {
+	"use strict";
 	return ++this.independentId;
 };
 
@@ -330,9 +340,10 @@ EditionGui.getIndependentId = function() {
  * @param {Folder} folder The folder to be removed.
  */
 EditionGui.removeFolder = function(folder) {
+	"use strict";
 	folder.remove();
 	for (var i = 0; i < this.folders.length; i++) {
-		if (folder == this.folders[i]) {
+		if (folder === this.folders[i]) {
 			this.folders.splice(i, 1);
 			break;
 		}
@@ -347,6 +358,7 @@ EditionGui.removeFolder = function(folder) {
  * @this {EditionGui}
  */
 EditionGui.gridLayout = function() {
+	"use strict";
 	var gui = this;
 	var borderGap = parseInt($(this.browser).css('border-left-width')) + parseInt($(this.browser).css('border-right-width'));
 	var marginGap = EditionProperties.margin;
@@ -418,7 +430,7 @@ EditionGui.gridLayout = function() {
 			j++;
 		}
 	});
-	if (typeof this.windowWidth == 'undefined') {
+	if (typeof this.windowWidth === 'undefined') {
 		this.windowWidth = windowWidth;
 	}
 	this.checkBounds();
@@ -429,7 +441,7 @@ EditionGui.gridLayout = function() {
  * are optional.
  *
  * @this {EditionGui}
- * @param {Object} event A mouseevent which is used to relatively position the created dialog window.
+ * @param {Object} evt A mouseevent which is used to relatively position the created dialog window.
  * @param {Document} document The document to add to a folder.
  * @param {number} page A page to open when the document is shown.
  * @param {string} type The document type to be shown initially (e.g. 'pages').
@@ -438,7 +450,7 @@ EditionGui.gridLayout = function() {
  * @param {number} folderNumber number to be opened
  */
 EditionGui.openDocument = function(evt, document, page, type, position, entity, folderNumber) {
-
+	"use strict";
 	var gui = this;
 	var candidates = [];
 	var doc = {
@@ -465,13 +477,13 @@ EditionGui.openDocument = function(evt, document, page, type, position, entity, 
 				gui.gridLayout();
 			}
 		}
-	}
+	};
 
 	// open default view
 	if (folderNumber >= 0) {
-		EditionGui.openDefaultView(candidates[folderNumber], doc)
+		EditionGui.openDefaultView(candidates[folderNumber], doc);
 	} else {
-		if (candidates.length == 0) {
+		if (candidates.length === 0) {
 			openNewWindow();
 		} else {
 			var close;
@@ -493,7 +505,7 @@ EditionGui.openDocument = function(evt, document, page, type, position, entity, 
 			var dialog = this.createDialog(Util.getString('openDocument'), inner, evt, 20, -20);
 			close = function() {
 				$(dialog).remove();
-			}
+			};
 		}
 	}
 };
@@ -503,18 +515,17 @@ EditionGui.openDocument = function(evt, document, page, type, position, entity, 
  * @returns {boolean}
  */
 var isDefaultViewActive = function() {
-	if (sessionStorage.getItem('defaultView') == 2) {
-		return true;
-	}
-	return false;
-}
+	"use strict";
+	return sessionStorage.getItem('defaultView') === 2;
+};
 
 /**
  * Adds a marker that a default view is active
  */
 var setActiveDefaultView = function(folder) {
+	"use strict";
 	sessionStorage.setItem('defaultView', folder.index);
-}
+};
 
 /**
  * Opens a default view, i.e. a page and an image view
@@ -522,12 +533,13 @@ var setActiveDefaultView = function(folder) {
  * @param doc
  */
 EditionGui.openDefaultView = function(folder, doc) {
+	"use strict";
 	if (isDefaultViewActive() === false) {
 		folder.addTab(doc);
 		$('.frame .icon-unlocked').click();
 		setActiveDefaultView(folder);
 	}
-}
+};
 
 /**
  * Computes a string, which represents the actual state of the main window. The string is used to generate a magnetic
@@ -539,6 +551,7 @@ EditionGui.openDefaultView = function(folder, doc) {
  * @return {string} A string representation of the current state.
  */
 EditionGui.getParams = function() {
+	"use strict";
 	var gui = this;
 	var getDelimitedString = function(delimiter, items) {
 		var string = '';
@@ -601,6 +614,7 @@ EditionGui.getParams = function() {
  * @this {EditionGui}
  */
 EditionGui.setParams = function(params) {
+	"use strict";
 	params = unescape(params);
 	var data = params.split('_');
 	this.initializeFolders(data.length);
@@ -611,17 +625,17 @@ EditionGui.setParams = function(params) {
 			var document = Util.loadDocumentSync(documentParams[0], documentParams[1]);
 			var type = Util.getTypeById(documentParams[2]).type;
 			this.folders[i].addTab({
-									   document: document,
-									   page: parseInt(documentParams[3]),
-									   type: type
-								   });
+									document: document,
+									page: parseInt(documentParams[3]),
+									type: type
+								});
 			if (documentParams[4] == '1') {
 				this.folders[i].dialog().linkDialog();
 			}
 			var facets = [];
 			var facetString = documentParams[5];
 			for (var k = 0; k < facetString.length; k++) {
-				if (facetString[k] == 0) {
+				if (facetString[k] === 0) {
 					facets.push(false);
 				}
 				else {
@@ -643,18 +657,21 @@ EditionGui.setParams = function(params) {
  * @param linkList
  */
 EditionGui.generateMagneticLink = function(gui, linkList) {
+	"use strict";
 	var params = gui.getParams();
 	var linkString = location.protocol + '//' + location.host + '' + location.pathname + '#?params=' + params;
 	jsonlib.fetch({
-					  url: EditionProperties.urlShortenerRequest,
-					  header: 'Content-Type: application/json',
-					  data: JSON.stringify({longUrl: linkString})
-				  }, function(response) {
+					url: EditionProperties.urlShortenerRequest,
+					header: 'Content-Type: application/json',
+					data: JSON.stringify({longUrl: linkString})
+				}, function(response) {
 		var result = null;
 		try {
 			result = JSON.parse(response.content).id;
-			if (typeof result != 'string') result = null;
-			if (result != null) {
+			if (typeof result !== 'string') {
+				result = null;
+			}
+			if (result !== null) {
 				gui.magneticLinks.push(result);
 				EditionGui.updateLinks(gui, linkList);
 			}
@@ -663,7 +680,7 @@ EditionGui.generateMagneticLink = function(gui, linkList) {
 			EditionGui.updateLinks(gui, linkList);
 		}
 	});
-}
+};
 
 /**
  *
@@ -671,6 +688,7 @@ EditionGui.generateMagneticLink = function(gui, linkList) {
  * @param linkList
  */
 EditionGui.updateLinks = function(gui, linkList) {
+	"use strict";
 	$(linkList).empty();
 	if (gui.magneticLinks.length > 0) {
 		$("<p><hr/></p>").appendTo(linkList);
@@ -682,7 +700,7 @@ EditionGui.updateLinks = function(gui, linkList) {
 			var ml = gui.magneticLinks[i];
 			var linkDiv = $("<div/>").appendTo(p);
 			var link;
-			if (ml.indexOf('goo.gl') == -1) {
+			if (ml.indexOf('goo.gl') === -1) {
 				link = $('<a target=_blank href="' + gui.magneticLinks[i] + '">' + Util.getString('magneticLink') + '</a>').appendTo(linkDiv);
 			}
 			else {
@@ -693,7 +711,7 @@ EditionGui.updateLinks = function(gui, linkList) {
 			$(link).css('background-color', 'white');
 		}
 	}
-}
+};
 
 /**
  * Adds magnetic link controls to the gui
@@ -702,6 +720,7 @@ EditionGui.updateLinks = function(gui, linkList) {
  * @param controls
  */
 EditionGui.addMagneticLink = function(gui, controls) {
+	"use strict";
 	var linkList = $("<div/>");
 
 	var magneticLink = $('<a class="icon-bookmark"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(controls);
@@ -718,7 +737,7 @@ EditionGui.addMagneticLink = function(gui, controls) {
 		$(linkList).appendTo(p);
 		var onclose = function() {
 			$(magneticLink).removeClass('button-magneticlink-active');
-		}
+		};
 		gui.createDialog(
 				Util.getString('magneticLink'),
 				content,
@@ -728,7 +747,7 @@ EditionGui.addMagneticLink = function(gui, controls) {
 				onclose
 		);
 	});
-}
+};
 
 /**
  * This method adds the following controls to the main container window, if their corresponding parameters are set to
@@ -741,6 +760,7 @@ EditionGui.addMagneticLink = function(gui, controls) {
  * @this {EditionGui}
  */
 EditionGui.addControls = function() {
+	"use strict";
 	var gui = this;
 	var controls = $('<div class="edition-tools"/>').appendTo(this.containerDiv);
 	if (EditionProperties.addable) {
@@ -807,7 +827,7 @@ EditionGui.addControls = function() {
 			$.each(gui.folders.concat([gui.browser]), function(i, frame) {
 				frame.setFixed(gui.automaticGridLayout);
 			});
-		}
+		};
 	}
 	if (EditionProperties.fullscreen) {
 		var fsButton = $('<a class="icon-fullscreen" title="' + Util.getString('fullscreenMode') + '"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(gridDiv);
@@ -834,7 +854,7 @@ EditionGui.addControls = function() {
 				$('.icon-fullscreen').addClass('icon-contract');
 				$('.icon-question').click(function() {
 					$('#editionContainer').fullScreen(false);
-				})
+				});
 			}
 		});
 	}
@@ -846,6 +866,7 @@ EditionGui.addControls = function() {
  * @this {EditionGui}
  */
 EditionGui.checkGrid = function() {
+	"use strict";
 	if (this.automaticGridLayout) {
 		if (EditionProperties.guiConfig) {
 			this.initialLayout();
