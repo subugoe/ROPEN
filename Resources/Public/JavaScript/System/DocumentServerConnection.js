@@ -5,7 +5,7 @@
  * @this {DocumentServerConnection}
  */
 var DocumentServerConnection = new function() {
-}
+}();
 
 /**
  * Function to perform each AJAX request.
@@ -18,6 +18,7 @@ var DocumentServerConnection = new function() {
  * @param {Object} failureCallback A callback function to be called for unsuccessfully retrieved data.
  */
 DocumentServerConnection.getData = function(url, type, async, successCallback, failureCallback) {
+	"use strict";
 	$.ajax({
 			url: url,
 			async: async,

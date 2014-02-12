@@ -5,6 +5,7 @@
  * @this {Util}
  */
 var Util = new function() {
+	"use strict";
 	/* array for all documents metadata from the server */
 	this.documents = [];
 	/* array for all possible facets */
@@ -49,17 +50,17 @@ var Util = new function() {
 	this.docsLoaded = -1;
 	this.facetsLoaded = false;
 	this.texts = EditionTooltips;
-	if (typeof navigator.language != 'undefined' && navigator.language.indexOf("de") > -1) {
+	if (typeof navigator.language !== 'undefined' && navigator.language.indexOf("de") > -1) {
 		this.language = "de";
 	}
 	else
-		if (typeof navigator.browserLanguage != 'undefined' && navigator.browserLanguage.indexOf("de") > -1) {
+		if (typeof navigator.browserLanguage !== 'undefined' && navigator.browserLanguage.indexOf("de") > -1) {
 			this.language = "de";
 		}
 		else {
 			this.language = "en";
 		}
-};
+}();
 
 /**
  * Getter for an ID for a given document type. Required for generating magnetic links.
@@ -69,8 +70,9 @@ var Util = new function() {
  * @return {number} The corresponding document type id.
  */
 Util.getIdByType = function(type) {
+	"use strict";
 	for (var i = 0; i < this.docTypes.length; i++) {
-		if (this.docTypes[i].type == type) {
+		if (this.docTypes[i].type === type) {
 			return i;
 		}
 	}
@@ -84,6 +86,7 @@ Util.getIdByType = function(type) {
  * @return {string} The corresponding document type.
  */
 Util.getTypeById = function(id) {
+	"use strict";
 	return this.docTypes[id];
 };
 
@@ -96,10 +99,11 @@ Util.getTypeById = function(id) {
  * @return {string} The value of the attribute.
  */
 Util.getAttribute = function(node, attributeName) {
+	"use strict";
 	var value = $(node).attr(attributeName);
-	if (typeof value == 'undefined') {
+	if (typeof value === 'undefined') {
 		for (var i = 0; i < node.attributes.length; i++) {
-			if (attributeName == node.attributes[i].name) {
+			if (attributeName === node.attributes[i].name) {
 				value = node.attributes[i].nodeValue;
 				break;
 			}
@@ -116,6 +120,7 @@ Util.getAttribute = function(node, attributeName) {
  * @return {string} The corresponding tooltip dependent on the applications language.
  */
 Util.getString = function(id) {
+	"use strict";
 	var label = '';
 
 	try {
@@ -133,6 +138,7 @@ Util.getString = function(id) {
  * @param {Object} trigger A trigger function to be called when a document has been loaded.
  */
 Util.loadDocuments = function(trigger) {
+	"use strict";
 	Util.docsLoaded = 0;
 	var gui = this;
 	var callback = function(xml) {
@@ -148,7 +154,7 @@ Util.loadDocuments = function(trigger) {
 						var dummy = fullPath.substring(0, fullPath.lastIndexOf("/"));
 						imagePath = dummy.substring(0, dummy.lastIndexOf("/") + 1);
 					}
-				})
+				});
 				doc.imagePath = imagePath;
 				doc.images = images;
 				Util.documents.push(doc);
@@ -160,12 +166,12 @@ Util.loadDocuments = function(trigger) {
 				}
 			};
 			DocumentServerConnection.getMets(doc.title, true, metsCallback);
-		}
+		};
 		for (var i = 0; i < docs.length; i++) {
 
 			var fullText = function() {
 				return $(docs[i]).find('fulltext');
-			}
+			};
 
 			if (fullText()) {
 				var docu = new Document(
@@ -193,6 +199,7 @@ Util.loadDocuments = function(trigger) {
  * @param {string} nameShort The short name of the document.
  */
 Util.loadDocumentSync = function(title, nameShort) {
+	"use strict";
 	var pageCount;
 
 	var document = new Document(title, '', nameShort, '');
@@ -206,8 +213,8 @@ Util.loadDocumentSync = function(title, nameShort) {
 				var dummy = fullPath.substring(0, fullPath.lastIndexOf("/"));
 				imagePath = dummy.substring(0, dummy.lastIndexOf("/") + 1);
 			}
-		})
-		pageCount = $(xml).find('body').find('div').last().find('pb').last().attr('n')
+		});
+		pageCount = $(xml).find('body').find('div').last().find('pb').last().attr('n');
 		document.pages = pageCount;
 		document.imagePath = imagePath;
 		document.images = images;
@@ -226,7 +233,7 @@ Util.loadDocumentSync = function(title, nameShort) {
 Util.getDoc = function(title) {
 	"use strict";
 	for (var i in Util.documents) {
-		if (Util.documents[i].title == title) {
+		if (Util.documents[i].title === title) {
 			return Util.documents[i];
 		}
 	}
@@ -391,7 +398,7 @@ Util.asciiToHex = function(text) {
  * Gets the actual mouse position relative to the document.
  *
  * @this {Util}
- * @param {Object} e The mouse event data.
+ * @param {Object} event The mouse event data.
  * @return {string} The transformed hex code.
  */
 Util.getMousePosition = function(event) {
@@ -434,7 +441,7 @@ var imageLoad = function(response, image, div) {
 		image.css('left', left + 'px');
 		image.parent().css("background-image", "none");
 	}
-}
+};
 
 /**
  *
@@ -445,4 +452,4 @@ Util.getImagePath = function(defaultPath) {
 	"use strict";
 	var dummy = defaultPath.substring(0, defaultPath.lastIndexOf("/"));
 	return dummy.substring(0, dummy.lastIndexOf("/") + 1);
-}
+};
