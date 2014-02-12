@@ -11,6 +11,7 @@
  * @param {boolean} isFullText
  */
 Document = function(title, name, nameShort, preview, pages, isFullText){
+	"use strict";
 	this.title = title;
 	this.name = name;
 	this.nameShort = nameShort;

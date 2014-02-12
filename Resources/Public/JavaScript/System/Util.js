@@ -425,7 +425,7 @@ var imageLoad = function(response, image, div) {
 	"use strict";
 	var width = div.width(), height = div.height();
 	var w = response.naturalWidth || response.width, h = response.naturalHeight || response.height;
-	if (typeof w != "undefined" && w > 0) {
+	if (typeof w !== "undefined" && w > 0) {
 		if (h > height) {
 			image.attr('height', height);
 			h = height;
@@ -445,7 +445,7 @@ var imageLoad = function(response, image, div) {
 
 /**
  *
- * @param dummy2
+ * @param defaultPath
  * @returns {string}
  */
 Util.getImagePath = function(defaultPath) {

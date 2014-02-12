@@ -8,6 +8,7 @@
  * @param {DocumentDialog} parent The parent document dialog.
  */
 Images = function(doc, container, parent) {
+	"use strict";
 	this.type = "images";
 	this.path = doc.imagePath;
 	this.images = doc.images;
@@ -16,7 +17,7 @@ Images = function(doc, container, parent) {
 	this.parent = parent;
 	this.documentLoader = new DocumentLoader();
 	this.initialize();
-}
+};
 
 /**
  * Initializes the views HTML items and activates the required pagination panel in the parent document dialog.
@@ -24,13 +25,14 @@ Images = function(doc, container, parent) {
  * @this {Images}
  */
 Images.prototype.initialize = function() {
+	"use strict";
 	var context = this;
 	this.parent.paginator.setTriggerFunc(function(page) {
 		context.showPage(page);
 		context.parent.pageChanged(page);
 	});
 	this.parent.showPagination();
-}
+};
 
 /**
  * Shows the image (digital copy) of a given page with openlayers
@@ -39,10 +41,11 @@ Images.prototype.initialize = function() {
  * @param {number} page The page to be shown.
  */
 Images.prototype.showPage = function(page) {
-	if (this.container.width() == 0) {
+	"use strict";
+	if (this.container.width() === 0) {
 		return;
 	}
-	if (this.actualPage != page) {
+	if (this.actualPage !== page) {
 		this.zoom = 0;
 		this.center = undefined;
 	}
@@ -54,7 +57,7 @@ Images.prototype.showPage = function(page) {
 
 	var loadImages = function() {
 		this.path = doc.path;
-	}
+	};
 
 	if (!this.images) {
 		loadImages();
@@ -81,7 +84,7 @@ Images.prototype.showPage = function(page) {
 
 	var navi = new OpenLayers.Control.Navigation();
 	navi.wheelChange = function(evt, deltaZ) {
-		if (doc.zoom == 0 && deltaZ < 0) {
+		if (doc.zoom === 0 && deltaZ < 0) {
 			return;
 		}
 		var zf = EditionProperties.fractionalZoomFactor;
@@ -105,12 +108,12 @@ Images.prototype.showPage = function(page) {
 		var newCenter = this.map.getLonLatFromViewPortPx(evt.xy);
 		this.map.setCenter(newCenter, this.map.zoom + 1);
 		doc.zoom += 1;
-	}
+	};
 
 	this.map.zoomIn = function() {
 		doc.zoom++;
 		this.zoomTo(doc.zoom);
-	}
+	};
 
 	this.map.zoomOut = function() {
 		if (doc.zoom > 1) {
@@ -120,16 +123,16 @@ Images.prototype.showPage = function(page) {
 			doc.zoom = 0;
 		}
 		this.zoomTo(doc.zoom);
-	}
+	};
 
 	this.map.zoomToMaxExtent = function(options) {
 		var restricted = (options) ? options.restricted : true;
 		var maxExtent = this.getMaxExtent({
-											  'restricted': restricted
-										  });
+											'restricted': restricted
+										});
 		this.zoomToExtent(maxExtent);
 		doc.zoom = 0;
-	}
+	};
 
 	this.map.addControl(navi);
 	var graphic = new Image();
@@ -139,7 +142,7 @@ Images.prototype.showPage = function(page) {
 			$(Util.getErrorMessage(404)).appendTo(doc.container);
 			doc.parent.stopProcessing();
 		}
-	}
+	};
 
 	graphic.onload = function() {
 		if (process.active) {
@@ -162,7 +165,7 @@ Images.prototype.showPage = function(page) {
 					{isBaseLayer: true, displayInLayerSwitcher: false}
 			);
 			doc.map.addLayer(imageLayer);
-			if (typeof doc.initialZoom != 'undefined') {
+			if (typeof doc.initialZoom !== 'undefined') {
 				doc.map.zoomTo(doc.initialZoom);
 				doc.zoom = doc.initialZoom;
 				doc.initialZoom = undefined;
@@ -170,13 +173,13 @@ Images.prototype.showPage = function(page) {
 			else {
 				doc.map.zoomTo(doc.zoom);
 			}
-			if (typeof doc.initialCenter != 'undefined') {
+			if (typeof doc.initialCenter !== 'undefined') {
 				doc.map.setCenter(new OpenLayers.LonLat(doc.initialCenter.x, doc.initialCenter.y));
 				doc.center = doc.initialCenter;
 				doc.initialCenter = undefined;
 			}
 			else
-				if (typeof doc.center != 'undefined') {
+				if (typeof doc.center !== 'undefined') {
 					doc.map.setCenter(new OpenLayers.LonLat(doc.center.x, doc.center.y));
 				}
 				else {
@@ -185,7 +188,7 @@ Images.prototype.showPage = function(page) {
 				}
 			doc.parent.stopProcessing();
 		}
-	}
+	};
 	graphic.src = url;
 };
 
@@ -196,6 +199,7 @@ Images.prototype.showPage = function(page) {
  * @param {number} page The page to be shown.
  */
 Images.prototype.display = function(page) {
+	"use strict";
 	page ? this.parent.paginator.setPage(page, false) : this.parent.paginator.setPage(1, false);
 };
 
@@ -205,8 +209,9 @@ Images.prototype.display = function(page) {
  * @this {Images}
  */
 Images.prototype.resize = function() {
+	"use strict";
 	$(this.container).css('height', $(this.container).height() + 'px');
-	if (typeof this.actualPage != 'undefined') {
+	if (typeof this.actualPage !== 'undefined') {
 		this.showPage(this.actualPage);
 	}
 };
@@ -218,8 +223,9 @@ Images.prototype.resize = function() {
  * @param {JSON} change The information for the view update. It contains a type (e.g. 'pageChange') and a data information (e.g. the new page number in case of a 'pageChange' event)
  */
 Images.prototype.onChange = function(change) {
-	if (change.type == "pageChange") {
-		if (this.actualPage != change.data) {
+	"use strict";
+	if (change.type === "pageChange") {
+		if (this.actualPage !== change.data) {
 			this.showPage(change.data);
 		}
 	}

@@ -8,6 +8,7 @@
  * @param {DocumentDialog} parent The parent document dialog.
  */
 Outline = function(doc, container, parent) {
+	"use strict";
 	this.type = "outline";
 	this.document = doc;
 	this.container = container;
@@ -21,6 +22,7 @@ Outline = function(doc, container, parent) {
  * @this {Outline}
  */
 Outline.prototype.display = function() {
+	"use strict";
 	var context = this;
 	$(this.container).empty();
 	var process = context
@@ -35,20 +37,20 @@ Outline.prototype.display = function() {
 					.parent
 					.stopProcessing();
 		}
-	}
+	};
 	var success = function(outline) {
 		var outlineTmp = $(outline);
 		if (process.active) {
 			$(outlineTmp)
 					.find('a')
 					.each(function() {
-							  $(this).click(function() {
-								  context.parent.showTextAtPosition($(this).attr('name'));
-							  });
-						  });
+							$(this).click(function() {
+								context.parent.showTextAtPosition($(this).attr('name'));
+							});
+						});
 			$(outlineTmp).appendTo(context.container);
 			context.parent.stopProcessing();
 		}
-	}
+	};
 	DocumentServerConnection.getDocumentOutline(this.document, success, failure);
-}
+};

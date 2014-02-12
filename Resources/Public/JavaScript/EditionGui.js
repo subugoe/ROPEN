@@ -4,7 +4,7 @@
  * @constructor
  * @this {EditionGui}
  */
-var EditionGui = new function() {
+EditionGui = new function() {
 	"use strict";
 	this.folders = [];
 	this.windowIndex = 0;

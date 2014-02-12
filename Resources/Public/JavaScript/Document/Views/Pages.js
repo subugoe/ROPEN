@@ -58,7 +58,7 @@ Pages.prototype.showPage = function(page) {
 				}
 			}
 		}
-	}
+	};
 	var show = function() {
 		var text = context.document.pageCache[context.actualPage - 1];
 		$(context.container).empty();
@@ -69,7 +69,7 @@ Pages.prototype.showPage = function(page) {
 		if (context.parent.lineNumbers) {
 			(new XHTMLProcessor(context.container)).insertLineNumbers(EditionProperties.lineNumbering);
 		}
-	}
+	};
 	if (!context.document.pageCache[page - 1]) {
 		context.parent.stopProcessing();
 		var process = context.documentLoader.startProcess();
@@ -80,14 +80,14 @@ Pages.prototype.showPage = function(page) {
 				$(context.container).html(Util.getErrorMessage(errorObject.status));
 				context.parent.stopProcessing();
 			}
-		}
+		};
 		var success = function(text) {
 			context.document.pageCache[page - 1] = text;
 			if (process.active) {
 				show();
 				context.parent.stopProcessing();
 			}
-		}
+		};
 		DocumentServerConnection.getDocumentPage(context.document, page, success, failure);
 	}
 	else {
@@ -102,7 +102,7 @@ Pages.prototype.showPage = function(page) {
  * @param {number} page The page to be shown.
  */
 Pages.prototype.display = function(page) {
-	if (typeof page == 'undefined') {
+	if (typeof page === 'undefined') {
 		page = this.parent.actualPage;
 	}
 	page ? this.parent.paginator.setPage(page, false) : this.parent.paginator.setPage(1, false);
@@ -115,13 +115,13 @@ Pages.prototype.display = function(page) {
  * @param {JSON} change The information for the view update. It contains a type (e.g. 'pageChange') and a data information (e.g. the new page number in case of a 'pageChange' event)
  */
 Pages.prototype.onChange = function(change) {
-	if (change.type == "pageChange") {
-		if (this.actualPage != change.data) {
+	if (change.type === "pageChange") {
+		if (this.actualPage !== change.data) {
 			this.showPage(change.data);
 		}
 	}
 	else
-		if (change.type == "facetsChange") {
+		if (change.type === "facetsChange") {
 			this.linkProcessor.colorizeLinks($(this.container), change.data);
 		}
 };

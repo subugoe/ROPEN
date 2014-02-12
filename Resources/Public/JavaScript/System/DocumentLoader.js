@@ -5,6 +5,7 @@
  * @this {DocumentLoader}
  */
 function DocumentLoader() {
+	"use strict";
 	this.processId = -1;
 	this.processes = [];
 }
@@ -15,6 +16,7 @@ function DocumentLoader() {
  * @this {DocumentLoader}
  */
 DocumentLoader.prototype.startProcess = function() {
+	"use strict";
 	this.process = {
 		id: ++this.processId,
 		active: true
@@ -29,7 +31,8 @@ DocumentLoader.prototype.startProcess = function() {
  * @this {DocumentLoader}
  */
 DocumentLoader.prototype.stopProcess = function() {
-	if (typeof this.process != 'undefined') {
+	"use strict";
+	if (typeof this.process !== 'undefined') {
 		this.processes[this.process.id].active = false;
 	}
 };
