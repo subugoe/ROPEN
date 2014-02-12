@@ -290,7 +290,7 @@ var EditionProperties = {
 	/**
 	 if search window should be shown on startup (true) or not (documents)
 	 */
-	"browserSearch": false,
+	browserSearch: false,
 
 	/**
 	 * Ordering of tabs in the browser
@@ -301,6 +301,11 @@ var EditionProperties = {
 	 * define if a document in page and image view shall be shown to thou on start
 	 */
 	openDocumentsOnStart: false,
+
+	/**
+	 * Shall the automatic grid layout be enabled on start?
+	 */
+	gridLayoutOnStart: false
 
 }
 
