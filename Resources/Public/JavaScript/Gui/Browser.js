@@ -29,7 +29,7 @@ Browser.prototype.initialize = function() {
 			browser.searchTab.removeClass('selected');
 			browser.documentsTab.addClass('selected');
 		}
-	}
+	};
 
 	this.header = $("<ul class='scope-selector'/>").appendTo(this.content);
 
@@ -44,7 +44,7 @@ Browser.prototype.initialize = function() {
 			browser[element + 'Tab'] = $("<li><a class='link-scope-" +  element + "' + >" + Util.getString(element) + "</a></li>")
 					.appendTo(browser.header);
 		}
-	}
+	};
 
 	alignTabs();
 
@@ -89,7 +89,7 @@ Browser.prototype.initialize = function() {
 				browser.advancedSearch.css('display', 'block');
 				selectedSearchType = searchType;
 			}
-	}
+	};
 	this.searchTypes = $('<div/>').appendTo(this.main);
 	$(this.searchTypes).css('position', 'relative');
 
@@ -336,12 +336,12 @@ Browser.prototype.prepareAdvancedSearch = function() {
 		}
 		var documents = '';
 		if ($(selectDocuments).attr('checked')) {
-			for (var i in Util.documents) {
-				if (documentSelection[i]) {
+			for (var j in Util.documents) {
+				if (documentSelection[j]) {
 					if (documents !== '') {
 						documents += ',';
 					}
-					documents += Util.documents[i].title;
+					documents += Util.documents[j].title;
 				}
 			}
 			if (documents === '') {
@@ -365,8 +365,9 @@ Browser.prototype.prepareAdvancedSearch = function() {
  */
 Browser.prototype.search = function(facet, documents) {
 	"use strict";
-	var browser = this;
-	var cancel = false;
+	var browser = this,
+		cancel = false;
+
 	var onclose = function() {
 		cancel = true;
 		browser.stopProcessing();
@@ -470,8 +471,8 @@ Browser.prototype.addDocument = function(doc) {
 				});
 			};
 			var newLinks = $('.head-anchor', root);
-			for (var i = 0; i < newLinks.length; i++) {
-				setEvents(newLinks[i]);
+			for (var j = 0; j < newLinks.length; j++) {
+				setEvents(newLinks[j]);
 			}
 		};
 		var calcTree = function() {
@@ -505,12 +506,7 @@ Browser.prototype.addCategory = function(doc, results) {
 	"use strict";
 	var browser = this;
 	var searchTab = $('<li/>').appendTo(this.searchResults);
-	var searchLink = $('<a class="result-title">'
-							 + '<span class="icon-chevron-right">&nbsp;</span>'
-							 + '<span class="doc-name">' + doc.name + '</span>'
-							 + '<span class="results-counter">' + results.length + ' ' + Util.getString('searchResults') + '</span>'
-							 + '</a>')
-			.appendTo(searchTab);
+	var searchLink = $('<a class="result-title"><span class="icon-chevron-right">&nbsp;</span><span class="doc-name">' + doc.name + '</span><span class="results-counter">' + results.length + ' ' + Util.getString('searchResults') + '</span></a>').appendTo(searchTab);
 	var searchContent = [];
 	var visible = false;
 
