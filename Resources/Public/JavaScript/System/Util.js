@@ -130,7 +130,7 @@ Util.getString = function(id) {
 	}
 	return label;
 };
-
+Util.docsLoaded = 0;
 /**
  * Asynchronous loader for all available documents. This function retrieves the metadata file for all documents. Afterwards, each single document gets retrieved.
  *
@@ -139,7 +139,7 @@ Util.getString = function(id) {
  */
 Util.loadDocuments = function(trigger) {
 	"use strict";
-	Util.docsLoaded = 0;
+//	Util.docsLoaded = 0;
 	var gui = this;
 	var callback = function(xml) {
 		var docs = $(xml).find('doc');
@@ -158,7 +158,7 @@ Util.loadDocuments = function(trigger) {
 				doc.imagePath = imagePath;
 				doc.images = images;
 				Util.documents.push(doc);
-				if (Util.documents.length === docs.length) {
+				if (Util.documents.length === docs.length && Util.docsLoaded !== 1) {
 					Util.docsLoaded = 1;
 				}
 				if (typeof trigger !== 'undefined') {
@@ -188,7 +188,9 @@ Util.loadDocuments = function(trigger) {
 			}
 		}
 	};
-	DocumentServerConnection.getDocuments(callback);
+	if (Util.docsLoaded !== 1) {
+		DocumentServerConnection.getDocuments(callback);
+	}
 };
 
 /**
