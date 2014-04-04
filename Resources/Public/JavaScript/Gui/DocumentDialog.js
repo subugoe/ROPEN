@@ -83,7 +83,7 @@ DocumentDialog.prototype.initFunctions = function() {
 		var dfgViewer = $('<a class="tools-dfg">DFG</a>').appendTo(dfgLi);
 		dfgViewer.attr('title', Util.getString('dfgViewer'));
 		dfgViewer.click(function() {
-			var metsLink = location.protocol + '//' + location.host + '/' + EditionProperties.metsUri.replace('DOC_ID', dialog.document.title);
+			var metsLink = location.protocol + '//' + location.host + location.pathname + EditionProperties.metsUri.replace('DOC_ID', dialog.document.title);
 			var link = EditionProperties.dfgViewer + '' + Util.asciiToHex(metsLink);
 			window.open(link, '_blank');
 		});
