@@ -69,6 +69,7 @@ var EditionGui = (function() {
 			                  removable: EditionProperties.removable,
 			                  triggerResize: function() {
 				                  folder.resizeContent();
+				                 folder.resizeContent();
 			                  },
 			                  triggerRemove: function() {
 				                  EditionGui.removeFolder(folder);
