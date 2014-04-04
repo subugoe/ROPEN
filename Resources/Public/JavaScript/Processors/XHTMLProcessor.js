@@ -60,15 +60,15 @@ XHTMLProcessor.prototype.insertLineNumbers = function(steps) {
 	var lineCounter = 1;
 	for (var i in this.nodeStack) {
 		var node = this.nodeStack[i];
-		if (node.nodeName == 'HR' && this.hasAttributeValue(node, 'class', 'tei:pb')) {
+		if (node.nodeName === 'HR' && this.hasAttributeValue(node, 'class', 'tei:pb')) {
 			lineCounter = 1;
 		}
-		if (node.nodeName == 'BR' && this.hasAttributeValue(node, 'class', 'tei:lb')) {
+		if ((node.nodeName === 'BR' || node.nodeName ==='SPAN') && this.hasAttributeValue(node, 'class', 'tei:lb')) {
 			for (var j = i; j > 0; j--) {
 				var node2 = this.nodeStack[j - 1];
-				if (node2.nodeName == 'BR' || node2.nodeName == 'HR' || node2.nodeName == 'DIV' || node2.nodeName == 'P') {
+				if (node2.nodeName === 'BR' || node2.nodeName === 'HR' || node2.nodeName === 'DIV' || node2.nodeName === 'P' || node2.nodeName === 'SPAN') {
 					var node3 = this.nodeStack[j];
-					if (lineCounter % this.steps == 0) {
+					if (lineCounter % this.steps === 0) {
 						$("<div class='lineNumber'>" + lineCounter + "</div>").insertBefore(node3);
 					}
 					lineCounter++;
