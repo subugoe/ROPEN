@@ -305,7 +305,7 @@ var EditionProperties = {
 	/**
 	 * Shall the automatic grid layout be enabled on start?
 	 */
-	gridLayoutOnStart: false
+	gridLayoutOnStart: true
 
 }
 
