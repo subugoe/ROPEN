@@ -833,6 +833,10 @@ var EditionGui = (function() {
 					frame.setFixed(gui.automaticGridLayout);
 				});
 			};
+			// Force grid layout on start
+			if (EditionProperties.gridLayoutOnStart) {
+				gui.toggleGridLayout();
+			}
 		}
 		if (EditionProperties.fullscreen) {
 			var fsButton = $('<a class="icon-fullscreen" title="' + Util.getString('fullscreenMode') + '"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(gridDiv);

@@ -29,7 +29,8 @@ Text.prototype.initialize = function() {
 	$(this.contentPanel).css('overflow', 'auto');
 	this.parent.paginator.setTriggerFunc(function(page) {
 		var node = $(context.pageHooks[page - 1]);
-		$(context.contentPanel).scrollTop($(node).offset().top - $(context.contentPanel).offset().top + $(context.contentPanel).scrollTop());
+		// Force scrollTop(0) on first page
+		$(context.contentPanel).scrollTop(page == 1 ? 0 : $(node).offset().top - $(context.contentPanel).offset().top + $(context.contentPanel).scrollTop());
 		context.parent.pageChanged(page);
 	});
 	this.parent.showPagination();
@@ -67,34 +68,41 @@ Text.prototype.display = function(page, id) {
 		context.linkProcessor.colorizeLinks($(context.contentPanel), context.parent.facetSelection);
 		context.pageHooks = $("[class='tei:pb']", context.contentPanel);
 		context.avoidScroll = false;
-		$(context.contentPanel).scroll(function() {
-			if (context.avoidScroll) {
-				context.avoidScroll = false;
-				return;
-			}
-			var scrollTop = $(context.contentPanel).scrollTop();
-			var height = $(context.contentPanel).height();
-			var found = false;
-			for (var i = 0; i < context.pageHooks.length; i++) {
-				var top = $(context.pageHooks[i]).position().top + scrollTop;
-				if (scrollTop <= top && top < scrollTop + height) {
-					found = i + 1;
-					break;
+
+		// Custom scroll trigger only triggers on manual scroll to prevent trigger cascade
+		$(context.contentPanel).bind('scroll mousedown wheel DOMMouseScroll mousewheel keyup', function(e) {
+			if ( e.which > 0 || e.type == "mousedown" || e.type == "mousewheel"){
+				if (context.avoidScroll) {
+					context.avoidScroll = false;
+					return;
 				}
-			}
-			if (!found) {
-				for (var i = 0; i < context.pageHooks.length - 1; i++) {
+				var scrollTop = $(context.contentPanel).scrollTop();
+				var height = $(context.contentPanel).height();
+				var found = false;
+				// Get first pagehook in visible area
+				for (var i = 0; i < context.pageHooks.length; i++) {
 					var top = $(context.pageHooks[i]).position().top + scrollTop;
-					var top2 = $(context.pageHooks[i + 1]).position().top + scrollTop;
-					if (scrollTop > top && scrollTop < top2) {
+					if (top >= scrollTop && top < scrollTop + height) {
 						found = i + 1;
 						break;
 					}
 				}
+				// No pagehook found in visible area, select first one above
+				if (!found) {
+					for (var i = 0; i < context.pageHooks.length - 1; i++) {
+						var top = $(context.pageHooks[i]).position().top + scrollTop;
+						var top2 = $(context.pageHooks[i + 1]).position().top + scrollTop;
+						if (top < scrollTop && top2 > scrollTop) {
+							found = i + 1;
+							break;
+						}
+					}
+				}
+				context.parent.paginator.setPage(found, true);
+				context.parent.pageChanged(found);
 			}
-			context.parent.paginator.setPage(found, true);
-			context.parent.pageChanged(found);
-		});
+		})
+
 		if (context.parent.lineNumbers) {
 			(new XHTMLProcessor(context.contentPanel)).insertLineNumbers(EditionProperties.lineNumbering);
 		}

@@ -9,7 +9,7 @@
 function Pagination(div, pages) {
 	this.div = div;
 	this.pages = pages;
-	this.page = 0;
+	this.page = 1; // If set to 0, first page turn doesn't do anything
 	this.initialize();
 }
 
@@ -31,8 +31,8 @@ Pagination.prototype.initialize = function() {
 	var form = $('<form/>').appendTo(this.div);
 	form.css('display', 'inline');
 	this.selectPageDropdown = $('<select/>').appendTo(this.div);
-	for (var i = 0; i < this.pages; i++) {
-		$('<option value="' + (i + 1) + '">' + (i + 1) + '</option>').appendTo(this.selectPageDropdown);
+	for (var i = 1; i <= this.pages; i++) {
+		$('<option value="' + i + '">' + i + '</option>').appendTo(this.selectPageDropdown);
 	}
 	$(this.selectPageDropdown).change(function(evt) {
 		pagination.page = parseInt(evt.currentTarget.value);
@@ -43,8 +43,7 @@ Pagination.prototype.initialize = function() {
 	this.nextPage.title = Util.getString('nextPage');
 	this.nextPage.click(function() {
 		if (pagination.page < pagination.pages) {
-			pagination.page = parseInt(pagination.page + 1);
-			pagination.setPage(pagination.page);
+			pagination.setPage(pagination.page + 1);
 		}
 	});
 }
@@ -57,14 +56,8 @@ Pagination.prototype.initialize = function() {
  * @param {boolean} avoidTrigger If this value is true, the trigger function will not be called (required to avoid infinite loops when views are linked).
  */
 Pagination.prototype.setPage = function(page, avoidTrigger) {
-	var pagination = this;
 	this.page = page;
-	$('select option:selected', this.selectPageDropdown).removeAttr('selected');
-	$("option", this.selectPageDropdown).each(function() {
-		if (pagination.page == parseInt($(this).html())) {
-			$(this).attr('selected', 'selected');
-		}
-	});
+	this.selectPageDropdown.val( this.page );
 	this.update(avoidTrigger);
 };
 

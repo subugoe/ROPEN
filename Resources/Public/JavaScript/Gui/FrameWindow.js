@@ -264,8 +264,11 @@ FrameWindow.prototype.dragFrame = function(evt) {
 	document.onmousemove = function(e) {
 		if (!frame.dragLock) {
 			var pos = Util.getMousePosition(e);
-			frame.css('left', (windowLeft + pos.left - startPos.left) + 'px');
-			frame.css('top', (windowTop + pos.top - startPos.top) + 'px');
+			// TODO: Fix: It should not be possible to move frames out of view
+			var newPosLeft = windowLeft + pos.left - startPos.left;
+			var newPosTop = windowTop + pos.top - startPos.top
+			frame.css('left', ( newPosLeft < 0 ? 0 : newPosLeft ) + 'px');
+			frame.css('top', ( newPosTop < 0 ? 0 : newPosTop ) + 'px');
 			EditionGui.checkBounds();
 		}
 	}
