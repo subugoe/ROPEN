@@ -736,7 +736,7 @@ noscript p {
   margin-left: 35px;
 }
 .edition .hits .searchresult .searchresult-thumbnail-link:before {
-  content: "";
+  content: "\e034";
   color: white;
   font-family: ropen;
   position: absolute;
@@ -1766,7 +1766,8 @@ span.dynatree-drop-target.dynatree-drop-accept a {
 }
 
 .tei\:pb {
-  display: inline;
+  display: block;
+  min-width: 1px;
   border: 0;
 }
 .tei\:pb:before {

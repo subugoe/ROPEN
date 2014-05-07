@@ -28,9 +28,10 @@ Text.prototype.initialize = function() {
 	this.contentPanel = $('<div/>').appendTo(this.container);
 	$(this.contentPanel).css('overflow', 'auto');
 	this.parent.paginator.setTriggerFunc(function(page) {
-		var node = $(context.pageHooks[page - 1]);
+		var node = $(context.pageHooks[page >= 2 ? page - 2 : 0]);
 		// Force scrollTop(0) on first page
-		$(context.contentPanel).scrollTop(page == 1 ? 0 : $(node).offset().top - $(context.contentPanel).offset().top + $(context.contentPanel).scrollTop());
+		// If page turning fails, check if .tei:pb elements are positioned correctly
+		$(context.contentPanel).scrollTop(page <= 1 ? 0 : $(node).offset().top - $(context.contentPanel).offset().top + $(context.contentPanel).scrollTop());
 		context.parent.pageChanged(page);
 	});
 	this.parent.showPagination();
@@ -66,7 +67,7 @@ Text.prototype.display = function(page, id) {
 		$(text).appendTo(context.contentPanel);
 		context.linkProcessor.appendTooltips($(context.contentPanel), context.parent);
 		context.linkProcessor.colorizeLinks($(context.contentPanel), context.parent.facetSelection);
-		context.pageHooks = $("[class='tei:pb']", context.contentPanel);
+		context.pageHooks = $('.tei\\:pb', context.contentPanel);
 		context.avoidScroll = false;
 
 		// Custom scroll trigger only triggers on manual scroll to prevent trigger cascade

@@ -483,10 +483,10 @@ Browser.prototype.addDocument = function(doc) {
 			}
 			else {
 				$(root).dynatree({
-									children: outlineTree,
-									onRender: setLinks,
-									debugLevel: 0
-								});
+					children: outlineTree,
+					onRender: setLinks,
+					debugLevel: 0
+				});
 				setLinks();
 			}
 		};
@@ -524,10 +524,11 @@ Browser.prototype.addCategory = function(doc, results) {
 		// add class to hover
 		$(thumb).hover(
 			function() {
-				$('div').remove('.searchresult-thumbnail-link');
+				// Unbinding click event, elsewise multiple click triggers will be assigned. Better solution would be to just change visibility.
+				$('div').remove('.searchresult-thumbnail-link').unbind('click');
 				$(this).append('<div class="searchresult-thumbnail-link" />').click(function(evt) {
-							EditionGui.openDocument(evt, doc, result.page, "images");
-						});
+					EditionGui.openDocument(evt, doc, result.page, "images");
+				});
 			},
 			function() {
 				$('div').remove('.searchresult-thumbnail-link');
@@ -539,13 +540,14 @@ Browser.prototype.addCategory = function(doc, results) {
 
 		var textDiv = $('<div class="result-text"/>').appendTo(searchResult);
 		$(textDiv).html(result.text);
-				// add class to hover
+		// add class to hover
 		$(textDiv).hover(
 			function() {
-				$('div').remove('.searchresult-text-link');
+				// Unbinding click event, elsewise multiple click triggers will be assigned. Better solution would be to just change visibility.
+				$('div').remove('.searchresult-text-link').unbind('click');
 				$(this).append('<div class="searchresult-text-link" />').click(function(evt) {
-							EditionGui.openDocument(evt, doc, result.page, "pages");
-						});
+					EditionGui.openDocument(evt, doc, result.page, "pages");
+				});
 			},
 			function() {
 				$('div').remove('.searchresult-text-link');

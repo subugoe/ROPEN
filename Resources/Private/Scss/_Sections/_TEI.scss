@@ -42,8 +42,11 @@
 .tei\:emph {
 }
 
+// Do not set this to display:inline or float:left, or else pagination will be messed up
+// For the same reason, do not remove min-width
 .tei\:pb {
-	display: inline;
+	display: block;
+	min-width: 1px;
 	border: 0;
 	&:before {
 		content: "⤷";
