@@ -46,8 +46,8 @@ TEI.prototype.display = function() {
 	var showTree = function(tree) {
 		context.treeDiv = $("<div/>");
 		$(context.treeDiv).dynatree({
-										children: context.document.tree
-									});
+			children: context.document.tree
+		});
 		show(context.treeDiv);
 		context.parent.stopProcessing();
 	}

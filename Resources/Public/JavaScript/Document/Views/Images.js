@@ -128,8 +128,8 @@ Images.prototype.showPage = function(page) {
 	this.map.zoomToMaxExtent = function(options) {
 		var restricted = (options) ? options.restricted : true;
 		var maxExtent = this.getMaxExtent({
-											'restricted': restricted
-										});
+			'restricted': restricted
+		});
 		this.zoomToExtent(maxExtent);
 		doc.zoom = 0;
 	};
@@ -158,11 +158,11 @@ Images.prototype.showPage = function(page) {
 				hs = width / w * h;
 			}
 			var imageLayer = new OpenLayers.Layer.Image(
-					'Page ' + page,
-					url,
-					new OpenLayers.Bounds(-w / 2, -h / 2, w, h),
-					new OpenLayers.Size(ws, hs),
-					{isBaseLayer: true, displayInLayerSwitcher: false}
+				'Page ' + page,
+				url,
+				new OpenLayers.Bounds(-w / 2, -h / 2, w, h),
+				new OpenLayers.Size(ws, hs),
+				{isBaseLayer: true, displayInLayerSwitcher: false}
 			);
 			doc.map.addLayer(imageLayer);
 			if (typeof doc.initialZoom !== 'undefined') {

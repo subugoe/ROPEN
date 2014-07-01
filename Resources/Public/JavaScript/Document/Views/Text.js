@@ -28,10 +28,9 @@ Text.prototype.initialize = function() {
 	this.contentPanel = $('<div/>').appendTo(this.container);
 	$(this.contentPanel).css('overflow', 'auto');
 	this.parent.paginator.setTriggerFunc(function(page) {
-		var node = $(context.pageHooks[page >= 2 ? page - 2 : 0]);
 		// Force scrollTop(0) on first page
-		// If page turning fails, check if .tei:pb elements are positioned correctly
-		$(context.contentPanel).scrollTop(page <= 1 ? 0 : $(node).offset().top - $(context.contentPanel).offset().top + $(context.contentPanel).scrollTop());
+		// Depends on correct CSS positioning of .tei:pb elements
+		$(context.contentPanel).scrollTop(page == 1 ? 0 : $(context.pageHooks[page - 2]).offset().top - $(context.contentPanel).offset().top + $(context.contentPanel).scrollTop());
 		context.parent.pageChanged(page);
 	});
 	this.parent.showPagination();
@@ -61,67 +60,67 @@ Text.prototype.resize = function() {
  * @param {number} page The page to be shown.
  */
 Text.prototype.display = function(page, id) {
+
 	var context = this;
 	$(this.contentPanel).empty();
+
 	var show = function(text) {
 		$(text).appendTo(context.contentPanel);
 		context.linkProcessor.appendTooltips($(context.contentPanel), context.parent);
 		context.linkProcessor.colorizeLinks($(context.contentPanel), context.parent.facetSelection);
 		context.pageHooks = $('.tei\\:pb', context.contentPanel);
 		context.avoidScroll = false;
-
-		// Custom scroll trigger only triggers on manual scroll to prevent trigger cascade
-		$(context.contentPanel).bind('scroll mousedown wheel DOMMouseScroll mousewheel keyup', function(e) {
-			if ( e.which > 0 || e.type == "mousedown" || e.type == "mousewheel"){
-				if (context.avoidScroll) {
-					context.avoidScroll = false;
-					return;
-				}
-				var scrollTop = $(context.contentPanel).scrollTop();
-				var height = $(context.contentPanel).height();
-				var found = false;
+		$(context.contentPanel).scroll(function() {
+			if ( context.avoidScroll ) {
+				context.avoidScroll = false;
+				return;
+			}
+			var scrollTop = $(context.contentPanel).scrollTop();
+			var height = $(context.contentPanel).height();
+			var currentPage = 1;
+			// If we are below the first pagehook, set page accordingly
+			if ( $(context.pageHooks[0]).position().top < scrollTop - 45 ) { // TODO: Where does this value come from!? But it works.
 				// Get first pagehook in visible area
 				for (var i = 0; i < context.pageHooks.length; i++) {
-					var top = $(context.pageHooks[i]).position().top + scrollTop;
-					if (top >= scrollTop && top < scrollTop + height) {
-						found = i + 1;
+					var pageHookTop = $(context.pageHooks[i]).position().top + scrollTop - 45; // TODO: Where does this value come from!? But it works.
+					if (pageHookTop >= scrollTop && pageHookTop < scrollTop + height) {
+						currentPage = i + 2;
 						break;
 					}
 				}
 				// No pagehook found in visible area, select first one above
-				if (!found) {
-					for (var i = 0; i < context.pageHooks.length - 1; i++) {
-						var top = $(context.pageHooks[i]).position().top + scrollTop;
-						var top2 = $(context.pageHooks[i + 1]).position().top + scrollTop;
-						if (top < scrollTop && top2 > scrollTop) {
-							found = i + 1;
+				if ( currentPage <= 1 ) {
+					for (var i = 0; i < context.pageHooks.length; i++) {
+						var pageHookTop = $(context.pageHooks[i]).position().top + scrollTop - 45;
+						if (pageHookTop > scrollTop) {
+							currentPage = i + 1;
 							break;
 						}
 					}
 				}
-				context.parent.paginator.setPage(found, true);
-				context.parent.pageChanged(found);
 			}
-		})
-
+			context.parent.paginator.setPage(currentPage, true);
+			context.parent.pageChanged(currentPage);
+		});
 		if (context.parent.lineNumbers) {
 			(new XHTMLProcessor(context.contentPanel)).insertLineNumbers(EditionProperties.lineNumbering);
 		}
 		if (typeof id != 'undefined') {
-			var node = $(context.contentPanel).find("a[name='" + id + "']")[0];
-			var nodeOffset = 0;
+			//var node = $(context.contentPanel).find("a[name='" + id + "']")[0];
+			var node = $('#' + id)[0];
 			if (node) {
 				nodeOffset = $(node).offset().top;
+			} else {
+				nodeOffset = 0;
 			}
-			$(context.contentPanel).scrollTop(nodeOffset - $(context.container).offset().top + $(context.contentPanel).scrollTop());
+			$(context.contentPanel).scrollTop(nodeOffset - $(context.container).offset().top + $(context.contentPanel).scrollTop()); // TODO: page is not updated
+		} else if (page > 0) {
+			// TODO: This code is duplicate code from setTriggerFunc, try to merge
+			$(context.contentPanel).scrollTop(page == 1 ? 0 : $(context.pageHooks[page - 2]).offset().top - $(context.contentPanel).offset().top + $(context.contentPanel).scrollTop());
+			context.parent.paginator.setPage(page, true);
 		}
-		else
-			if (context.parent.page > 0) {
-				var node = $(context.pageHooks[context.parent.page - 1]);
-				$(context.contentPanel).scrollTop($(node).offset().top - $(context.container).offset().top + $(context.contentPanel).scrollTop());
-				context.parent.paginator.setPage(context.parent.page, true);
-			}
 	}
+
 	if (typeof this.document.fullText != 'undefined') {
 		show(this.document.fullText);
 	}
@@ -143,6 +142,7 @@ Text.prototype.display = function(page, id) {
 		}
 		DocumentServerConnection.getDocumentText(this.document, success, failure);
 	}
+
 };
 
 /**
@@ -156,13 +156,11 @@ Text.prototype.onChange = function(change) {
 		var node = $(this.pageHooks[change.data - 1]);
 		$(this.contentPanel).scrollTop($(node).offset().top - $(this.container).offset().top + $(this.contentPanel).scrollTop());
 	}
-	else
-		if (change.type == "positionChange") {
-			var node = $(this.contentPanel).find("a[name='" + change.data + "']")[0];
-			$(this.contentPanel).scrollTop($(node).offset().top - $(this.container).offset().top + $(this.contentPanel).scrollTop());
-		}
-		else
-			if (change.type == "facetsChange") {
-				this.linkProcessor.colorizeLinks($(this.contentPanel), change.data);
-			}
+	else if (change.type == "positionChange") {
+		var node = $(this.contentPanel).find("a[name='" + change.data + "']")[0];
+		$(this.contentPanel).scrollTop($(node).offset().top - $(this.container).offset().top + $(this.contentPanel).scrollTop());
+	}
+	else if (change.type == "facetsChange") {
+		this.linkProcessor.colorizeLinks($(this.contentPanel), change.data);
+	}
 };

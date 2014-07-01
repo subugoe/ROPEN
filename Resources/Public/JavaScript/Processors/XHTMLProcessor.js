@@ -31,11 +31,15 @@ XHTMLProcessor.prototype.generateOutlineTree = function(title) {
 		var nodeName = node.nodeName;
 		if (nodeName.match(/^H\d{1,2}$/g)) {
 			var depth = parseInt(nodeName.substring(1));
+			// If node has no text, set placeholder
+			if ( ! node.textContent.trim() ) {
+				$(node).children('a').append('<i>ohne Titel</i>');
+			}
 			chapters.push({
-							  "title": node.innerHTML,
-							  depth: depth,
-							  "children": []
-						  });
+				"title": node.innerHTML,
+				depth: depth,
+				"children": []
+			});
 		}
 	}
 	for (var i = 1; i < chapters.length; i++) {

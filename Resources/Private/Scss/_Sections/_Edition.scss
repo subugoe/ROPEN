@@ -179,48 +179,34 @@
 			border-top: 1px solid #dedede !important;
 		}
 	}
+	.edition-tools,
 	.gridselector {
-		top: 15px;
 		position: absolute;
-		right: 0;
-		margin-right: 30px;
+		top: 15px;
 		a {
-			border: 1px solid #ddd;
-			padding: 4px 0 4px 4px;
+			border: 1px solid #dedede;
+			cursor: pointer;
+			display: inline-block;
+			height: 16px;
 			margin-right: 10px;
+			padding: 5px;
+			text-align: center;
+			width: 16px;
 			&.active {
+				border-color: $hoverColor;
 				color: $hoverColor !important;
 			}
 			&:hover {
-				cursor: pointer;
 				color: $hoverColor !important;
 				text-decoration: none !important;
 			}
 		}
 	}
-}
-
-.edition .edition-tools {
-	position: absolute;
-	left: 60px;
-	a {
-		border: 1px solid #ddd;
-		padding: 4px 0 4px 4px;
-		margin-right: 10px;
-		&:hover {
-			color: $hoverColor !important;
-			text-decoration: none !important;
-			cursor: pointer;
-		}
+	.edition-tools {
+		left: 60px;
 	}
-}
-
-.edition .edition-tools,
-.edition .gridselector {
-	a {
-		float: left;
-		text-align: center;
-		width: 20px;
+	.gridselector {
+		right: 30px;
 	}
 }
 
@@ -300,32 +286,31 @@
 			}
 		}
 	}
-}
-
-.edition .search .advancedSearch {
-	color: #666666;
-	margin: 0 0 0 5px;
-	.advancedSearchLabel {
-		font-size: 80%;
-		font-family: ropen, $font;
-	}
-	span {
-		&:first-child {
-			cursor: pointer;
+	.advancedSearch {
+		color: #666666;
+		margin: 0 0 0 5px;
+		.advancedSearchLabel {
+			font-size: 80%;
+			font-family: ropen, $font;
 		}
-	}
-	input[type="checkbox"], input[type="radio"] {
-		margin: 5px;
-	}
-	ul {
-		margin: 0;
-		padding: 0;
-	}
-	li {
-		list-style-type: none;
-		font-size: 85%;
-		text-align: left;
-		margin-left: 22px;
+		span {
+			&:first-child {
+				cursor: pointer;
+			}
+		}
+		input[type="checkbox"], input[type="radio"] {
+			margin: 5px;
+		}
+		ul {
+			margin: 0;
+			padding: 0;
+		}
+		li {
+			list-style-type: none;
+			font-size: 85%;
+			text-align: left;
+			margin-left: 22px;
+		}
 	}
 }
 
@@ -430,9 +415,9 @@
 		background-color: white;
 		list-style-type: none;
 		display: inline;
+		margin-right: 1px;
 		padding: 7px 4px;
 		border-bottom: 1px solid #dedede;
-		border-right: 1px solid #dedede;
 		a {
 			padding: 8px;
 			color: white;
@@ -442,12 +427,13 @@
 			}
 		}
 		&:hover {
-			border-bottom: 1px solid $hoverColor;
+			border-top: 1px solid $hoverColor;
 		}
 	}
 	.selected {
 		background-color: white;
-		border-bottom: 1px solid $hoverColor;
+		border-top: 1px solid $hoverColor;
+		border-bottom: 0;
 		cursor: pointer;
 		a {
 			color: black;
@@ -505,6 +491,9 @@
 				border-top: 1px solid $hoverColor;
 				margin-top: -1px;
 				cursor: pointer;
+				a {
+					color: $hoverColor!important;
+				}
 			}
 			&:last-child {
 				border-right: none;
@@ -515,110 +504,94 @@
 			cursor: pointer;
 		}
 	}
-}
-
-.edition .window .inner li .tools-dfg, .edition .window .inner li .tools-pdf {
-	font-size: 70%;
-	border: 1px solid #dedede;
-	padding: 5px 3px !important;
-	&:hover {
-		text-decoration: none!important;
-		color: $hoverColor!important;
+	.toolstop {
+		a {
+			margin: 0 5px 0 0;
+			width: 20px;
+			font-size: 70%;
+			padding: 5px;
+			height: 12px;
+			text-align: center;
+		}
+		ul {
+			float: left;
+			margin: 0;
+			padding: 5px 0;
+			width: 50%;
+			&:nth-child(2) {
+				text-align: right;
+			}
+			&.hidden + ul {
+				width: 100%;
+			}
+			li {
+				display: inline;
+				list-style-type: none;
+				padding: 0;
+				margin: 0;
+				.icon-chevron-left {
+					padding-right: 1px!important;
+					&:hover {
+						text-decoration: none!important;
+					}
+				}
+				.icon-chevron-right {
+					padding-left: 4px;
+					text-decoration: none!important;
+				}
+				form {
+					padding: 0 5px 0 0;
+				}
+				a {
+					background-repeat: no-repeat;
+					cursor: pointer;
+					&:hover {
+						text-decoration: none!important;
+						color: $hoverColor!important;
+					}
+				}
+			}
+			.icon-unlocked, .icon-lock {
+				&:hover {
+					text-decoration: none!important;
+				}
+			}
+		}
+		select {
+			background-color: white;
+		}
 	}
-}
-
-.edition .window .inner .toolstop {
-	a {
-		padding: 0 22px 0 0;
-		margin: 0 4px 0 0;
-		width: 25px;
+	li .button {
+		background: #fff;
+		border: 1px solid #dedede;
+		display: inline-block;
+		&:hover {
+			text-decoration: none!important;
+			color: $hoverColor!important;
+		}
 	}
-	ul {
-		padding: 0;
+	.tools {
+		position: relative;
+		top: 5px;
+		left: 10px;
+		margin: 0;
+		padding: 0 0 10px 0;
+		width: 100%;
+		text-align: center;
+		a {
+			padding: 0 22px 0 0;
+			margin: 0 4px 0 0;
+			width: 25px;
+			cursor: pointer;
+		}
 		li {
 			display: inline;
 			list-style-type: none;
 			padding: 0;
 			margin: 0;
-			.icon-chevron-left {
-				padding-right: 1px!important;
-				&:hover {
-					text-decoration: none!important;
-				}
-			}
-			.icon-chevron-right {
-				padding-left: 4px;
-				text-decoration: none!important;
-			}
-			form {
-				padding: 0 5px 0 0;
-			}
 			a {
 				background-repeat: no-repeat;
-				cursor: pointer;
-				&:hover {
-					text-decoration: none!important;
-					color: $hoverColor!important;
-				}
 			}
-		}
-		.icon-unlocked, .icon-lock { // This is quite ugly; consider repositioning all "buttons"
-			border: 1px solid #dedede;
-			padding: 3px 6px 4px!important;
-			position: relative;
-			top: 3px;
-			width: 20px;
-			&:hover {
-				text-decoration: none!important;
-				color: $hoverColor;
-			}
-		}
-	}
-	select {
-		background-color: white;
-	}
-}
-
-
-.edition .window .inner .toolstop ul:first-child {
-	float: left;
-	margin: 5px;
-	width: 50%;
-}
-
-.edition .window .inner .toolstop ul:first-child li:first-child {
-	margin: 3px 0 0 0;
-}
-
-.edition .window .inner .toolstop ul:nth-child(2) {
-	float: right;
-	width: 39%;
-	margin: 0;
-	padding: 8px 0;
-	text-align: right;
-}
-
-.edition .window .inner .tools {
-	position: relative;
-	top: 5px;
-	left: 10px;
-	margin: 0;
-	padding: 0 0 10px 0;
-	width: 100%;
-	text-align: center;
-	a {
-		padding: 0 22px 0 0;
-		margin: 0 4px 0 0;
-		width: 25px;
-		cursor: pointer;
-	}
-	li {
-		display: inline;
-		list-style-type: none;
-		padding: 0;
-		margin: 0;
-		a {
-			background-repeat: no-repeat;
 		}
 	}
 }

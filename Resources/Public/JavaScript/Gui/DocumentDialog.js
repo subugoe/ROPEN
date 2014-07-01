@@ -42,10 +42,10 @@ DocumentDialog.prototype.initFunctions = function() {
 	var paginationTools = $("<ul/>").appendTo(this.funcDiv);
 	this.paginator = new Pagination(paginationTools, this.document.pages);
 	this.showPagination = function() {
-		$(paginationTools).css('display', 'block');
+		$(paginationTools).show().removeClass('hidden');
 	};
 	this.hidePagination = function() {
-		$(paginationTools).css('display', 'none');
+		$(paginationTools).hide().addClass('hidden');
 	};
 	var toolsList = $("<ul/>").appendTo(this.funcDiv);
 	if (EditionProperties.lineNumbering) {
@@ -71,7 +71,7 @@ DocumentDialog.prototype.initFunctions = function() {
 	}
 	if (EditionProperties.pdfLink) {
 		var pdfLi = $('<li/>').appendTo(toolsList);
-		var pdf = $('<a class="tools-pdf">PDF</a>').appendTo(pdfLi);
+		var pdf = $('<a class="button tools-pdf">PDF</a>').appendTo(pdfLi);
 		pdf.attr('title', Util.getString('pdf'));
 		pdf.click(function() {
 			var pdfLink = EditionProperties.pdfLink.replace('DOC_ID', dialog.document.title).replace('DOC_ID', dialog.document.title);
@@ -80,7 +80,7 @@ DocumentDialog.prototype.initFunctions = function() {
 	}
 	if (EditionProperties.dfgViewer) {
 		var dfgLi = $('<li/>').appendTo(toolsList);
-		var dfgViewer = $('<a class="tools-dfg">DFG</a>').appendTo(dfgLi);
+		var dfgViewer = $('<a class="button tools-dfg">DFG</a>').appendTo(dfgLi);
 		dfgViewer.attr('title', Util.getString('dfgViewer'));
 		dfgViewer.click(function() {
 			var metsLink = location.protocol + '//' + location.host + location.pathname + EditionProperties.metsUri.replace('DOC_ID', dialog.document.title);
@@ -91,7 +91,7 @@ DocumentDialog.prototype.initFunctions = function() {
 	if (EditionProperties.connectable) {
 		this.linked = false;
 		var linkLi = $('<li/>').appendTo(toolsList);
-		var link = $('<a class="icon-unlocked"><span class="visuallyhidden"></span></a>').appendTo(linkLi);
+		var link = $('<a class="button icon-unlocked"></a>').appendTo(linkLi);
 		link.attr('title', Util.getString('linkDeactivated'));
 		this.linkDialog = function() {
 			if (dialog.linked) {
@@ -158,9 +158,9 @@ DocumentDialog.prototype.initDocTypeSelector = function() {
 			dialog.setDocType(id['type']);
 		});
 		dialog.buttons.push({
-								button: button,
-								type: id['type']
-							});
+			button: button,
+			type: id['type']
+		});
 	}
 	for (var i in Util.docTypes) {
 		addButton(Util.docTypes[i]);
@@ -269,9 +269,9 @@ DocumentDialog.prototype.setFacetSelection = function(facets) {
 	this.facetSelection = facets;
 	if (typeof this.doctype.onChange != 'undefined') {
 		this.doctype.onChange({
-								  type: 'facetsChange',
-								  data: facets
-							  });
+			type: 'facetsChange',
+			data: facets
+		});
 	}
 };
 
@@ -384,6 +384,12 @@ DocumentDialog.prototype.setDocType = function(type, id) {
 		});
 		this.resize();
 	}
+
+	// Set classes before the actual rendering so relevant elements will be positioned correctly
+	this.docContainerDiv.removeClass(function (index, css) {
+	    return (css.match (/doctype-\S+/g) || []).join(' ');
+	}).addClass('doctype-' + this.doctype.type);
+
 	if (typeof id != 'undefined' && this.doctype.type == 'text') {
 		this.doctype.display(this.page, id);
 	}
@@ -395,9 +401,6 @@ DocumentDialog.prototype.setDocType = function(type, id) {
 			this.doctype.display(id);
 		}
 
-	this.docContainerDiv.removeClass(function (index, css) {
-	    return (css.match (/doctype-\S+/g) || []).join(' ');
-	}).addClass('doctype-' + this.doctype.type);
 };
 
 /**

@@ -148,11 +148,11 @@ Folder.prototype.addTab = function(data) {
 	tabDiv.css('height', tabHeight + 'px');
 
 	var documentDialog = new DocumentDialog(
-			this,
-			data.document,
-			tabDiv,
-			data.page,
-			data.position
+		this,
+		data.document,
+		tabDiv,
+		data.page,
+		data.position
 	);
 	documentDialog.activateFacet(data.entity);
 	documentDialog.setDocType(data.type, data.position);

@@ -446,12 +446,31 @@ Browser.prototype.addDocument = function(doc) {
 	var browser = this;
 
 	var callback = function(outline) {
+
 		var tempDiv = $("<div/>");
 		$(outline).appendTo(tempDiv);
 		var outlineTree = (new XHTMLProcessor(tempDiv)).generateOutlineTree(doc.name);
-		var root = $("<div/>").appendTo(browser.documents);
+
+		// Ugly fix to ensure alphabetical order of documents in browser
+		// TODO: First document loaded is still the first to call back, while it should be the first in the list
+		var titles = browser.documents.find('.head-anchor');
+		var root;
+		if ( titles.length > 0 ) {
+			titles.each( function(index, title ) {
+				if ( doc.name > $(title).text() ) {
+					root = $("<div/>").insertAfter( $(title).closest('div') );
+					return false;
+				} else {
+					root = $("<div/>").insertBefore( $(title).closest('div') );
+					return false;
+				}
+			});
+		} else {
+			root = $("<div/>").appendTo(browser.documents);
+		}
 
 		var setLinks = function() {
+
 			var oldLinks = $('.dynatree-title', root);
 
 			for (var i = 0; i < oldLinks.length; i++) {
@@ -464,8 +483,7 @@ Browser.prototype.addDocument = function(doc) {
 				$(node).click(function(evt) {
 					if (position === '') {
 						EditionGui.openDocument(evt, doc);
-					}
-					else {
+					} else {
 						EditionGui.openDocument(evt, doc, undefined, 'text', position);
 					}
 				});
@@ -474,14 +492,15 @@ Browser.prototype.addDocument = function(doc) {
 			for (var j = 0; j < newLinks.length; j++) {
 				setEvents(newLinks[j]);
 			}
+
 		};
+
 		var calcTree = function() {
 			if (typeof $(root).dynatree === 'undefined') {
 				setTimeout(function() {
 					calcTree();
 				}, 100);
-			}
-			else {
+			} else {
 				$(root).dynatree({
 					children: outlineTree,
 					onRender: setLinks,
@@ -491,6 +510,7 @@ Browser.prototype.addDocument = function(doc) {
 			}
 		};
 		calcTree();
+
 	};
 	DocumentServerConnection.getDocumentOutline(doc, callback);
 };

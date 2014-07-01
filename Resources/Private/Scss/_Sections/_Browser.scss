@@ -11,17 +11,18 @@
 				background-color: white;
 				padding: 6px 10px!important;
 				width: 30%;
-				border-right: 1px solid #dedede;
+				margin-right: 1px;
 				display: inline-block;
 				text-align: center;
 				&:hover {
 					background-color: white;
-					border-bottom: 1px solid $hoverColor;
+					border-top: 1px solid $hoverColor;
 					cursor: pointer;
 				}
 				&.selected {
 					background-color: white;
-					border-bottom: 1px solid $hoverColor;
+					border-top: 1px solid $hoverColor;
+					border-bottom: 1px solid #fff;
 				}
 				a {
 					&:hover {

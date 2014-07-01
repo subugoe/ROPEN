@@ -63,19 +63,19 @@ var EditionGui = (function() {
 		var folder = $('<div/>').appendTo(this.containerDiv);
 		$.extend(folder, new FrameWindow());
 		folder.initialize({
-			                  draggable: EditionProperties.draggable,
-			                  resizable: EditionProperties.resizable,
-			                  concealable: EditionProperties.concealable,
-			                  removable: EditionProperties.removable,
-			                  triggerResize: function() {
-				                  folder.resizeContent();
-				                 folder.resizeContent();
-			                  },
-			                  triggerRemove: function() {
-				                  EditionGui.removeFolder(folder);
-			                  },
-			                  class: 'window'
-		                  });
+			draggable: EditionProperties.draggable,
+			resizable: EditionProperties.resizable,
+			concealable: EditionProperties.concealable,
+			removable: EditionProperties.removable,
+			triggerResize: function() {
+				folder.resizeContent();
+				folder.resizeContent();
+			},
+			triggerRemove: function() {
+				EditionGui.removeFolder(folder);
+			},
+			class: 'window'
+		});
 		$.extend(folder, new Folder(++this.windowIndex));
 		folder.initialize();
 		this.folders.push(folder);
@@ -104,12 +104,12 @@ var EditionGui = (function() {
 		this.containerDiv = $('#editionContainer');
 		this.containerDiv.css('height', (EditionProperties.windowHeight + 2 * EditionProperties.margin) + 'px');
 		if (typeof GeoTemConfig !== 'undefined') {
-		GeoTemConfig.applySettings({
-			                           language: EditionGui.language,
-			                           allowFilter: false,
-			                           highlightEvents: false,
-			                           selectionEvents: false
-		                           });
+			GeoTemConfig.applySettings({
+				language: EditionGui.language,
+				allowFilter: false,
+				highlightEvents: false,
+				selectionEvents: false
+			});
 		}
 		if (!Util.facetsLoaded) {
 			Util.loadFacets();
@@ -117,15 +117,15 @@ var EditionGui = (function() {
 		this.browser = $('<div/>').appendTo(this.containerDiv);
 		$.extend(this.browser, new FrameWindow());
 		this.browser.initialize({
-			                        draggable: EditionProperties.draggable,
-			                        resizable: EditionProperties.resizable,
-			                        concealable: EditionProperties.concealable,
-			                        removable: false,
-			                        triggerResize: function() {
-				                        gui.browser.resizeContent();
-			                        },
-			                        class: 'search'
-		                        });
+			draggable: EditionProperties.draggable,
+			resizable: EditionProperties.resizable,
+			concealable: EditionProperties.concealable,
+			removable: false,
+			triggerResize: function() {
+				gui.browser.resizeContent();
+			},
+			class: 'search'
+		});
 		$.extend(this.browser, new Browser());
 		this.browser.initialize();
 		this.browser.setSize(EditionProperties.windowWidth, EditionProperties.windowHeight);
@@ -666,10 +666,10 @@ var EditionGui = (function() {
 		var params = gui.getParams();
 		var linkString = location.protocol + '//' + location.host + '' + location.pathname + '#?params=' + params;
 		jsonlib.fetch({
-			              url: EditionProperties.urlShortenerRequest,
-			              header: 'Content-Type: application/json',
-			              data: JSON.stringify({longUrl: linkString})
-		              }, function(response) {
+			url: EditionProperties.urlShortenerRequest,
+			header: 'Content-Type: application/json',
+			 data: JSON.stringify({longUrl: linkString})
+		}, function(response) {
 			var result = null;
 			try {
 				result = JSON.parse(response.content).id;
@@ -728,7 +728,7 @@ var EditionGui = (function() {
 		"use strict";
 		var linkList = $("<div/>");
 
-		var magneticLink = $('<a class="icon-bookmark"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(controls);
+		var magneticLink = $('<a class="icon-bookmark"></a>').appendTo(controls);
 		$(magneticLink).attr('title', Util.getString('magneticLink'));
 		magneticLink.click(function(evt) {
 			$(magneticLink).addClass('button-magneticlink-active');
@@ -769,7 +769,7 @@ var EditionGui = (function() {
 		var gui = this;
 		var controls = $('<div class="edition-tools"/>').appendTo(this.containerDiv);
 		if (EditionProperties.addable) {
-			var addWindow = $('<a class="icon-file"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(controls);
+			var addWindow = $('<a class="icon-file"></a>').appendTo(controls);
 			$(addWindow).attr('title', Util.getString('newFolder'));
 			addWindow.click(function() {
 				if (gui.folders.length < EditionProperties.maxWindows) {
@@ -791,7 +791,7 @@ var EditionGui = (function() {
 		}
 		var gridDiv = $('<div class="gridselector"/>').appendTo(this.containerDiv);
 		if (EditionProperties.gridLayout && ( EditionProperties.resizable || EditionProperties.draggable)) {
-			var gridButton = $('<a class="icon-th"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(gridDiv);
+			var gridButton = $('<a class="icon-th"></a>').appendTo(gridDiv);
 
 			if (EditionProperties.automaticGridLayout) {
 				gridButton.attr('title', Util.getString('enableGridLayout'));
@@ -839,8 +839,8 @@ var EditionGui = (function() {
 			}
 		}
 		if (EditionProperties.fullscreen) {
-			var fsButton = $('<a class="icon-fullscreen" title="' + Util.getString('fullscreenMode') + '"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(gridDiv);
-			var helpButton = $('<a class="icon-question" href="#?page=#help_page" title="' + Util.getString('help') + '"><span class="visuallyhidden"></span>&nbsp;</a>').appendTo(gridDiv);
+			var fsButton = $('<a class="icon-fullscreen" title="' + Util.getString('fullscreenMode') + '"></a>').appendTo(gridDiv);
+			var helpButton = $('<a class="icon-question" href="#?page=#help_page" title="' + Util.getString('help') + '"></a>').appendTo(gridDiv);
 
 			// add event listener for fullscreen toggle
 			var browsersEventNames = ['mozfullscreenchange', 'webkitfullscreenchange'];

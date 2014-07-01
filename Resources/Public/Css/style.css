@@ -831,46 +831,37 @@ noscript p {
 .edition .info-tooltip:nth-child(2) {
   border-top: 1px solid #dedede !important;
 }
+.edition .edition-tools,
 .edition .gridselector {
+  position: absolute;
   top: 15px;
-  position: absolute;
-  right: 0;
-  margin-right: 30px;
 }
-.edition .gridselector a {
-  border: 1px solid #ddd;
-  padding: 4px 0 4px 4px;
-  margin-right: 10px;
-}
-.edition .gridselector a.active {
-  color: #900000 !important;
-}
-.edition .gridselector a:hover {
-  cursor: pointer;
-  color: #900000 !important;
-  text-decoration: none !important;
-}
-
-.edition .edition-tools {
-  position: absolute;
-  left: 60px;
-}
-.edition .edition-tools a {
-  border: 1px solid #ddd;
-  padding: 4px 0 4px 4px;
-  margin-right: 10px;
-}
-.edition .edition-tools a:hover {
-  color: #900000 !important;
-  text-decoration: none !important;
-  cursor: pointer;
-}
-
 .edition .edition-tools a,
 .edition .gridselector a {
-  float: left;
+  border: 1px solid #dedede;
+  cursor: pointer;
+  display: inline-block;
+  height: 16px;
+  margin-right: 10px;
+  padding: 5px;
   text-align: center;
-  width: 20px;
+  width: 16px;
+}
+.edition .edition-tools a.active,
+.edition .gridselector a.active {
+  border-color: #900000;
+  color: #900000 !important;
+}
+.edition .edition-tools a:hover,
+.edition .gridselector a:hover {
+  color: #900000 !important;
+  text-decoration: none !important;
+}
+.edition .edition-tools {
+  left: 60px;
+}
+.edition .gridselector {
+  right: 30px;
 }
 
 .edition .search {
@@ -948,7 +939,6 @@ noscript p {
 .edition .search .main .filter ul li {
   list-style-type: none;
 }
-
 .edition .search .advancedSearch {
   color: #666666;
   margin: 0 0 0 5px;
@@ -1070,9 +1060,9 @@ noscript p {
   background-color: white;
   list-style-type: none;
   display: inline;
+  margin-right: 1px;
   padding: 7px 4px;
   border-bottom: 1px solid #dedede;
-  border-right: 1px solid #dedede;
 }
 .edition .window .tabs li a {
   padding: 8px;
@@ -1083,11 +1073,12 @@ noscript p {
   text-decoration: none !important;
 }
 .edition .window .tabs li:hover {
-  border-bottom: 1px solid #900000;
+  border-top: 1px solid #900000;
 }
 .edition .window .tabs .selected {
   background-color: white;
-  border-bottom: 1px solid #900000;
+  border-top: 1px solid #900000;
+  border-bottom: 0;
   cursor: pointer;
 }
 .edition .window .tabs .selected a {
@@ -1148,6 +1139,9 @@ noscript p {
   margin-top: -1px;
   cursor: pointer;
 }
+.edition .window .inner .pagination li:hover a, .edition .window .inner .pagination li.active a {
+  color: #900000 !important;
+}
 .edition .window .inner .pagination li:last-child {
   border-right: none;
 }
@@ -1155,24 +1149,25 @@ noscript p {
   width: 25px;
   cursor: pointer;
 }
-
-.edition .window .inner li .tools-dfg, .edition .window .inner li .tools-pdf {
-  font-size: 70%;
-  border: 1px solid #dedede;
-  padding: 5px 3px !important;
-}
-.edition .window .inner li .tools-dfg:hover, .edition .window .inner li .tools-pdf:hover {
-  text-decoration: none !important;
-  color: #900000 !important;
-}
-
 .edition .window .inner .toolstop a {
-  padding: 0 22px 0 0;
-  margin: 0 4px 0 0;
-  width: 25px;
+  margin: 0 5px 0 0;
+  width: 20px;
+  font-size: 70%;
+  padding: 5px;
+  height: 12px;
+  text-align: center;
 }
 .edition .window .inner .toolstop ul {
-  padding: 0;
+  float: left;
+  margin: 0;
+  padding: 5px 0;
+  width: 50%;
+}
+.edition .window .inner .toolstop ul:nth-child(2) {
+  text-align: right;
+}
+.edition .window .inner .toolstop ul.hidden + ul {
+  width: 100%;
 }
 .edition .window .inner .toolstop ul li {
   display: inline;
@@ -1201,39 +1196,21 @@ noscript p {
   text-decoration: none !important;
   color: #900000 !important;
 }
-.edition .window .inner .toolstop ul .icon-unlocked, .edition .window .inner .toolstop ul .icon-lock {
-  border: 1px solid #dedede;
-  padding: 3px 6px 4px !important;
-  position: relative;
-  top: 3px;
-  width: 20px;
-}
 .edition .window .inner .toolstop ul .icon-unlocked:hover, .edition .window .inner .toolstop ul .icon-lock:hover {
   text-decoration: none !important;
-  color: #900000;
 }
 .edition .window .inner .toolstop select {
   background-color: white;
 }
-
-.edition .window .inner .toolstop ul:first-child {
-  float: left;
-  margin: 5px;
-  width: 50%;
+.edition .window .inner li .button {
+  background: #fff;
+  border: 1px solid #dedede;
+  display: inline-block;
 }
-
-.edition .window .inner .toolstop ul:first-child li:first-child {
-  margin: 3px 0 0 0;
+.edition .window .inner li .button:hover {
+  text-decoration: none !important;
+  color: #900000 !important;
 }
-
-.edition .window .inner .toolstop ul:nth-child(2) {
-  float: right;
-  width: 39%;
-  margin: 0;
-  padding: 8px 0;
-  text-align: right;
-}
-
 .edition .window .inner .tools {
   position: relative;
   top: 5px;
@@ -1275,18 +1252,19 @@ noscript p {
   background-color: white;
   padding: 6px 10px !important;
   width: 30%;
-  border-right: 1px solid #dedede;
+  margin-right: 1px;
   display: inline-block;
   text-align: center;
 }
 .edition ul.scope-selector li:hover {
   background-color: white;
-  border-bottom: 1px solid #900000;
+  border-top: 1px solid #900000;
   cursor: pointer;
 }
 .edition ul.scope-selector li.selected {
   background-color: white;
-  border-bottom: 1px solid #900000;
+  border-top: 1px solid #900000;
+  border-bottom: 1px solid #fff;
 }
 .edition ul.scope-selector li a:hover {
   text-decoration: none !important;

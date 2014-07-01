@@ -168,11 +168,9 @@ Util.loadDocuments = function(trigger) {
 			DocumentServerConnection.getMets(doc.title, true, metsCallback);
 		};
 		for (var i = 0; i < docs.length; i++) {
-
 			var fullText = function() {
 				return $(docs[i]).find('fulltext');
 			};
-
 			if (fullText()) {
 				var docu = new Document(
 						$(docs[i]).find('id').text(),
@@ -182,9 +180,7 @@ Util.loadDocuments = function(trigger) {
 						$(docs[i]).find('pageCount').text(),
 						fullText()
 				);
-
 				loadMets(docu);
-
 			}
 		}
 	};
@@ -202,8 +198,6 @@ Util.loadDocuments = function(trigger) {
  */
 Util.loadDocumentSync = function(title, nameShort) {
 	"use strict";
-	var pageCount;
-
 	var document = new Document(title, '', nameShort, '');
 	var imagePath, images = [];
 	var metsCallback = function(xml) {
@@ -216,8 +210,7 @@ Util.loadDocumentSync = function(title, nameShort) {
 				imagePath = dummy.substring(0, dummy.lastIndexOf("/") + 1);
 			}
 		});
-		pageCount = $(xml).find('body').find('div').last().find('pb').last().attr('n');
-		document.pages = pageCount;
+		document.pages = $(xml).find('body').find('div').last().find('pb').last().attr('n');
 		document.imagePath = imagePath;
 		document.images = images;
 	};

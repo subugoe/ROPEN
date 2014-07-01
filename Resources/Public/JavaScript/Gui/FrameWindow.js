@@ -213,11 +213,11 @@ FrameWindow.prototype.toggleVisibility = function() {
 		this.visibilityLink.addClass("icon-minus");
 		this.visibilityLink.attr('title', Util.getString('minimizeWindow'));
 		$(this).animate({
-							height: "-=" + ($(frame).height() - frame.height),
-							top: "-=" + ($(frame).position().top - frame.top),
-							left: "-=" + ($(frame).position().left - frame.left),
-							width: "-=" + ($(frame).width() - frame.width)
-						}, 500, function() {
+			height: "-=" + ($(frame).height() - frame.height),
+			top: "-=" + ($(frame).position().top - frame.top),
+			left: "-=" + ($(frame).position().left - frame.left),
+			width: "-=" + ($(frame).width() - frame.width)
+		}, 500, function() {
 			frame.resize();
 			EditionGui.checkGrid();
 			EditionGui.checkBounds();
@@ -264,7 +264,7 @@ FrameWindow.prototype.dragFrame = function(evt) {
 	document.onmousemove = function(e) {
 		if (!frame.dragLock) {
 			var pos = Util.getMousePosition(e);
-			// TODO: Fix: It should not be possible to move frames out of view
+			// Fix: Should not be possible to move frames out of view anymore
 			var newPosLeft = windowLeft + pos.left - startPos.left;
 			var newPosTop = windowTop + pos.top - startPos.top
 			frame.css('left', ( newPosLeft < 0 ? 0 : newPosLeft ) + 'px');
