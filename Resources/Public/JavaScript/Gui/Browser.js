@@ -123,7 +123,8 @@ Browser.prototype.initialize = function() {
 		evt.preventDefault();
 	});
 
-	this.as = $("<div class='advancedSearch'/>").appendTo(this.searchTypes);
+	// Disabled broken advanced search, just uncomment the next line to enable
+	//this.as = $("<div class='advancedSearch'/>").appendTo(this.searchTypes);
 	this.advancedSearchTab = $("<span class='advancedSearchLabel icon-chevron-right'> " + Util.getString('advancedSearch') + "</span>").appendTo(this.as);
 
 	this.advancedSearchTab.click(function() {
@@ -457,14 +458,14 @@ Browser.prototype.addDocument = function(doc) {
 		var root;
 		if ( titles.length > 0 ) {
 			titles.each( function(index, title ) {
-				if ( doc.name > $(title).text() ) {
-					root = $("<div/>").insertAfter( $(title).closest('div') );
-					return false;
-				} else {
+				if ( doc.name < $(title).text() ) {
 					root = $("<div/>").insertBefore( $(title).closest('div') );
 					return false;
 				}
 			});
+			if ( root === undefined ) {
+				root = $("<div/>").insertAfter( $(titles[titles.length - 1]).closest('div') );
+			}
 		} else {
 			root = $("<div/>").appendTo(browser.documents);
 		}
