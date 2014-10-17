@@ -104,11 +104,12 @@ var EditionGui = (function() {
 		this.containerDiv = $('#editionContainer');
 		this.containerDiv.css('height', (EditionProperties.windowHeight + 2 * EditionProperties.margin) + 'px');
 		if (typeof GeoTemConfig !== 'undefined') {
+			GeoTemConfig.configure(document.location['origin'] + document.location['pathname'] + '/ropen/Resources/Public/JavaScript/Libraries/GeoTemCo/');
 			GeoTemConfig.applySettings({
 				language: EditionGui.language,
 				allowFilter: false,
 				highlightEvents: false,
-				selectionEvents: false
+				selectionEvents: false,
 			});
 		}
 		if (!Util.facetsLoaded) {

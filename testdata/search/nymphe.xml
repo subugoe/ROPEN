@@ -1,0 +1,90 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<html xmlns:gn="http://www.geonames.org/ontology#"
+      xmlns:TEI="http://www.tei-c.org/ns/1.0"
+      xmlns:dc="http://purl.org/dc/elements/1.1/"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:foaf="http://xmlns.com/foaf/0.1/"
+      xmlns:bibo="http://purl.org/ontology/bibo/1.3/"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:exist="http://exist.sourceforge.net/NS/exist"
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns:a18="http://sub.uni-goettingen.de/DB/ENT/projects/archaeo18/xslt"
+      version="XHTML+RDFa 1.0"
+      type="bibo:Manuscript">
+   <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+   <meta charset="UTF-8"/>
+   <body>
+      <results>
+         <result>
+            <doc xmlns="">berlin-ms-germ-qrt-1666</doc>
+                            <page xmlns="">64</page>
+                            <fragment xmlns="">
+               <body xmlns="http://www.w3.org/1999/xhtml">
+                  <p>
+      II Abschnitt Von den Kunstwercken der GriechenGallerie Dresd. oder Pallast Ghigi 17.36.67.68.80. wieder mit der Nymphe.
+    </p>
+               </body>
+            </fragment>
+
+           </result>
+         <result>
+            <doc xmlns="">berlin-ms-germ-qrt-1666</doc>
+                            <page xmlns="">175</page>
+                            <fragment xmlns="">
+               <body xmlns="http://www.w3.org/1999/xhtml">
+                  <p>
+      Dresden 24. mit mehr warscheinlich-
+                keit eine Nymphe
+    </p>
+               </body>
+            </fragment>
+
+           </result>
+         <result>
+            <doc xmlns="">weimar-hs-2056</doc>
+                            <page xmlns="">95</page>
+                            <fragment xmlns="">
+               <body xmlns="http://www.w3.org/1999/xhtml">
+                  <p>
+      Der mit einer Nymphe scherzende Satyr
+              in Dreßden, wovon die Nymphe besonders
+              elend ist, ist wohl nicht alt. Galler. 82.
+    </p>
+               </body>
+            </fragment>
+
+           </result>
+         <result>
+            <doc xmlns="">rom-heyne1798</doc>
+                            <page xmlns="">176</page>
+                            <fragment xmlns="">
+               <body xmlns="http://www.w3.org/1999/xhtml">
+                  <p>
+      Es sind meist Kaiserinnen als Göttinnen,
+                                Nymphen u.s.w. vorgestellt, und aus Mün-
+                                zen kentlich. Eben so
+    </p>
+               </body>
+            </fragment>
+
+           </result>
+         <result>
+            <doc xmlns="">bern-mss-muel-507</doc>
+                            <page xmlns="">318</page>
+                            <fragment xmlns="">
+               <body xmlns="http://www.w3.org/1999/xhtml">
+                  <p>
+      Eine dritte stand sonst in Museo Odesc-
+
+          chalchi und ist nun zu St. Ildefonso.Eine Colossal Figur liegend, auch blos
+
+          eine Nymphe. V.Twis Travels p. 94.
+    </p>
+               </body>
+            </fragment>
+
+           </result>
+      </results>
+   </body>
+</html>

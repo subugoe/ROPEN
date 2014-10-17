@@ -17390,6 +17390,10 @@ GeoTemConfig.configure = function(urlPrefix) {
 	GeoTemConfig.path = GeoTemConfig.urlPrefix + "images/";
 }
 
+GeoTemConfig.getUrlPrefix = function() {
+	return GeoTemConfig.urlPrefix;
+}
+
 GeoTemConfig.applySettings = function(settings) {
 	$.extend(this, settings);
 };

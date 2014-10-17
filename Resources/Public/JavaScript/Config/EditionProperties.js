@@ -305,8 +305,12 @@ var EditionProperties = {
 	/**
 	 * Shall the automatic grid layout be enabled on start?
 	 */
-	gridLayoutOnStart: true
+	gridLayoutOnStart: true,
 
+	/**
+	 * Use advanced search in edition
+	 */
+	enableAdvancedSearch: false
 }
 
 /**
