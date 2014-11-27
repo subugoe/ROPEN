@@ -90,17 +90,11 @@ TEI.prototype.teiDownloadDialog = function() {
 	var file = url.substring(url.lastIndexOf("/") + 1);
 	contentDiv.append("<h2 style='text-align:center;'>" + Util.getString('downloadHeader') + "</h2>");
 	contentDiv.append("<p style='text-align:center;'>" + file + "</p>");
-	var save;
-	var browser = (new BrowserDetect()).browser;
-	if (browser == "Chrome" || browser == "Firefox" || browser == "Safari" || browser == "Opera" || browser == "Explorer") {
-		save = Util.getString('downloadSave') + " <strong>" + Util.getString(browser + 'Download') + "</strong>";
-	}
-	else {
-		save = Util.getString('DefaultDownload');
-	}
+	var save = Util.getString('downloadSave') + " <strong>" + Util.getString('Download') + "</strong>";
+
 	contentDiv.append("<p>1. <strong>" + Util.getString('save') + "</strong>: <br>" + save + "</p>");
 
-	var downloadCenter = "<a href='" + url + "'><div class='teiThumbnail'/></a>";
+	var downloadCenter = "<a class='teiThumbnail' data-download style='display:inline-block' href='" + url + "'></a>";
 
 	contentDiv.append("<p style='text-align:center;'>" + downloadCenter + "</p>");
 
