@@ -82,7 +82,7 @@ Text.prototype.display = function(page, id) {
 			if ( $(context.pageHooks[0]).position().top < scrollTop - 45 ) { // TODO: Where does this value come from!? But it works.
 				// Get first pagehook in visible area
 				for (var i = 0; i < context.pageHooks.length; i++) {
-					var pageHookTop = $(context.pageHooks[i]).position().top + scrollTop - 45; // TODO: Where does this value come from!? But it works.
+					var pageHookTop = $(context.pageHooks[i]).position().top + scrollTop - 45; // TODO: See above.
 					if (pageHookTop >= scrollTop && pageHookTop < scrollTop + height) {
 						currentPage = i + 2;
 						break;
@@ -91,7 +91,7 @@ Text.prototype.display = function(page, id) {
 				// No pagehook found in visible area, select first one above
 				if ( currentPage <= 1 ) {
 					for (var i = 0; i < context.pageHooks.length; i++) {
-						var pageHookTop = $(context.pageHooks[i]).position().top + scrollTop - 45;
+						var pageHookTop = $(context.pageHooks[i]).position().top + scrollTop - 45; // TODO: See above.
 						if (pageHookTop > scrollTop) {
 							currentPage = i + 1;
 							break;
