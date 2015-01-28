@@ -107,9 +107,9 @@ Text.prototype.display = function(page, id) {
 		}
 		if (typeof id != 'undefined') {
 			//var node = $(context.contentPanel).find("a[name='" + id + "']")[0];
-			var node = $('#' + id)[0];
+			var node = $('#' + id, context.contentPanel)[0];
 			if (node) {
-				nodeOffset = $(node).offset().top;
+				nodeOffset = $(node).offset().top - 15;
 			} else {
 				nodeOffset = 0;
 			}

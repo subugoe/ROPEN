@@ -479,9 +479,9 @@ Browser.prototype.addDocument = function(doc) {
 			}
 
 			var setEvents = function(node) {
-				var position = $(newLinks[i]).attr("name");
 				$(node).unbind('click');
 				$(node).click(function(evt) {
+					var position = $(this).attr('name');
 					if (position === '') {
 						EditionGui.openDocument(evt, doc);
 					} else {
